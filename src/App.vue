@@ -4,6 +4,9 @@ import { gaming, prevention } from "./pages/sitemap.json";
 import { useRoute } from 'vue-router';
 
 const routeRoot = ref(useRoute().fullPath.split('/')[0]);
+const routeSide = computed(() => {
+	routeRoot.value == "prevention" ? "gaming" : "prevention"
+});
 const root = computed(() => 
 	routeRoot.value == "prevention" ? prevention : gaming
 );
@@ -15,11 +18,21 @@ const side = computed(() =>
 <template>
 	<div :class="routeRoot">
 		<navigation id="side-menu">
-			<router-link v-for="route in side" :to="route.path">{{ route.title }}</router-link>
+			<router-link
+				v-for="route in side"
+				:to="routeSide + '/' + route.path"
+			>
+				{{ route.title }}
+			</router-link>
 		</navigation>
 		<header>
 			<navigation id="top-menu">
-				<router-link v-for="route in root" :to="route.path">{{ route.title }}</router-link>
+				<router-link 
+					v-for="route in root"
+					:to="routeRoot + '/' + route.path"
+				>
+					{{ route.title }}
+				</router-link>
 			</navigation>
 		</header>
 		<main>

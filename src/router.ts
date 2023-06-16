@@ -12,11 +12,15 @@ for (section in sitemap)
         })
     });
 
-Object.assign(routes[0].children[0], {
-    alias: ['/', '/prevention']
+Object.assign(routes[0], {
+    redirect: '/prevention/home'
 })
 
 Object.assign(routes[0].children[0], {
+    alias: '/prevention'
+})
+
+Object.assign(routes[1].children[0], {
     alias: '/gaming'
 })
 
