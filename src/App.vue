@@ -1,30 +1,49 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { computed, ref } from "vue";
+import { gaming, prevention } from "./pages/sitemap.json";
+import { useRoute } from 'vue-router';
+
+const routeRoot = ref(useRoute().fullPath.split('/')[0]);
+const root = computed(() => 
+	routeRoot.value == "prevention" ? prevention : gaming
+);
+const side = computed(() => 
+	routeRoot.value == "prevention" ? gaming : prevention
+);
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+	<div :class="routeRoot">
+		<navigation id="side-menu">
+			<router-link v-for="route in side" :to="route.path">{{ route.title }}</router-link>
+		</navigation>
+		<header>
+			<navigation id="top-menu">
+				<router-link v-for="route in root" :to="route.path">{{ route.title }}</router-link>
+			</navigation>
+		</header>
+		<main>
+	
+		</main>
+		<footer>
+	
+		</footer>
+	</div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.prevention {
+	background-color: #eee;
+	color: #111;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.gaming {
+	background-color: #111;
+	color: #eee;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+#side-menu {
+	float: right;
+	height: 100vh;
 }
 </style>
