@@ -78,4 +78,8 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 #side-right.menu :deep(> div) {
     left: 0;
 }
+
+#side-right :deep(> header) {
+    flex-flow: row-reverse;
+}
 </style>

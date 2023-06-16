@@ -47,6 +47,7 @@ const emits = defineEmits(["switch"])
 </template>
 
 <style scoped>
+header,
 main {
 	margin: auto;
 	max-width: 1218px;
