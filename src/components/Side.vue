@@ -40,7 +40,9 @@ const emits = defineEmits(["switch"])
                 </router-view>
             </main>
         </template>
-        <Menu v-else :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
+        <div v-else class="nav-container">
+            <Menu :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
+        </div>
 	</div>
 </template>
 
@@ -57,5 +59,10 @@ header {
 
 nav {
     width: 296px;
+}
+
+.nav-container {
+    display: flex;
+    height: 344px;
 }
 </style>

@@ -59,20 +59,23 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 	right: 0px;
 }
 
-.menu :deep(> nav) {
-	display: none;
-}
-
 .menu:hover {
 	width: 360px;
 }
 
-.menu:hover :deep(> nav) {
+.menu:hover :deep(> div > nav) {
 	display: flex;
 }
 
-#side-left.menu :deep(> nav) {
+.menu :deep(> div) {
 	position: absolute;
+}
+
+#side-left.menu :deep(> div) {
     right: 0;
+}
+
+#side-right.menu :deep(> div) {
+    left: 0;
 }
 </style>
