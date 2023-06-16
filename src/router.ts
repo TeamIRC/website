@@ -6,24 +6,13 @@ let routes = [];
 let section: keyof typeof sitemap;
 for (section in sitemap) 
     routes.push({
-        path: '/' + section,
-        children : sitemap[section].map(v => {
-            return { path: v.path, component: Page }
-        })
+        path: '/' + section + '/:page',
+        component: Page,
+        props: true
     });
 
-Object.assign(routes[0], {
-    redirect: '/prevention/home'
-})
-
-Object.assign(routes[0].children[0], {
-    alias: '/prevention'
-})
-
-Object.assign(routes[1].children[0], {
-    alias: '/gaming'
-})
-
+routes.push({ path: "/", redirect: '/prevention/home' });
+    
 export default createRouter({
     history: createWebHashHistory(),
     routes,

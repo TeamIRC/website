@@ -1,62 +1,78 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import Side from "./components/Side.vue";
 import { gaming, prevention } from "./pages/sitemap.json";
-import { useRoute } from 'vue-router';
-
-const routeRoot = ref(useRoute().fullPath.split('/')[0]);
-const routeSide = computed(() => {
-	routeRoot.value == "prevention" ? "gaming" : "prevention"
-});
-const root = computed(() => 
-	routeRoot.value == "prevention" ? prevention : gaming
-);
-const side = computed(() => 
-	routeRoot.value == "prevention" ? gaming : prevention
-);
+const router = useRouter();
+const isPrevention = ref(true);
+router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prevention")
 </script>
 
 <template>
-	<div :class="routeRoot">
-		<navigation id="side-menu">
-			<router-link
-				v-for="route in side"
-				:to="routeSide + '/' + route.path"
-			>
-				{{ route.title }}
-			</router-link>
-		</navigation>
-		<header>
-			<navigation id="top-menu">
-				<router-link 
-					v-for="route in root"
-					:to="routeRoot + '/' + route.path"
-				>
-					{{ route.title }}
-				</router-link>
-			</navigation>
-		</header>
-		<main>
-	
-		</main>
-		<footer>
-	
-		</footer>
-	</div>
+	<Side
+		id="side-left"
+		:class="isPrevention ? 'current' : 'menu'"
+		:current="isPrevention"
+		root="prevention"
+		:routes="prevention"
+		@switch="isPrevention = false" />
+	<Side
+		id="side-right"
+		:class="!isPrevention ? 'current' : 'menu'"
+		:current="!isPrevention"
+		root="gaming"
+		:routes="gaming"
+		@switch="isPrevention = true" />
 </template>
 
 <style scoped>
-.prevention {
-	background-color: #eee;
-	color: #111;
+.side {
+	position: absolute;
+	height: 100%;
+	transition: width 1s;
 }
 
-.gaming {
-	background-color: #111;
-	color: #eee;
+#side-left {
+	background-color: var(--primary-color-bg);
+	color: var(--secondary-color-bg);
 }
 
-#side-menu {
-	float: right;
-	height: 100vh;
+#side-right {
+	background-color: var(--secondary-color-bg);
+	color: var(--primary-color-bg);
+}
+
+.current {
+	width: 100%;
+}
+
+.menu {
+	z-index: 1;
+	width: 32px;
+}
+
+#side-left {
+	left: 0px;
+}
+
+#side-right {
+	right: 0px;
+}
+
+.menu :deep(> nav) {
+	display: none;
+}
+
+.menu:hover {
+	width: 360px;
+}
+
+.menu:hover :deep(> nav) {
+	display: flex;
+}
+
+#side-left.menu :deep(> nav) {
+	position: absolute;
+    right: 0;
 }
 </style>

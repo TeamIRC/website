@@ -1,0 +1,13 @@
+:root {
+	--primary-color-bg: #ddd;
+	--secondary-color-bg: #222;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+#app {
+    height: 100vh;
+    display: flex;
+}
