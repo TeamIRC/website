@@ -34,16 +34,16 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 
 #side-left {
 	background-color: var(--secondary-lt-5);
-	color: var(--primary-dk-5);
-}
-#side-left :deep(a) {
 	color: var(--primary-dk-1);
 }
+#side-left :deep(a) {
+	color: var(--primary-dk-5);
+}
 #side-left :deep(a:hover) {
-	color: var(--primary-dk-4);
+	color: var(--primary-dk-2);
 }
 #side-left :deep(a:focus) {
-	color: var(--primary-dk-2);
+	color: var(--primary-dk-4);
 }
 #side-left :deep(a:active),
 #side-left :deep(a.router-link-active) {
@@ -55,17 +55,17 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 	color: var(--primary-lt-1);
 }
 #side-right :deep(a) {
-	color: var(--primary-lt-4);
+	color: var(--primary-lt-5);
 }
 #side-right :deep(a:hover) {
-	color: var(--primary-lt-1);
+	color: var(--primary-lt-2);
 }
 #side-right :deep(a:focus) {
-	color: var(--primary-lt-3);
+	color: var(--primary-lt-4);
 }
 #side-right :deep(a:active),
 #side-right :deep(a.router-link-active) {
-	color: var(--primary-lt-2);
+	color: var(--primary-lt-3);
 }
 
 .current {
