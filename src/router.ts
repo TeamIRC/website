@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router"
+import Login from "./components/Login.vue"
 import Page from "./components/Page.vue"
 import sitemap from "./pages/sitemap.json";
 
@@ -12,7 +13,26 @@ for (section in sitemap)
     });
 
 routes.push({ path: "/", redirect: '/prevention/home' });
-    
+routes.push({
+    path: "/login",
+    component: Login,
+    beforeEnter() {
+        const state = new TextDecoder("utf-8")
+            .decode(
+                crypto.getRandomValues(new Uint32Array(10))
+            )
+        localStorage.setItem('state', state);
+        location.href = 'https://github.com/login/oauth/authorize?' + new URLSearchParams({
+            client_id: import.meta.env.VITE_GITHUB_CLIENT_ID,
+            scope: 'repo',
+            state
+        })
+    },
+    children: [{
+        path: "github",
+        component: Login
+    }]
+})
 export default createRouter({
     history: createWebHashHistory(),
     routes,

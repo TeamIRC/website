@@ -30,9 +30,21 @@ const emits = defineEmits(["navigate"])
 nav {
 	display: flex;
 	flex-direction: column;
-  text-align: center;
-	font-size: 1.25rem;
+  	text-align: center;
+	font-size: 1.125rem;
 	margin: auto;
 	padding: 32px;
+}
+
+a {
+	transition: font-size 1s;
+}
+
+a:hover {
+	font-size: 1.1875rem;
+}
+
+a.router-link-active{
+	font-size: 1.25rem;
 }
 </style>

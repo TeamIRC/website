@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Editor, EditorContent } from '@tiptap/vue-3';
 import StarterKit from '@tiptap/starter-kit';
-import { onBeforeUnmount, watch } from 'vue';
+import { BubbleMenu, FloatingMenu, Editor, EditorContent } from '@tiptap/vue-3';
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 
 const props = defineProps({
     modelValue: {
@@ -12,31 +12,140 @@ const props = defineProps({
 
 const emits = defineEmits(['update:modelValue']);
 
-const editor = new Editor({
-    extensions: [
-        StarterKit,
-    ],
-    content: props.modelValue,
-    onUpdate: () => {
-        emits('update:modelValue', editor.getHTML())
-        //emits('update:modelValue', editor.getJSON())
-    },
-})
+const editor = ref<Editor>()
+
+const setLevel = (v: Event) => { 
+    if (!editor.value) return;
+    const value = (v.target as HTMLSelectElement).value;
+    switch (value) {
+        case "p":
+            editor.value.chain().focus().setParagraph().run();
+            break;
+        case "u":
+            editor.value.chain().focus().toggleBulletList().run()
+            break;
+        case "o":
+            editor.value.chain().focus().toggleOrderedList().run()
+            break;
+        default:
+            editor.value.chain().focus().toggleHeading({ 
+                level: parseInt(value) as 1 | 2 | 3 | 4 | 5 | 6 
+            }).run();
+            break;
+    }
+}
 
 watch(() => props.modelValue, (value) => {
-    const isSame = editor.getHTML() === value
+    const isSame = editor.value?.getHTML() === value
     //const isSame = JSON.stringify(editor.getJSON()) === JSON.stringify(value)
 
     if (isSame) {
         return
     }
 
-    editor.commands.setContent(value, false)
+    editor.value?.commands.setContent(value, false)
 });
 
-onBeforeUnmount(() => editor.destroy())
+onMounted(() => editor.value = new Editor({
+    extensions: [
+        StarterKit,
+    ],
+    content: props.modelValue,
+    onUpdate: () => {
+        emits('update:modelValue', editor.value?.getHTML())
+        //emits('update:modelValue', editor.getJSON())
+    },
+}))
+
+onBeforeUnmount(() => editor.value?.destroy())
 </script>
 
 <template>
+    <div v-if="editor">
+        <button @click="editor.chain().focus().undo().run()" :disabled="!editor.can().chain().focus().undo().run()">
+            undo
+        </button>
+        <button @click="editor.chain().focus().redo().run()" :disabled="!editor.can().chain().focus().redo().run()">
+            redo
+        </button>
+        <BubbleMenu :editor="editor" :tippyOptions="{ duration: 100 }"
+        >
+            <button
+                :disabled="!(editor.isActive('bold') || editor.isActive('italic') || editor.isActive('italic'))"
+                @click="editor.chain().focus().unsetAllMarks().run()">
+                clear marks
+            </button>
+            <button
+                :class="{ 'is-active': editor.isActive('bold') }"
+                @click="editor.chain().focus().toggleBold().run()">
+                bold
+            </button>
+            <button
+                :class="{ 'is-active': editor.isActive('italic') }"
+                @click="editor.chain().focus().toggleItalic().run()">
+                italic
+            </button>
+            <select @change="setLevel">
+                <option value="p">paragraph</option>
+                <option value="u">bullet list</option>
+                <option value="o">ordered list</option>
+                <option value="1">header 1</option>
+                <option value="2">header 2</option>
+                <option value="3">header 3</option>
+                <option value="4">header 4</option>
+                <option value="5">header 5</option>
+                <option value="6">header 6</option>
+            </select>
+            <button @click="editor.chain().focus().toggleBlockquote().run()" :class="{ 'is-active': editor.isActive('blockquote') }">
+                blockquote
+            </button>
+        </BubbleMenu>
+        <FloatingMenu :editor="editor" :tippy-options="{ duration: 100 }">
+            <button
+                :disabled="!(editor.isActive('bold') || editor.isActive('italic') || editor.isActive('italic'))"
+                @click="editor.chain().focus().unsetAllMarks().run()">
+                clear marks
+            </button>
+            <button
+                :class="{ 'is-active': editor.isActive('bold') }"
+                @click="editor.chain().focus().toggleBold().run()">
+                bold
+            </button>
+            <button
+                :class="{ 'is-active': editor.isActive('italic') }"
+                @click="editor.chain().focus().toggleItalic().run()">
+                italic
+            </button>
+            <select @change="setLevel">
+                <option value="p">paragraph</option>
+                <option value="u">bullet list</option>
+                <option value="o">ordered list</option>
+                <option value="1">header 1</option>
+                <option value="2">header 2</option>
+                <option value="3">header 3</option>
+                <option value="4">header 4</option>
+                <option value="5">header 5</option>
+                <option value="6">header 6</option>
+            </select>
+            <button
+                :class="{ 'is-active': editor.isActive('blockquote') }"
+                @click="editor.chain().focus().toggleBlockquote().run()">
+                blockquote
+            </button>
+            <button @click="editor.chain().focus().setHorizontalRule().run()">
+                horizontal rule
+            </button>
+            <button @click="editor.chain().focus().setHardBreak().run()">
+                hard break
+            </button>
+        </FloatingMenu>
+    </div>
     <editor-content :editor="editor" />
 </template>
+
+<style scoped>
+.is-active {
+    background: var(--secondary-dk-5);
+    color: var(--secondary-lt-5);
+}
+</style>

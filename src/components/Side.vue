@@ -28,7 +28,9 @@ const emits = defineEmits(["switch"])
                 <Menu :root="root" :routes="routes"></Menu>
             </header>
             <main>
-                <router-view :root="root" v-slot="{ Component }">
+                <router-view :root="root" v-slot="{ Component }"
+                    :title="routes.find(v => v.path == $route.path.split('/')[2])?.title"
+                    >
                     <Suspense>
                         <template #default>
                             <component :is="Component" :key="$route.path"></component>
