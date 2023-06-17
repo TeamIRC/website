@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router"
 import Login from "./components/Login.vue"
 import Page from "./components/Page.vue"
 import sitemap from "./pages/sitemap.json";
+import { h } from "vue";
 
 let routes = [];
 let section: keyof typeof sitemap;
@@ -15,7 +16,7 @@ for (section in sitemap)
 routes.push({ path: "/", redirect: '/prevention/home' });
 routes.push({
     path: "/login",
-    component: Login,
+    component: h('<div>Connexion à GitHub<div>'),
     beforeEnter() {
         const state = new TextDecoder("utf-8")
             .decode(
