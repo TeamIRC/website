@@ -21,7 +21,7 @@ export default async (request: VercelRequest, response: VercelResponse) => {
 async function getGithubUser (access_token: string) {
     return (await fetch('https://api.github.com/user', {
         headers: {
-            Authorization: `bearer ${access_token}`
+            Authorization: `Bearer ${access_token}`
         }
     })).json();
 }
