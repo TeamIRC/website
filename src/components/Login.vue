@@ -3,7 +3,6 @@ import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const params = new URL(document.location.href).searchParams;
-// ToDo : const state = params.get("state")
 const router = useRouter();
 const previous = localStorage.getItem('origin')!;
 
@@ -13,8 +12,8 @@ onMounted(async () => {
     const infos = await(
         await fetch(origin + '/api/oauth/github', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ code: params.get("code") })
+            headers: { 'Content-Type': 'text/plain' },
+            body: params.get("code")
         })
     ).json();
     Object
