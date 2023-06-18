@@ -1,6 +1,7 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default async (request: VercelRequest, response: VercelResponse) => {
+    console.log(request.body);
     const { access_token } = await (
         await fetch('https://github.com/login/oauth/access_token', {
             method: 'POST',
