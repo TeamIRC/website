@@ -12,11 +12,11 @@ export default async (request: VercelRequest, response: VercelResponse) => {
             code: request.body
         }),
     });
-    const { access_token } = await req.json();
-    console.log(access_token);   
+    const json = await req.json();
+    console.log(json);   
     req = await fetch('https://api.github.com/user', {
         headers: {
-            Authorization: `bearer ${access_token}`
+            Authorization: `bearer ${json.access_token}`
         }
     })
     console.log(await req.text());
@@ -24,7 +24,7 @@ export default async (request: VercelRequest, response: VercelResponse) => {
     console.log(user);
 
     response
-        .setHeader('Set-Cookie', `github_token=${JSON.stringify(access_token)}; Path=/; Secure; HttpOnly`)
+        .setHeader('Set-Cookie', `github_token=${JSON.stringify(json.access_token)}; Path=/; Secure; HttpOnly`)
         .send(user);
 }
 
