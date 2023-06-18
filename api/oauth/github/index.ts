@@ -12,11 +12,12 @@ export default async (request: VercelRequest, response: VercelResponse) => {
             code: request.body
         }),
     });
-    
+
+    console.log(await req.text());
     const { access_token } = await req.json();    
 
     const user = await getGithubUser(access_token);
-    console.log(user)
+    console.log(user);
 
     response
         .setHeader('Set-Cookie', `github_token=${JSON.stringify(access_token)}; Path=/; Secure; HttpOnly`)
