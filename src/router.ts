@@ -28,11 +28,11 @@ routes.push({
             scope: 'repo',
             state
         })
-    },
-    children: [{
-        path: "github",
-        component: Login
-    }]
+    }
+})
+routes.push({
+    path: "/success",
+    component: Login
 })
 export default createRouter({
     history: createWebHashHistory(),
