@@ -13,8 +13,8 @@ onMounted(async () => {
     const infos = await(
         await fetch(origin + '/api/oauth/github', {
             method: 'POST',
-            headers: { 'Content-Type': 'text/plain' },
-            body: params.get("code")
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code: params.get("code") })
         })
     ).json();
     Object

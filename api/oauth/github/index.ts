@@ -10,20 +10,18 @@ export default async (request: VercelRequest, response: VercelResponse) => {
             body: JSON.stringify({
                 client_id: process.env.VITE_GITHUB_CLIENT_ID,
                 client_secret: process.env.GITHUB_CLIENT_SECRET,
-                code: request.body
-            }),
+                code: request.body.code
+            })
         })
     ).json();
-    console.log(access_token);
-    const user = await getGithubUser(access_token);
-    console.log(user);
+
     response
         .setHeader('Set-Cookie', `github_token=${JSON.stringify(access_token)}; Path=/; Secure; HttpOnly`)
-        .send(user);
+        .send(await getGithubUser(access_token));
 }
 
 async function getGithubUser (access_token: string) {
-    return (await fetch('https://api.github.com/user', {
+    return await (await fetch('https://api.github.com/user', {
         headers: {
             Authorization: `bearer ${access_token}`
         }
