@@ -1,4 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
+import { Octokit } from "@octokit/rest";
 
 export default async (request: VercelRequest, response: VercelResponse) => {
     const { access_token } = await (
@@ -19,9 +20,10 @@ export default async (request: VercelRequest, response: VercelResponse) => {
 }
 
 async function getGithubUser (access_token: string) {
-    return (await fetch('https://api.github.com/user', {
-        headers: {
-            Authorization: `Bearer ${access_token}`
-        }
-    })).json();
+    const octokit = new Octokit({auth: access_token});
+    return await octokit.request('GET /user', {
+      headers: {
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    })
 }
