@@ -23,11 +23,10 @@ routes.push({
                 crypto.getRandomValues(new Uint32Array(10))
             )
         localStorage.setItem('state', state);
-        location.href = 'https://github.com/login/oauth/authorize?' + new URLSearchParams({
-            client_id: import.meta.env.VITE_GITHUB_CLIENT_ID,
-            scope: 'read:user repo',
-            state
-        })
+        location.href = 'https://github.com/login/oauth/authorize?' 
+            + `client_id=${import.meta.env.VITE_GITHUB_CLIENT_ID}`
+            + '&scope=read:user%20repo'
+            + `&state=${state}`
     }
 })
 routes.push({
