@@ -1,7 +1,7 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default async (request: VercelRequest, response: VercelResponse) => {
-    const { access_token } = await (
+    const req = await (
         await fetch('https://github.com/login/oauth/access_token', {
             method: 'POST',
             headers: {
@@ -13,6 +13,8 @@ export default async (request: VercelRequest, response: VercelResponse) => {
                 code: request.body
             }),
     })).json();
+    console.log(req)
+    const { access_token } = req;
     response
         .setHeader('Set-Cookie', `github_token=${JSON.stringify(access_token)}; Path=/; Secure; HttpOnly`)
         .send(await getGithubUser(access_token));
