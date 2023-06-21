@@ -7,7 +7,7 @@ function parseCookie(cookie?: string): { [k:string]: string | undefined } {
         .split(';')
         .forEach((el) => {
             const [key, value] = el.split('=');
-            Object.defineProperty(result, key.trim(), value)
+            Object.defineProperty(result, key.trim(), { value });
         })
     return result;    
 }
