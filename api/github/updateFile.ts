@@ -3,6 +3,7 @@ import { client } from "../../backend/vercel/github/client"
 
 export default client(
     async(request: VercelRequest, response: VercelResponse, token: string) => {
+        console.log(token);
         const { root, page, content, branch } = request
             .body as {
                 root: string,
