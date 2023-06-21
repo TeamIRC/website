@@ -45,5 +45,5 @@ export default async(request: VercelRequest, response: VercelResponse) => {
         })
     });
 
-    return response.status(200).send("Success");
+    return response.status(200);
 }
