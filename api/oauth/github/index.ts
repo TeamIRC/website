@@ -13,7 +13,6 @@ export default async (request: VercelRequest, response: VercelResponse) => {
             code: request.body
         }),
     });
-    console.log(req);
     const json = await req.json()
     const { access_token } = json;
     response
