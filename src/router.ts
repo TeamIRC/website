@@ -25,7 +25,7 @@ routes.push({
         localStorage.setItem('state', state);
         location.href = 'https://github.com/login/oauth/authorize?' 
             + `client_id=${import.meta.env.VITE_GITHUB_CLIENT_ID}`
-            + `&scope=${encodeURIComponent("read:user repo")}`
+            + `&scope=${encodeURIComponent("read:user workflow")}`
             + `&state=${encodeURIComponent(state)}`
     }
 })

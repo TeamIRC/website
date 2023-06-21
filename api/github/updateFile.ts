@@ -12,13 +12,16 @@ export default client(
             };
         const refBranch = branch??'main';
         const url = `https://api.github.com/repos/TeamIRC/website/contents/src/pages/${root}/${page}.json`;
-        const Authorization = "bearer " + token;
-        
+        const Authorization = "Bearer " + token;
         const fileData = await fetch(
             `${url}?ref=${refBranch}`,
             {
                 method: "GET",
-                headers: { Authorization }
+                headers: {
+                    Authorization,
+                    Accept: "application/vnd.github+json",
+                    "X-GitHub-Api-Version": "2022-11-28"
+                }
             }
         );
         console.log(fileData);
@@ -34,7 +37,7 @@ export default client(
             },
             body: JSON.stringify({
                 message: "update",
-                refBranch,
+                branch: refBranch,
                 content,
                 sha
             })
