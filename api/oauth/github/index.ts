@@ -21,7 +21,7 @@ export default async (request: VercelRequest, response: VercelResponse) => {
         .setHeader('Set-Cookie', [
             serialize(
                 'github_token',
-                JSON.stringify(access_token),
+                access_token,
                 {
                     path: '/',
                     httpOnly: true,
@@ -32,7 +32,7 @@ export default async (request: VercelRequest, response: VercelResponse) => {
             ),
             serialize(
                 'github_refresh_token',
-                JSON.stringify(refresh_token),
+                refresh_token,
                 {
                     path: '/',
                     httpOnly: true,
