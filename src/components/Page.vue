@@ -19,7 +19,7 @@ const toggleEdit = async () => {
 			body: JSON.stringify({
 				root: props.root,
 				page: props.page,
-				content: JSON.stringify({content})
+				content: btoa(JSON.stringify({content}))
 			})
 		})
 	}
