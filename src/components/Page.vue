@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import Editor from './Editor.vue';
 
 const props = defineProps<{ root: string, title: string, page: string }>();
-const { content } = await import(`../pages/${props.root}/page-${props.page}.json`);
+let { content } = await import(`../pages/${props.root}/page-${props.page}.json`);
 const edit = ref(false);
 localStorage.setItem('origin', useRoute().fullPath);
 const login = localStorage.getItem('login')
@@ -19,7 +19,7 @@ const toggleEdit = async () => {
 			body: JSON.stringify({
 				root: props.root,
 				page: props.page,
-				content
+				content: JSON.stringify({content})
 			})
 		})
 	}

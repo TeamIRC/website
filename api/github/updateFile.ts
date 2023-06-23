@@ -10,11 +10,10 @@ export default client(
                 content: string,
                 branch?: string
             };
-        const refBranch = branch??'main';
         const url = `https://api.github.com/repos/TeamIRC/website/contents/src/pages/${root}/page-${page}.json`;
         const Authorization = "Bearer " + token;
-        const fileData = await (await fetch(
-            `${url}?ref=${refBranch}`,
+        const { sha } = await (await fetch(
+            url + (branch?'?ref='+branch:''),
             {
                 method: "GET",
                 headers: {
@@ -24,8 +23,6 @@ export default client(
                 }
             }
         )).json();
-        console.log(fileData);
-        const { sha } = fileData;
         const updateRequest = await fetch(url, {
             method: "PUT",
             headers: {
@@ -34,7 +31,7 @@ export default client(
             },
             body: JSON.stringify({
                 message: `update ${root}/${page}`,
-                branch: refBranch,
+                branch,
                 content,
                 sha
             })
