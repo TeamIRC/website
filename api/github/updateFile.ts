@@ -11,7 +11,7 @@ export default client(
                 branch?: string
             };
         const refBranch = branch??'main';
-        const url = `https://api.github.com/repos/TeamIRC/website/contents/src/pages/${root}/${page}.json`;
+        const url = `https://api.github.com/repos/TeamIRC/website/contents/src/pages/${root}/page-${page}.json`;
         const Authorization = "Bearer " + token;
         const fileData = await (await fetch(
             `${url}?ref=${refBranch}`,
