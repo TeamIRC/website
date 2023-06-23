@@ -3,7 +3,6 @@ import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const params = new URL(document.location.href).searchParams;
-document.location.search = "";
 const router = useRouter();
 const previous = localStorage.getItem('origin')!;
 
