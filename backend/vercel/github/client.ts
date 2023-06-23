@@ -7,10 +7,15 @@ export function client(fn: (req: VercelRequest, res: VercelResponse, token: stri
             response.status(501).end();
             return;
         }
+        const cookie = parse(request.headers.cookie)
+        let token = cookie.github_token;
+    /*    if (!token) {
+            
+        }    */     
         return await fn(
             request,
             response,
-            parse(request.headers.cookie).github_token
+            token
         )
     }
 }
