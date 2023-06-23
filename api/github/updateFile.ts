@@ -32,7 +32,7 @@ export default client(
             body: JSON.stringify({
                 message: `update ${root}/${page}`,
                 branch,
-                content,
+                content: Buffer.from(content).toString("base64"),
                 sha
             })
         });
