@@ -13,7 +13,7 @@ export default client(
         const refBranch = branch??'main';
         const url = `https://api.github.com/repos/TeamIRC/website/contents/src/pages/${root}/${page}.json`;
         const Authorization = "Bearer " + token;
-        const fileData = await fetch(
+        const fileData = await (await fetch(
             `${url}?ref=${refBranch}`,
             {
                 method: "GET",
@@ -23,12 +23,9 @@ export default client(
                     "X-GitHub-Api-Version": "2022-11-28"
                 }
             }
-        );
+        )).json();
         console.log(fileData);
-        const jsonFile = await fileData.json();
-        console.log(jsonFile);
-        const { sha } = jsonFile;
-        console.log(sha);
+        const { sha } = fileData;
         const updateRequest = await fetch(url, {
             method: "PUT",
             headers: {

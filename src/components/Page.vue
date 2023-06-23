@@ -7,10 +7,10 @@ const props = defineProps<{ root: string, title: string, page: string }>();
 const { content } = await import(`../pages/${props.root}/page-${props.page}.json`);
 const edit = ref(false);
 localStorage.setItem('origin', useRoute().fullPath);
-//const login = localStorage.getItem('login')
+const login = localStorage.getItem('login')
 const toggleEdit = async () => {
-	/*
-	if (edit.value) {
+	//if (edit.value) {
+	if (login && edit.value) {
 		await fetch(window.location.origin + '/api/github/updateFile', {
 			method: "PUT",
 			headers: {
@@ -23,7 +23,6 @@ const toggleEdit = async () => {
 			})
 		})
 	}
-	*/
 	edit.value = !edit.value;
 }
 </script>
@@ -49,4 +48,3 @@ const toggleEdit = async () => {
 	font-size: 2rem
 }
 </style>
-../../api/github/updateFile
