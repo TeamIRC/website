@@ -1,7 +1,9 @@
+<style src="../editor.css" scoped></style>
 <script setup lang="ts">
 import StarterKit from '@tiptap/starter-kit';
 import { BubbleMenu, FloatingMenu, Editor, EditorContent } from '@tiptap/vue-3';
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
+
 
 const props = defineProps({
     modelValue: {
@@ -62,11 +64,9 @@ onBeforeUnmount(() => editor.value?.destroy())
 
 <template>
     <div v-if="editor">
-        <button @click="editor.chain().focus().undo().run()" :disabled="!editor.can().chain().focus().undo().run()">
-            undo
+        <button @click="editor.chain().focus().undo().run()" :disabled="!editor.can().chain().focus().undo().run()" style="--clr:#FF44CC"><span>undo</span><i></i>       
         </button>
-        <button @click="editor.chain().focus().redo().run()" :disabled="!editor.can().chain().focus().redo().run()">
-            redo
+        <button @click="editor.chain().focus().redo().run()" :disabled="!editor.can().chain().focus().redo().run()" style="--clr:#FF44CC"><span>redo</span><i></i>    
         </button>
         <BubbleMenu :editor="editor" :tippyOptions="{ duration: 100 }"
         >
@@ -103,18 +103,16 @@ onBeforeUnmount(() => editor.value?.destroy())
         <FloatingMenu :editor="editor" :tippy-options="{ duration: 100 }">
             <button
                 :disabled="!(editor.isActive('bold') || editor.isActive('italic') || editor.isActive('italic'))"
-                @click="editor.chain().focus().unsetAllMarks().run()">
-                clear marks
+                @click="editor.chain().focus().unsetAllMarks().run()"
+                style="--clr:#FF44CC"><span>clear marks</span><i></i>
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('bold') }"
-                @click="editor.chain().focus().toggleBold().run()">
-                bold
+                @click="editor.chain().focus().toggleBold().run()" style="--clr:#FF44CC"><span>bold</span><i></i>
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('italic') }"
-                @click="editor.chain().focus().toggleItalic().run()">
-                italic
+                @click="editor.chain().focus().toggleItalic().run()" style="--clr:#FF44CC"><span>italic</span><i></i>    
             </button>
             <select @change="setLevel">
                 <option value="p">paragraph</option>
@@ -129,14 +127,11 @@ onBeforeUnmount(() => editor.value?.destroy())
             </select>
             <button
                 :class="{ 'is-active': editor.isActive('blockquote') }"
-                @click="editor.chain().focus().toggleBlockquote().run()">
-                blockquote
+                @click="editor.chain().focus().toggleBlockquote().run()" style="--clr:#FF44CC"><span>blockquote</span><i></i>   
             </button>
-            <button @click="editor.chain().focus().setHorizontalRule().run()">
-                horizontal rule
+            <button @click="editor.chain().focus().setHorizontalRule().run()" style="--clr:#FF44CC"><span>horizontal rule</span><i></i>                
             </button>
-            <button @click="editor.chain().focus().setHardBreak().run()">
-                hard break
+            <button @click="editor.chain().focus().setHardBreak().run()" style="--clr:#FF44CC"><span>hard break</span><i></i>           
             </button>
         </FloatingMenu>
     </div>
