@@ -83,8 +83,7 @@ onBeforeUnmount(() => editor.value?.destroy())
         >
             <button
                 :disabled="!(editor.isActive('bold') || editor.isActive('italic') || editor.isActive('italic'))"
-                @click="editor.chain().focus().unsetAllMarks().run()">
-                clear marks
+                @click="editor.chain().focus().unsetAllMarks().run()" style="--clr:#FF44CC"><span>clear marks</span><i></i>               
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('bold') }"
@@ -92,8 +91,7 @@ onBeforeUnmount(() => editor.value?.destroy())
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('italic') }"
-                @click="editor.chain().focus().toggleItalic().run()">
-                italic
+                @click="editor.chain().focus().toggleItalic().run()" style="--clr:#FF44CC"><span>italic</span><i></i>               
             </button>
             <select @change="setLevel">
                 <option value="p">paragraph</option>
@@ -106,8 +104,7 @@ onBeforeUnmount(() => editor.value?.destroy())
                 <option value="5">header 5</option>
                 <option value="6">header 6</option>
             </select>
-            <button @click="editor.chain().focus().toggleBlockquote().run()" :class="{ 'is-active': editor.isActive('blockquote') }">
-                blockquote
+            <button @click="editor.chain().focus().toggleBlockquote().run()" :class="{ 'is-active': editor.isActive('blockquote') }" style="--clr:#FF44CC"><span>blockquote</span><i></i>                
             </button>
         </BubbleMenu>
         <FloatingMenu :editor="editor" :tippy-options="{ duration: 100 }">
