@@ -2,6 +2,7 @@
 <script setup lang="ts">
 import StarterKit from '@tiptap/starter-kit';
 import { BubbleMenu, FloatingMenu, Editor, EditorContent } from '@tiptap/vue-3';
+import { Image } from '@tiptap/extension-image'; // Import the Image extension
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 
 
@@ -48,9 +49,19 @@ watch(() => props.modelValue, (value) => {
     editor.value?.commands.setContent(value, false)
 });
 
+const insertImage = () => {
+  const imageUrl = prompt('Enter the URL of the image:');
+  if (imageUrl) {
+    editor.value?.chain().focus().setImage({ src: imageUrl }).run();
+  }
+};
+
 onMounted(() => editor.value = new Editor({
     extensions: [
         StarterKit,
+        Image.configure({
+        inline: true, // Set to 'true' if you want the images to be inserted inline
+      }),
     ],
     content: props.modelValue,
     onUpdate: () => {
@@ -77,8 +88,7 @@ onBeforeUnmount(() => editor.value?.destroy())
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('bold') }"
-                @click="editor.chain().focus().toggleBold().run()">
-                bold
+                @click="editor.chain().focus().toggleBold().run()" style="--clr:#FF44CC"><span>bold</span><i></i>      
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('italic') }"
@@ -105,6 +115,8 @@ onBeforeUnmount(() => editor.value?.destroy())
                 :disabled="!(editor.isActive('bold') || editor.isActive('italic') || editor.isActive('italic'))"
                 @click="editor.chain().focus().unsetAllMarks().run()"
                 style="--clr:#FF44CC"><span>clear marks</span><i></i>
+            </button>
+            <button :class="{ 'is-active': editor.isActive('insertImage') }" @click="insertImage" style="--clr:#FF44CC"><span>Insert Image</span><i></i>               
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('bold') }"
