@@ -6,13 +6,18 @@ const emit = defineEmits<{ (event: "modified", content: string): void }>()
 let html = props.content;
 watch(
     () => props.edit,
-    () => { if (html != props.content) emit("modified", html) }
+    () => {
+		if (html != props.content) {
+			console.log(html);
+			emit("modified", html)
+		}
+	}
 );
 </script>
 
 <template>
 	<div>
-		<Editor v-if="edit" v-model="html" />
+		<Editor class="content" v-if="edit" v-model="html" />
 		<div class="content" v-else v-html="html"></div>
 	</div>
 </template>
