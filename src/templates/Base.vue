@@ -13,12 +13,12 @@ watch(
 <template>
 	<div>
 		<Editor v-if="edit" v-model="html" />
-		<div v-else v-html="html"></div>
+		<div class="content" v-else v-html="html"></div>
 	</div>
 </template>
 
 <style scoped>
-li {
+content li {
 	list-style: none;
 	padding-bottom: 16px;
 }
