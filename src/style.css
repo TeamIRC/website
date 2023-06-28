@@ -38,7 +38,7 @@ a {
 }
 
 #app, .side {
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .page {
