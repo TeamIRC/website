@@ -17,8 +17,8 @@ watch(
 	</div>
 </template>
 
-<style scoped>
-content li {
+<style>
+.content li {
 	list-style: none;
 	padding-bottom: 16px;
 }
