@@ -18,4 +18,8 @@ watch(
 </template>
 
 <style scoped>
+li {
+	list-style: none;
+	padding-bottom: 16px;
+}
 </style>
