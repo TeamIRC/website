@@ -22,7 +22,7 @@
 }
 
 body {
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -35,4 +35,13 @@ a {
 #app {
     height: 100vh;
     display: flex;
+}
+
+#app, .side {
+    overflow-y: hidden;
+}
+
+.page {
+    height: calc(100vh - 344px);
+    overflow-y: auto;
 }
