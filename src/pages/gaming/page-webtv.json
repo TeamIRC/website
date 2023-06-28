@@ -1,1 +1,4 @@
-{"content":"<p>Test d'édition ! Que se passe-t'il s'il y a des guillemets ? \"</p>"}
+{
+    "template": "WebTV",
+    "content": "<p>Test d'édition ! Que se passe-t'il s'il y a des guillemets ? \"</p>"
+}

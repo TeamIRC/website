@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import Base from '../templates/Base.vue'
+import templates from '../templateMap'
 
 const props = defineProps<{ root: string, title: string, page: string }>();
 const { template, content } = await import(`../pages/${props.root}/page-${props.page}.json`);
@@ -35,7 +36,7 @@ const onModified = async () => await fetch(
 			</button>
 		</div>
 		<component v-if="template"
-			:is="template"
+			:is="templates[template]"
 			:content="content"
 			:edit="edit"
 			@modified="onModified" />
