@@ -1,4 +1,12 @@
 {
     "template": "WebTV",
-    "content": "<p>Test d'édition ! Que se passe-t'il s'il y a des guillemets ? \"</p>"
+    "content": {
+        "userlist": [
+            "team_irc",
+            "reymonitou",
+            "irc_pegasus",
+            "tejlive",
+            "neidrolab"
+        ]
+    }
 }
