@@ -56,7 +56,7 @@ watch(() => props.edit,
 	}
 );
 
-const request = await fetch('./api/TwitchClient');
+const request = await fetch('/api/TwitchClient');
 const json = await request.json();
 const header = await json.twitchHeader;
 
