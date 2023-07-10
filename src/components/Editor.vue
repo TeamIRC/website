@@ -3,6 +3,7 @@
 import StarterKit from '@tiptap/starter-kit';
 import { BubbleMenu, FloatingMenu, Editor, EditorContent } from '@tiptap/vue-3';
 import { Image } from '@tiptap/extension-image'; // Import the Image extension
+import { Link } from '@tiptap/extension-link';
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 
 
@@ -56,11 +57,21 @@ const insertImage = () => {
   }
 };
 
+const createLink = () => {
+  const url = prompt('Enter the URL of the link:');
+  if (url) {
+    editor.value?.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+  }
+};
+
 onMounted(() => editor.value = new Editor({
     extensions: [
         StarterKit,
         Image.configure({
         inline: true, // Set to 'true' if you want the images to be inserted inline
+      }),
+      Link.configure({
+        openOnClick: false, // Set to 'true' if you want the links to open on click
       }),
     ],
     content: props.modelValue,
@@ -92,6 +103,8 @@ onBeforeUnmount(() => editor.value?.destroy())
             <button
                 :class="{ 'is-active': editor.isActive('italic') }"
                 @click="editor.chain().focus().toggleItalic().run()" style="--clr:#39FF14"><span>italic</span><i></i>               
+            </button>
+            <button :class="{ 'is-active': editor.isActive('createLink') }" @click="createLink" style="--clr:#0FF0FC"><span>createLink</span><i></i>
             </button>
             <select @change="setLevel">
                 <option value="p">paragraph</option>
