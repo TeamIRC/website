@@ -27,7 +27,9 @@ const logo = props.root == "prevention" ? logoPrevention : logoGaming;
     <div class="side">
         <template v-if="current">
             <header>
-                <img :src="logo" :alt="`logo ${root}`" width="344" height="344">
+                <div class="logo">
+                    <img :src="logo" :alt="`logo ${root}`">
+                </div>
                 <Menu :root="root" :routes="routes"></Menu>
             </header>
             <main>
@@ -70,5 +72,15 @@ nav {
 .nav-container {
     display: flex;
     height: 344px;
+}
+
+.logo {
+    width: 344px;
+    height: 344px;
+    margin: 16px;
+}
+
+.logo > img {
+    height: 100%
 }
 </style>
