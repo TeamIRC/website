@@ -81,6 +81,7 @@ nav {
 }
 
 .logo > img {
-    height: 100%
+    height: 100%;
+    margin: auto;
 }
 </style>
