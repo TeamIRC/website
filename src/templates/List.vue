@@ -48,8 +48,10 @@ watch(
 }
 
 .image-container {
+	display: flex;
 	width: 344px;
 	height: 344px;
+	align-items: center;
 }
 
 img {
