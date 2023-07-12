@@ -35,7 +35,7 @@ watch(
 			<div class="image-container">
 				<img :src="image" />
 			</div>
-			<div v-html="description"></div>
+			<div class="description" v-html="description"></div>
 		</div>
 	</div>
 </template>
@@ -59,5 +59,11 @@ img {
 
 .list > div:nth-child(even) {
 	flex-direction: row-reverse;
+}
+
+.description {
+	max-width: calc(80% - 344px);
+	margin: auto;
+	text-align: center;
 }
 </style>
