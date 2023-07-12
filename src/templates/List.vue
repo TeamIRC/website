@@ -45,7 +45,9 @@ watch(
 
 .list > div > img {
 	display: flex;
-	max-width: 100%;
+	max-width: 344px;
+	max-height: 344px;
+	margin: 8px;
 	height: auto;
 }
 
