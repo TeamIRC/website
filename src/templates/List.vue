@@ -32,7 +32,9 @@ watch(
 <template>
 	<div class="list">
 		<div v-for="{ image, description } in content.items">
-			<img :src="image" />
+			<div class="image-container">
+				<img :src="image" />
+			</div>
 			<div v-html="description"></div>
 		</div>
 	</div>
@@ -41,13 +43,17 @@ watch(
 <style scoped>
 .list > div {
 	display: flex;
+	height: 344px;
+	margin: 8px;
 }
 
-.list > div > img {
-	display: flex;
+.image-container {
+	width: 344px;
+	height: 344px;
+}
+
+img {
 	max-width: 344px;
-	max-height: 344px;
-	margin: 8px;
 	height: auto;
 }
 
