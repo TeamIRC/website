@@ -71,7 +71,7 @@ nav {
 
 .nav-container {
     display: flex;
-    height: 344px;
+    height: 360px;
 }
 
 .logo {
