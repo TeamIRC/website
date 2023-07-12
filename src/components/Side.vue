@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
 import Menu from './Menu.vue';
+import logoGaming from '../assets/logo_gaming.png';
+import logoPrevention from '../assets/logo_prevention.png';
 
 const props = defineProps({
     current: {
@@ -18,7 +20,7 @@ const props = defineProps({
 });
 
 const emits = defineEmits(["switch"])
-const logo = new URL(`../assets/logo_${props.root}.png`, import.meta.url).href
+const logo = props.root == "prevention" ? logoPrevention : logoGaming;
 </script>
 
 <template>
