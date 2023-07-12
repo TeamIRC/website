@@ -78,10 +78,10 @@ nav {
     width: 344px;
     height: 344px;
     margin: 16px;
+    text-align: center;
 }
 
 .logo > img {
     height: 100%;
-    margin: auto;
 }
 </style>
