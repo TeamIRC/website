@@ -43,7 +43,7 @@ watch(
 <style scoped>
 .list > div {
 	display: flex;
-	height: 344px;
+	min-height: 344px;
 	margin: 8px;
 }
 
