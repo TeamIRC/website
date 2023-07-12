@@ -57,7 +57,7 @@ img {
 	height: auto;
 }
 
-.list:nth-child(even) {
+.list > div:nth-child(even) {
 	flex-direction: row-reverse;
 }
 </style>
