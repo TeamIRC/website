@@ -2,7 +2,7 @@
 import { PropType } from 'vue';
 import Menu from './Menu.vue';
 
-defineProps({
+const props = defineProps({
     current: {
         type: Boolean,
         required: true
@@ -18,13 +18,14 @@ defineProps({
 });
 
 const emits = defineEmits(["switch"])
+const logo = new URL(`../assets/logo_${props.root}.png`, import.meta.url).href
 </script>
 
 <template>
     <div class="side">
         <template v-if="current">
             <header>
-                <img :src="`../../public/logo_${root}.png`" :alt="`logo ${root}`" width="344" height="344">
+                <img :src="logo" :alt="`logo ${root}`" width="344" height="344">
                 <Menu :root="root" :routes="routes"></Menu>
             </header>
             <main>
