@@ -71,13 +71,14 @@ nav {
 
 .nav-container {
     display: flex;
-    height: 360px;
+    height: 344px;
+    margin: 8px;
 }
 
 .logo {
     width: 344px;
     height: 344px;
-    margin: 16px;
+    margin: 8px;
     text-align: center;
 }
 
