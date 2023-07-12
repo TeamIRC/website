@@ -24,7 +24,7 @@ const emits = defineEmits(["switch"])
     <div class="side">
         <template v-if="current">
             <header>
-                <img :src="`../assets/logo_${root}.png`" alt="logo TeamIRC" width="344" height="344">
+                <img :src="`../../public/logo_${root}.png`" :alt="`logo ${root}`" width="344" height="344">
                 <Menu :root="root" :routes="routes"></Menu>
             </header>
             <main>
