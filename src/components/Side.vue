@@ -38,7 +38,7 @@ const logo = props.root == "prevention" ? logoPrevention : logoGaming;
                     >
                     <Suspense>
                         <template #default>
-                            <component :is="Component" :key="$route.path"></component>
+                            <component :is="Component" :key="$route.path" />
                         </template>
                         <template #fallback>
                             Chargement...
@@ -83,6 +83,7 @@ nav {
 }
 
 .logo > img {
-    height: 100%;
+	max-width: 100%;
+	height: auto;
 }
 </style>

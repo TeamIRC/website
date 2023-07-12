@@ -35,4 +35,10 @@ export type TwitchProfile = {
 	stream?: TwitchStream
 }
 
+export type ListContent = {
+	items: {
+		image: string;
+		description: string;
+	}[]
+};
 export type WebTVContent = { userlist: string[] };

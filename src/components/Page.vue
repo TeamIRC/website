@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
-import Base from '../templates/Base.vue'
-import templates from '../templateMap'
+import { Base, default as templates } from '../templates'
 
 const props = defineProps<{ root: string, title: string, page: string }>();
 const { template, content } = await import(`../pages/${props.root}/page-${props.page}.json`);

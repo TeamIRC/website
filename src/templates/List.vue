@@ -1,21 +1,55 @@
 <script setup lang="ts">
 import { watch } from 'vue';
-import Editor from '../components/Editor.vue';
-const props = defineProps<{ content: string, edit: boolean }>();
-const emit = defineEmits<{ (event: "modified", content: string): void }>()
-let html = props.content;
+import { ListContent } from '../types';
+const props = defineProps<{
+	content: ListContent,
+	edit: boolean
+}>();
+const emit = defineEmits<{ 
+	(event: "modified", content: ListContent): void }>()
+let list = props.content;
 watch(
     () => props.edit,
-    () => { if (html != props.content) emit("modified", html) }
+    () => {
+		if (list.items.length != props.content.items.length) {
+			emit("modified", list);
+			return;
+		}
+		for (const [i, item] of list.items.entries()) {
+			const origin = props.content.items[i];
+			if (
+				item.description != origin.description ||
+				item.image != origin.image
+			) {
+				emit("modified", list);
+				break;
+			}
+		}
+	}
 );
 </script>
 
 <template>
-	<div>
-		<Editor v-if="edit" v-model="html" />
-		<div v-else v-html="html"></div>
+	<div class="list">
+		<div v-for="{ image, description } in content.items">
+			<img :src="image" />
+			<div v-html="description"></div>
+		</div>
 	</div>
 </template>
 
 <style scoped>
+.list > div {
+	display: flex;
+}
+
+.list > div > img {
+	display: flex;
+	max-width: 100%;
+	height: auto;
+}
+
+.list:nth-child(even) {
+	flex-direction: row-reverse;
+}
 </style>
