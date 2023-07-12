@@ -42,6 +42,6 @@ a {
 }
 
 .page {
-    height: calc(100vh - 344px);
+    height: calc(100vh - 360px);
     overflow-y: auto;
 }
