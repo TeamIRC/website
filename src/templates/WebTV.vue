@@ -55,7 +55,7 @@ watch(() => props.edit,
 
 #profiles {
 	display: grid;
-	grid-auto-columns: minmax(344px, auto);
+	grid-auto-columns: 344px;
 	gap: 16px;
 }
 
