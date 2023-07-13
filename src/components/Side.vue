@@ -113,6 +113,7 @@ nav {
     left: 0px;
     right: 0px;
     bottom: 16px;
+    justify-content: center;
 }
 
 .social-media {
