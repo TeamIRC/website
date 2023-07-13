@@ -111,6 +111,7 @@ nav {
     display: flex;
     position: absolute;
     bottom: 16px;
+    margin: auto;
 }
 
 .social-media {
