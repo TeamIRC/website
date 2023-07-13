@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import { Base, default as templates } from '../templates'
 
 const props = defineProps<{ root: string, title: string, page: string }>();
-const { template, content } = await import(`../pages/${props.root}/page-${props.page}.json`, { assert: { type: "json" } });
+const { template, content } = await import(`../pages/${props.root}/page-${props.page}.json`);
 const edit = ref(false);
 localStorage.setItem('origin', useRoute().fullPath);
 // const login = localStorage.getItem('login')
