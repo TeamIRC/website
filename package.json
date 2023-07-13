@@ -24,6 +24,7 @@
     "@tiptap/vue-3": "^2.0.3",
     "@vercel/node": "^2.15.1",
     "cookie": "^0.5.0",
+    "vite-svg-loader": "^4.0.0",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2"
   },
