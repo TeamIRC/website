@@ -47,8 +47,22 @@ const logo = props.root == "prevention" ? logoPrevention : logoGaming;
                 </router-view>
             </main>
         </template>
-        <div v-else class="nav-container">
-            <Menu :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
+        <div v-else class="side-menu">
+            <div class="nav-container">
+                <Menu :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
+            </div>
+            <div class="menu-footer">
+                <div class="social-media">
+                    <a href="https://twitter.com/team_irc">
+                        <img src="../assets/icon-twitter.png" alt="twitter" />
+                    </a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.twitch.tv/team_irc">
+                        <img src="../assets/icon-twitch.png" alt="twitch" />
+                    </a>
+                </div>
+            </div>
         </div>
 	</div>
 </template>
@@ -69,9 +83,13 @@ nav {
     width: 296px;
 }
 
+.side-menu {
+    position: relative;
+    width: 360px;
+}
+
 .nav-container {
     display: flex;
-    width: 360px;
     height: 360px;
 }
 
@@ -84,6 +102,29 @@ nav {
 
 .logo > img {
 	max-width: 100%;
+	height: auto;
+}
+
+.menu-footer {
+    display: flex;
+    position: absolute;
+    bottom: 16px;
+}
+
+.social-media {
+    width: 32px;
+    height: 32px;
+}
+
+.social-media > a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+	align-items: center;
+}
+
+.social-media > a > img {
+	max-width: 32px;
 	height: auto;
 }
 </style>
