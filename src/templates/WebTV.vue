@@ -48,6 +48,7 @@ watch(() => props.edit,
 
 <style scoped>
 #embed {
+	display: none;
 	width: 100%;
 	aspect-ratio: 16 / 9;
 	background-color: #00000033;
@@ -55,7 +56,7 @@ watch(() => props.edit,
 
 #profiles {
 	display: grid;
-	grid-auto-columns: 344px;
+    grid-template-columns: repeat(auto-fit, minmax(344px, auto));
 	gap: 16px;
 }
 
