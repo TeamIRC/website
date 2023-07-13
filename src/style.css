@@ -50,6 +50,17 @@ svg.fill-current path {
     overflow-y: auto;
 }
 
+.two-sides {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.two-sides > div {
+    flex-grow: 0;
+    margin: 8px;
+    text-align: center;
+}
+
 .theme-right {
 	background-color: var(--secondary-dk-1);
 	color: var(--primary-lt-1);
