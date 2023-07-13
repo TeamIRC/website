@@ -57,12 +57,11 @@ const userlist = props.content.userlist;
 const profiles: TwitchProfile[] = await fetchUsers(userlist)
 	.then(async (users) => {
 		const streams = await fetchStreams(users.map(v => v.id));
-		return users.map((user) => {
-			return {
+		return users.map((user) => { return {
 				user: user,
 				stream: streams.find((v) => v.user_id == user.id)
-			}
-		}).sort((a, b) => userlist.indexOf(b.user.login) - userlist.indexOf(a.user.login));
+			}})
+			.sort((a, b) => userlist.indexOf(a.user.login) - userlist.indexOf(b.user.login));
 	});
 
 </script>
