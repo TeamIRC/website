@@ -32,6 +32,10 @@ a {
 	transition: color .5s;
 }
 
+svg.fill-current path {
+    fill: currentcolor;
+}
+
 #app {
     height: 100vh;
     display: flex;
@@ -46,6 +50,7 @@ a {
     overflow-y: auto;
 }
 
-svg.fill-current path {
-    fill: currentcolor;
-}  
+.theme-right {
+	background-color: var(--secondary-dk-1);
+	color: var(--primary-lt-1);
+}
