@@ -110,8 +110,9 @@ nav {
 .menu-footer {
     display: flex;
     position: absolute;
+    left: 0px;
+    right: 0px;
     bottom: 16px;
-    margin: auto;
 }
 
 .social-media {
