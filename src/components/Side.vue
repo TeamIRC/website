@@ -55,12 +55,12 @@ const logo = props.root == "prevention" ? logoPrevention : logoGaming;
             <div class="menu-footer">
                 <div class="social-media">
                     <a href="https://twitter.com/team_irc">
-                        <SVGIcon name="twitter" alt="twitter" />
+                        <SVGIcon name="twitter" alt="twitter" width="32" height="32" />
                     </a>
                 </div>
                 <div class="social-media">
                     <a href="https://www.twitch.tv/team_irc">
-                        <SVGIcon name="twitch" alt="twitch" />
+                        <SVGIcon name="twitch" alt="twitch" width="32" height="32" />
                     </a>
                 </div>
             </div>
@@ -127,10 +127,5 @@ nav {
     width: 100%;
     height: 100%;
 	align-items: center;
-}
-
-.social-media > a > img {
-	max-width: 32px;
-	height: auto;
 }
 </style>
