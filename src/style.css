@@ -58,6 +58,7 @@ svg.fill-current path {
 .two-sides > div {
     flex-grow: 0;
     margin: 8px;
+    width: calc(50% - 16px);
     text-align: center;
 }
 
