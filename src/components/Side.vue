@@ -21,9 +21,7 @@ const props = defineProps({
 });
 
 const emits = defineEmits(["switch"])
-const isPrevention = props.root == "prevention";
-const mainLogo = isPrevention ? logoPrevention : logoGaming;
-const sideLogo = isPrevention ? logoGaming : logoPrevention;
+const logo = props.root == "prevention" ? logoPrevention : logoGaming;
 </script>
 
 <template>
@@ -31,7 +29,7 @@ const sideLogo = isPrevention ? logoGaming : logoPrevention;
         <template v-if="current">
             <header>
                 <div class="logo">
-                    <img :src="mainLogo" :alt="`logo ${root}`">
+                    <img :src="logo" :alt="`logo ${root}`">
                 </div>
                 <Menu :root="root" :routes="routes"></Menu>
             </header>
@@ -52,7 +50,7 @@ const sideLogo = isPrevention ? logoGaming : logoPrevention;
         </template>
         <div v-else class="side-menu">
             <div class="logo">
-                <img :src="sideLogo" :alt="`logo side`">
+                <img :src="logo" :alt="`logo side`">
             </div>
             <div class="nav-container">
                 <Menu :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
