@@ -62,7 +62,7 @@ const profiles: TwitchProfile[] = await fetchUsers(userlist)
 				user: user,
 				stream: streams.find((v) => v.user_id == user.id)
 			}
-		}).sort((a, b) => userlist.findIndex((o) => o == a.user.login) - userlist.findIndex((o) => o == b.user.login));
+		}).sort((a, b) => userlist.indexOf(b.user.login) - userlist.indexOf(a.user.login));
 	});
 
 </script>
