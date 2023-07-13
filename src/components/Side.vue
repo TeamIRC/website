@@ -3,6 +3,8 @@ import { PropType } from 'vue';
 import Menu from './Menu.vue';
 import logoGaming from '../assets/logo_gaming.png';
 import logoPrevention from '../assets/logo_prevention.png';
+import logoTwitch from '../assets/icon-twitch.png';
+import logoTwitter from '../assets/icon-twitter.png';
 
 const props = defineProps({
     current: {
@@ -54,12 +56,12 @@ const logo = props.root == "prevention" ? logoPrevention : logoGaming;
             <div class="menu-footer">
                 <div class="social-media">
                     <a href="https://twitter.com/team_irc">
-                        <img src="../assets/icon-twitter.png" alt="twitter" />
+                        <img :src="logoTwitter" alt="twitter" />
                     </a>
                 </div>
                 <div class="social-media">
                     <a href="https://www.twitch.tv/team_irc">
-                        <img src="../assets/icon-twitch.png" alt="twitch" />
+                        <img :src="logoTwitch" alt="twitch" />
                     </a>
                 </div>
             </div>
