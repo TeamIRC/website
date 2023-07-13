@@ -87,6 +87,7 @@ nav {
 .side-menu {
     position: relative;
     width: 360px;
+    height: 100vh;
 }
 
 .nav-container {
@@ -111,8 +112,9 @@ nav {
     position: absolute;
     left: 0px;
     right: 0px;
-    bottom: 16px;
+    bottom: 32px;
     justify-content: center;
+    gap: 8px;
 }
 
 .social-media {
