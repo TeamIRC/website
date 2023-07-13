@@ -52,7 +52,9 @@ async function fetchStreams(ids: string[]): Promise<TwitchStream[]> {
 	} else return Promise.reject(new Error(`No response`));
 }
 
-const profiles: TwitchProfile[] = await fetchUsers(props.content.userlist)
+const userlist = props.content.userlist;
+
+const profiles: TwitchProfile[] = await fetchUsers(userlist)
 	.then(async (users) => {
 		const streams = await fetchStreams(users.map(v => v.id));
 		return users.map((user) => {
@@ -60,7 +62,7 @@ const profiles: TwitchProfile[] = await fetchUsers(props.content.userlist)
 				user: user,
 				stream: streams.find((v) => v.user_id == user.id)
 			}
-		});
+		}).sort((a, b) => userlist.findIndex((o) => o == a.user.login) - userlist.findIndex((o) => o == b.user.login));
 	});
 
 </script>
