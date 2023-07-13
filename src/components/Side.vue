@@ -3,8 +3,8 @@ import { PropType } from 'vue';
 import Menu from './Menu.vue';
 import logoGaming from '../assets/logo_gaming.png';
 import logoPrevention from '../assets/logo_prevention.png';
-import logoTwitch from '../assets/icon-twitch.png';
-import logoTwitter from '../assets/icon-twitter.png';
+import logoTwitch from '../assets/icon-twitch.svg';
+import logoTwitter from '../assets/icon-twitter.svg';
 
 const props = defineProps({
     current: {
