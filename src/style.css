@@ -45,3 +45,7 @@ a {
     height: calc(100vh - 360px);
     overflow-y: auto;
 }
+
+svg.fill-current path {
+    fill: currentcolor;
+}  

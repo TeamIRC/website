@@ -49,9 +49,6 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 #side-left :deep(a.router-link-active) {
 	color: var(--primary-dk-3);
 }
-#side-left :deep(.social-media) {
-	color: var(--primary-dk-1);
-}
 
 #side-right {
 	background-color: var(--secondary-dk-1);
@@ -69,9 +66,6 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 #side-right :deep(a:active),
 #side-right :deep(a.router-link-active) {
 	color: var(--primary-lt-3);
-}
-#side-right :deep(.social-media) {
-	color: var(--primary-lt-1);
 }
 
 .current {
