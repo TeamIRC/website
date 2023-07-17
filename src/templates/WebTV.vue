@@ -61,8 +61,15 @@ watch(() => props.edit,
 }
 
 .card {
+    text-align: center;
+    font-weight: bold;
+	background-color: var(--secondary-dk-2);
 	border: 1px solid var(--secondary-lt-2);
 	border-radius: 16px;
-	background-color: var(--secondary-dk-2);
+    padding: 16px;
+}
+
+.card img {
+    border-radius: 50%;
 }
 </style>
