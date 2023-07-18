@@ -28,7 +28,7 @@ const logo = props.root == "prevention" ? logoPrevention : logoGaming;
     <div class="side">
         <template v-if="current">
             <header>
-                <div class="logo">
+                <div id="main-logo" class="logo">
                     <img :src="logo" :alt="`logo ${root}`">
                 </div>
                 <Menu class="menu-default" :root="root" :routes="routes"></Menu>

@@ -35,6 +35,9 @@ watch(
 			<div class="image-container">
 				<img :src="image" />
 			</div>
+			<Teleport id="image-ext" to="#main-logo">
+				<img :src="image" />
+			</Teleport>
 			<div class="description" v-html="description"></div>
 		</div>
 	</div>
@@ -67,5 +70,20 @@ img {
 	max-width: calc(80% - 344px);
 	margin: auto;
 	text-align: center;
+}
+
+#image-ext {
+	display: none;
+}
+
+@media screen and (max-width: 360px) /*Phone media querie*/
+{
+	.image-container {
+		display: none;
+	}
+	
+	#image-ext {
+		display: block;
+	}
 }
 </style>
