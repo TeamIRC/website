@@ -37,7 +37,7 @@ defineExpose({ toggle });
 
 button {
     width: 100%;
-    height: 2em;
-    font-size: 2em;
+    height: 64px;
+    font-size: 1.66em;
 }
 </style>

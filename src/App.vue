@@ -68,6 +68,16 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 	color: var(--primary-lt-3);
 }
 
+#side-left :deep(button) {
+    background-color: var(--secondary-lt-4);
+    border-color: var(--secondary-dk-4);
+}
+
+#side-right :deep(button) {
+    background-color: var(--primary-lt-4);
+    border-color: var(--primary-dk-4);
+}
+
 .current {
 	width: 100%;
 }
