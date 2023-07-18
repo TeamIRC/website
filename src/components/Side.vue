@@ -137,10 +137,9 @@ header .menu-mobile {
     header, main {
 	    max-width: calc(100% - 32px);
     }
-    
+
     header {
         flex-direction: column;
-        width: 100%;
         height: 33vh;
 		text-align: center; 
     /*    font-size: 22px;  */   

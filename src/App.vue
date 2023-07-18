@@ -115,7 +115,8 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 		flex-flow: column;
 	}
 
-	#side-right :deep(.page) {
+	#side-right :deep(header),
+	#side-right :deep(main) {
 		position: absolute;
 		left: 32px;
 	}
