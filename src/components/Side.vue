@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, onMounted, ref, watch } from 'vue';
 import Menu from './Menu.vue';
 import logoGaming from '../assets/logo_gaming.png';
 import logoPrevention from '../assets/logo_prevention.png';
@@ -23,8 +23,18 @@ const props = defineProps({
 });
 
 const emits = defineEmits(["switch"])
+const route = useRoute();
 const logo = props.root == "prevention" ? logoPrevention : logoGaming;
-const title = props.routes.find(v => v.path == useRoute().path.split('/')[2])?.title
+const title = ref("");
+
+function setTitle() {
+    title.value = props.routes.find(
+        v => v.path == route.path.split('/')[2]
+    )?.title??""
+}
+
+watch(() => route.path, setTitle);
+onMounted(() => setTitle());
 </script>
 
 <template>
