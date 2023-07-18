@@ -120,5 +120,9 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 		position: absolute;
 		left: 32px;
 	}
+
+	#side-right :deep(main) {
+		top: 33vh;
+	}
 }
 </style>
