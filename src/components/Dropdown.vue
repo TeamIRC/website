@@ -3,9 +3,9 @@
         <slot name="selector">
             <button @click="toggle()">
                 <i v-if="icon" :class="icon"></i>
-                <h1>
+                <div>
                     {{ label }}
-                </h1>
+                </div>
             </button>
         </slot>
         <div class="overlay" v-show="show">
