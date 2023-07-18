@@ -160,7 +160,12 @@ header .menu-mobile {
         width: auto;
         height: calc(100% - 48px);
     }
+}
+</style>
 
+<style>
+@media screen and (max-width: 360px) /*Phone media querie*/
+{
     .logo > img {
         display: none;
     }
