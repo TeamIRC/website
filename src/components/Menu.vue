@@ -15,7 +15,7 @@ const emits = defineEmits(["navigate"])
 </script>
 
 <template>
-  <nav class="menu">
+  	<nav class="menu">
 			<router-link
 				v-for="route in routes"
         @click="emits('navigate')"

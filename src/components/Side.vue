@@ -4,6 +4,8 @@ import Menu from './Menu.vue';
 import logoGaming from '../assets/logo_gaming.png';
 import logoPrevention from '../assets/logo_prevention.png';
 import SVGIcon from './SVGIcon.vue';
+import Dropdown from './Dropdown.vue';
+import { useRoute } from 'vue-router';
 
 const props = defineProps({
     current: {
@@ -22,6 +24,7 @@ const props = defineProps({
 
 const emits = defineEmits(["switch"])
 const logo = props.root == "prevention" ? logoPrevention : logoGaming;
+const title = props.routes.find(v => v.path == useRoute().path.split('/')[2])?.title
 </script>
 
 <template>
@@ -32,7 +35,9 @@ const logo = props.root == "prevention" ? logoPrevention : logoGaming;
                     <img :src="logo" :alt="`logo ${root}`">
                 </div>
                 <Menu class="menu-default" :root="root" :routes="routes"></Menu>
-                <SelectMenu class="menu-mobile"></SelectMenu>
+                <Dropdown class="menu-mobile" :label="title">
+                    <Menu :root="root" :routes="routes"></Menu>
+                </Dropdown>
             </header>
             <main>
                 <router-view :root="root" v-slot="{ Component }"
