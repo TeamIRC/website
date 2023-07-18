@@ -56,6 +56,17 @@ svg.fill-current path {
     text-align: center;
 }
 
+@media screen and (max-width: 360px) /*Phone media querie*/
+{
+	.two-sides {
+		height: 64vh;
+        flex-direction: column;
+	}
+    .two-sides > div {
+        width: calc(100% - 64px);
+    }
+}
+
 .theme-right {
 	background-color: var(--secondary-dk-1);
 	color: var(--primary-lt-1);
