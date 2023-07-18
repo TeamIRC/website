@@ -53,7 +53,6 @@ const onModified = async (c: string) => await fetch(
 }
 
 .page {
-	max-width: calc(100% - 32px);
     height: calc(100vh - 360px);
     overflow-y: auto;
 }
@@ -62,6 +61,11 @@ const onModified = async (c: string) => await fetch(
 {
 	.page {
 		height: 64vh;
+		scroll-snap-type: y mandatory;
+	}
+
+	#title {
+		display: none;
 	}
 }
 </style>

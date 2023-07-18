@@ -78,8 +78,7 @@ img {
 @media screen and (max-width: 360px) /*Phone media querie*/
 {
 	.list {
-		height: calc(100% - 2rem);
-		scroll-snap-type: y mandatory;
+		height: 100%;
 	}
 
 	.list > div {

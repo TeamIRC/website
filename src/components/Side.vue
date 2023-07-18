@@ -134,6 +134,10 @@ header .menu-mobile {
 
 @media screen and (max-width: 360px) /*Phone media querie*/
 {
+    header, main {
+	    max-width: calc(100% - 32px);
+    }
+    
     header {
         flex-direction: column;
         width: 100%;
