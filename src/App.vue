@@ -111,8 +111,8 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 
 @media screen and (max-width: 360px) /*Phone media querie*/
 {
-	.side header,
-	.side main {
+	.side :deep(header),
+	.side :deep(main) {
 		position: absolute;
 	}
 
