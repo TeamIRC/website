@@ -33,7 +33,6 @@ nav {
   	text-align: center;
 	font-size: 1.125rem;
 	margin: auto;
-	padding: 32px;
 }
 
 a {
