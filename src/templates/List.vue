@@ -92,7 +92,7 @@ img {
 	}
 
 	.description {
-		max-width: none;
+		margin: unset;
 	}
 }
 </style>
