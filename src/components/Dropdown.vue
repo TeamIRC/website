@@ -34,5 +34,8 @@ defineExpose({ toggle });
 <style scoped>
 .overlay {
     position: absolute;
+    width: 100%;
+    z-index: 1;
+    padding: 16px 0;
 }
 </style>
