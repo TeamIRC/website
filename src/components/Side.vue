@@ -69,10 +69,7 @@ onMounted(() => setTitle());
                 <img :src="logo" :alt="`logo side`">
             </div>
             <div class="nav-container">
-                <Menu class="menu-default" :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
-                <Dropdown class="menu-mobile" :label="title">
-                    <Menu :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
-                </Dropdown>
+                <Menu :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
             </div>
             <div class="menu-footer">
                 <div class="social-media">
@@ -174,7 +171,7 @@ header .menu-mobile {
 
     .logo {
         width: auto;
-        height: 33vh;
+        height: calc(33vh - 2em - 48px);
     }
 
     header .logo {
