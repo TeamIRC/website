@@ -60,7 +60,7 @@ svg.fill-current path {
 {
 	.two-sides {
 		height: 64vh;
-        flex-direction: column;
+        flex-flow: column;
 	}
     .two-sides > div {
         width: calc(100% - 64px);
