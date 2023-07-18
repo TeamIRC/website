@@ -158,7 +158,7 @@ header .menu-mobile {
 
     .logo {
         width: auto;
-        height: calc(100% - 32px);
+        height: calc(100% - 48px);
     }
 }
 </style>
