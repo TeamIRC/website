@@ -51,4 +51,16 @@ const onModified = async (c: string) => await fetch(
 	text-align: center;
 	font-size: 2rem
 }
+
+.page {
+    height: calc(100vh - 360px);
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 360px) /*Phone media querie*/
+{
+	.page {
+		height: 64vh;
+	}
+}
 </style>
