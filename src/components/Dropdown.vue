@@ -2,10 +2,7 @@
     <div ref="target">
         <slot name="selector">
             <button @click="toggle()">
-                <i v-if="icon" :class="icon"></i>
-                <div>
-                    {{ label }}
-                </div>
+                {{ label }}
             </button>
         </slot>
         <div class="overlay" v-show="show">
@@ -18,7 +15,6 @@ import { onClickOutside } from '@vueuse/core'
 import { ref } from 'vue';
 
 defineProps({
-    icon: { type: String },
     label: { type: String }
 });
 

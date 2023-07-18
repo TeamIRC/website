@@ -84,7 +84,7 @@ img {
 	.list > div {
 		display: flex;
 		height: 100%;
-		margin: 8px;
+		padding: 8px;
 		scroll-snap-align: start;
 	}
 
