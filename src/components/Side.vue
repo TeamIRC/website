@@ -106,11 +106,6 @@ nav {
     text-align: center;
 }
 
-.logo > img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
 .menu-footer {
     display: flex;
     position: absolute;
@@ -164,6 +159,11 @@ header .menu-mobile {
 </style>
 
 <style>
+.logo > img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
 @media screen and (max-width: 360px) /*Phone media querie*/
 {
     .logo > img {
