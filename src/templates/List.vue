@@ -85,5 +85,9 @@ img {
 	#image-ext {
 		display: block;
 	}
+
+	.description {
+		max-width: none;
+	}
 }
 </style>
