@@ -143,7 +143,7 @@ nav {
 	align-items: center;
 }
 
-header .menu-mobile {
+.menu-mobile {
     display: none;
 }
 
