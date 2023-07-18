@@ -78,12 +78,13 @@ img {
 @media screen and (max-width: 360px) /*Phone media querie*/
 {
 	.list {
+		height: calc(100% - 2rem);
 		scroll-snap-type: y mandatory;
 	}
 
 	.list > div {
 		display: flex;
-		min-height: 344px;
+		height: 100%;
 		margin: 8px;
 		scroll-snap-align: start;
 	}
