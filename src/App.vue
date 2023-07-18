@@ -108,4 +108,16 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 #side-right :deep(> header) {
     flex-flow: row-reverse;
 }
+
+@media screen and (max-width: 360px) /*Phone media querie*/
+{
+	#side-right :deep(> header) {
+		flex-flow: column;
+	}
+
+	#side-right :deep(.page) {
+		position: absolute;
+		left: 32px;
+	}
+}
 </style>
