@@ -31,7 +31,8 @@ const logo = props.root == "prevention" ? logoPrevention : logoGaming;
                 <div class="logo">
                     <img :src="logo" :alt="`logo ${root}`">
                 </div>
-                <Menu :root="root" :routes="routes"></Menu>
+                <Menu class="menu-default" :root="root" :routes="routes"></Menu>
+                <SelectMenu class="menu-mobile"></SelectMenu>
             </header>
             <main>
                 <router-view :root="root" v-slot="{ Component }"
@@ -130,5 +131,34 @@ nav {
     width: 100%;
     height: 100%;
 	align-items: center;
+}
+
+header .menu-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 360px) /*Phone media querie*/
+{
+    header {   
+        width: 100%;
+        height: auto;
+        max-height: 33vh;
+		text-align: center; 
+    /*    font-size: 22px;  */   
+    }
+
+    header .menu-mobile {
+        display: block;
+        height: 32px;
+    }
+
+    header .menu-default {
+        display: none;
+    }
+
+    .logo {
+        width: auto;
+        height: calc(100% - 32px);
+    }
 }
 </style>
