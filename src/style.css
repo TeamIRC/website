@@ -21,6 +21,25 @@
     --secondary-dk-1: #222222;
 }
 
+@media screen and (max-width: 360px) /*Phone media querie*/
+{
+    header {
+        display: none; 
+		text-align: justify;
+		border: 1px solid black;    
+        width: 200px;
+        font-size: 22px;     
+    }
+
+    img {
+        width: 50%;
+        min-width: 100px;
+    }
+
+}
+
+
+
 body {
     overflow: hidden;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
