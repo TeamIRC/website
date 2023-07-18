@@ -160,5 +160,13 @@ header .menu-mobile {
         width: auto;
         height: calc(100% - 48px);
     }
+
+    .logo > img {
+        display: none;
+    }
+
+    .logo > img:last-child {
+        display: block;
+    }
 }
 </style>

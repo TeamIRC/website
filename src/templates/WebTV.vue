@@ -32,7 +32,7 @@ watch(() => props.edit,
 						<img :src='user.profile_image_url' />
 						<h2>{{ user.display_name }}</h2>
 						<p>{{ user.description }}</p>
-						<div v-if="stream">
+						<div class="stream" v-if="stream">
 							<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
 							<h3>{{ stream.title }}</h3>
 							<p>{{ stream.viewer_count }} viewers</p>
@@ -71,5 +71,13 @@ watch(() => props.edit,
 
 .card img {
     border-radius: 50%;
+}
+
+.stream {
+	font-weight: unset;
+	background-color: var(--secondary-dk-3);
+	border: 1px solid var(--secondary-lt-3);
+	border-radius: 16px;
+    padding: 16px;
 }
 </style>

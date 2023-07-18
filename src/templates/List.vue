@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { watch } from 'vue';
+import { vElementVisibility } from '@vueuse/components';
+import { ref, watch } from 'vue';
 import { ListContent } from '../types';
 const props = defineProps<{
 	content: ListContent,
@@ -7,7 +8,11 @@ const props = defineProps<{
 }>();
 const emit = defineEmits<{ 
 	(event: "modified", content: ListContent): void }>()
-let list = props.content;
+const list = props.content;
+const isVisible = ref(new Array<boolean>(list.items.length).fill(false))
+function onElementVisibility(state: boolean, element: number) {
+  isVisible.value[element] = state;
+}
 watch(
     () => props.edit,
     () => {
@@ -31,11 +36,11 @@ watch(
 
 <template>
 	<div class="list">
-		<div v-for="{ image, description } in content.items">
+		<div v-for="{ image, description }, i in content.items" v-element-visibility="(state: boolean) => onElementVisibility(state, i)">
 			<div class="image-container">
 				<img :src="image" />
 			</div>
-			<Teleport id="image-ext" to="#main-logo">
+			<Teleport v-if="isVisible[i]" id="image-ext" to="#main-logo">
 				<img :src="image" />
 			</Teleport>
 			<div class="description" v-html="description"></div>
