@@ -139,10 +139,10 @@ header .menu-mobile {
 
 @media screen and (max-width: 360px) /*Phone media querie*/
 {
-    header {   
+    header {
+        flex-direction: column;
         width: 100%;
-        height: auto;
-        max-height: 33vh;
+        height: 33vh;
 		text-align: center; 
     /*    font-size: 22px;  */   
     }
