@@ -49,12 +49,6 @@ watch(
 </template>
 
 <style scoped>
-.list > div {
-	display: flex;
-	min-height: 344px;
-	margin: 8px;
-}
-
 .image-container {
 	display: flex;
 	width: 344px;
@@ -83,6 +77,17 @@ img {
 
 @media screen and (max-width: 360px) /*Phone media querie*/
 {
+	.list {
+		scroll-snap-type: y mandatory;
+	}
+
+	.list > div {
+		display: flex;
+		min-height: 344px;
+		margin: 8px;
+		scroll-snap-align: start;
+	}
+
 	.image-container {
 		display: none;
 	}
@@ -93,7 +98,6 @@ img {
 
 	.description {
 		max-width: 100%;
-		margin: unset;
 	}
 }
 </style>
