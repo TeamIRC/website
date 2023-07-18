@@ -3,9 +3,9 @@
         <slot name="selector">
             <button @click="toggle()">
                 <i v-if="icon" :class="icon"></i>
-                <div>
+                <h1>
                     {{ label }}
-                </div>
+                </h1>
             </button>
         </slot>
         <div class="overlay" v-show="show">
@@ -37,5 +37,11 @@ defineExpose({ toggle });
     width: 100%;
     z-index: 1;
     padding: 16px 0;
+}
+
+button {
+    width: 100%;
+    height: 2em;
+    font-size: 2em;
 }
 </style>
