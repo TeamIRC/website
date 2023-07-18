@@ -171,7 +171,7 @@ header .menu-mobile {
     }
 
     .logo > img:last-child {
-        display: block;
+        display: initial;
     }
 }
 </style>

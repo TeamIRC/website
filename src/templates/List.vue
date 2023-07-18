@@ -92,6 +92,7 @@ img {
 	}
 
 	.description {
+		max-width: 100%;
 		margin: unset;
 	}
 }
