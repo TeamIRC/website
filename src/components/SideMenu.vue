@@ -38,8 +38,8 @@ watch(isSwiping, (n: boolean) => {
 });
 const colorSide = props.side == "left" ? "dk" : "lt";
 const style = getComputedStyle(document.querySelector(':root')!);
-const ltColor = style.getPropertyValue(`--secondary-${colorSide}-4`);
-const dkColor = style.getPropertyValue(`--secondary-${colorSide}-2`);
+const ltColor = style.getPropertyValue(`--secondary-${colorSide}-5`);
+const dkColor = style.getPropertyValue(`--secondary-${colorSide}-1`);
 const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
 </script>
 
