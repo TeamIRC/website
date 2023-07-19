@@ -61,6 +61,11 @@ img {
 	height: auto;
 }
 
+.list > div {
+	display: flex;
+	padding: 8px;
+}
+
 .list > div:nth-child(even) {
 	flex-direction: row-reverse;
 }
@@ -82,9 +87,7 @@ img {
 	}
 
 	.list > div {
-		display: flex;
 		min-height: 100%;
-		padding: 8px;
 		scroll-snap-align: start;
 	}
 
