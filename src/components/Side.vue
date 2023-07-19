@@ -82,6 +82,11 @@ onMounted(() => setTitle());
                         <SVGIcon name="twitch" alt="twitch" width="32" height="32" />
                     </a>
                 </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/team_irc">
+                        <SVGIcon name="instagram" alt="instagram" width="32" height="32" />
+                    </a>
+                </div>
             </div>
         </div>
 	</div>
