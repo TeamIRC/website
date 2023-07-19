@@ -40,8 +40,8 @@ watch(
 			<div class="image-container">
 				<img :src="image" />
 			</div>
-			<Teleport v-if="isVisible[i]" id="image-ext" to="#main-logo">
-				<img :src="image" />
+			<Teleport v-if="isVisible[i]" to="#main-logo">
+				<img class="image-ext" :src="image" />
 			</Teleport>
 			<div class="description" v-html="description"></div>
 		</div>
@@ -71,7 +71,7 @@ img {
 	text-align: center;
 }
 
-#image-ext {
+.image-ext {
 	display: none;
 }
 
@@ -92,8 +92,8 @@ img {
 		display: none;
 	}
 	
-	#image-ext {
-		display: block;
+	.image-ext {
+		display: initial;
 	}
 
 	.description {

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, ref } from 'vue';
 import Menu from './Menu.vue';
 import SVGIcon from './SVGIcon.vue';
+import { onClickOutside } from '@vueuse/core';
 
 defineProps({
     logo: {
@@ -17,8 +18,9 @@ defineProps({
         required: true
     }
 });
-
-const emits = defineEmits(["switch"]);
+const emits = defineEmits(["switch", "close"]);
+const target = ref();
+onClickOutside(target, () => emits('close'));
 </script>
 
 <template>
@@ -26,10 +28,10 @@ const emits = defineEmits(["switch"]);
         <div class="logo">
             <img :src="logo" :alt="`logo side`">
         </div>
-        <div class="nav-container">
+        <div ref="target" class="nav-container">
             <Menu :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
         </div>
-        <div class="menu-footer">
+        <div ref="target" class="menu-footer">
             <div class="social-media">
                 <a href="https://twitter.com/team_irc">
                     <SVGIcon name="twitter" alt="twitter" width="32" height="32" />
