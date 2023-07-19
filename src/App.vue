@@ -103,6 +103,27 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 	right: 0px;
 }
 
+.menu:not(.active) {
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+ 	animation-name: bounce;
+}
+
+@keyframes bounce {
+  from {
+    width: 32px;
+  }
+  75% {
+    width: 32px;
+  }
+  90% {
+    width: 40px;
+  }
+  to {
+    width: 32px;
+  }
+}
+
 .menu.active {
 	width: 360px;
 }
