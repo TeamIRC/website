@@ -26,12 +26,12 @@ const emits = defineEmits(["switch", "open", "close"]);
 const menu = ref();
 const target = ref();
 const hover = useElementHover(menu);
+const { isSwiping, direction } = useSwipe(menu);
 watch(hover, (n: boolean) =>
-    n
+    !isSwiping && n
         ? emits("open") 
         : emits("close")
 );
-const { isSwiping, direction } = useSwipe(menu);
 watch(isSwiping, (n: boolean) =>
     n && direction.value == props.direction
         ? emits("close")
