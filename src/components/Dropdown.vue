@@ -39,5 +39,6 @@ button {
     width: 100%;
     height: 64px;
     font-size: 1.66em;
+    font-variant: small-caps;
 }
 </style>
