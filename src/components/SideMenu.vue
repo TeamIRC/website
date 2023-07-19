@@ -5,7 +5,7 @@ import SVGIcon from './SVGIcon.vue';
 import { useElementHover, useSwipe } from '@vueuse/core';
 
 const props = defineProps({
-    direction: {
+    side: {
         type: String,
         required: true
     },
@@ -31,11 +31,16 @@ function setActive(v: boolean) {
     isActive.value = v;
 }
 const hover = useElementHover(menu);
-const { isSwiping, direction: dir } = useSwipe(menu);
+const { isSwiping, direction } = useSwipe(menu);
 watch(hover, (n: boolean) => setActive(n));
 watch(isSwiping, (n: boolean) => {
-    if (n) setActive(dir.value != props.direction);
+    if (n) setActive(direction.value != props.side);
 });
+const colorSide = props.side == "left" ? "dk" : "lt";
+const style = getComputedStyle(menu.value);
+const ltColor = style.getPropertyValue(`--secondary-${colorSide}-4`);
+const dkColor = style.getPropertyValue(`--secondary-${colorSide}-2`);
+const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
 </script>
 
 <template>
@@ -63,42 +68,36 @@ watch(isSwiping, (n: boolean) => {
                 </a>
             </div>
         </div>
-        <div id="indicator" :class="direction">
+        <div id="indicator" :class="side">
             <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
                 <linearGradient id="gradient-left" x2="1">
-                    <stop offset="0%" stop-color="var(--secondary-lt-5)" />
-                    <stop offset="100%" stop-color="var(--secondary-lt-5)">
+                    <stop offset="0%" :stop-color="ltColor" />
+                    <stop offset="100%" :stop-color="ltColor">
                         <animate attributeName="stop-color" dur="4s"
-                            values="var(--secondary-lt-5);
-                                    var(--secondary-lt-1);
-                                    var(--secondary-lt-1);
-                                    var(--secondary-lt-5);"
+                            :values="colorList"
                             repeatCount="indefinite" />
                         <animate attributeName="offset" dur="4s"
                             values="1;1;0;0" repeatCount="indefinite" />
                     </stop>
-                    <stop offset="100%" stop-color="var(--secondary-lt-5)" />
+                    <stop offset="100%" :stop-color="ltColor" />
                 </linearGradient>
                 <linearGradient id="gradient-right" x2="1">
-                    <stop offset="0%" stop-color="var(--secondary-lt-5)" />
-                    <stop offset="0%" stop-color="var(--secondary-lt-1)">
+                    <stop offset="0%" :stop-color="ltColor" />
+                    <stop offset="0%" :stop-color="ltColor">
                         <animate attributeName="stop-color" dur="4s"
-                            values="var(--secondary-lt-5);
-                                    var(--secondary-lt-1);
-                                    var(--secondary-lt-1);
-                                    var(--secondary-lt-5);"
+                            :values="colorList"
                             repeatCount="indefinite" />
                         <animate attributeName="offset" dur="4s"
                             values="0;0;1;1" repeatCount="indefinite" />
                     </stop>
-                    <stop offset="100%" stop-color="var(--secondary-lt-5)" />
+                    <stop offset="100%" :stop-color="ltColor" />
                 </linearGradient>
             </svg>
             <SVGIcon
                 id="left"
                 v-show="isActive 
-                    ? direction == 'left'
-                    : direction == 'right'"
+                    ? side == 'left'
+                    : side == 'right'"
                 name="arrow-left-double-line"
                 width="32"
                 height="32"
@@ -106,8 +105,8 @@ watch(isSwiping, (n: boolean) => {
             <SVGIcon
                 id="right"
                 v-show="!isActive 
-                    ? direction == 'left'
-                    : direction == 'right'"
+                    ? side == 'left'
+                    : side == 'right'"
                 name="arrow-right-double-line"
                 width="32"
                 height="32"

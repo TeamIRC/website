@@ -64,7 +64,7 @@ onMounted(() => setTitle());
             </main>
         </template>
         <SideMenu v-else
-            :direction="root == 'prevention' ? 'left' : 'right'"
+            :side="root == 'prevention' ? 'left' : 'right'"
             :logo="logo"
             :root="root"
             :routes="routes"
