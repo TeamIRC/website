@@ -66,16 +66,20 @@ watch(isSwiping, (n: boolean) => {
         <div id="indicator" :class="direction">
             <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
                 <linearGradient id="gradient-left" x2="1">
-                    <stop offset="0%" stop-color="#ddd">
-                        <animate attributeName="stop-color" dur="1000ms" from="#ddd" to="#fff" repeatCount="indefinite" />
+                    <stop offset="100%" stop-color="var(--secondary-lt-5)" />
+                    <stop offset="100%" stop-color="var(--secondary-lt-1)">
+                        <animate attributeName="offset" dur="1000ms"
+                            from="100%" to="0%" repeatCount="indefinite" />
                     </stop>
-                    <stop offset="100%" stop-color="#fff" />
+                    <stop offset="100%" stop-color="var(--secondary-lt-5)" />
                 </linearGradient>
                 <linearGradient id="gradient-right" x2="1">
-                    <stop offset="0%" stop-color="#fff" />
-                    <stop offset="100%" stop-color="#ddd">
-                        <animate attributeName="stop-color" dur="1000ms" from="#ddd" to="#fff" repeatCount="indefinite" />
+                    <stop offset="100%" stop-color="var(--secondary-lt-5)" />
+                    <stop offset="0%" stop-color="var(--secondary-lt-1)">
+                        <animate attributeName="offset" dur="1000ms"
+                            from="0%" to="100%" repeatCount="indefinite" />
                     </stop>
+                    <stop offset="100%" stop-color="var(--secondary-lt-5)" />
                 </linearGradient>
             </svg>
             <SVGIcon
