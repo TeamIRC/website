@@ -69,7 +69,7 @@ watch(isSwiping, (n: boolean) => {
                     <stop offset="100%" stop-color="var(--secondary-lt-5)" />
                     <stop offset="100%" stop-color="var(--secondary-lt-1)">
                         <animate attributeName="offset" dur="1000ms"
-                            from="100%" to="0%" repeatCount="indefinite" />
+                            from="1" to="0" repeatCount="indefinite" />
                     </stop>
                     <stop offset="100%" stop-color="var(--secondary-lt-5)" />
                 </linearGradient>
@@ -77,7 +77,7 @@ watch(isSwiping, (n: boolean) => {
                     <stop offset="100%" stop-color="var(--secondary-lt-5)" />
                     <stop offset="0%" stop-color="var(--secondary-lt-1)">
                         <animate attributeName="offset" dur="1000ms"
-                            from="0%" to="100%" repeatCount="indefinite" />
+                            from="0" to="1" repeatCount="indefinite" />
                     </stop>
                     <stop offset="100%" stop-color="var(--secondary-lt-5)" />
                 </linearGradient>
