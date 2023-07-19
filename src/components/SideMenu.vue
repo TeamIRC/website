@@ -37,7 +37,7 @@ watch(isSwiping, (n: boolean) => {
     if (n) setActive(direction.value != props.side);
 });
 const colorSide = props.side == "left" ? "dk" : "lt";
-const style = getComputedStyle(menu.value);
+const style = getComputedStyle(document.querySelector(':root')!);
 const ltColor = style.getPropertyValue(`--secondary-${colorSide}-4`);
 const dkColor = style.getPropertyValue(`--secondary-${colorSide}-2`);
 const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
