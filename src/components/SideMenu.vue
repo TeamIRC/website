@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { PropType, ref } from 'vue';
+import { PropType, ref, watch } from 'vue';
 import Menu from './Menu.vue';
 import SVGIcon from './SVGIcon.vue';
-import { onClickOutside } from '@vueuse/core';
+import { onClickOutside, useElementHover } from '@vueuse/core';
 
 defineProps({
     logo: {
@@ -18,13 +18,16 @@ defineProps({
         required: true
     }
 });
-const emits = defineEmits(["switch", "close"]);
+const emits = defineEmits(["switch", "open", "close"]);
+const menu = ref();
 const target = ref();
+const hover = useElementHover(menu);
+watch(hover, (n: boolean) => n ? emits("open") : emits("close"));
 onClickOutside(target, () => emits('close'));
 </script>
 
 <template>
-    <div class="side-menu">
+    <div ref="menu" class="side-menu">
         <div class="logo">
             <img :src="logo" :alt="`logo side`">
         </div>
@@ -53,7 +56,7 @@ onClickOutside(target, () => emits('close'));
 
 <style scoped>
 .side-menu {
-    position: relative;
+    position: absolute;
     width: 360px;
     height: 100vh;
 }

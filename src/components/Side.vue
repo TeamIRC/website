@@ -21,12 +21,11 @@ const props = defineProps({
         required: true
     }
 });
-
 const emits = defineEmits(["switch"])
 const route = useRoute();
 const logo = props.root == "prevention" ? logoPrevention : logoGaming;
 const title = ref("");
-
+const active = ref(false);
 function setTitle() {
     title.value = props.routes.find(
         v => v.path == route.path.split('/')[2]
@@ -38,7 +37,7 @@ onMounted(() => setTitle());
 </script>
 
 <template>
-    <div class="side">
+    <div class="side" :class="active ? 'active' : ''">
         <template v-if="current">
             <header>
                 <div id="main-logo" class="logo">
@@ -64,7 +63,13 @@ onMounted(() => setTitle());
                 </router-view>
             </main>
         </template>
-        <SideMenu v-else :logo="logo" :root="root" :routes="routes" @switch="emits('switch')" />
+        <SideMenu v-else
+            :logo="logo"
+            :root="root"
+            :routes="routes"
+            @switch="emits('switch')"
+            @open="active = true"
+            @close="active = false" />
 	</div>
 </template>
 
@@ -90,6 +95,14 @@ nav {
     max-width: 100%;
     margin: 8px;
     text-align: center;
+}
+
+.side-menu :deep(> div) {
+    pointer-events: none;
+}
+
+.active .side-menu :deep(> div) {
+    pointer-events: all;
 }
 
 .menu-mobile {
