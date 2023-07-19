@@ -3,9 +3,9 @@ import { PropType, onMounted, ref, watch } from 'vue';
 import Menu from './Menu.vue';
 import logoGaming from '../assets/logo_gaming.png';
 import logoPrevention from '../assets/logo_prevention.png';
-import SVGIcon from './SVGIcon.vue';
 import Dropdown from './Dropdown.vue';
 import { useRoute } from 'vue-router';
+import SideMenu from './SideMenu.vue';
 
 const props = defineProps({
     current: {
@@ -64,31 +64,7 @@ onMounted(() => setTitle());
                 </router-view>
             </main>
         </template>
-        <div v-else class="side-menu">
-            <div class="logo">
-                <img :src="logo" :alt="`logo side`">
-            </div>
-            <div class="nav-container">
-                <Menu :root="root" :routes="routes" @navigate="emits('switch')"></Menu>
-            </div>
-            <div class="menu-footer">
-                <div class="social-media">
-                    <a href="https://twitter.com/team_irc">
-                        <SVGIcon name="twitter" alt="twitter" width="32" height="32" />
-                    </a>
-                </div>
-                <div class="social-media">
-                    <a href="https://www.twitch.tv/team_irc">
-                        <SVGIcon name="twitch" alt="twitch" width="32" height="32" />
-                    </a>
-                </div>
-                <div class="social-media">
-                    <a href="https://www.instagram.com/team_irc">
-                        <SVGIcon name="instagram" alt="instagram" width="32" height="32" />
-                    </a>
-                </div>
-            </div>
-        </div>
+        <SideMenu v-else :logo="logo" :root="root" :routes="routes" @switch="emits('switch')" />
 	</div>
 </template>
 
@@ -108,44 +84,11 @@ nav {
     width: 296px;
 }
 
-.side-menu {
-    position: relative;
-    width: 360px;
-    height: 100vh;
-}
-
-.nav-container {
-    display: flex;
-    height: 360px;
-}
-
 .logo {
     width: 344px;
     height: 344px;
     margin: 8px;
     text-align: center;
-}
-
-.menu-footer {
-    display: flex;
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 32px;
-    justify-content: center;
-    gap: 8px;
-}
-
-.social-media {
-    width: 32px;
-    height: 32px;
-}
-
-.social-media > a {
-    display: flex;
-    width: 100%;
-    height: 100%;
-	align-items: center;
 }
 
 .menu-mobile {
@@ -175,11 +118,6 @@ nav {
     }
 
     .logo {
-        width: auto;
-        height: calc(33vh - 2em - 48px);
-    }
-
-    header .logo {
         height: calc(100% - 2em - 48px);
     }
 }
