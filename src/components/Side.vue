@@ -87,6 +87,7 @@ nav {
 .logo {
     width: 344px;
     height: 344px;
+    max-width: 100%;
     margin: 8px;
     text-align: center;
 }
