@@ -65,7 +65,7 @@ watch(isSwiping, (n: boolean) => {
         </div>
         <div id="indicator" :class="direction">
             <SVGIcon
-                v-if="isActive 
+                v-show="isActive 
                     ? direction == 'left'
                     : direction == 'right'"
                 name="arrow-left-double-line"
@@ -73,7 +73,9 @@ watch(isSwiping, (n: boolean) => {
                 height="32"
                 />
             <SVGIcon
-                v-else
+                v-show="!isActive 
+                    ? direction == 'left'
+                    : direction == 'right'"
                 name="arrow-right-double-line"
                 width="32"
                 height="32" />
