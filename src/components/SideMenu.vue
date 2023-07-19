@@ -31,10 +31,10 @@ function setActive(v: boolean) {
     isActive.value = v;
 }
 const hover = useElementHover(menu);
-const { isSwiping, direction } = useSwipe(menu);
+const { isSwiping, direction: dir } = useSwipe(menu);
 watch(hover, (n: boolean) => setActive(n));
 watch(isSwiping, (n: boolean) => {
-    if (n) setActive(direction.value != props.direction);
+    if (n) setActive(dir.value != props.direction);
 });
 </script>
 
@@ -66,19 +66,20 @@ watch(isSwiping, (n: boolean) => {
         <div id="indicator" :class="direction">
             <SVGIcon
                 v-show="isActive 
-                    ? direction == 'left'
-                    : direction == 'right'"
+                    ? dir == 'left'
+                    : dir == 'right'"
                 name="arrow-left-double-line"
                 width="32"
                 height="32"
-                />
+            />
             <SVGIcon
                 v-show="!isActive 
-                    ? direction == 'left'
-                    : direction == 'right'"
+                    ? dir == 'left'
+                    : dir == 'right'"
                 name="arrow-right-double-line"
                 width="32"
-                height="32" />
+                height="32"
+            />
         </div>
     </div>
 </template>
