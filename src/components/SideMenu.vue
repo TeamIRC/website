@@ -2,9 +2,13 @@
 import { PropType, ref, watch } from 'vue';
 import Menu from './Menu.vue';
 import SVGIcon from './SVGIcon.vue';
-import { onClickOutside, useElementHover } from '@vueuse/core';
+import { useElementHover, useSwipe } from '@vueuse/core';
 
-defineProps({
+const props = defineProps({
+    direction: {
+        type: String,
+        required: true
+    },
     logo: {
         type: String,
         required: true
@@ -22,8 +26,17 @@ const emits = defineEmits(["switch", "open", "close"]);
 const menu = ref();
 const target = ref();
 const hover = useElementHover(menu);
-watch(hover, (n: boolean) => n ? emits("open") : emits("close"));
-onClickOutside(target, () => emits('close'));
+watch(hover, (n: boolean) =>
+    n
+        ? emits("open") 
+        : emits("close")
+);
+const { isSwiping, direction } = useSwipe(menu);
+watch(isSwiping, (n: boolean) =>
+    n && direction.value == props.direction
+        ? emits("close")
+        : emits("open")
+);
 </script>
 
 <template>
