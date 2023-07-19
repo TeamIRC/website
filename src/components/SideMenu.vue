@@ -28,15 +28,15 @@ const target = ref();
 const hover = useElementHover(menu);
 const { isSwiping, direction } = useSwipe(menu);
 watch(hover, (n: boolean) =>
-    !isSwiping && n
+    n
         ? emits("open") 
         : emits("close")
 );
-watch(isSwiping, (n: boolean) =>
-    n && direction.value == props.direction
+watch(isSwiping, (n: boolean) => {
+    if (n) direction.value == props.direction
         ? emits("close")
-        : emits("open")
-);
+        : emits("open");
+});
 </script>
 
 <template>
