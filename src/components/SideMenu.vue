@@ -25,17 +25,16 @@ const props = defineProps({
 const emits = defineEmits(["switch", "open", "close"]);
 const menu = ref();
 const target = ref();
+const isActive = ref(false);
+function setActive(v: boolean) {
+    v ? emits("open") : emits("close");
+    isActive.value = v;
+}
 const hover = useElementHover(menu);
 const { isSwiping, direction } = useSwipe(menu);
-watch(hover, (n: boolean) =>
-    n
-        ? emits("open") 
-        : emits("close")
-);
+watch(hover, (n: boolean) => setActive(n));
 watch(isSwiping, (n: boolean) => {
-    if (n) direction.value == props.direction
-        ? emits("close")
-        : emits("open");
+    if (n) setActive(direction.value != props.direction);
 });
 </script>
 
@@ -63,6 +62,21 @@ watch(isSwiping, (n: boolean) => {
                     <SVGIcon name="instagram" alt="instagram" width="32" height="32" />
                 </a>
             </div>
+        </div>
+        <div id="indicator" :class="direction">
+            <SVGIcon
+                v-if="isActive 
+                    ? direction == 'left'
+                    : direction == 'right'"
+                name="arrow-left-double-line"
+                width="32"
+                height="32"
+                />
+            <SVGIcon
+                v-else
+                name="arrow-right-double-line"
+                width="32"
+                height="32" />
         </div>
     </div>
 </template>
@@ -114,5 +128,18 @@ watch(isSwiping, (n: boolean) => {
         width: auto;
         height: calc(33vh - 2em - 48px);
     }
+}
+
+#indicator {
+    position: absolute;
+    top: 0px;
+}
+
+#indicator.left {
+    right: 0px;
+}
+
+#indicator.right {
+    left: 0px;
 }
 </style>
