@@ -92,14 +92,14 @@ svg.fill-current path {
 }
 
 #side-right {
-    --main-bg: var(--secondary-dk5-5);
+    --main-bg: var(--secondary-dk-5);
     --main-txt: var(--primary-lt-1);
-    --1-bg: var(--secondary-dk-2);
-    --1-txt: var(--secondary-lt-2);
-    --2-bg: var(--secondary-dk-3);
-    --2-txt: var(--secondary-lt-3);
-    --3-bg: var(--secondary-dk-4);
-    --3-txt: var(--secondary-lt-4);
+    --1-bg: var(--secondary-lt-2);
+    --1-txt: var(--secondary-dk-2);
+    --2-bg: var(--secondary-lt-3);
+    --2-txt: var(--secondary-dk-3);
+    --3-bg: var(--secondary-lt-4);
+    --3-txt: var(--secondary-dk-4);
 }
 
 .page {
