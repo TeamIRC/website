@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { watch } from 'vue';
+import { ref, watch } from 'vue';
 import TwitchClient from '../components/TwitchClient.vue';
 import { WebTVContent } from '../types';
+import TwitchEmbed from '../components/TwitchEmbed.vue';
 const props = defineProps<{
 	content: WebTVContent,
 	edit: boolean
@@ -17,6 +18,7 @@ watch(() => props.edit,
 			emit("modified", webTV);
 	}
 );
+const hideEmbed = ref(false);
 </script>
 
 <template>
@@ -25,8 +27,12 @@ watch(() => props.edit,
 			<template #fallback>
 				Chargement
 			</template>
-			<TwitchClient :content="content" v-slot="{profiles}">
-				<div id="embed"></div>
+			<TwitchClient :content="content" v-slot="{ profiles }">
+				<TwitchEmbed
+					id="embed"
+					:style="hideEmbed ? 'display:none' : ''"
+					:channel="profiles.find((u) => u.stream)?.stream?.user_id"
+					@error="hideEmbed = true" />
 				<div id="profiles">
 					<div class="card" v-for="{ user, stream } in profiles">
 						<img :src='user.profile_image_url' />
@@ -48,7 +54,6 @@ watch(() => props.edit,
 
 <style scoped>
 #embed {
-	display: none;
 	width: 100%;
 	aspect-ratio: 16 / 9;
 	background-color: #00000033;

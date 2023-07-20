@@ -35,8 +35,8 @@ twitchScript.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
 document.head.appendChild(twitchScript);
     
 const options: TwitchEmbedOptions = {
-        width: props.width,
-        height: props.height,
+    width: props.width,
+    height: props.height,
 };
 
 if (props.playsInline) {
