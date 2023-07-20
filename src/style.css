@@ -72,16 +72,38 @@ svg.fill-current path {
 	color: var(--primary-lt-1);
 }
 
-#side-left * {
-    scrollbar-color: blue orange;
+#side-left .page {
+    scrollbar-color: var(--secondary-lt-4) var(--secondary-dk-4);
 }
 
-#side-left *::-webkit-scrollbar-track {
-    background: orange;
+#side-left .page::-webkit-scrollbar {
+    width: 16px;
+}
+
+#side-left .page::-webkit-scrollbar-track {
+    background: var(--secondary-dk-4);
 }
   
-#side-left *::-webkit-scrollbar-thumb {
-    background-color: blue;
-    border-radius: 20px;
-    border: 3px solid orange;
+#side-left .page::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-lt-4);
+    border-radius: 8px;
+    border: 1px solid var(--secondary-dk-4);
+}
+
+#side-right .page {
+    scrollbar-color: var(--secondary-dk-2) var(--secondary-lt-2);
+}
+
+#side-right .page::-webkit-scrollbar {
+    width: 16px;
+}
+
+#side-right .page::-webkit-scrollbar-track {
+    background: var(--secondary-lt-2);
+}
+  
+#side-right .page::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-dk-2);
+    border-radius: 8px;
+    border: 1px solid var(--secondary-lt-2);
 }
