@@ -71,3 +71,17 @@ svg.fill-current path {
 	background-color: var(--secondary-dk-1);
 	color: var(--primary-lt-1);
 }
+
+#side-left * {
+    scrollbar-color: blue orange;
+}
+
+#side-left *::-webkit-scrollbar-track {
+    background: orange;
+}
+  
+#side-left *::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 20px;
+    border: 3px solid orange;
+}
