@@ -58,6 +58,7 @@ watch(
 
 img {
 	max-width: 344px;
+	max-height: 344px;
 	height: auto;
 }
 
