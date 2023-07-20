@@ -123,8 +123,8 @@ svg.fill-current path {
 .page::-webkit-scrollbar-button:single-button {
     width: 16px;
     height: 16px;
-    background-color: var(--1-txt);
-    color: var(--1-bg);
+    background-color: var(--1-bg);
+    color: var(--1-txt);
 }
 
 .page::-webkit-scrollbar-button:single-button:vertical:decrement {
