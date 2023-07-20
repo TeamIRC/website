@@ -123,15 +123,16 @@ svg.fill-current path {
 .page::-webkit-scrollbar-button:single-button {
     width: 16px;
     height: 16px;
-    border-color: var(--1-bg);
+    background-color: var(--1-bg);
+    color: var(--1-txt);
 }
 
-.page::-webkit-scrollbar-button:single-button:vertical:increment {
+.page::-webkit-scrollbar-button:single-button:vertical:decrement {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
 
-.page::-webkit-scrollbar-button:single-button:vertical:decrement {
+.page::-webkit-scrollbar-button:single-button:vertical:increment {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
