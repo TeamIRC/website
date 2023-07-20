@@ -95,18 +95,16 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 	width: 32px;
 }
 
+.menu:not(.active) {
+	animation: 4s infinite bounce;
+}
+
 #side-left {
 	left: 0px;
 }
 
 #side-right {
 	right: 0px;
-}
-
-.menu:not(.active) {
-	animation-duration: 4s;
-	animation-iteration-count: infinite;
- 	animation-name: bounce;
 }
 
 @keyframes bounce {
@@ -125,6 +123,7 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 }
 
 .menu.active {
+	animation-play-state: paused;
 	width: 360px;
 }
 

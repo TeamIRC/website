@@ -3,31 +3,31 @@
     "content": {
         "items": [
             {
-                "image":"https://pbs.twimg.com/profile_images/1365050429869088781/87pRXjFy_400x400.jpg",
+                "image":"https://cdn.discordapp.com/attachments/883682065105702913/1131532557599653908/tarkov.png",
                 "description":"<h2>Escape from Tarkov</h2><p>Organisateurs d’un jeu type “TV Show” hebdomadaire sur notre WebTV, cette plateforme réunit des joueurs jeunes adultes, plus mûrs en moyenne que sur les autres jeux.</p>"
             },
             {
-                "image":"https://assets.jv360.fr/media/images/gta-V-Trevor.jpg",
+                "image":"https://cdn.discordapp.com/attachments/883682065105702913/1131532557113118741/G_T_A.png",
                 "description":"<h2>Grand Theft Auto V</h2><p>Après avoir développé un serveur de jeu “évènements”, nous continuons d’être présents sur cette plateforme via notre WebTV. Les serveurs GTA RP sont des espaces d’expression théâtrales, qui exigent une organisation conséquente, impliquant de nombreuses compétences de management au sein de collectifs de jeunes joueurs.</p>"
             },
             {
-                "image":"https://assets.jv360.fr/media/images/Minecraft_avatar_jv360.fr.jpg",
+                "image":"https://cdn.discordapp.com/attachments/883682065105702913/1131532556785946744/minecraft.png",
                 "description":"<h2>Minecraft</h2><p>Le Projet de jeunes Zone-Delta, que nous accompagnons depuis l’été 2022, mobilise plusieurs équipe autour de la création et de la gestion d’un Serveur Minecraft, dont les fonctions, les décors et l’animation du quotidien sont uniques.</p>"
             },
             {
-                "image":"https://www.jeuxvideo-live.com/wp-content/uploads/jvl/2022/06/rainbox-six-siege-750x357.jpg",
+                "image":"https://cdn.discordapp.com/attachments/883682065105702913/1131532556509134908/r6.png",
                 "description":"<h2>Rainbow Six Siege</h2><p>Nous organisons des compétitions et encadrons des équipes de joueurs depuis Janvier 2021 sur la plateforme XBOX.</p>"
             },
             {
-                "image":"https://assets.jv360.fr/media/images/Rocket_League__avatar.jpg",
+                "image":"https://cdn.discordapp.com/attachments/883682065105702913/1131532556140023868/rocket_league.png",
                 "description":"<h2>Rocket League</h2><p>Nous accompagnons le Projet de Jeunes Rigel Esport, qui occupe principalement la plateforme Rocket League, avec l’encadrement de “rosters” et l’organisation d’évènements</p>"
             },
             {
-                "image":"https://assets.jv360.fr/media/images/Trackmania_course_8.jpg",
+                "image":"https://cdn.discordapp.com/attachments/883682065105702913/1131532555833851985/trackmania.png",
                 "description":"<h2>Trackmania</h2><p>Nous organisons régulièrement des évènements sur cette plateforme, qui permet d’encourager la créativité avec la création de circuits aux courbes millimétrées. Ce jeu 100% français permet également de faire le lien avec une communauté de joueurs locaux, amateurs comme professionnels.</p>"
             },
             {
-                "image":"https://assets.jv360.fr/media/images/valorant-logo.jpg",
+                "image":"https://cdn.discordapp.com/attachments/883682065105702913/1131532555477340263/valorant.png",
                 "description":"<h2>Valorant</h2><p>Présents sur cette plateforme sur notre WebTV et dans les tuyaux du projet RIGEL, cette plateforme fait le lien entre plusieurs générations de gamers, en reprenant les codes de l’incontournable Counter-Strike, saupoudrés de mécaniques de jeu plus modernes.</p>"
             }
         ]
