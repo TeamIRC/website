@@ -107,3 +107,10 @@ svg.fill-current path {
     border-radius: 8px;
     border: 1px solid var(--secondary-lt-2);
 }
+
+::-webkit-scrollbar-button:single-button {
+    display: block;
+    border-style: solid;
+    height: 16px;
+    width: 16px;
+}
