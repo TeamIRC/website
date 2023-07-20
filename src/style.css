@@ -83,6 +83,10 @@ svg.fill-current path {
 #side-left {
     --main-bg: var(--secondary-lt-5);
     --main-txt: var(--primary-dk-1);
+    --link: var(--primary-dk-5);
+    --link-hover: var(--primary-dk-2);
+    --link-focus: var(--primary-dk-4);
+    --link-active: var(--primary-dk-3);
     --1-bg: var(--secondary-dk-4);
     --1-txt: var(--secondary-lt-4);
     --2-bg: var(--secondary-dk-3);
@@ -92,14 +96,40 @@ svg.fill-current path {
 }
 
 #side-right {
-    --main-bg: var(--secondary-dk-5);
+    --main-bg: var(--secondary-dk-1);
     --main-txt: var(--primary-lt-1);
+    --link: var(--primary-lt-5);
+    --link-hover: var(--primary-lt-2);
+    --link-focus: var(--primary-lt-4);
+    --link-active: var(--primary-lt-3);
     --1-bg: var(--secondary-lt-2);
     --1-txt: var(--secondary-dk-2);
     --2-bg: var(--secondary-lt-3);
     --2-txt: var(--secondary-dk-3);
     --3-bg: var(--secondary-lt-4);
     --3-txt: var(--secondary-dk-4);
+}
+
+.side {
+	background-color: var(--main-bg);
+	color: var(--main-txt);
+}
+
+.side a {
+	color: var(--link);
+}
+
+.side a:hover {
+	color: var(--link-hover);
+}
+
+.side a:focus {
+	color: var(--link-focus);
+}
+
+.side a:active,
+.side a.router-link-active {
+	color: var(--link-active);
 }
 
 .page {

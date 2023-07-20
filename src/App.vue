@@ -32,60 +32,6 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 	transition: width 1s;
 }
 
-#side-left {
-	background-color: var(--secondary-lt-5);
-	color: var(--primary-dk-1);
-}
-#side-left :deep(a) {
-	color: var(--primary-dk-5);
-}
-#side-left :deep(a:hover) {
-	color: var(--primary-dk-2);
-}
-#side-left :deep(a:focus) {
-	color: var(--primary-dk-4);
-}
-#side-left :deep(a:active),
-#side-left :deep(a.router-link-active) {
-	color: var(--primary-dk-3);
-}
-
-#side-right {
-	background-color: var(--secondary-dk-1);
-	color: var(--primary-lt-1);
-}
-#side-right :deep(a) {
-	color: var(--primary-lt-5);
-}
-#side-right :deep(a:hover) {
-	color: var(--primary-lt-2);
-}
-#side-right :deep(a:focus) {
-	color: var(--primary-lt-4);
-}
-#side-right :deep(a:active),
-#side-right :deep(a.router-link-active) {
-	color: var(--primary-lt-3);
-}
-
-#side-left :deep(.overlay),
-#side-left :deep(button) {
-    background-color: var(--secondary-lt-4);
-    border-color: var(--secondary-dk-4);
-}
-#side-left :deep(button) {
-	color: var(--primary-dk-4);
-}
-
-#side-right :deep(.overlay),
-#side-right :deep(button) {
-    background-color: var(--secondary-dk-2);
-    border-color: var(--secondary-lt-2);
-}
-#side-right :deep(button) {
-    color: var(--primary-lt-2);
-}
-
 .current {
 	width: 100%;
 }
