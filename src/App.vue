@@ -68,6 +68,24 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 	color: var(--primary-lt-3);
 }
 
+#side-left :deep(.overlay),
+#side-left :deep(button) {
+    background-color: var(--secondary-lt-4);
+    border-color: var(--secondary-dk-4);
+}
+#side-left :deep(button) {
+	color: var(--primary-dk-4);
+}
+
+#side-right :deep(.overlay),
+#side-right :deep(button) {
+    background-color: var(--secondary-dk-2);
+    border-color: var(--secondary-lt-2);
+}
+#side-right :deep(button) {
+    color: var(--primary-lt-2);
+}
+
 .current {
 	width: 100%;
 }
@@ -75,6 +93,10 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 .menu {
 	z-index: 1;
 	width: 32px;
+}
+
+.menu:not(.active) {
+	animation: 4s infinite bounce;
 }
 
 #side-left {
@@ -85,27 +107,61 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 	right: 0px;
 }
 
-.menu:hover {
+@keyframes bounce {
+  from {
+    width: 32px;
+  }
+  75% {
+    width: 32px;
+  }
+  90% {
+    width: 40px;
+  }
+  to {
+    width: 32px;
+  }
+}
+
+.menu.active {
+	animation-play-state: paused;
 	width: 360px;
 }
 
-.menu:hover :deep(> div > nav) {
-	display: flex;
-}
-
-.menu :deep(> div) {
-	position: absolute;
-}
-
-#side-left.menu :deep(> div) {
+#side-left.menu :deep(.side-menu) {
     right: 0;
 }
 
-#side-right.menu :deep(> div) {
+#side-right.menu :deep(.side-menu) {
     left: 0;
 }
 
 #side-right :deep(> header) {
     flex-flow: row-reverse;
+}
+
+@media screen and (max-width: 360px) /*Phone media querie*/
+{
+	.side :deep(header),
+	.side :deep(main) {
+		position: absolute;
+	}
+
+	.side :deep(main) {
+		top: 33vh;
+	}
+
+	#side-right :deep(> header) {
+		flex-flow: column;
+	}
+
+	#side-left :deep(header),
+	#side-left :deep(main) {
+		right: 32px;
+	}
+
+	#side-right :deep(header),
+	#side-right :deep(main) {
+		left: 32px;
+	}
 }
 </style>

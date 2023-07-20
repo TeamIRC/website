@@ -11,23 +11,37 @@ export default async (request: VercelRequest, response: VercelResponse) => {
         body: JSON.stringify({
             client_id: process.env.VITE_GITHUB_CLIENT_ID,
             client_secret: process.env.GITHUB_CLIENT_SECRET,
-            code: request.body
+            code: request.body,
+            repository_id: process.env.GITHUB_REPOSITORY_ID
         }),
     });
     const json = await req.json()
-    const { access_token } = json;
+    const { access_token, refresh_token } = json;
     response
-        .setHeader('Set-Cookie', 
+        .setHeader('Set-Cookie', [
             serialize(
                 'github_token',
-                JSON.stringify(access_token),
+                access_token,
                 {
                     path: '/',
                     httpOnly: true,
                     secure: true,
                     sameSite: 'lax',
-                    maxAge: 604800
-                }))
+                    maxAge: 28800
+                },            
+            ),
+            serialize(
+                'github_refresh_token',
+                refresh_token,
+                {
+                    path: '/',
+                    httpOnly: true,
+                    secure: true,
+                    sameSite: 'lax',
+                    maxAge: 15811200
+                },            
+            ),
+        ])
         .send(await getGithubUser(access_token));
 }
 
