@@ -4,23 +4,28 @@
         "items": [
             {
                 "image":"https://cdn.discordapp.com/attachments/976911003700838511/1123685467372658708/Logo_Safe_League_-_First_Edition.jpg",
-                "description":"<h2>1st Edition</h2><p>1ere édition historique.<br>16 Equipes, 96 joueurs s’affrontent en élimination directe sur 1 mois.<br>2 divisions, pour permettre de laisser la place aux joueurs compétitifs, mais aussi aux joueurs moins expérimentés.<br>4 casters<br>Compétition 100% Manette, pour mettre tous les joueurs sur un pied d’égalité, parce que certains joueurs utilisent un clavier et une souris.</p>"
+                "title": "1st Edition",
+                "description":"<p>1ere édition historique.<br>16 Equipes, 96 joueurs s’affrontent en élimination directe sur 1 mois.<br>2 divisions, pour permettre de laisser la place aux joueurs compétitifs, mais aussi aux joueurs moins expérimentés.<br>4 casters<br>Compétition 100% Manette, pour mettre tous les joueurs sur un pied d’égalité, parce que certains joueurs utilisent un clavier et une souris.</p>"
             },
             {
                 "image":"https://cdn.discordapp.com/attachments/976911003700838511/1123685524922716341/Logo_Safe_League_April_Edition.jpg",
-                "description":"<h2>April Edition</h2><p>2nde édition sur le même format de tournoi sur 1 mois.<br>16 Equipes, 112 joueurs<br>2 divisions<br>6 casters<br>100% Manette</p>"
+                "title": "April Edition",
+                "description":"<p>2nde édition sur le même format de tournoi sur 1 mois.<br>16 Equipes, 112 joueurs<br>2 divisions<br>6 casters<br>100% Manette</p>"
             },
             {
                 "image":"https://cdn.discordapp.com/attachments/976911003700838511/1123685588197978223/Logo_Safe_League_Summer_Edition.jpg",
-                "description":"<h2>Summer Edition</h2><p>3e édition, même format mais sur avec une demande beaucoup plus importante : la compétition est identifiée par le public, et l’autre principal organisateur de compétition sur la plateforme Xbox migre sur PC.<br>16 Equipes, 128 joueurs<br>2 divisions<br>6 casters<br>100% Manette<br>En partenariat avec MTP Esport, Club Esport pro à Montpellier.</p>"
+                "title": "Summer Edition",
+                "description":"<p>3e édition, même format mais sur avec une demande beaucoup plus importante : la compétition est identifiée par le public, et l’autre principal organisateur de compétition sur la plateforme Xbox migre sur PC.<br>16 Equipes, 128 joueurs<br>2 divisions<br>6 casters<br>100% Manette<br>En partenariat avec MTP Esport, Club Esport pro à Montpellier.</p>"
             },
             {
                 "image":"https://cdn.discordapp.com/attachments/976911003700838511/1123688882454675597/20210727_181614_2.png",
-                "description":"<h2>Season One</h2><p>4e édition, pour la 1ere format dans un format de championnat.<br>20 Equipes, 160 joueurs s’affrontent sur 2 mois.<br>2 divisions<br>8 casters<br>100% Manette, pour la 1ere fois un dispositif “Handcam” est mis en place pour éviter les tricheries.<br>En partenariat avec MTP Esport, Club Esport pro à Montpellier, et pour la 1ere sous licence officielle Ubisoft.</p>"
+                "title": "Season One",
+                "description":"<p>4e édition, pour la 1ere format dans un format de championnat.<br>20 Equipes, 160 joueurs s’affrontent sur 2 mois.<br>2 divisions<br>8 casters<br>100% Manette, pour la 1ere fois un dispositif “Handcam” est mis en place pour éviter les tricheries.<br>En partenariat avec MTP Esport, Club Esport pro à Montpellier, et pour la 1ere sous licence officielle Ubisoft.</p>"
             },
             {
                 "image":"https://cdn.discordapp.com/attachments/1043516828351213658/1045118059788120074/SAFE_League_RL_alpha.png",
-                "description":"<h2>Safe League X Rigel</h2><p>1ere version hybride, organisée en partenariat avec Rigel Esport.<br>16 Equipes, 48 joueurs s’affrontent sur 1 journée.<br>3 casters<br>Tous les matchs sont castés sur la chaîne “Team IRC”.<br>Interview des équipes participantes ainsi que des fondateurs de Team IRC et Rigel Esport.<br>En partenariat avec Village Esport, Centre de Formation Esport Pro qui intègre un volet éducatif tourné vers la parentalité et l’orientation professionnelle.</p>"
+                "title": "Safe League X Rigel",
+                "description":"<p>1ere version hybride, organisée en partenariat avec Rigel Esport.<br>16 Equipes, 48 joueurs s’affrontent sur 1 journée.<br>3 casters<br>Tous les matchs sont castés sur la chaîne “Team IRC”.<br>Interview des équipes participantes ainsi que des fondateurs de Team IRC et Rigel Esport.<br>En partenariat avec Village Esport, Centre de Formation Esport Pro qui intègre un volet éducatif tourné vers la parentalité et l’orientation professionnelle.</p>"
             }
         ]
     }

@@ -67,11 +67,11 @@ onMounted(() => editor.value = new Editor({
     extensions: [
         StarterKit,
         Image.configure({
-        inline: true, // Set to 'true' if you want the images to be inserted inline
-      }),
-      Link.configure({
-        openOnClick: false, // Set to 'true' if you want the links to open on click
-      }),
+            inline: true, // Set to 'true' if you want the images to be inserted inline
+        }),
+        Link.configure({
+            openOnClick: false, // Set to 'true' if you want the links to open on click
+        }),
     ],
     content: props.modelValue,
     onUpdate: () => {
@@ -94,20 +94,20 @@ onBeforeUnmount(() => editor.value?.destroy())
         <BubbleMenu :editor="editor" :tippyOptions="{ duration: 100 }">
             <button
                 :disabled="!(editor.isActive('bold') || editor.isActive('italic') || editor.isActive('italic'))"
-                @click="editor.chain().focus().unsetAllMarks().run()" style="--clr:#0FF0FC">
+                @click="editor.chain().focus().unsetAllMarks().run()">
                 <SVGIcon name="format-clear" alt="clear marks" /><span></span>
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('bold') }"
-                @click="editor.chain().focus().toggleBold().run()" style="--clr:#8A2BE2">
+                @click="editor.chain().focus().toggleBold().run()">
                 <SVGIcon name="bold" alt="bold" /><span></span>
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('italic') }"
-                @click="editor.chain().focus().toggleItalic().run()" style="--clr:#39FF14">
+                @click="editor.chain().focus().toggleItalic().run()">
                 <SVGIcon name="italic" alt="italic" /><span></span>
             </button>
-            <button :class="{ 'is-active': editor.isActive('createLink') }" @click="createLink" style="--clr:#0FF0FC">
+            <button :class="{ 'is-active': editor.isActive('createLink') }" @click="createLink">
                 <SVGIcon name="link" alt="create link" /><span></span>
             </button>
             <select @change="setLevel">
@@ -121,28 +121,27 @@ onBeforeUnmount(() => editor.value?.destroy())
                 <option value="5">header 5</option>
                 <option value="6">header 6</option>
             </select>
-            <button @click="editor.chain().focus().toggleBlockquote().run()" :class="{ 'is-active': editor.isActive('blockquote') }" style="--clr:#0FF0FC">
+            <button @click="editor.chain().focus().toggleBlockquote().run()" :class="{ 'is-active': editor.isActive('blockquote') }">
                 <SVGIcon name="quote-text" alt="blockquote" /><span></span>
             </button>
         </BubbleMenu>
         <FloatingMenu :editor="editor" :tippy-options="{ duration: 100 }">
             <button
                 :disabled="!(editor.isActive('bold') || editor.isActive('italic') || editor.isActive('italic'))"
-                @click="editor.chain().focus().unsetAllMarks().run()"
-                style="--clr:#8A2BE2">
+                @click="editor.chain().focus().unsetAllMarks().run()">
                 <SVGIcon name="format-clear" alt="clear marks" /><span></span>
             </button>
-            <button :class="{ 'is-active': editor.isActive('insertImage') }" @click="insertImage" style="--clr:#FF44CC">
+            <button :class="{ 'is-active': editor.isActive('insertImage') }" @click="insertImage">
                 <SVGIcon name="image-line" alt="insert image" /><span></span>
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('bold') }"
-                @click="editor.chain().focus().toggleBold().run()" style="--clr:#39FF14">
+                @click="editor.chain().focus().toggleBold().run()">
                 <SVGIcon name="bold" alt="bold" /><span></span>
             </button>
             <button
                 :class="{ 'is-active': editor.isActive('italic') }"
-                @click="editor.chain().focus().toggleItalic().run()" style="--clr:#0FF0FC">
+                @click="editor.chain().focus().toggleItalic().run()">
                 <SVGIcon name="italic" alt="italic" /><span></span>
             </button>
             <select @change="setLevel">
@@ -158,13 +157,13 @@ onBeforeUnmount(() => editor.value?.destroy())
             </select>
             <button
                 :class="{ 'is-active': editor.isActive('blockquote') }"
-                @click="editor.chain().focus().toggleBlockquote().run()" style="--clr:#8A2BE2">
+                @click="editor.chain().focus().toggleBlockquote().run()">
                 <SVGIcon name="quote-text" alt="blockquote" /><span></span>
             </button>
-            <button @click="editor.chain().focus().setHorizontalRule().run()" style="--clr:#FF44CC">
+            <button @click="editor.chain().focus().setHorizontalRule().run()">
                 <SVGIcon name="separator" alt="horizontal rule" /><span></span>
             </button>
-            <button @click="editor.chain().focus().setHardBreak().run()" style="--clr:#39FF14">
+            <button @click="editor.chain().focus().setHardBreak().run()">
                 <SVGIcon name="text-wrap" alt="hard break" /><span></span>
             </button>
         </FloatingMenu>

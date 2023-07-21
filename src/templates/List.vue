@@ -36,14 +36,17 @@ watch(
 
 <template>
 	<div class="list">
-		<div v-for="{ image, description }, i in content.items" v-element-visibility="(state: boolean) => onElementVisibility(state, i)">
+		<div v-for="{ image, title, description }, i in content.items" v-element-visibility="(state: boolean) => onElementVisibility(state, i)">
 			<div class="image-container">
 				<img :src="image" />
 			</div>
 			<Teleport v-if="isVisible[i]" to="#main-logo">
 				<img class="image-ext" :src="image" />
 			</Teleport>
-			<div class="description" v-html="description"></div>
+			<div class="item">
+				<h2>{{ title }}</h2>
+				<template v-html="description" />
+			</div>
 		</div>
 	</div>
 </template>
@@ -71,7 +74,7 @@ img {
 	flex-direction: row-reverse;
 }
 
-.description {
+.item {
 	max-width: calc(80% - 344px);
 	margin: auto;
 	text-align: center;
@@ -100,7 +103,7 @@ img {
 		display: initial;
 	}
 
-	.description {
+	.item {
 		max-width: 100%;
 	}
 }

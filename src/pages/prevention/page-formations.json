@@ -4,15 +4,18 @@
         "items": [
             {
                 "image":"https://cdn.discordapp.com/attachments/972975803719635014/1128698444224135221/BAFA.png",
-                "description":"<h2>BAFA</h2><p>Comment désamorcer les conflits qui prennent racine sur les smartphones des jeunes ? Quels conseils donner à des jeunes qui exposent leur vie et celle de leur proche sur les réseaux ? Comment réagir face à situation de cyberharcèlement ? A travers le jeu et des mises en situations à partir de cas pratiques nous guidons les futurs animateurs, pour trouver une posture adaptée aux besoins d’une génération déjà en décalage avec eux.</p>"
+                "title": "BAFA",
+                "description":"<p>Comment désamorcer les conflits qui prennent racine sur les smartphones des jeunes ? Quels conseils donner à des jeunes qui exposent leur vie et celle de leur proche sur les réseaux ? Comment réagir face à situation de cyberharcèlement ? A travers le jeu et des mises en situations à partir de cas pratiques nous guidons les futurs animateurs, pour trouver une posture adaptée aux besoins d’une génération déjà en décalage avec eux.</p>"
             },
             {
                 "image":"https://cdn.discordapp.com/attachments/972975803719635014/1128698443347537952/BAFD.png",
-                "description":"<h2>BAFD</h2><p>Quelle limite différencie les problèmes que peuvent gérer les animateurs et ceux qui relèvent du directeur ? Quels signes dans le quotidien des jeunes sont synonymes de danger ? Comment aborder les problématiques ? Les directeurs doivent être capables de guider les animateurs pour leur permettre de garantir la sécurité affective des jeunes face à la multitude des informations auxquelles ils sont confrontés. Et il doit aussi être capable d’informer et de rassurer les parents. Nos modules de formations préparent les futurs directeurs à prendre en compte ces composantes pour assurer l’interface avec les différents acteurs éducatifs des jeunes.</p>"
+                "title": "BAFD",
+                "description":"<p>Quelle limite différencie les problèmes que peuvent gérer les animateurs et ceux qui relèvent du directeur ? Quels signes dans le quotidien des jeunes sont synonymes de danger ? Comment aborder les problématiques ? Les directeurs doivent être capables de guider les animateurs pour leur permettre de garantir la sécurité affective des jeunes face à la multitude des informations auxquelles ils sont confrontés. Et il doit aussi être capable d’informer et de rassurer les parents. Nos modules de formations préparent les futurs directeurs à prendre en compte ces composantes pour assurer l’interface avec les différents acteurs éducatifs des jeunes.</p>"
             },
             {
                 "image":"https://cdn.discordapp.com/attachments/972975803719635014/1128698443704049824/MEDIATHEQUE.png",
-                "description":"<h2>Médiathèque</h2><p>De plus en plus d’espaces jeux vidéo prennent place dans les médiathèques, et représentent un atout pour valoriser les compétences mobilisées par les jeunes, lutter contre le décrochage scolaire et créer du lien social. L’infographie et le montage vidéo quant à eux n’ont jamais été aussi accessibles, avec la multiplicité des logiciels gratuits qui continuent d’abonder. S’approprier ces outils représente un défi pour les médiathèques qui veulent passer à l’heure du numérique, et nous sommes là pour accompagner leurs agents dans cette transition.</p>"
+                "title": "Médiathèque",
+                "description":"<p>De plus en plus d’espaces jeux vidéo prennent place dans les médiathèques, et représentent un atout pour valoriser les compétences mobilisées par les jeunes, lutter contre le décrochage scolaire et créer du lien social. L’infographie et le montage vidéo quant à eux n’ont jamais été aussi accessibles, avec la multiplicité des logiciels gratuits qui continuent d’abonder. S’approprier ces outils représente un défi pour les médiathèques qui veulent passer à l’heure du numérique, et nous sommes là pour accompagner leurs agents dans cette transition.</p>"
             }
         ]
     }

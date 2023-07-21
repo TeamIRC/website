@@ -136,6 +136,7 @@ export interface TwitchEmbedOptions {
 export type ListContent = {
 	items: {
 		image: string;
+		title: string;
 		description: string;
 	}[]
 };
