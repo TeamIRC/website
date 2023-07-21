@@ -156,6 +156,7 @@ nav {
 
     .logo > img:last-child {
         display: initial;
+        max-height: 100%;
     }
 }
 </style>

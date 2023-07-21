@@ -33,6 +33,7 @@ defineExpose({ toggle });
     width: 100%;
     z-index: 1;
     padding: 16px 0;
+    background-color: var(--1-txt);
 }
 
 button {
