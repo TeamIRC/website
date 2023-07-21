@@ -45,7 +45,7 @@ watch(
 			</Teleport>
 			<div class="item">
 				<h2>{{ title }}</h2>
-				<template v-html="description" />
+				<div v-html="description"></div>
 			</div>
 		</div>
 	</div>
