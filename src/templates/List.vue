@@ -54,6 +54,7 @@ watch(
 <style scoped>
 .item-container {
 	display: flex;
+    flex-grow: 1;
 	padding: 8px;
 }
 
