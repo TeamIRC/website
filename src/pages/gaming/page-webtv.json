@@ -1,7 +1,7 @@
 {
     "template": "WebTV",
     "content": {
-        "userlist": [
+        "items": [
             "team_irc",
             "reymonitou",
             "irc_pegasus",

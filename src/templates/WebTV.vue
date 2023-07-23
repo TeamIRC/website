@@ -1,36 +1,38 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import TwitchClient from '../components/TwitchClient.vue';
-import { WebTVContent } from '../types';
+import { ListContent } from '../types';
 import TwitchEmbed from '../components/TwitchEmbed.vue';
+import ListBase from './ListBase.vue';
 const props = defineProps<{
-	content: WebTVContent,
+	content: ListContent<string>,
 	edit: boolean
 }>();
-const emit = defineEmits<{
-	(event: "modified", content: WebTVContent): void
+const emits = defineEmits<{
+	(event: "modified", content: ListContent<string>): void
 }>();
-let webTV = props.content;
-watch(() => props.edit,
-	() => {
-		if (webTV.userlist.toString() !==
-			props.content.userlist.toString())
-			emit("modified", webTV);
-	}
-);
 const hideEmbed = ref(false);
+const list = ref(props.content);
+function updateList(items: string[]) {
+	list.value.items = items;
+	emits("modified", list.value);
+}
 </script>
 
 <template>
-	<div v-if="edit">
-	</div>
+	<ListBase v-if="edit" :edit="true"
+		:items="content.items"
+		:checker="(o, n) => o !== n"
+		:empty-item="''"
+		@modified="updateList">
+	</ListBase>
 	<div v-else>
 		<Suspense>
 			<template #fallback>
 				Chargement
 			</template>
 			<TwitchClient
-				:content="content"
+				:content="content.items"
 				v-slot="{ profiles }">
 				<TwitchEmbed
 					id="embed"

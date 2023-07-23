@@ -28,15 +28,8 @@ function updateList(items: Content[]) {
 </script>
 
 <template>
-	<ListBase 
-		:edit="edit"
-		:items="content.items"
-		:checker="checker"
-		:empty-item="{
-			image: '',
-			title: '',
-			description: '<p></p>'
-		}"
+	<ListBase :edit="edit" :items="content.items" :checker="checker"
+		:empty-item="{ image: '', title: '', description: '<p></p>' }"
 		@modified="updateList">
 		<template #editor="{ item }">
 			<input type="text" v-model="item.image" />

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { TwitchProfile, TwitchStream, TwitchUser, WebTVContent } from '../types';
+import { TwitchProfile, TwitchStream, TwitchUser } from '../types';
 
 const props = defineProps<{
-	content: WebTVContent
+	content: string[]
 }>();
 
 const request = await fetch('/api/TwitchClient');
@@ -52,7 +52,7 @@ async function fetchStreams(ids: string[]): Promise<TwitchStream[]> {
 	} else return Promise.reject(new Error(`No response`));
 }
 
-const userlist = props.content.userlist;
+const userlist = props.content;
 
 const profiles: TwitchProfile[] = await fetchUsers(userlist)
 	.then(async (users) => {

@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T extends { title: string, [k:string]: any }">
+<script setup lang="ts" generic="T extends any">
 import { Ref, ref, watch } from 'vue';
 import SVGIcon from '../components/SVGIcon.vue';
 import vDrag from '../vue-dnd/drag';
@@ -14,7 +14,6 @@ const emits = defineEmits<{
 	(event: "modified", items: T[]): void }>()
 const listEl = ref<HTMLDivElement>()
 const list = ref(props.items) as Ref<T[]>;
-
 function arrayMove(arr: Array<any>, old_index: number, new_index: number) {
     if (new_index >= arr.length) {
         var k = new_index - arr.length + 1;
@@ -25,7 +24,6 @@ function arrayMove(arr: Array<any>, old_index: number, new_index: number) {
     arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
     return arr; // for testing
 };
-
 const onDrag = (dropzone: Element, el: Element) => {
 	const currentList = [...listEl.value!.children];
 	arrayMove(
@@ -34,7 +32,6 @@ const onDrag = (dropzone: Element, el: Element) => {
 		currentList.indexOf(dropzone)!);
 	setTimeout(() => dropzone.classList.remove('dragover'), 200);
 }
-
 watch(
     () => props.edit,
     () => {
@@ -58,8 +55,7 @@ watch(
 	<div ref="listEl" class="list" :class="edit ? 'edit' : ''">
 		<div class="item-line"
 			v-for="item, i in list"
-			v-drop="{ channel: 'list' }"
-			:key="item.title">
+			v-drop="{ channel: 'list' }">
 			<template v-if="edit">
 				<button class="add-button" @click="() => list.splice(i, 0, emptyItem as T)">
 					<SVGIcon name="add-line" width="12" height="12" />

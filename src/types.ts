@@ -142,4 +142,3 @@ export type Content = {
 export type ListContent<T> = {
 	items: T[]
 };
-export type WebTVContent = { userlist: string[] };
