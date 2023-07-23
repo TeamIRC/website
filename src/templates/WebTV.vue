@@ -42,7 +42,7 @@ watch(
 					id="embed"
 					v-if="profiles.some((u) => u.stream)"
 					:style="hideEmbed ? 'display:none' : ''"
-					:channel="profiles.find((u) => u.stream)?.user.id"
+					:channel="profiles.find((u) => u.stream)?.user.login"
 					@error="hideEmbed = true" />
 				<div id="profiles">
 					<div class="card" v-for="{ user, stream } in profiles">
