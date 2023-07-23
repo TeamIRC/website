@@ -32,7 +32,7 @@ const emits = defineEmits<{(event: 'error', message?: string) : void}>()
 
 const twitchScript = document.createElement('script');
 twitchScript.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
-document.body.appendChild(twitchScript);
+document.head.appendChild(twitchScript);
     
 const options: TwitchEmbedOptions = {
     width: props.width,
