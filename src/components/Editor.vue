@@ -4,6 +4,7 @@ import { BubbleMenu, FloatingMenu, Editor, EditorContent } from '@tiptap/vue-3';
 import { Image } from '@tiptap/extension-image'; // Import the Image extension
 import { Link } from '@tiptap/extension-link';
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { Div } from '../tiptap/nodes'
 import SVGIcon from './SVGIcon.vue';
 
 const props = defineProps({
@@ -72,6 +73,7 @@ onMounted(() => editor.value = new Editor({
         Link.configure({
             openOnClick: false, // Set to 'true' if you want the links to open on click
         }),
+        Div
     ],
     content: props.modelValue,
     onUpdate: () => {

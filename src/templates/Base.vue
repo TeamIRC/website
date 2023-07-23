@@ -14,10 +14,8 @@ watch(
 </script>
 
 <template>
-	<div>
-		<Editor v-if="edit" v-model="html" />
-		<div v-else v-html="html"></div>
-	</div>
+	<Editor v-if="edit" v-model="html" />
+	<div v-else v-html="html"></div>
 </template>
 
 <style>

@@ -31,7 +31,7 @@ const onModified = async (c: string) => await fetch(
 			<!-- <button v-if="login" -->
 			<button
 				@click="edit = !edit">
-				{{ edit ? "Mettre à jour" : "Editer" }}
+				{{ edit ? "Mettre-à-jour" : "Editer" }}
 			</button>
 		</div>
 		<component v-if="template"
