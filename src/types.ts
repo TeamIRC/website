@@ -133,11 +133,13 @@ export interface TwitchEmbedOptions {
 	playsinline?: boolean;
 }
 
-export type ListContent = {
-	items: {
-		image: string;
-		title: string;
-		description: string;
-	}[]
+export type Content = {
+	image: string;
+	title: string;
+	description: string;
+}
+
+export type ListContent<T> = {
+	items: T[]
 };
 export type WebTVContent = { userlist: string[] };

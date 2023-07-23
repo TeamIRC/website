@@ -22,12 +22,16 @@ const hideEmbed = ref(false);
 </script>
 
 <template>
-	<div>
+	<div v-if="edit">
+	</div>
+	<div v-else>
 		<Suspense>
 			<template #fallback>
 				Chargement
 			</template>
-			<TwitchClient :content="content" v-slot="{ profiles }">
+			<TwitchClient
+				:content="content"
+				v-slot="{ profiles }">
 				<TwitchEmbed
 					id="embed"
 					:style="hideEmbed ? 'display:none' : ''"
