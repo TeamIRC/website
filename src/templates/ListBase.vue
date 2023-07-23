@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T extends any">
-import { Ref, ref, watch } from 'vue';
+import { Ref, ref } from 'vue';
 import SVGIcon from '../components/SVGIcon.vue';
 import vDrag from '../vue-dnd/drag';
 import vDrop from '../vue-dnd/drop';
@@ -7,11 +7,8 @@ import vDrop from '../vue-dnd/drop';
 const props = defineProps<{
 	items: T[],
 	emptyItem: T,
-	checker: (oldValue: T, newValue: T) => boolean,
 	edit: boolean
 }>();
-const emits = defineEmits<{ 
-	(event: "modified", items: T[]): void }>()
 const listEl = ref<HTMLDivElement>()
 const list = ref(props.items) as Ref<T[]>;
 function arrayMove(arr: Array<any>, old_index: number, new_index: number) {
@@ -32,23 +29,6 @@ const onDrag = (dropzone: Element, el: Element) => {
 		currentList.indexOf(dropzone)!);
 	setTimeout(() => dropzone.classList.remove('dragover'), 200);
 }
-watch(
-    () => props.edit,
-    () => {
-		const listValue = list.value;
-		if (listValue.length != props.items.length) {
-			emits("modified", listValue);
-			return;
-		}
-		for (const [i, item] of listValue.entries()) {
-			const origin = props.items[i];
-			if (props.checker(origin, item)) {
-				emits("modified", listValue);
-				break;
-			}
-		}
-	}
-);
 </script>
 
 <template>
@@ -75,7 +55,7 @@ watch(
 						<SVGIcon name="drag-move-2-fill" width="24" height="24" />
 					</div>
 					<div class="item-form">
-						<slot name="editor" :item="item" :index="i"></slot>
+						<slot name="editor" :index="i"></slot>
 					</div>
 				</div>
 			</template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import TwitchClient from '../components/TwitchClient.vue';
 import { ListContent } from '../types';
 import TwitchEmbed from '../components/TwitchEmbed.vue';
@@ -13,19 +13,23 @@ const emits = defineEmits<{
 }>();
 const hideEmbed = ref(false);
 const list = ref(props.content);
-function updateList(items: string[]) {
-	list.value.items = items;
-	emits("modified", list.value);
-}
+watch(
+    () => props.edit,
+    () => {
+		if (list.value.items.toString() !== props.content.items.toString())
+			emits("modified", list.value);
+	}
+);
 </script>
 
 <template>
 	<div>
 		<ListBase v-if="edit" :edit="true"
 			:items="content.items"
-			:checker="(o, n) => o !== n"
-			:empty-item="''"
-			@modified="updateList">
+			:empty-item="''">
+			<template #editor="{ index }">
+				<input type="text" v-model="list.items[index]" />
+			</template>
 		</ListBase>
 		<Suspense v-else>
 			<template #fallback>

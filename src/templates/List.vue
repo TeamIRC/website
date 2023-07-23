@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { vElementVisibility } from '@vueuse/components';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { Content, ListContent } from '../types';
 import Editor from '../components/Editor.vue';
 import ListBase from './ListBase.vue';
@@ -16,25 +16,22 @@ const isVisible = ref(new Array<boolean>(list.value.items.length).fill(false))
 function onElementVisibility(state: boolean, element: number) {
 	isVisible.value[element] = state;
 }
-function checker(oldValue: Content, newValue: Content) {
-	return oldValue.description != newValue.description
-		|| oldValue.title != newValue.title
-		|| oldValue.image != newValue.image
-}
-function updateList(items: Content[]) {
-	list.value.items = items;
-	emits("modified", list.value);
-}
+watch(
+    () => props.edit,
+    () => {
+		if (list.value.items.toString() !== props.content.items.toString())
+			emits("modified", list.value);
+	}
+);
 </script>
 
 <template>
-	<ListBase :edit="edit" :items="content.items" :checker="checker"
-		:empty-item="{ image: '', title: '', description: '<p></p>' }"
-		@modified="updateList">
-		<template #editor="{ item }">
-			<input type="text" v-model="item.image" />
-			<input type="text" v-model="item.title" />
-			<Editor v-model="item.description" />
+	<ListBase :edit="edit" :items="content.items"
+		:empty-item="{ image: '', title: '', description: '<p></p>' }">
+		<template #editor="{ index }">
+			<input type="text" v-model="list.items[index].image" />
+			<input type="text" v-model="list.items[index].title" />
+			<Editor v-model="list.items[index].description" />
 		</template>
 		<template #item="{ item, index }">
 			<div class="item-container" v-element-visibility="(state: boolean) => onElementVisibility(state, index)">
