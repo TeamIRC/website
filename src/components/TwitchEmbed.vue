@@ -29,10 +29,6 @@ const props = defineProps({
 });
 
 const emits = defineEmits<{(event: 'error', message?: string) : void}>()
-
-const twitchScript = document.createElement('script');
-twitchScript.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
-document.head.appendChild(twitchScript);
     
 const options: TwitchEmbedOptions = {
     width: props.width,
@@ -54,9 +50,12 @@ if (props.channel) {
 }
 
 onMounted(() => {
+    const twitchScript = document.createElement('script');
     const embedScript = document.createElement('script');
+    twitchScript.setAttribute('src', 'https://embed.twitch.tv/embed/v1.js');
     embedScript.setAttribute('type', 'text/javascript');
     embedScript.innerHTML = `new Twitch.Embed("twitch-embed", ${JSON.stringify(options)});`;
+    document.body.appendChild(twitchScript);
     document.body.appendChild(embedScript);
 })
 </script>
