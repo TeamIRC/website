@@ -20,14 +20,14 @@ function updateList(items: string[]) {
 </script>
 
 <template>
-	<ListBase v-if="edit" :edit="true"
-		:items="content.items"
-		:checker="(o, n) => o !== n"
-		:empty-item="''"
-		@modified="updateList">
-	</ListBase>
-	<div v-else>
-		<Suspense>
+	<div>
+		<ListBase v-if="edit" :edit="true"
+			:items="content.items"
+			:checker="(o, n) => o !== n"
+			:empty-item="''"
+			@modified="updateList">
+		</ListBase>
+		<Suspense v-else>
 			<template #fallback>
 				Chargement
 			</template>
