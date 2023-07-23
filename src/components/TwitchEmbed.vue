@@ -56,5 +56,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="twitch-embed"></div>
+    <div>
+        <div id="twitch-embed"></div>
+    </div>
 </template>
