@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeMount } from "vue";
+import { onMounted } from "vue";
 import { TwitchEmbedOptions } from "../types";
 
 const props = defineProps({
@@ -53,7 +53,7 @@ if (props.channel) {
     emits('error', 'no source')
 }
 
-onBeforeMount(() => {
+onMounted(() => {
     const embedScript = document.createElement('script');
     embedScript.setAttribute('type', 'text/javascript');
     embedScript.innerHTML = `new Twitch.Embed("twitch-embed", ${JSON.stringify(options)});`;
