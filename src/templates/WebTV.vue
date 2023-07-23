@@ -76,7 +76,7 @@ watch(
 	gap: 16px;
 }
 
-.card > img {
+.card {
     text-align: center;
 	font-weight: bold;
 	background-color: var(--secondary-dk-2);
@@ -87,6 +87,10 @@ watch(
 
 .card img {
     width: 100%;
+}
+
+.card > img {
+	border-radius: 50%;
 }
 
 .stream {
