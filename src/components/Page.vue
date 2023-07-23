@@ -7,7 +7,7 @@ const props = defineProps<{ root: string, title: string, page: string }>();
 const { template, content } = await import(`../pages/${props.root}/page-${props.page}.json`);
 const edit = ref(false);
 localStorage.setItem('origin', useRoute().fullPath);
-// const login = localStorage.getItem('login')
+const login = localStorage.getItem('login')
 const onModified = async (c: string) => await fetch(
 	window.location.origin + '/api/github/updateFile',
 	{
@@ -28,8 +28,7 @@ const onModified = async (c: string) => await fetch(
 	<div class="page">
 		<div id="title">
 			{{ title }}
-			<!-- <button v-if="login" -->
-			<button
+			<button v-if="login"
 				@click="edit = !edit">
 				{{ edit ? "Mettre-à-jour" : "Editer" }}
 			</button>
