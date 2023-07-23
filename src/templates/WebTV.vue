@@ -3,7 +3,7 @@ import { ref, watch } from 'vue';
 import TwitchClient from '../components/TwitchClient.vue';
 import { ListContent } from '../types';
 import TwitchEmbed from '../components/TwitchEmbed.vue';
-import ListBase from './ListBase.vue';
+import ListBase from '../components/ListBase.vue';
 const props = defineProps<{
 	content: ListContent<string>,
 	edit: boolean

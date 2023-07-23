@@ -88,7 +88,6 @@ const onDrag = (dropzone: Element, el: Element) => {
 	border-width: 0px 1px;
 	border-style: solid;
 	border-color: var(--1-txt);
-    -webkit-user-modify: read-write;
 }
 
 .item-form {

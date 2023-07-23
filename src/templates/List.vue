@@ -3,7 +3,8 @@ import { vElementVisibility } from '@vueuse/components';
 import { ref, watch } from 'vue';
 import { Content, ListContent } from '../types';
 import Editor from '../components/Editor.vue';
-import ListBase from './ListBase.vue';
+import ListBase from '../components/ListBase.vue';
+
 
 const props = defineProps<{
 	content: ListContent<Content>,
