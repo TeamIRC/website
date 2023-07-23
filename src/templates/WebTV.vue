@@ -40,6 +40,7 @@ watch(
 				v-slot="{ profiles }">
 				<TwitchEmbed
 					id="embed"
+					v-if="profiles.some((u) => u.stream)"
 					:style="hideEmbed ? 'display:none' : ''"
 					:channel="profiles.find((u) => u.stream)?.stream?.user_id"
 					@error="hideEmbed = true" />
