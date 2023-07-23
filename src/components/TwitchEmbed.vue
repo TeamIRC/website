@@ -34,7 +34,8 @@ const options: TwitchEmbedOptions = {
     width: props.width,
     height: props.height,
     autoplay: true,
-    allowFullscreen: true
+    allowFullscreen: true,
+    parent: ['les-parrains-du-numerique.vercel.app']
 };
 
 if (props.playsInline) {
