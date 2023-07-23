@@ -60,3 +60,14 @@ onMounted(() => {
         <div id="twitch-embed"></div>
     </div>
 </template>
+
+<style>
+#twitch-embed {
+    height: 100%;
+}
+
+#twitch-embed iframe {
+    width: 100%;
+    height: 100%;
+}
+</style>
