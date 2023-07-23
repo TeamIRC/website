@@ -51,7 +51,7 @@ if (props.channel) {
 
 onMounted(() => {
     const Twitch = (window as ( Window & typeof globalThis & { Twitch: any })).Twitch;
-    new Twitch.Embed("twitch-embed", options);
+    new Twitch.Embed("#twitch-embed", options);
 })
 </script>
 

@@ -87,6 +87,7 @@ watch(
 
 .card img {
     border-radius: 50%;
+    width: 100%;
 }
 
 .stream {
