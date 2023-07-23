@@ -56,6 +56,10 @@ watch(
 	padding: 8px;
 }
 
+:deep(.item-line) {
+	min-height: 344px;
+}
+
 :deep(.item-line):nth-child(even) > .item-container {
 	flex-direction: row-reverse;
 }

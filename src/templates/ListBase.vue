@@ -70,7 +70,6 @@ const onDrag = (dropzone: Element, el: Element) => {
 <style scoped>
 .list > div {
 	display: flex;
-	min-height: 344px;
 }
 
 .list.edit > div {
@@ -85,7 +84,7 @@ const onDrag = (dropzone: Element, el: Element) => {
 
 .item-edit {
 	display: flex;
-	min-height: 344px;
+	flex-grow: 1;
 	border-width: 0px 1px;
 	border-style: solid;
 	border-color: var(--1-txt);
@@ -96,13 +95,11 @@ const onDrag = (dropzone: Element, el: Element) => {
 	display: flex;
 	flex-direction: column;
 	width: calc(100% - 33px);
-	min-height: 100%;
 }
 
 .item-move {
 	position: relative;
 	width: 32px;
-	min-height: 100%;
 	border-right: 1px solid var(--1-txt);
 	-webkit-user-drag: element;
 	cursor: move;
