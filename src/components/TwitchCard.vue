@@ -104,7 +104,7 @@ onUnmounted(() => clearInterval(interval))
 
 .stream {
     display: flex;
-	font-weight: unset;
+	font-weight: initial;
 }
 
 .stream > img {
@@ -124,5 +124,9 @@ onUnmounted(() => clearInterval(interval))
     flex-direction: column;
     gap: 8px;
     justify-content: center;
+}
+
+.stream > .description > p {
+    margin: 0px;
 }
 </style>
