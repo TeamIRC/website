@@ -27,9 +27,7 @@ const props = defineProps({
     collection: String,
     video: String,
 });
-
 const emits = defineEmits<{(event: 'error', message?: string) : void}>()
-    
 const options: TwitchEmbedOptions = {
     width: props.width,
     height: props.height,
@@ -37,11 +35,13 @@ const options: TwitchEmbedOptions = {
     allowFullscreen: true,
     parent: ['les-parrains-du-numerique.vercel.app']
 };
-
+let embed: any;
+function setChannel(channel: string) {
+    embed.setChannel(channel);
+}
 if (props.playsInline) {
     options.playsinline = true;
 }
-
 if (props.channel) {
     options.channel = props.channel;
 } else if (props.collection) {
@@ -51,10 +51,10 @@ if (props.channel) {
 } else {
     emits('error', 'no source')
 }
-
+defineExpose({ setChannel });
 onMounted(() => {
     const Twitch = (window as ( Window & typeof globalThis & { Twitch: any })).Twitch;
-    new Twitch.Embed("twitch-embed", options);
+    embed = new Twitch.Embed("twitch-embed", options);
 })
 </script>
 

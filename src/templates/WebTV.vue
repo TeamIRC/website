@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import TwitchClient from '../components/TwitchClient.vue';
-import { ListContent } from '../types';
-import TwitchEmbed from '../components/TwitchEmbed.vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import ListBase from '../components/ListBase.vue';
-import TwitchCard from '../components/TwitchCard.vue';
+import SVGIcon from '../components/SVGIcon.vue';
+import TwitchClient from '../components/TwitchClient.vue';
+import TwitchEmbed from '../components/TwitchEmbed.vue';
+import { ListContent } from '../types';
+
 const props = defineProps<{
 	content: ListContent<string>,
 	edit: boolean
@@ -14,6 +15,15 @@ const emits = defineEmits<{
 }>();
 const hideEmbed = ref(false);
 const list = ref(props.content);
+const embed = ref<InstanceType<typeof TwitchEmbed>>();
+const elapsedMap = new Map<HTMLParagraphElement, number>();
+let interval : number | undefined;
+function refStreamSince(e: HTMLParagraphElement, since: string) {
+    elapsedMap.set(e, new Date(since).getTime());
+}
+function selectStream(login: string) {
+	embed.value?.setChannel(login);
+}
 watch(
     () => props.edit,
     () => {
@@ -21,6 +31,31 @@ watch(
 			emits("modified", list.value);
 	}
 );
+onMounted(() => {
+    interval = setInterval(() => {
+        const current = new Date().getTime();
+        elapsedMap.forEach((since, element) => {
+            const elapsed = current - since;
+            //Arrange the difference of date in days, hours, minutes, and seconds format
+            let days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+            element.innerText = `${ 
+                    (days ? days + " jour(s) et " : "")
+                    + hours
+                        .toLocaleString("fr-FR", {minimumIntegerDigits: 2})
+                }:${
+                    minutes
+                        .toLocaleString("fr-FR", {minimumIntegerDigits: 2})
+                }:${
+                    seconds
+                        .toLocaleString("fr-FR", {minimumIntegerDigits: 2})
+                }`;
+        })
+    }, 1000);
+});
+onUnmounted(() => clearInterval(interval));
 </script>
 
 <template>
@@ -44,6 +79,7 @@ watch(
 					v-slot="{ profiles }">
 					<Teleport to="#streams">
 						<TwitchEmbed
+							ref="embed"
 							id="embed"
 							v-if="profiles.some((u) => u.stream)"
 							:style="hideEmbed ? 'display:none' : ''"
@@ -54,10 +90,41 @@ watch(
 						Nos autres chaînes
 					</h2>
 					<div id="profiles">
-						<TwitchCard
-							v-for="{ user, stream } in profiles"
-							:user="user"
-							:stream="stream" />
+						<div v-for="{ user, stream } in profiles">
+							<Teleport to="#streams" :disabled="stream ? false : true">
+								<div class="card" @click="() => { if (stream) selectStream(user.login)}">
+									<div class="user">
+										<img :src='user.profile_image_url' />
+										<h3>{{ user.display_name }}</h3>
+										<p>{{ user.description }}</p>
+									</div>
+									<div class="stream" v-if="stream">
+										<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
+										<h4>{{ stream.title }}</h4>
+										<table class="description">
+											<tr>
+												<td>
+													<SVGIcon name="team-line" />
+												</td>
+												<td>{{ stream.viewer_count }}</td>
+											</tr>
+											<tr>
+												<td>
+													<SVGIcon name="gamepad-line" />
+												</td>
+												<td>{{ stream.game_name }}</td>
+											</tr>
+											<tr>
+												<td>
+													<SVGIcon name="time-line" />
+												</td>
+												<td :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</Teleport>
+						</div>
 					</div>
 				</TwitchClient>
 			</Suspense>
@@ -76,5 +143,90 @@ watch(
 	display: grid;
     grid-template-columns: repeat(auto-fit, minmax(344px, auto));
 	gap: 16px;
+}
+
+.card {
+    display: flex;
+    gap: 16px;
+    text-align: center;
+	font-weight: bold;
+	background-color: var(--secondary-dk-2);
+	border: 1px solid var(--secondary-lt-2);
+	border-radius: 16px;
+    padding: 16px;
+}
+
+.user > img {
+	border-radius: 50%;
+    width: 100%;
+}
+
+#streams .card {
+    padding: 8px;
+    transition: 200ms;
+}
+
+#streams .card:hover {
+	background-color: var(--secondary-dk-4);
+	border: 1px solid var(--secondary-lt-4);
+}
+
+#streams .user {
+    display: flex;
+    width: 20%;
+}
+
+#streams .user > img {
+    width: 64px;
+    height: 64px;
+}
+
+#streams .user > h3 {
+    margin: 8px;
+    line-height: 48px;
+}
+
+#streams .user > p {
+    display: none;
+}
+
+.stream {
+    display: flex;
+	font-weight: initial;
+    width: 80%;
+    height: 64px;
+}
+
+.stream > * {
+    height: 100%;
+}
+
+.stream > img {
+    width: 114px;
+}
+
+.stream > h4 {
+    width: calc(75% - 114px);
+    margin: 0px;
+    overflow: hidden;
+    text-overflow: clip;
+    line-height: 32px;
+}
+
+.stream > .description {
+    width: 25%;
+}
+
+.stream > .description td {
+    padding: 0px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stream > .description td > svg {
+    width: 16px;
+    height: 16px;
 }
 </style>
