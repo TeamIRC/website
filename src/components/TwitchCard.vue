@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useTimeAgo } from '@vueuse/core';
 import { TwitchStream, TwitchUser } from '../types';
 
 defineProps<{
@@ -19,9 +20,11 @@ defineProps<{
                 <img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
                 <div>
                     <h3>{{ stream.title }}</h3>
-                    <p>{{ stream.viewer_count }} viewers</p>
-                    <p>Joue à {{ stream.game_name }}</p>
-                    <p>Stream depuis {{ stream.started_at }}</p>
+                    <div class="description">
+                        <p>{{ stream.viewer_count }} viewers</p>
+                        <p>Joue à {{ stream.game_name }}</p>
+                        <p>Stream depuis {{ useTimeAgo(new Date(stream.started_at)) }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,7 +68,12 @@ defineProps<{
 }
 
 .stream > img {
-    width: 256px;
-    height: 144px;
+    width: 128px;
+    height: 77px;
+}
+
+.stream > .description {
+    display: flex;
+    gap: 16px;
 }
 </style>
