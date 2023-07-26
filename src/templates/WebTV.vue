@@ -17,10 +17,16 @@ const hideEmbed = ref(false);
 const list = ref(props.content);
 const embed = ref<InstanceType<typeof TwitchEmbed>>();
 const cards = ref<HTMLDivElement[]>();
+const currentChannel = ref<string>()
 const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
 function refStreamSince(e: HTMLParagraphElement, since: string) {
     elapsedMap.set(e, new Date(since).getTime());
+}
+function selectStream(target: HTMLDivElement, login: string) {
+	cards.value?.forEach((c) => c.classList.remove('active'));
+	target.classList.add('active');
+	embed.value?.setChannel(login);
 }
 watch(
     () => props.edit,
@@ -81,7 +87,7 @@ onUnmounted(() => clearInterval(interval));
 							id="embed"
 							v-if="profiles.some((u) => u.stream)"
 							:style="hideEmbed ? 'display:none' : ''"
-							:channel="profiles.find((u) => u.stream)?.user.login"
+							:channel="currentChannel = profiles.find((u) => u.stream)?.user.login"
 							@error="hideEmbed = true" />	
 					</Teleport>
 					<h2>
@@ -92,11 +98,8 @@ onUnmounted(() => clearInterval(interval));
 							<Teleport to="#streams" :disabled="stream ? false : true">
 								<div ref="cards"
 									class="card"
-									@click="(e) => { if (stream) {
-										cards?.forEach((c) => c.classList.remove('active'));
-										(e.target as HTMLDivElement).classList.add('active');
-										embed?.setChannel(user.login);
-									}}"
+									:class="{'active': currentChannel == user.login}"
+									@click="(e) => { if (stream) selectStream(e.target as HTMLDivElement, user.login) }"
 								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
