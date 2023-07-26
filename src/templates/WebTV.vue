@@ -32,21 +32,24 @@ watch(
 				<input type="text" v-model="list.items[index]" />
 			</template>
 		</ListBase>
-		<Suspense v-else>
+		<template v-else>
+			<div id="streams">
+			</div>
+			<Suspense>
 			<template #fallback>
 				Chargement
 			</template>
 			<TwitchClient
 				:content="content.items"
 				v-slot="{ profiles }">
-				<TwitchEmbed
-					id="embed"
-					v-if="profiles.some((u) => u.stream)"
-					:style="hideEmbed ? 'display:none' : ''"
-					:channel="profiles.find((u) => u.stream)?.user.login"
-					@error="hideEmbed = true" />
-				<div id="streams">
-				</div>
+				<Teleport to="#streams">
+					<TwitchEmbed
+						id="embed"
+						v-if="profiles.some((u) => u.stream)"
+						:style="hideEmbed ? 'display:none' : ''"
+						:channel="profiles.find((u) => u.stream)?.user.login"
+						@error="hideEmbed = true" />	
+				</Teleport>
 				<div id="profiles">
 					<TwitchCard
 						v-for="{ user, stream } in profiles"
@@ -55,6 +58,7 @@ watch(
 				</div>
 			</TwitchClient>
 		</Suspense>
+		</template>
 	</div>
 </template>
 
