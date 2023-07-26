@@ -22,9 +22,15 @@ onMounted(() => {
             let hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
-            element.innerText = "Depuis " 
-                + (days ? days + " jour(s) et " : "")
-                + `${hours}:${minutes}:${seconds}`;
+            element.innerText =
+                `Depuis ${ 
+                    (days ? days + " jour(s) et " : "")
+                    + hours.toFixed(2)
+                }:${
+                    minutes.toFixed(2)
+                }:${
+                    seconds.toFixed(2)
+                }`;
         })
     }, 1000);
 });
@@ -56,22 +62,22 @@ onUnmounted(() => clearInterval(interval))
 </template>
 
 <style scoped>
-#streams > .user {
+#streams .user {
     display: flex;
     width: 33%;
 }
 
-#streams > .user > img {
+#streams .user > img {
     width: 64px;
     height: 64px;
 }
 
-#streams > .user > h3 {
+#streams .user > h3 {
     margin: 8px;
     line-height: 48px;
 }
 
-#streams > .user > p {
+#streams .user > p {
     display: none;
 }
 
