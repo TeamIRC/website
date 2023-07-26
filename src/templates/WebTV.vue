@@ -36,28 +36,31 @@ watch(
 			<div id="streams">
 			</div>
 			<Suspense>
-			<template #fallback>
-				Chargement
-			</template>
-			<TwitchClient
-				:content="content.items"
-				v-slot="{ profiles }">
-				<Teleport to="#streams">
-					<TwitchEmbed
-						id="embed"
-						v-if="profiles.some((u) => u.stream)"
-						:style="hideEmbed ? 'display:none' : ''"
-						:channel="profiles.find((u) => u.stream)?.user.login"
-						@error="hideEmbed = true" />	
-				</Teleport>
-				<div id="profiles">
-					<TwitchCard
-						v-for="{ user, stream } in profiles"
-						:user="user"
-						:stream="stream" />
-				</div>
-			</TwitchClient>
-		</Suspense>
+				<template #fallback>
+					Chargement
+				</template>
+				<TwitchClient
+					:content="content.items"
+					v-slot="{ profiles }">
+					<Teleport to="#streams">
+						<TwitchEmbed
+							id="embed"
+							v-if="profiles.some((u) => u.stream)"
+							:style="hideEmbed ? 'display:none' : ''"
+							:channel="profiles.find((u) => u.stream)?.user.login"
+							@error="hideEmbed = true" />	
+					</Teleport>
+					<div id="profiles">
+						<h3>
+							Nos autres chaînes
+						</h3>
+						<TwitchCard
+							v-for="{ user, stream } in profiles"
+							:user="user"
+							:stream="stream" />
+					</div>
+				</TwitchClient>
+			</Suspense>
 		</template>
 	</div>
 </template>
