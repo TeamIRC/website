@@ -4,7 +4,7 @@ import ListBase from '../components/ListBase.vue';
 import SVGIcon from '../components/SVGIcon.vue';
 import TwitchClient from '../components/TwitchClient.vue';
 import TwitchEmbed from '../components/TwitchEmbed.vue';
-import { ListContent } from '../types';
+import { ListContent, TwitchProfile } from '../types';
 
 const props = defineProps<{
 	content: ListContent<string>,
@@ -21,6 +21,10 @@ const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
 function refStreamSince(e: HTMLParagraphElement, since: string) {
     elapsedMap.set(e, new Date(since).getTime());
+}
+function getFirstChannel(profiles: TwitchProfile[]) {
+	currentChannel.value = profiles.find((u) => u.stream)?.user.login
+	return currentChannel.value;
 }
 function selectStream(login: string) {
 	currentChannel.value = login
@@ -85,7 +89,7 @@ onUnmounted(() => clearInterval(interval));
 							id="embed"
 							v-if="profiles.some((u) => u.stream)"
 							:style="hideEmbed ? 'display:none' : ''"
-							:channel="currentChannel = profiles.find((u) => u.stream)?.user.login"
+							:channel="getFirstChannel(profiles)"
 							@error="hideEmbed = true" />	
 					</Teleport>
 					<h2>
@@ -95,7 +99,7 @@ onUnmounted(() => clearInterval(interval));
 						<div v-for="{ user, stream } in profiles">
 							<Teleport to="#streams" :disabled="stream ? false : true">
 								<div class="card" @click="() => { if (stream) selectStream(user.login)}">
-									<div class="user" :class="currentChannel?'active':''">
+									<div class="user" :class="currentChannel == user.login ?'active':''">
 										<img :src='user.profile_image_url' />
 										<h3>{{ user.display_name }}</h3>
 										<p>{{ user.description }}</p>
