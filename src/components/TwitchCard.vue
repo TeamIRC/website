@@ -133,9 +133,11 @@ onUnmounted(() => clearInterval(interval))
 }
 
 .stream > h4 {
+    width: calc(75% - 114px);
+    margin: 0px;
     overflow: hidden;
     text-overflow: clip;
-    width: calc(75% - 114px);
+    line-height: 32px;
 }
 
 .stream > .description {
