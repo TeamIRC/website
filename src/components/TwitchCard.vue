@@ -1,11 +1,35 @@
 <script setup lang="ts">
-import { useTimeAgo } from '@vueuse/core';
 import { TwitchStream, TwitchUser } from '../types';
+import { onMounted, onUnmounted } from 'vue';
 
 defineProps<{
     user: TwitchUser;
     stream: TwitchStream | undefined;
 }>()
+
+const elapsedMap = new Map<HTMLParagraphElement, number>();
+function refStreamSince(e: HTMLParagraphElement, since: string) {
+    elapsedMap.set(e, new Date(since).getTime());
+}
+let interval : number | undefined;
+onMounted(() => {
+    interval = setInterval(() => {
+        const current = new Date().getTime();
+        elapsedMap.forEach((since, element) => {
+            const elapsed = current - since;
+            //Arrange the difference of date in days, hours, minutes, and seconds format
+            let days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+            element.innerText = "Depuis " 
+                + (days ? days + " jour(s) et " : "")
+                + `${hours}:${minutes}:${seconds}`;
+        })
+    }, 1000);
+});
+
+onUnmounted(() => clearInterval(interval))
 </script>
 
 <template>
@@ -23,7 +47,7 @@ defineProps<{
                     <div class="description">
                         <p>{{ stream.viewer_count }} viewers</p>
                         <p>Joue à {{ stream.game_name }}</p>
-                        <p>Stream depuis {{ useTimeAgo(new Date(stream.started_at)) }}</p>
+                        <p :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></p>
                     </div>
                 </div>
             </div>
@@ -72,8 +96,9 @@ defineProps<{
     height: 77px;
 }
 
-.stream > .description {
+.stream .description {
     display: flex;
     gap: 16px;
+    justify-content: center;
 }
 </style>
