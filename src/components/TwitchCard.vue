@@ -96,6 +96,12 @@ onUnmounted(() => clearInterval(interval))
 
 #streams .card {
     padding: 8px;
+    transition: 200ms;
+}
+
+#streams .card:hover {
+	background-color: var(--secondary-dk-4);
+	border: 1px solid var(--secondary-lt-4);
 }
 
 #streams .user {
