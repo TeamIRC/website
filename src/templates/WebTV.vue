@@ -4,7 +4,7 @@ import ListBase from '../components/ListBase.vue';
 import SVGIcon from '../components/SVGIcon.vue';
 import TwitchClient from '../components/TwitchClient.vue';
 import TwitchEmbed from '../components/TwitchEmbed.vue';
-import { ListContent, TwitchProfile } from '../types';
+import { ListContent } from '../types';
 
 const props = defineProps<{
 	content: ListContent<string>,
@@ -16,19 +16,11 @@ const emits = defineEmits<{
 const hideEmbed = ref(false);
 const list = ref(props.content);
 const embed = ref<InstanceType<typeof TwitchEmbed>>();
-const currentChannel = ref<string>()
+const cards = ref<HTMLDivElement[]>();
 const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
 function refStreamSince(e: HTMLParagraphElement, since: string) {
     elapsedMap.set(e, new Date(since).getTime());
-}
-function getFirstChannel(profiles: TwitchProfile[]) {
-	currentChannel.value = profiles.find((u) => u.stream)?.user.login
-	return currentChannel.value;
-}
-function selectStream(login: string) {
-	currentChannel.value = login
-	embed.value?.setChannel(login);
 }
 watch(
     () => props.edit,
@@ -89,7 +81,7 @@ onUnmounted(() => clearInterval(interval));
 							id="embed"
 							v-if="profiles.some((u) => u.stream)"
 							:style="hideEmbed ? 'display:none' : ''"
-							:channel="getFirstChannel(profiles)"
+							:channel="profiles.find((u) => u.stream)?.user.login"
 							@error="hideEmbed = true" />	
 					</Teleport>
 					<h2>
@@ -98,7 +90,14 @@ onUnmounted(() => clearInterval(interval));
 					<div id="profiles">
 						<div v-for="{ user, stream } in profiles">
 							<Teleport to="#streams" :disabled="stream ? false : true">
-								<div class="card" :class="{'active': currentChannel == user.login }" @click="() => { if (stream) selectStream(user.login)}">
+								<div ref="cards"
+									class="card"
+									@click="(e) => { if (stream) {
+										cards?.forEach((c) => c.classList.remove('active'));
+										(e.target as HTMLDivElement).classList.add('active');
+										embed?.setChannel(user.login);
+									}}"
+								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
 										<h3>{{ user.display_name }}</h3>
