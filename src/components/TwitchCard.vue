@@ -37,13 +37,13 @@ onUnmounted(() => clearInterval(interval))
         <div class="card">
             <div class="user">
                 <img :src='user.profile_image_url' />
-                <h2>{{ user.display_name }}</h2>
+                <h3>{{ user.display_name }}</h3>
                 <p>{{ user.description }}</p>
             </div>
             <div class="stream" v-if="stream">
                 <img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
                 <div>
-                    <h3>{{ stream.title }}</h3>
+                    <h4>{{ stream.title }}</h4>
                     <div class="description">
                         <p>{{ stream.viewer_count }} viewers</p>
                         <p>Joue à {{ stream.game_name }}</p>
@@ -56,18 +56,23 @@ onUnmounted(() => clearInterval(interval))
 </template>
 
 <style scoped>
-#streams > .card > .user {
+#streams > .user {
     display: flex;
     width: 33%;
 }
 
-#streams > .card > .user > p {
-    display: none;
-}
-
-#streams > .card > .user > img {
+#streams > .user > img {
     width: 64px;
     height: 64px;
+}
+
+#streams > .user > h3 {
+    margin: 8px;
+    line-height: 48px;
+}
+
+#streams > .user > p {
+    display: none;
 }
 
 .card {
@@ -92,13 +97,24 @@ onUnmounted(() => clearInterval(interval))
 }
 
 .stream > img {
-    width: 128px;
-    height: 77px;
+    width: 114px;
+    height: 64px;
 }
 
 .stream .description {
     display: flex;
     gap: 16px;
     justify-content: center;
+}
+
+.stream h4,
+.stream p {
+    margin: 4px;
+}
+
+.stream h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>

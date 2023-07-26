@@ -50,9 +50,9 @@ watch(
 							:channel="profiles.find((u) => u.stream)?.user.login"
 							@error="hideEmbed = true" />	
 					</Teleport>
-					<h3>
+					<h2>
 						Nos autres chaînes
-					</h3>
+					</h2>
 					<div id="profiles">
 						<TwitchCard
 							v-for="{ user, stream } in profiles"
