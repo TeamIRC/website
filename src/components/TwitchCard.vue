@@ -147,6 +147,9 @@ onUnmounted(() => clearInterval(interval))
 .stream > .description td {
     padding: 0px;
     line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .stream > .description td > svg {
