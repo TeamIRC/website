@@ -121,31 +121,34 @@ onUnmounted(() => clearInterval(interval))
     display: flex;
 	font-weight: initial;
     width: 80%;
+    height: 64px;
+}
+
+.stream > * {
+    height: 100%;
 }
 
 .stream > img {
     width: 114px;
-    height: 64px;
 }
 
 .stream > h4 {
-    margin: 4px;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    width: calc(75% - 114px)
+    text-overflow: clip;
+    width: calc(75% - 114px);
 }
 
 .stream > .description {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    justify-content: center;
     width: 25%;
 }
 
-.stream > .description > td {
-    margin: 0px;
-    line-height: 16px;
+.stream > .description td {
+    padding: 0px;
+    line-height: 1;
+}
+
+.stream > .description td > svg {
+    width: 16px;
+    height: 16px;
 }
 </style>
