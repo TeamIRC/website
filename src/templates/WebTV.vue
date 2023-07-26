@@ -51,7 +51,7 @@ watch(
 						<img :src='user.profile_image_url' />
 						<h2>{{ user.display_name }}</h2>
 						<p>{{ user.description }}</p>
-						<Teleport to="streams">
+						<Teleport to="#streams">
 							<div class="stream" v-if="stream">
 								<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
 								<h3>{{ stream.title }}</h3>
