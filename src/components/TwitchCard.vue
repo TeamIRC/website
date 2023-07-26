@@ -25,11 +25,14 @@ onMounted(() => {
             element.innerText =
                 `Depuis ${ 
                     (days ? days + " jour(s) et " : "")
-                    + hours.toFixed(2)
+                    + hours
+                        .toLocaleString("fr-FR", {minimumIntegerDigits: 2})
                 }:${
-                    minutes.toFixed(2)
+                    minutes
+                        .toLocaleString("fr-FR", {minimumIntegerDigits: 2})
                 }:${
-                    seconds.toFixed(2)
+                    seconds
+                        .toLocaleString("fr-FR", {minimumIntegerDigits: 2})
                 }`;
         })
     }, 1000);
