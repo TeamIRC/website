@@ -101,6 +101,10 @@ onUnmounted(() => clearInterval(interval))
     height: 64px;
 }
 
+.stream > div {
+    width: calc(100% - 114px);
+}
+
 .stream .description {
     display: flex;
     gap: 16px;
