@@ -51,13 +51,11 @@ onUnmounted(() => clearInterval(interval))
             </div>
             <div class="stream" v-if="stream">
                 <img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
-                <div>
-                    <h4>{{ stream.title }}</h4>
-                    <div class="description">
-                        <p>{{ stream.viewer_count }} viewers</p>
-                        <p>Joue à {{ stream.game_name }}</p>
-                        <p :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></p>
-                    </div>
+                <h4>{{ stream.title }}</h4>
+                <div class="description">
+                    <p>{{ stream.viewer_count }} viewers</p>
+                    <p>Joue à {{ stream.game_name }}</p>
+                    <p :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></p>
                 </div>
             </div>
         </div>
@@ -65,6 +63,26 @@ onUnmounted(() => clearInterval(interval))
 </template>
 
 <style scoped>
+.card {
+    display: flex;
+    gap: 16px;
+    text-align: center;
+	font-weight: bold;
+	background-color: var(--secondary-dk-2);
+	border: 1px solid var(--secondary-lt-2);
+	border-radius: 16px;
+    padding: 16px;
+}
+
+.user > img {
+	border-radius: 50%;
+    width: 100%;
+}
+
+#streams .card {
+    padding: 8px;
+}
+
 #streams .user {
     display: flex;
     width: 33%;
@@ -84,26 +102,6 @@ onUnmounted(() => clearInterval(interval))
     display: none;
 }
 
-.card {
-    display: flex;
-    gap: 16px;
-    text-align: center;
-	font-weight: bold;
-	background-color: var(--secondary-dk-2);
-	border: 1px solid var(--secondary-lt-2);
-	border-radius: 16px;
-    padding: 16px;
-}
-
-#streams .card {
-    padding: 8px;
-}
-
-.card img {
-	border-radius: 50%;
-    width: 100%;
-}
-
 .stream {
     display: flex;
 	font-weight: unset;
@@ -114,24 +112,17 @@ onUnmounted(() => clearInterval(interval))
     height: 64px;
 }
 
-.stream > div {
-    width: calc(100% - 114px);
-}
-
-.stream .description {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-}
-
-.stream h4,
-.stream p {
+.stream > h4 {
     margin: 4px;
-}
-
-.stream h4 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.stream > .description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
 }
 </style>
