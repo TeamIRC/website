@@ -16,12 +16,14 @@ const emits = defineEmits<{
 const hideEmbed = ref(false);
 const list = ref(props.content);
 const embed = ref<InstanceType<typeof TwitchEmbed>>();
+const currentChannel = ref<string>()
 const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
 function refStreamSince(e: HTMLParagraphElement, since: string) {
     elapsedMap.set(e, new Date(since).getTime());
 }
 function selectStream(login: string) {
+	currentChannel.value = login
 	embed.value?.setChannel(login);
 }
 watch(
@@ -83,7 +85,7 @@ onUnmounted(() => clearInterval(interval));
 							id="embed"
 							v-if="profiles.some((u) => u.stream)"
 							:style="hideEmbed ? 'display:none' : ''"
-							:channel="profiles.find((u) => u.stream)?.user.login"
+							:channel="currentChannel = profiles.find((u) => u.stream)?.user.login"
 							@error="hideEmbed = true" />	
 					</Teleport>
 					<h2>
@@ -93,7 +95,7 @@ onUnmounted(() => clearInterval(interval));
 						<div v-for="{ user, stream } in profiles">
 							<Teleport to="#streams" :disabled="stream ? false : true">
 								<div class="card" @click="() => { if (stream) selectStream(user.login)}">
-									<div class="user">
+									<div class="user" :class="currentChannel?'active':''">
 										<img :src='user.profile_image_url' />
 										<h3>{{ user.display_name }}</h3>
 										<p>{{ user.description }}</p>
@@ -166,9 +168,15 @@ onUnmounted(() => clearInterval(interval));
     transition: 200ms;
 }
 
-#streams .card:hover {
+#streams .card:not(.active):hover {
 	background-color: var(--secondary-dk-4);
 	border: 1px solid var(--secondary-lt-4);
+	cursor: pointer;
+}
+
+#streams .card.active {
+	background-color: var(--secondary-dk-3);
+	border: 1px solid var(--secondary-lt-3);
 }
 
 #streams .user {
