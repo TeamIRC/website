@@ -44,18 +44,22 @@ watch(
 					:style="hideEmbed ? 'display:none' : ''"
 					:channel="profiles.find((u) => u.stream)?.user.login"
 					@error="hideEmbed = true" />
+				<div id="streams">
+				</div>
 				<div id="profiles">
 					<div class="card" v-for="{ user, stream } in profiles">
 						<img :src='user.profile_image_url' />
 						<h2>{{ user.display_name }}</h2>
 						<p>{{ user.description }}</p>
-						<div class="stream" v-if="stream">
-							<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
-							<h3>{{ stream.title }}</h3>
-							<p>{{ stream.viewer_count }} viewers</p>
-							<p>Joue à {{ stream.game_name }}</p>
-							<p>Stream depuis {{ stream.started_at }}</p>
-						</div>
+						<Teleport to="streams">
+							<div class="stream" v-if="stream">
+								<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
+								<h3>{{ stream.title }}</h3>
+								<p>{{ stream.viewer_count }} viewers</p>
+								<p>Joue à {{ stream.game_name }}</p>
+								<p>Stream depuis {{ stream.started_at }}</p>
+							</div>
+						</Teleport>
 					</div>
 				</div>
 			</TwitchClient>
