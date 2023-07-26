@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { TwitchStream, TwitchUser } from '../types';
 import { onMounted, onUnmounted } from 'vue';
+import SVGIcon from './SVGIcon.vue';
 
 defineProps<{
     user: TwitchUser;
@@ -22,8 +23,7 @@ onMounted(() => {
             let hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
-            element.innerText =
-                `Depuis ${ 
+            element.innerText = `${ 
                     (days ? days + " jour(s) et " : "")
                     + hours
                         .toLocaleString("fr-FR", {minimumIntegerDigits: 2})
@@ -52,11 +52,26 @@ onUnmounted(() => clearInterval(interval))
             <div class="stream" v-if="stream">
                 <img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
                 <h4>{{ stream.title }}</h4>
-                <div class="description">
-                    <p>{{ stream.viewer_count }} viewers</p>
-                    <p>Joue à {{ stream.game_name }}</p>
-                    <p :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></p>
-                </div>
+                <table class="description">
+                    <tr>
+                        <td>
+                            <SVGIcon name="team-line" />
+                        </td>
+                        <td>{{ stream.viewer_count }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <SVGIcon name="gamepad-line" />
+                        </td>
+                        <td>{{ stream.game_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <SVGIcon name="time-line" />
+                        </td>
+                        <td :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </Teleport>
@@ -85,7 +100,7 @@ onUnmounted(() => clearInterval(interval))
 
 #streams .user {
     display: flex;
-    width: 33%;
+    width: 20%;
 }
 
 #streams .user > img {
@@ -105,6 +120,7 @@ onUnmounted(() => clearInterval(interval))
 .stream {
     display: flex;
 	font-weight: initial;
+    width: 80%;
 }
 
 .stream > img {
@@ -117,6 +133,7 @@ onUnmounted(() => clearInterval(interval))
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: calc(75% - 114px)
 }
 
 .stream > .description {
@@ -124,9 +141,11 @@ onUnmounted(() => clearInterval(interval))
     flex-direction: column;
     gap: 8px;
     justify-content: center;
+    width: 25%;
 }
 
-.stream > .description > p {
+.stream > .description > td {
     margin: 0px;
+    line-height: 16px;
 }
 </style>
