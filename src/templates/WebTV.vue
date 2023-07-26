@@ -98,8 +98,8 @@ onUnmounted(() => clearInterval(interval));
 					<div id="profiles">
 						<div v-for="{ user, stream } in profiles">
 							<Teleport to="#streams" :disabled="stream ? false : true">
-								<div class="card" @click="() => { if (stream) selectStream(user.login)}">
-									<div class="user" :class="currentChannel == user.login ?'active':''">
+								<div class="card" :class="currentChannel == user.login ?'active':''" @click="() => { if (stream) selectStream(user.login)}">
+									<div class="user">
 										<img :src='user.profile_image_url' />
 										<h3>{{ user.display_name }}</h3>
 										<p>{{ user.description }}</p>
