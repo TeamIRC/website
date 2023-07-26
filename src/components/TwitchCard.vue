@@ -95,7 +95,11 @@ onUnmounted(() => clearInterval(interval))
     padding: 16px;
 }
 
-.card > img {
+#streams .card {
+    padding: 8px;
+}
+
+.card img {
 	border-radius: 50%;
     width: 100%;
 }
