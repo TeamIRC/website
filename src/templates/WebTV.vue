@@ -23,11 +23,6 @@ let interval : number | undefined;
 function refStreamSince(e: HTMLParagraphElement, since: string) {
     elapsedMap.set(e, new Date(since).getTime());
 }
-function selectStream(target: HTMLDivElement, login: string) {
-	cards.value?.forEach((c) => c.classList.remove('active'));
-	target.classList.add('active');
-	embed.value?.setChannel(login);
-}
 watch(
     () => props.edit,
     () => {
@@ -99,7 +94,13 @@ onUnmounted(() => clearInterval(interval));
 								<div ref="cards"
 									class="card"
 									:class="{'active': currentChannel == user.login}"
-									@click="(e) => { if (stream) selectStream(e.target as HTMLDivElement, user.login) }"
+									@click="(e) => { if (stream) {
+										cards?.forEach((c) => c.classList.remove('active'));
+										((e.target as HTMLElement)
+											.closest('.card') as HTMLDivElement
+										).classList.add('active');
+										embed?.setChannel(user.login);
+									}}"
 								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
