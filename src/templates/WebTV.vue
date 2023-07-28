@@ -182,10 +182,6 @@ onUnmounted(() => clearInterval(interval));
 	cursor: pointer;
 }
 
-.stream:not(.active):hover {
-	background-color: var(--secondary-dk-4);
-}
-
 #streams .user {
     display: flex;
     width: 20%;
@@ -211,11 +207,16 @@ onUnmounted(() => clearInterval(interval));
 	font-weight: initial;
     width: 80%;
     height: 64px;
+	border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.stream:not(.active):hover {
+	background-color: var(--secondary-dk-4);
 }
 
 .stream.active {
 	background-color: var(--secondary-dk-3);
-	border: 1px solid var(--secondary-lt-3);
 }
 
 .stream > * {
