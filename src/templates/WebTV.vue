@@ -96,7 +96,8 @@ onUnmounted(() => clearInterval(interval));
 								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
-										<h3>{{ user.display_name }}<SVGIcon v-if="stream" name="question-line" width="64" height="64" /></h3>
+										<h3>{{ user.display_name }}</h3>
+										<SVGIcon v-if="stream" name="question-line" width="64" height="64" />
 										<p>{{ user.description }}</p>
 									</div>
 									<div v-if="stream"
