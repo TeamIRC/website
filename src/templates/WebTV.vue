@@ -14,7 +14,6 @@ const emits = defineEmits<{
 	(event: "modified", content: ListContent<string>): void
 }>();
 const list = ref(props.content);
-const embed = ref<InstanceType<typeof TwitchEmbed>[]>();
 const currentChannels = ref<string[]>([])
 const cardsMap = new Map<string, HTMLDivElement>();
 const elapsedMap = new Map<HTMLParagraphElement, number>();
@@ -102,10 +101,9 @@ onUnmounted(() => clearInterval(interval));
 					>
 					<Teleport to="#mosaic">
 						<TwitchEmbed
-							ref="embed"
-							id="embed"
 							v-for="channel in currentChannels"
-							:channel="channel"/>	
+							:channel="channel"
+							:key="channel"/>
 					</Teleport>
 					<h2>
 						Nos autres chaînes
