@@ -108,28 +108,17 @@ onUnmounted(() => clearInterval(interval));
 						<div v-for="{ user, stream } in profiles">
 							<Teleport to="#streams" :disabled="stream ? false : true">
 								<div
-									:ref="(e) => refCardsChannels(user.login, e as HTMLDivElement)"
+									:ref="(el) => refCardsChannels(user.login, el as HTMLDivElement)"
 									class="card"
 									@click="(e) => {
 										console.log("click");
-										if (!stream 
-											|| currentChannels.some((u) => u == user.login)) {
-												console.log("canceled");
-												return;
-											}
-										
-										const el = e.target as HTMLElement;
-										if (el.closest('figure')?.className == 'thumbnail')
-											currentChannels.push(user.login);
-										else {
-											// cards?.forEach((c) => c.classList.remove('active'));
-											currentChannels = [ user.login ];
+										if (!stream || currentChannels.some((u) => u == user.login)) {
+											console.log("canceled");
+											return;
 										}
-										/*
-										(el.closest('.card') as HTMLDivElement)
-											.classList
-											.add('active');
-										*/
+										if ((e.target as HTMLElement).closest('figure')?.className == 'thumbnail')
+											currentChannels.push(user.login);
+										else currentChannels = [ user.login ];
 									}"
 								>
 									<div class="user">
