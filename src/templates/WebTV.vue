@@ -13,11 +13,11 @@ const props = defineProps<{
 const emits = defineEmits<{
 	(event: "modified", content: ListContent<string>): void
 }>();
-const hideEmbed = ref(false);
 const list = ref(props.content);
-const embed = ref<InstanceType<typeof TwitchEmbed>>();
+const client = ref<InstanceType<typeof TwitchClient>>();
+const embed = ref<InstanceType<typeof TwitchEmbed>[]>();
 const cards = ref<HTMLDivElement[]>();
-const currentChannel = ref<string>()
+const currentChannels = ref<string[]>([])
 const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
 function refStreamSince(e: HTMLParagraphElement, since: string) {
@@ -68,22 +68,24 @@ onUnmounted(() => clearInterval(interval));
 		</ListBase>
 		<template v-else>
 			<div id="streams">
+				<div id="mosaic">
+				</div>
 			</div>
 			<Suspense>
 				<template #fallback>
 					Chargement
 				</template>
 				<TwitchClient
+					ref="client"
 					:content="content.items"
-					v-slot="{ profiles }">
-					<Teleport to="#streams">
+					v-slot="{ profiles }"
+					>
+					<Teleport to="#mosaic" @vnode-mounted="currentChannels.push(profiles.find((u) => u.stream)!.user.login)">
 						<TwitchEmbed
 							ref="embed"
 							id="embed"
-							v-if="profiles.some((u) => u.stream)"
-							:style="hideEmbed ? 'display:none' : ''"
-							:channel="currentChannel = profiles.find((u) => u.stream)?.user.login"
-							@error="hideEmbed = true" />	
+							v-for="channel of currentChannels"
+							:channel="channel"/>	
 					</Teleport>
 					<h2>
 						Nos autres chaînes
@@ -94,16 +96,22 @@ onUnmounted(() => clearInterval(interval));
 								<div
 									ref="cards"
 									class="card"
-									:class="{'active': currentChannel == user.login}"
+									:class="() => { return {'active': currentChannels.some((u) => u == user.login)}}"
 									@click="(e) => {
-										if (stream) {
-											cards?.forEach((c) => c.classList.remove('active'));
-											const el = e.target as HTMLElement;
-											(el.closest('.card') as HTMLDivElement)
-												.classList
-												.add('active');
-											embed?.setChannel(user.login);
+										if (!stream) return;
+										
+										const el = e.target as HTMLElement;
+										if (el.closest('figure')?.className == 'thumbnail')
+											currentChannels.push(user.login);
+										else {
+											// cards?.forEach((c) => c.classList.remove('active'));
+											currentChannels = [ user.login ];
 										}
+										/*
+										(el.closest('.card') as HTMLDivElement)
+											.classList
+											.add('active');
+										*/
 									}"
 								>
 									<div class="user">
