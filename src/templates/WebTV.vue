@@ -96,7 +96,7 @@ onUnmounted(() => clearInterval(interval));
 								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
-										<h3>{{ user.display_name }}</h3>
+										<h3>{{ user.display_name }}<SVGIcon v-if="stream" name="question-line" width="64" height="64" /></h3>
 										<p>{{ user.description }}</p>
 									</div>
 									<div v-if="stream"
@@ -178,6 +178,15 @@ onUnmounted(() => clearInterval(interval));
 	padding: 0px;
 }
 
+#streams .card:not(.active):hover {
+	background-color: var(--secondary-dk-4);
+	cursor: pointer;
+}
+
+#streams .card.active {
+	background-color: var(--secondary-dk-3);
+}
+
 #streams .card > * {
 	padding: 8px;
     transition: 200ms;
@@ -212,15 +221,6 @@ onUnmounted(() => clearInterval(interval));
     border-bottom-right-radius: 16px;
 }
 
-.stream:not(.active):hover {
-	background-color: var(--secondary-dk-4);
-	cursor: pointer;
-}
-
-.stream.active {
-	background-color: var(--secondary-dk-3);
-}
-
 .stream > * {
     height: 100%;
 }
@@ -231,7 +231,7 @@ onUnmounted(() => clearInterval(interval));
 	margin: 0px;
 }
 
-.stream:not(.active) > figure::before {
+#streams .card:not(.active) figure::before {
 	background: var(--secondary-dk-5);
 	color: var(--secondary-lt-5);
     position: absolute;
@@ -244,7 +244,7 @@ onUnmounted(() => clearInterval(interval));
     transition: 200ms;
 }
 
-.stream:not(.active) > figure:hover::before {
+#streams .card:not(.active) figure:hover::before {
     opacity: .8;
 }
 
