@@ -181,7 +181,6 @@ onUnmounted(() => clearInterval(interval));
 #streams .card > * {
 	padding: 8px;
     transition: 200ms;
-	cursor: pointer;
 }
 
 #streams .user {
@@ -215,11 +214,11 @@ onUnmounted(() => clearInterval(interval));
 
 .stream:not(.active):hover {
 	background-color: var(--secondary-dk-4);
+	cursor: pointer;
 }
 
 .stream.active {
 	background-color: var(--secondary-dk-3);
-	cursor: default;
 }
 
 .stream > * {
@@ -229,9 +228,10 @@ onUnmounted(() => clearInterval(interval));
 .stream > figure {
 	position: relative;
     width: 114px;
+	margin: 0px;
 }
 
-.stream > figure::before {
+.stream:not(.active) > figure::before {
 	background: var(--secondary-dk-5);
 	color: var(--secondary-lt-5);
     position: absolute;
@@ -244,7 +244,7 @@ onUnmounted(() => clearInterval(interval));
     transition: 200ms;
 }
 
-.stream > figure:hover::before {
+.stream:not(.active) > figure:hover::before {
     opacity: .8;
 }
 
