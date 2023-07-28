@@ -158,7 +158,6 @@ onUnmounted(() => clearInterval(interval));
 
 .card {
     display: flex;
-    gap: 16px;
 	height: calc(100% - 32px);
 	border: 1px solid var(--secondary-lt-2);
 	border-radius: 16px;
@@ -173,6 +172,10 @@ onUnmounted(() => clearInterval(interval));
     width: 100%;
 }
 
+#streams .card {
+	padding: 0px;
+}
+
 #streams .card > * {
 	padding: 8px;
     transition: 200ms;
@@ -181,7 +184,6 @@ onUnmounted(() => clearInterval(interval));
 
 .stream:not(.active):hover {
 	background-color: var(--secondary-dk-4);
-	border: 1px solid var(--secondary-lt-4);
 }
 
 #streams .user {
