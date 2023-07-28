@@ -29,7 +29,7 @@ function selectStream(el: HTMLElement, login: string) {
 	if (currentChannels.value.some((u) => u == login)) return;
 	if (el.closest('figure')?.className == 'thumbnail')
 		currentChannels.value.push(login);
-	else currentChannels.value = [ login ];
+	else currentChannels.value.splice(0, currentChannels.value.length, login);
 }
 watch(
     () => props.edit,
