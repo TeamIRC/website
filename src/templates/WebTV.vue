@@ -91,8 +91,10 @@ onUnmounted(() => clearInterval(interval));
 					<div id="profiles">
 						<div v-for="{ user, stream } in profiles">
 							<Teleport to="#streams" :disabled="stream ? false : true">
-								<div ref="cards"
+								<div
+									ref="cards"
 									class="card"
+									:class="{'active': currentChannel == user.login}"
 								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
@@ -102,7 +104,6 @@ onUnmounted(() => clearInterval(interval));
 									</div>
 									<div v-if="stream"
 										class="stream"
-										:class="{'active': currentChannel == user.login}"
 										@click="(e) => {
 											cards?.forEach((c) => c.classList.remove('active'));
 											((e.target as HTMLElement)
@@ -189,12 +190,14 @@ onUnmounted(() => clearInterval(interval));
 }
 
 #streams .card > * {
+	background-color: inherit;
 	padding: 8px;
     transition: 200ms;
 }
 
 #streams .user {
     display: flex;
+    position: relative;
     width: 20%;
 	border-right: 1px solid var(--secondary-lt-2);
 }
@@ -211,10 +214,19 @@ onUnmounted(() => clearInterval(interval));
 
 #streams .user > p {
     display: none;
+    position: absolute;
+    left: 100%;
+    width: 0%;
+    height: 64px;
+	overflow: hidden;
+    padding: 8px;
+    z-index: 1;
+	background-color: inherit;
 }
 
 #streams .user:hover > p {
     display: initial;
+    width: 375%;
 }
 
 .stream {
