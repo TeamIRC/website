@@ -79,8 +79,12 @@ onUnmounted(() => clearInterval(interval));
 					ref="client"
 					:content="content.items"
 					v-slot="{ profiles }"
+					@vnode-mounted="() => {
+						const first = client?.profiles.find((u) => u.stream);
+						if (first) currentChannels.push(first.user.login)
+					}"
 					>
-					<Teleport to="#mosaic" @vnode-mounted="currentChannels.push(profiles.find((u) => u.stream)!.user.login)">
+					<Teleport to="#mosaic">
 						<TwitchEmbed
 							ref="embed"
 							id="embed"
@@ -98,7 +102,8 @@ onUnmounted(() => clearInterval(interval));
 									class="card"
 									:class="() => { return {'active': currentChannels.some((u) => u == user.login)}}"
 									@click="(e) => {
-										if (!stream) return;
+										if (!stream 
+											|| currentChannels.some((u) => u == user.login)) return;
 										
 										const el = e.target as HTMLElement;
 										if (el.closest('figure')?.className == 'thumbnail')

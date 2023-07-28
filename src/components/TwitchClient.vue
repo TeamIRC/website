@@ -64,6 +64,9 @@ const profiles: TwitchProfile[] = await fetchUsers(userlist)
 			.sort((a, b) => userlist.indexOf(a.user.login) - userlist.indexOf(b.user.login));
 	});
 
+defineExpose({
+	profiles
+})
 </script>
 
 <template>
