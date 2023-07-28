@@ -232,7 +232,8 @@ onUnmounted(() => clearInterval(interval));
 }
 
 .stream > figure::before {
-	background: #00000000;
+	background: var(--secondary-dk-5);
+	color: var(--secondary-lt-5);
     position: absolute;
     width: 114px;
     height: 64px;
@@ -241,11 +242,15 @@ onUnmounted(() => clearInterval(interval));
     font-size: 32px;
 	opacity: 0;
     transition: 200ms;
-    z-index: 1;
 }
 
 .stream > figure:hover::before {
     opacity: .8;
+}
+
+figure > img {
+    width: 100%;
+    height: auto;
 }
 
 .stream > h4 {
