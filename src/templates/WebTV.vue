@@ -25,6 +25,13 @@ function refCardsChannels(channel: string, e: HTMLDivElement) {
 function refStreamSince(e: HTMLParagraphElement, since: string) {
     elapsedMap.set(e, new Date(since).getTime());
 }
+function selectStream(e: MouseEvent, stream: boolean, login: string) {
+	if (!stream || currentChannels.value.some((u) => u == login)) 
+		return;
+	if ((e.target as HTMLElement).closest('figure')?.className == 'thumbnail')
+		currentChannels.value.push(login);
+	else currentChannels.value = [ login ];
+}
 watch(
     () => props.edit,
     () => {
@@ -110,16 +117,7 @@ onUnmounted(() => clearInterval(interval));
 								<div
 									:ref="(el) => refCardsChannels(user.login, el as HTMLDivElement)"
 									class="card"
-									@click="(e) => {
-										console.log("click");
-										if (!stream || currentChannels.some((u) => u == user.login)) {
-											console.log("canceled");
-											return;
-										}
-										if ((e.target as HTMLElement).closest('figure')?.className == 'thumbnail')
-											currentChannels.push(user.login);
-										else currentChannels = [ user.login ];
-									}"
+									@click="(e) => selectStream(e, stream ? true : false, user.login)"
 								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
