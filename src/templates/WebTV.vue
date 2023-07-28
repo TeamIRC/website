@@ -14,12 +14,14 @@ const emits = defineEmits<{
 	(event: "modified", content: ListContent<string>): void
 }>();
 const list = ref(props.content);
-const client = ref<InstanceType<typeof TwitchClient>>();
 const embed = ref<InstanceType<typeof TwitchEmbed>[]>();
-const cards = ref<HTMLDivElement[]>();
 const currentChannels = ref<string[]>([])
+const cardsMap = new Map<string, HTMLDivElement>();
 const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
+function refCardsChannels(channel: string, e: HTMLDivElement) {
+    cardsMap.set(channel, e);
+}
 function refStreamSince(e: HTMLParagraphElement, since: string) {
     elapsedMap.set(e, new Date(since).getTime());
 }
@@ -30,6 +32,15 @@ watch(
 			emits("modified", list.value);
 	}
 );
+watch(
+	() => currentChannels,
+	(n, o) => {
+		const added = n.value.filter(x => !o.value.includes(x));
+		const removed = o.value.filter(x => !n.value.includes(x));
+		added.forEach(v => cardsMap?.get(v)?.classList.add("active"))
+		removed.forEach(v => cardsMap?.get(v)?.classList.remove("active"))
+	}
+)
 onMounted(() => {
     interval = setInterval(() => {
         const current = new Date().getTime();
@@ -76,7 +87,6 @@ onUnmounted(() => clearInterval(interval));
 					Chargement
 				</template>
 				<TwitchClient
-					ref="client"
 					:content="content.items"
 					v-slot="{ profiles }"
 					@loaded="(profiles: TwitchProfile[]) => {
@@ -98,9 +108,8 @@ onUnmounted(() => clearInterval(interval));
 						<div v-for="{ user, stream } in profiles">
 							<Teleport to="#streams" :disabled="stream ? false : true">
 								<div
-									ref="cards"
+									:ref="(e) => refCardsChannels(user.login, e as HTMLDivElement)"
 									class="card"
-									:class="() => { return {'active': currentChannels.some((u) => u == user.login)}}"
 									@click="(e) => {
 										if (!stream 
 											|| currentChannels.some((u) => u == user.login)) return;
