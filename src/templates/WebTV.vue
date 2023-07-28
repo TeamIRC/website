@@ -111,8 +111,12 @@ onUnmounted(() => clearInterval(interval));
 									:ref="(e) => refCardsChannels(user.login, e as HTMLDivElement)"
 									class="card"
 									@click="(e) => {
+										console.log("click");
 										if (!stream 
-											|| currentChannels.some((u) => u == user.login)) return;
+											|| currentChannels.some((u) => u == user.login)) {
+												console.log("canceled");
+												return;
+											}
 										
 										const el = e.target as HTMLElement;
 										if (el.closest('figure')?.className == 'thumbnail')
