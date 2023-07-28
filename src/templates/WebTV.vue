@@ -97,7 +97,7 @@ onUnmounted(() => clearInterval(interval));
 									<div class="user">
 										<img :src='user.profile_image_url' />
 										<h3>{{ user.display_name }}</h3>
-										<SVGIcon v-if="stream" name="question-line" width="64" height="64" />
+										<SVGIcon v-if="stream" name="question-line" width="32" height="64" />
 										<p>{{ user.description }}</p>
 									</div>
 									<div v-if="stream"
@@ -211,6 +211,10 @@ onUnmounted(() => clearInterval(interval));
 
 #streams .user > p {
     display: none;
+}
+
+#streams .user:hover > p {
+    display: initial;
 }
 
 .stream {
