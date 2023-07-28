@@ -93,21 +93,23 @@ onUnmounted(() => clearInterval(interval));
 							<Teleport to="#streams" :disabled="stream ? false : true">
 								<div ref="cards"
 									class="card"
-									:class="{'active': currentChannel == user.login}"
-									@click="(e) => { if (stream) {
-										cards?.forEach((c) => c.classList.remove('active'));
-										((e.target as HTMLElement)
-											.closest('.card') as HTMLDivElement
-										).classList.add('active');
-										embed?.setChannel(user.login);
-									}}"
 								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
 										<h3>{{ user.display_name }}</h3>
 										<p>{{ user.description }}</p>
 									</div>
-									<div class="stream" v-if="stream">
+									<div v-if="stream"
+										class="stream"
+										:class="{'active': currentChannel == user.login}"
+										@click="(e) => {
+											cards?.forEach((c) => c.classList.remove('active'));
+											((e.target as HTMLElement)
+												.closest('.card') as HTMLDivElement
+											).classList.add('active');
+											embed?.setChannel(user.login);
+										}"
+									>
 										<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
 										<h4>{{ stream.title }}</h4>
 										<table class="description">
@@ -157,12 +159,13 @@ onUnmounted(() => clearInterval(interval));
 .card {
     display: flex;
     gap: 16px;
-    text-align: center;
-	font-weight: bold;
-	background-color: var(--secondary-dk-2);
+	height: calc(100% - 32px);
 	border: 1px solid var(--secondary-lt-2);
 	border-radius: 16px;
     padding: 16px;
+	background-color: var(--secondary-dk-2);
+    text-align: center;
+	font-weight: bold;
 }
 
 .user > img {
@@ -170,25 +173,21 @@ onUnmounted(() => clearInterval(interval));
     width: 100%;
 }
 
-#streams .card {
-    padding: 8px;
+#streams .card > * {
+	padding: 8px;
     transition: 200ms;
-}
-
-#streams .card:not(.active):hover {
-	background-color: var(--secondary-dk-4);
-	border: 1px solid var(--secondary-lt-4);
 	cursor: pointer;
 }
 
-#streams .card.active {
-	background-color: var(--secondary-dk-3);
-	border: 1px solid var(--secondary-lt-3);
+.stream:not(.active):hover {
+	background-color: var(--secondary-dk-4);
+	border: 1px solid var(--secondary-lt-4);
 }
 
 #streams .user {
     display: flex;
     width: 20%;
+	border-right: 1px solid var(--secondary-lt-2);
 }
 
 #streams .user > img {
@@ -210,6 +209,11 @@ onUnmounted(() => clearInterval(interval));
 	font-weight: initial;
     width: 80%;
     height: 64px;
+}
+
+.stream.active {
+	background-color: var(--secondary-dk-3);
+	border: 1px solid var(--secondary-lt-3);
 }
 
 .stream > * {
