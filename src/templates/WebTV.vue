@@ -25,13 +25,9 @@ function refCardsChannels(channel: string, e: HTMLDivElement) {
 function refStreamSince(e: HTMLParagraphElement, since: string) {
     elapsedMap.set(e, new Date(since).getTime());
 }
-function selectStream(e: MouseEvent, login: string) {
-	console.log("click");
-	if (currentChannels.value.some((u) => u == login)) {
-		console.log("canceled");
-		return;
-	}
-	if ((e.target as HTMLElement).closest('figure')?.className == 'thumbnail')
+function selectStream(el: HTMLElement, login: string) {
+	if (currentChannels.value.some((u) => u == login)) return;
+	if (el.closest('figure')?.className == 'thumbnail')
 		currentChannels.value.push(login);
 	else currentChannels.value = [ login ];
 }
@@ -47,8 +43,8 @@ watch(
 	(n, o) => {
 		const added = n.value.filter(x => !o.value.includes(x));
 		const removed = o.value.filter(x => !n.value.includes(x));
-		added.forEach(v => cardsMap?.get(v)?.classList.add("active"))
-		removed.forEach(v => cardsMap?.get(v)?.classList.remove("active"))
+		added.forEach(v => cardsMap.get(v)?.classList.add("active"));
+		removed.forEach(v => cardsMap.get(v)?.classList.remove("active"));
 	}
 )
 onMounted(() => {
@@ -108,7 +104,7 @@ onUnmounted(() => clearInterval(interval));
 						<TwitchEmbed
 							ref="embed"
 							id="embed"
-							v-for="channel of currentChannels"
+							v-for="channel in currentChannels"
 							:channel="channel"/>	
 					</Teleport>
 					<h2>
@@ -121,7 +117,7 @@ onUnmounted(() => clearInterval(interval));
 									:ref="(el) => refCardsChannels(user.login, el as HTMLDivElement)"
 									class="card"
 									@click="(e) => {
-										if (stream) selectStream(e, user.login)
+										if (stream) selectStream(e.target as HTMLElement, user.login)
 									}"
 								>
 									<div class="user">
