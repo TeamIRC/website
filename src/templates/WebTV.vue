@@ -4,7 +4,7 @@ import ListBase from '../components/ListBase.vue';
 import SVGIcon from '../components/SVGIcon.vue';
 import TwitchClient from '../components/TwitchClient.vue';
 import TwitchEmbed from '../components/TwitchEmbed.vue';
-import { ListContent } from '../types';
+import { ListContent, TwitchProfile } from '../types';
 
 const props = defineProps<{
 	content: ListContent<string>,
@@ -79,8 +79,8 @@ onUnmounted(() => clearInterval(interval));
 					ref="client"
 					:content="content.items"
 					v-slot="{ profiles }"
-					@vnode-mounted="() => {
-						const first = client?.profiles.find((u) => u.stream);
+					@loaded="(profiles: TwitchProfile[]) => {
+						const first = profiles.find((u) => u.stream);
 						if (first) currentChannels.push(first.user.login)
 					}"
 					>

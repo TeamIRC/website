@@ -5,6 +5,10 @@ const props = defineProps<{
 	content: string[]
 }>();
 
+const emits = defineEmits<{
+	(event: 'loaded', profiles: TwitchProfile[]) : void
+}>()
+
 const request = await fetch('/api/TwitchClient');
 const json = await request.json();
 const header = await json.twitchHeader;
@@ -57,16 +61,14 @@ const userlist = props.content;
 const profiles: TwitchProfile[] = await fetchUsers(userlist)
 	.then(async (users) => {
 		const streams = await fetchStreams(users.map(v => v.id));
-		return users.map((user) => { return {
+		const result = users.map((user) => { return {
 				user: user,
 				stream: streams.find((v) => v.user_id == user.id)
 			}})
 			.sort((a, b) => userlist.indexOf(a.user.login) - userlist.indexOf(b.user.login));
+		emits('loaded', result);
+		return result;
 	});
-
-defineExpose({
-	profiles
-})
 </script>
 
 <template>
