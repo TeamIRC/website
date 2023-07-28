@@ -110,7 +110,9 @@ onUnmounted(() => clearInterval(interval));
 											embed?.setChannel(user.login);
 										}"
 									>
-										<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
+										<figure>
+											<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
+										</figure>
 										<h4>{{ stream.title }}</h4>
 										<table class="description">
 											<tr>
@@ -217,14 +219,33 @@ onUnmounted(() => clearInterval(interval));
 
 .stream.active {
 	background-color: var(--secondary-dk-3);
+	cursor: default;
 }
 
 .stream > * {
     height: 100%;
 }
 
-.stream > img {
+.stream > figure {
+	position: relative;
     width: 114px;
+}
+
+.stream > figure::before {
+	background: #00000000;
+    position: absolute;
+    width: 114px;
+    height: 64px;
+    content: "+";
+	line-height: 64px;
+    font-size: 32px;
+	opacity: 0;
+    transition: 200ms;
+    z-index: 1;
+}
+
+.stream > figure:hover::before {
+    opacity: .8;
 }
 
 .stream > h4 {
