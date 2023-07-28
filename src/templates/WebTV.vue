@@ -95,6 +95,16 @@ onUnmounted(() => clearInterval(interval));
 									ref="cards"
 									class="card"
 									:class="{'active': currentChannel == user.login}"
+									@click="(e) => {
+										if (stream) {
+											cards?.forEach((c) => c.classList.remove('active'));
+											const el = e.target as HTMLElement;
+											(el.closest('.card') as HTMLDivElement)
+												.classList
+												.add('active');
+											embed?.setChannel(user.login);
+										}
+									}"
 								>
 									<div class="user">
 										<img :src='user.profile_image_url' />
@@ -102,17 +112,8 @@ onUnmounted(() => clearInterval(interval));
 										<SVGIcon v-if="stream" name="question-line" width="32" height="64" />
 										<p>{{ user.description }}</p>
 									</div>
-									<div v-if="stream"
-										class="stream"
-										@click="(e) => {
-											cards?.forEach((c) => c.classList.remove('active'));
-											((e.target as HTMLElement)
-												.closest('.card') as HTMLDivElement
-											).classList.add('active');
-											embed?.setChannel(user.login);
-										}"
-									>
-										<figure>
+									<div v-if="stream" class="stream">
+										<figure class="thumbnail">
 											<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
 										</figure>
 										<h4>{{ stream.title }}</h4>
@@ -215,14 +216,13 @@ onUnmounted(() => clearInterval(interval));
 }
 
 #streams .user > p {
-    display: none;
     position: absolute;
     left: 100%;
     top: 0px;
     width: 0%;
     height: 64px;
     margin: 0px;
-    padding: 8px;
+    padding: 8px 0px;
     z-index: 1;
 	background-color: inherit;
 	overflow: hidden;
@@ -232,8 +232,8 @@ onUnmounted(() => clearInterval(interval));
 }
 
 #streams .user:hover > p {
-    display: initial;
     width: 375%;
+    padding: 8px 8px;
 }
 
 .stream {
