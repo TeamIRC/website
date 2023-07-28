@@ -200,6 +200,8 @@ onUnmounted(() => clearInterval(interval));
     position: relative;
     width: 20%;
 	border-right: 1px solid var(--secondary-lt-2);
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
 }
 
 #streams .user > img {
@@ -216,12 +218,17 @@ onUnmounted(() => clearInterval(interval));
     display: none;
     position: absolute;
     left: 100%;
+    top: 0px;
     width: 0%;
     height: 64px;
-	overflow: hidden;
+    margin: 0px;
     padding: 8px;
     z-index: 1;
 	background-color: inherit;
+	overflow: hidden;
+	border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+	transition: 200ms;
 }
 
 #streams .user:hover > p {
