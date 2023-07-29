@@ -101,6 +101,7 @@ onUnmounted(() => clearInterval(interval));
 					>
 					<Teleport to="#mosaic">
 						<TwitchEmbed
+							class="embed"
 							v-for="channel in currentChannels"
 							:channel="channel"
 							:key="channel"/>
@@ -111,9 +112,9 @@ onUnmounted(() => clearInterval(interval));
 					<div id="profiles">
 						<div v-for="{ user, stream } in profiles">
 							<Teleport to="#streams" :disabled="stream ? false : true">
-								<div
+								<div class="card"
+									:class="{ 'active': currentChannels.some((v) => v == user.login) }"
 									:ref="(el) => refCardsChannels(user.login, el as HTMLDivElement)"
-									class="card"
 									@click="(e) => {
 										if (stream) selectStream(e.target as HTMLElement, user.login)
 									}"
@@ -161,7 +162,7 @@ onUnmounted(() => clearInterval(interval));
 </template>
 
 <style scoped>
-#embed {
+.embed {
 	width: 100%;
 	aspect-ratio: 16 / 9;
 	background-color: #00000033;
