@@ -162,10 +162,11 @@ onUnmounted(() => clearInterval(interval));
 </template>
 
 <style scoped>
-.embed {
-	width: 100%;
-	aspect-ratio: 16 / 9;
-	background-color: #00000033;
+#mosaic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(344px, auto));
+    width: 100%;
+    height: 574px;
 }
 
 #profiles {
