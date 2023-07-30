@@ -14,7 +14,8 @@ const emits = defineEmits<{
 	(event: "modified", content: ListContent<string>): void
 }>();
 const list = ref(props.content);
-const currentChannels = ref<string[]>([])
+const mosaic = ref<HTMLDivElement>();
+const currentChannels = ref<string[]>([]);
 const cardsMap = new Map<string, HTMLDivElement>();
 const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
@@ -29,6 +30,10 @@ function selectStream(el: HTMLElement, login: string) {
 	if (el.closest('figure')?.className == 'thumbnail')
 		currentChannels.value.push(login);
 	else currentChannels.value.splice(0, currentChannels.value.length, login);
+}
+function toggleFullscreen() {
+	if (document.fullscreenElement) document.exitFullscreen();
+  	else mosaic.value!.requestFullscreen();
 }
 watch(
     () => props.edit,
@@ -85,6 +90,11 @@ onUnmounted(() => clearInterval(interval));
 		<template v-else>
 			<div id="streams">
 				<div id="mosaic">
+					<button 
+						id="fullscreen"
+						@click="toggleFullscreen">
+						<SVGIcon name="fullscreen-line" width="32" height="32" />
+					</button>
 				</div>
 			</div>
 			<Suspense>
@@ -164,9 +174,18 @@ onUnmounted(() => clearInterval(interval));
 <style scoped>
 #mosaic {
     display: grid;
+	position: relative;
     grid-template-columns: repeat(auto-fit, minmax(50%, auto));
     width: 100%;
     height: 574px;
+}
+
+#fullscreen {
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+	width: 32px;
+	height: 32px;
 }
 
 #profiles {
