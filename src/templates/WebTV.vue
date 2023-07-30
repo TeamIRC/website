@@ -89,11 +89,11 @@ onUnmounted(() => clearInterval(interval));
 		</ListBase>
 		<template v-else>
 			<div id="streams">
-				<div id="mosaic">
+				<div ref="mosaic" id="mosaic">
 					<button 
 						id="fullscreen"
 						@click="toggleFullscreen">
-						<SVGIcon name="fullscreen-line" width="32" height="32" />
+						<SVGIcon name="fullscreen-line" width="16" height="16" />
 					</button>
 				</div>
 			</div>
@@ -182,7 +182,7 @@ onUnmounted(() => clearInterval(interval));
 
 #fullscreen {
 	position: absolute;
-	bottom: 16px;
+	top: -16px;
 	right: 16px;
 	width: 32px;
 	height: 32px;
