@@ -164,7 +164,7 @@ onUnmounted(() => clearInterval(interval));
 <style scoped>
 #mosaic {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(344px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(50%, auto));
     width: 100%;
     height: 574px;
 }
