@@ -53,7 +53,7 @@ onMounted(() => {
 }
 
 .twitch-player {
-    width: calc(100% - 32px);
+    width: calc(100% - 16px);
     height: 100%;
 }
 
@@ -63,7 +63,7 @@ onMounted(() => {
 }
 
 .twitch-chat {
-    width: 32px;
+    width: 16px;
     transition: 200ms;
 }
 .twitch-chat * {

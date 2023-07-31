@@ -181,8 +181,8 @@ onUnmounted(() => clearInterval(interval));
 
 #fullscreen {
 	position: absolute;
-	top: 16px;
-	right: 16px;
+	top: -32px;
+	right: 0px;
 	width: 32px;
 	height: 32px;
 }
