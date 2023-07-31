@@ -111,7 +111,6 @@ onUnmounted(() => clearInterval(interval));
 					>
 					<Teleport to="#mosaic">
 						<TwitchEmbed
-							class="embed"
 							v-for="channel in currentChannels"
 							:channel="channel"
 							:key="channel"/>
