@@ -72,12 +72,12 @@ onMounted(() => {
 }
 
 .twitch-chat:hover,
-.twitch-chat:focus {
+.twitch-chat:focus-within {
     width: 340px;
 }
 
 .twitch-chat:hover *,
-.twitch-chat:focus * {
+.twitch-chat:focus-within * {
     opacity: 1;
 }
 </style>
