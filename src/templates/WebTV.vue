@@ -204,6 +204,10 @@ onUnmounted(() => clearInterval(interval));
 	font-weight: bold;
 }
 
+.user {
+    width: 100%;
+}
+
 .user > img {
 	border-radius: 50%;
     width: 100%;

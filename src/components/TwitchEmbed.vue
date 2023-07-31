@@ -39,7 +39,7 @@ onMounted(() => {
             <iframe
                 frameborder="0"
                 scrolling="no"
-                :src="`https://www.twitch.tv/embed/${channel}/chat?parent=les-parrains-du-numerique.vercel.app`"
+                :src="`https://www.twitch.tv/embed/${channel}/chat?parent=les-parrains-du-numerique.vercel.app&darkpopout`"
                 height="100%"
                 width="100%">
             </iframe>
