@@ -88,7 +88,7 @@ onUnmounted(() => clearInterval(interval));
 			</template>
 		</ListBase>
 		<template v-else>
-			<div id="streams">
+			<div id="streams" v-if="currentChannels.length != 0">
 				<div ref="mosaic" id="mosaic">
 					<button 
 						id="fullscreen"
