@@ -137,6 +137,7 @@ export type Content = {
 	image: string;
 	title: string;
 	description: string;
+	class?: string;
 }
 
 export type ListContent<T> = {

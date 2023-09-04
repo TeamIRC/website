@@ -35,7 +35,7 @@ watch(
 			<Editor v-model="list.items[index].description" />
 		</template>
 		<template #item="{ item, index }">
-			<div class="item-container" v-element-visibility="(state: boolean) => onElementVisibility(state, index)">
+			<div class="item-container" :class="item.class" v-element-visibility="(state: boolean) => onElementVisibility(state, index)">
 				<div class="image-container">
 					<img :src="item.image" />
 				</div>
