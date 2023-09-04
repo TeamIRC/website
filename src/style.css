@@ -110,8 +110,18 @@ svg.fill-current path {
     --3-txt: var(--secondary-dk-4);
 }
 
-.side {
+#background {
+    position: absolute;
 	background-color: var(--main-bg);
+    width: 100vw;
+    height: 100vh;
+}
+
+.side.menu {
+    background-color: var(--main-bg);
+}
+
+.side {
 	color: var(--main-txt);
 }
 
