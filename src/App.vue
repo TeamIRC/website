@@ -54,14 +54,17 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 }
 
 @keyframes bounce {
+  from {
+    padding-left: 0px;
+  }
   50% {
-    width: 32px;
+    padding-left: 0px;
   }
   80% {
-    width: 40px;
+    padding-left: 8px;
   }
   to {
-    width: 32px;
+    padding-left: 0px;
   }
 }
 
