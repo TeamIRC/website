@@ -29,7 +29,6 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 .side {
 	position: absolute;
 	height: 100%;
-	transition: width 1s;
 }
 
 .current {
@@ -70,7 +69,6 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 }
 
 .menu.active {
-	animation-play-state: paused;
 	width: 360px;
 }
 
