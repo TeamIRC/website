@@ -57,10 +57,10 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
   from {
     width: 32px;
   }
-  75% {
+  50% {
     width: 32px;
   }
-  90% {
+  80% {
     width: 40px;
   }
   to {
