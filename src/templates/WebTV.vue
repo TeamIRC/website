@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import ListBase from '../components/ListBase.vue';
 import SVGIcon from '../components/SVGIcon.vue';
 import TwitchClient from '../components/TwitchClient.vue';
@@ -18,7 +18,6 @@ const mosaic = ref<HTMLDivElement>();
 const currentChannels = ref<string[]>([]);
 const cardsMap = new Map<string, HTMLDivElement>();
 const elapsedMap = new Map<HTMLParagraphElement, number>();
-let interval : number | undefined;
 function refCardsChannels(channel: string, e: HTMLDivElement) {
     cardsMap.set(channel, e);
 }
@@ -52,7 +51,7 @@ watch(
 	}
 )
 onMounted(() => {
-    interval = setInterval(() => {
+    setInterval(() => {
         const current = new Date().getTime();
         elapsedMap.forEach((since, element) => {
             const elapsed = current - since;
@@ -75,7 +74,6 @@ onMounted(() => {
         })
     }, 1000);
 });
-onUnmounted(() => clearInterval(interval));
 </script>
 
 <template>
