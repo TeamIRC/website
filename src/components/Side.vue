@@ -55,7 +55,7 @@ onMounted(() => setTitle());
                     <template v-if="Component">
                         <KeepAlive>
                             <Suspense>
-                                <Transition mode="out-in">
+                                <Transition name="fade" mode="out-in">
                                     <template #default>
                                         <component :is="Component" :key="$route.path" />
                                     </template>
