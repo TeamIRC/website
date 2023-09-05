@@ -55,12 +55,10 @@ onMounted(() => setTitle());
                     <template v-if="Component">
                         <KeepAlive>
                             <Suspense>
-                                <Transition appear name="fade" mode="out-in">
-                                    <component :is="Component" :key="$route.path" />
-                                    <template #fallback>
-                                        Chargement...
-                                    </template>
-                                </Transition>
+                                <component :is="Component" :key="$route.path" />
+                                <template #fallback>
+                                    Chargement...
+                                </template>
                             </Suspense>
                         </KeepAlive>
                     </template>
@@ -112,16 +110,6 @@ nav {
 
 .menu-mobile {
     display: none;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 
 @media screen and (max-width: 360px) /*Phone media querie*/

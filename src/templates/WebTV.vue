@@ -35,14 +35,14 @@ function toggleFullscreen() {
 	if (document.fullscreenElement) document.exitFullscreen();
   	else mosaic.value!.requestFullscreen();
 }
-const editWatch = watch(
+watch(
     () => props.edit,
     () => {
 		if (list.value.items.toString() !== props.content.items.toString())
 			emits("modified", list.value);
 	}
 );
-const channelsWatch = watch(
+watch(
 	() => currentChannels,
 	(n, o) => {
 		const added = n.value.filter(x => !o.value.includes(x));
@@ -75,11 +75,7 @@ onMounted(() => {
         })
     }, 1000);
 });
-onUnmounted(() => {
-	clearInterval(interval);
-	editWatch();
-	channelsWatch();
-});
+onUnmounted(() => clearInterval(interval));
 </script>
 
 <template>
