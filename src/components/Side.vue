@@ -53,7 +53,7 @@ onMounted(() => setTitle());
                     :title="routes.find(v => v.path == $route.path.split('/')[2])?.title"
                     >
                     <template v-if="Component">
-                        <Transition mode="out-in">
+                        <Transition name="fade">
                             <KeepAlive>
                                 <Suspense>
                                     <component :is="Component" :key="$route.path" />
@@ -112,6 +112,16 @@ nav {
 
 .menu-mobile {
     display: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 @media screen and (max-width: 360px) /*Phone media querie*/
