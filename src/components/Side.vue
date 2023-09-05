@@ -56,7 +56,9 @@ onMounted(() => setTitle());
                         <KeepAlive>
                             <Suspense>
                                 <Transition mode="out-in">
-                                    <component :is="Component" :key="$route.path" />
+                                    <template #default>
+                                        <component :is="Component" :key="$route.path" />
+                                    </template>
                                     <template #fallback>
                                         Chargement...
                                     </template>
