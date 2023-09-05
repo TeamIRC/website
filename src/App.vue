@@ -38,6 +38,7 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 
 .menu {
 	z-index: 1;
+	transition: width 1s;
 	width: 32px;
 }
 
