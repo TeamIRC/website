@@ -55,10 +55,12 @@ onMounted(() => setTitle());
                     <template v-if="Component">
                         <KeepAlive>
                             <Suspense>
-                                <component :is="Component" :key="$route.path" />
-                                <template #fallback>
-                                    Chargement...
-                                </template>
+                                <Transition name="fade" mode="out-in">      
+                                    <component :is="Component" />
+                                    <template #fallback>
+                                        Chargement...
+                                    </template>
+                                </Transition>
                             </Suspense>
                         </KeepAlive>
                     </template>
