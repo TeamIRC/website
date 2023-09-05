@@ -45,28 +45,6 @@ svg.fill-current path {
     overflow: hidden;
 }
 
-.two-sides {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-.two-sides > div {
-    padding: 32px;
-    width: calc(50% - 64px);
-    text-align: center;
-}
-
-@media screen and (max-width: 360px) /*Phone media querie*/
-{
-	.two-sides {
-		height: 64vh;
-        flex-flow: column;
-	}
-    .two-sides > div {
-        width: calc(100% - 64px);
-    }
-}
-
 .theme-right {
 	background-color: var(--secondary-dk-1);
 	color: var(--primary-lt-1);
@@ -110,19 +88,8 @@ svg.fill-current path {
     --3-txt: var(--secondary-dk-4);
 }
 
-#background {
-    position: absolute;
-	background-color: var(--main-bg);
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-}
-
-.side.menu {
-    background-color: var(--main-bg);
-}
-
 .side {
+    background-color: var(--main-bg);
 	color: var(--main-txt);
 }
 

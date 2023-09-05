@@ -33,23 +33,12 @@ function setTitle() {
 }
 
 watch(() => route.path, setTitle);
-onMounted(() => {
-    setTitle();
-    const lottie = (window as ( Window & typeof globalThis & { lottie: any })).lottie;
-    lottie.loadAnimation({
-        container: document.getElementById('background'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '/data.json',
-    })
-});
+onMounted(() => setTitle());
 </script>
 
 <template>
     <div class="side" :class="active ? 'active' : ''">
         <template v-if="current">
-            <div id="background"></div>
             <header>
                 <div id="main-logo" class="logo">
                     <img :src="logo" :alt="`logo ${root}`">
