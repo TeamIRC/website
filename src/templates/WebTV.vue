@@ -98,79 +98,91 @@ onUnmounted(() => clearInterval(interval));
 				</div>
 			</div>
 			<Suspense>
-				<template #fallback>
-					Chargement
-				</template>
-				<TwitchClient
-					:content="content.items"
-					v-slot="{ profiles }"
-					@loaded="(profiles: TwitchProfile[]) => {
-						const first = profiles.find((u) => u.stream);
-						if (first) currentChannels.push(first.user.login)
-					}"
-					>
-					<Teleport to="#mosaic">
-						<TwitchEmbed
-							v-for="channel in currentChannels"
-							:channel="channel"
-							:key="channel"/>
-					</Teleport>
-					<h2>
-						Nos autres chaînes
-					</h2>
-					<div id="profiles">
-						<div v-for="{ user, stream } in profiles">
-							<Teleport to="#streams" :disabled="stream ? false : true">
-								<div class="card"
-									:class="{ 'active': currentChannels.some((v) => v == user.login) }"
-									:ref="(el) => refCardsChannels(user.login, el as HTMLDivElement)"
-									@click="(e) => {
-										if (stream) selectStream(e.target as HTMLElement, user.login)
-									}"
-								>
-									<div class="user">
-										<img :src='user.profile_image_url' />
-										<h3>{{ user.display_name }}</h3>
-										<SVGIcon v-if="stream" name="question-line" width="32" height="64" />
-										<p>{{ user.description }}</p>
+				<Transition name="fade">
+					<template #fallback>
+						Chargement...
+					</template>
+					<TwitchClient
+						:content="content.items"
+						v-slot="{ profiles }"
+						@loaded="(profiles: TwitchProfile[]) => {
+							const first = profiles.find((u) => u.stream);
+							if (first) currentChannels.push(first.user.login)
+						}"
+						>
+						<Teleport to="#mosaic">
+							<TwitchEmbed
+								v-for="channel in currentChannels"
+								:channel="channel"
+								:key="channel"/>
+						</Teleport>
+						<h2>
+							Nos autres chaînes
+						</h2>
+						<div id="profiles">
+							<div v-for="{ user, stream } in profiles">
+								<Teleport to="#streams" :disabled="stream ? false : true">
+									<div class="card"
+										:class="{ 'active': currentChannels.some((v) => v == user.login) }"
+										:ref="(el) => refCardsChannels(user.login, el as HTMLDivElement)"
+										@click="(e) => {
+											if (stream) selectStream(e.target as HTMLElement, user.login)
+										}"
+									>
+										<div class="user">
+											<img :src='user.profile_image_url' />
+											<h3>{{ user.display_name }}</h3>
+											<SVGIcon v-if="stream" name="question-line" width="32" height="64" />
+											<p>{{ user.description }}</p>
+										</div>
+										<div v-if="stream" class="stream">
+											<figure class="thumbnail">
+												<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
+											</figure>
+											<h4>{{ stream.title }}</h4>
+											<table class="description">
+												<tr>
+													<td>
+														<SVGIcon name="team-line" />
+													</td>
+													<td>{{ stream.viewer_count }}</td>
+												</tr>
+												<tr>
+													<td>
+														<SVGIcon name="gamepad-line" />
+													</td>
+													<td>{{ stream.game_name }}</td>
+												</tr>
+												<tr>
+													<td>
+														<SVGIcon name="time-line" />
+													</td>
+													<td :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></td>
+												</tr>
+											</table>
+										</div>
 									</div>
-									<div v-if="stream" class="stream">
-										<figure class="thumbnail">
-											<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
-										</figure>
-										<h4>{{ stream.title }}</h4>
-										<table class="description">
-											<tr>
-												<td>
-													<SVGIcon name="team-line" />
-												</td>
-												<td>{{ stream.viewer_count }}</td>
-											</tr>
-											<tr>
-												<td>
-													<SVGIcon name="gamepad-line" />
-												</td>
-												<td>{{ stream.game_name }}</td>
-											</tr>
-											<tr>
-												<td>
-													<SVGIcon name="time-line" />
-												</td>
-												<td :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</Teleport>
+								</Teleport>
+							</div>
 						</div>
-					</div>
-				</TwitchClient>
+					</TwitchClient>
+				</Transition>
 			</Suspense>
 		</template>
 	</div>
 </template>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 #mosaic {
     display: grid;
 	position: relative;
