@@ -36,11 +36,11 @@ watch(hover, (n: boolean) => setActive(n));
 watch(isSwiping, (n: boolean) => {
     if (n) setActive(direction.value != props.side);
 });
-const colorSide = props.side == "left" ? "dk" : "lt";
-const style = getComputedStyle(document.querySelector(':root')!);
-const ltColor = style.getPropertyValue(`--secondary-${colorSide}-5`);
-const dkColor = style.getPropertyValue(`--secondary-${colorSide}-1`);
-const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
+// const colorSide = props.side == "left" ? "dk" : "lt";
+// const style = getComputedStyle(document.querySelector(':root')!);
+// const ltColor = style.getPropertyValue(`--secondary-${colorSide}-5`);
+// const dkColor = style.getPropertyValue(`--secondary-${colorSide}-1`);
+// const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
 </script>
 
 <template>
@@ -68,50 +68,7 @@ const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
                 </a>
             </div>
         </div>
-        <div id="indicator" :class="side">
-            <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
-                <linearGradient id="gradient-left" x2="1">
-                    <stop offset="0%" :stop-color="ltColor" />
-                    <stop offset="100%" :stop-color="ltColor">
-                        <animate attributeName="stop-color" dur="4s"
-                            :values="colorList"
-                            repeatCount="indefinite" />
-                        <animate attributeName="offset" dur="4s"
-                            values="1;1;0;0" repeatCount="indefinite" />
-                    </stop>
-                    <stop offset="100%" :stop-color="ltColor" />
-                </linearGradient>
-                <linearGradient id="gradient-right" x2="1">
-                    <stop offset="0%" :stop-color="ltColor" />
-                    <stop offset="0%" :stop-color="ltColor">
-                        <animate attributeName="stop-color" dur="4s"
-                            :values="colorList"
-                            repeatCount="indefinite" />
-                        <animate attributeName="offset" dur="4s"
-                            values="0;0;1;1" repeatCount="indefinite" />
-                    </stop>
-                    <stop offset="100%" :stop-color="ltColor" />
-                </linearGradient>
-            </svg>
-            <SVGIcon
-                id="left"
-                v-show="isActive 
-                    ? side == 'left'
-                    : side == 'right'"
-                name="arrow-left-double-line"
-                width="32"
-                height="32"
-            />
-            <SVGIcon
-                id="right"
-                v-show="!isActive 
-                    ? side == 'left'
-                    : side == 'right'"
-                name="arrow-right-double-line"
-                width="32"
-                height="32"
-            />
-        </div>
+        
     </div>
 </template>
 
