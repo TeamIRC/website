@@ -53,7 +53,7 @@ onMounted(() => setTitle());
                     :title="routes.find(v => v.path == $route.path.split('/')[2])?.title"
                     >
                     <template v-if="Component">
-                        <KeepAlive>
+
                             <Suspense>
                                 <Transition name="fade" mode="out-in">
                                     <template #default>
@@ -64,7 +64,7 @@ onMounted(() => setTitle());
                                     </template>
                                 </Transition>
                             </Suspense>
-                        </KeepAlive>
+
                     </template>
                 </router-view>
             </main>
