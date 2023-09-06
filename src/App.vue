@@ -82,7 +82,7 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
     flex-flow: row-reverse;
 }
 
-@media screen and (max-width: 360px) /*Phone media querie*/
+@media screen and (max-width: 720px) /*Phone media querie*/
 {
 	.side :deep(header),
 	.side :deep(main) {

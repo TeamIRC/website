@@ -124,7 +124,7 @@ const onDrag = (dropzone: Element, el: Element) => {
     transform: translate(-50%, -50%); 
 }
 
-@media screen and (max-width: 360px) /*Phone media querie*/
+@media screen and (max-width: 720px) /*Phone media querie*/
 {
 	.list {
 		height: 100%;

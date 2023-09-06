@@ -110,7 +110,7 @@ nav {
     display: none;
 }
 
-@media screen and (max-width: 360px) /*Phone media querie*/
+@media screen and (max-width: 720px) /*Phone media querie*/
 {
     header, main {
 	    max-width: calc(100% - 32px);
@@ -144,7 +144,7 @@ nav {
 	max-height: 100%;
 }
 
-@media screen and (max-width: 360px) /*Phone media querie*/
+@media screen and (max-width: 720px) /*Phone media querie*/
 {
     .logo > img {
         display: none;

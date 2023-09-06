@@ -88,7 +88,7 @@ img {
 	display: none;
 }
 
-@media screen and (max-width: 360px) /*Phone media querie*/
+@media screen and (max-width: 720px) /*Phone media querie*/
 {
 	.image-container {
 		display: none;

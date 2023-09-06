@@ -155,7 +155,7 @@ const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
 	align-items: center;
 }
 
-@media screen and (max-width: 360px) /*Phone media querie*/
+@media screen and (max-width: 720px) /*Phone media querie*/
 {
     .logo {
         width: auto;
