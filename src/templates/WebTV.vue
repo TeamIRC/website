@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import ListBase from '../components/ListBase.vue';
 import SVGIcon from '../components/SVGIcon.vue';
 import TwitchClient from '../components/TwitchClient.vue';
@@ -75,7 +75,10 @@ onMounted(() => {
         })
     }, 1000);
 });
-onUnmounted(() => clearInterval(interval));
+onBeforeUnmount(() => {
+	clearInterval(interval);
+});
+// onUnmounted(() => clearInterval(interval));
 </script>
 
 <template>
