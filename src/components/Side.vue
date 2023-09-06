@@ -52,14 +52,12 @@ onMounted(() => setTitle());
                     :title="routes.find(v => v.path == $route.path.split('/')[2])?.title"
                     >
                     <template v-if="Component">
-                        <KeepAlive>
                             <Suspense>
                                 <component :is="Component" :key="$route.path" />
                                 <template #fallback>
                                     Chargement...
                                 </template>
                             </Suspense>
-                        </KeepAlive>
                     </template>
                 </router-view>
             </main>
