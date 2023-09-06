@@ -22,7 +22,7 @@ const props = defineProps({
         required: true
     }
 });
-const emits = defineEmits(["switch", "open", "close"]);
+const emits = defineEmits(["open", "close"]);
 const menu = ref();
 const isActive = ref(false);
 function setActive(v: boolean) {
@@ -48,7 +48,7 @@ const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
             <img :src="logo" :alt="`logo side`">
         </div>
         <div class="nav-container">
-            <Menu :root="root" :routes="routes"></Menu>
+            <Menu :root="root" :routes="routes" @navigate="() => emits('close')"></Menu>
         </div>
         <div class="menu-footer">
             <div class="social-media">

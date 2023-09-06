@@ -11,15 +11,17 @@ defineProps({
         required: true
     }
 });
+const emits = defineEmits(["navigate"])
 </script>
 
 <template>
   	<nav class="menu">
-		<router-link
-			v-for="route in routes"
-			:to="`/${root}/${route.path}`">
-			{{ route.title }}
-		</router-link>
+			<router-link
+				v-for="route in routes"
+        		@click="emits('navigate')"
+				:to="`/${root}/${route.path}`">
+				{{ route.title }}
+			</router-link>
 	</nav>
 </template>
 
