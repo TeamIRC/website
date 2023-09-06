@@ -2,7 +2,6 @@
     "template": "WebTV",
     "content": {
         "items": [
-            "rlgym",
             "team_irc",
             "reymonitou",
             "irc_pegasus",
