@@ -95,6 +95,10 @@ onBeforeUnmount(() => clearInterval(interval));
 						@click="toggleFullscreen">
 						<SVGIcon name="fullscreen-line" width="16" height="16" />
 					</button>
+					<TwitchEmbed
+						v-for="channel in currentChannels"
+						:channel="channel"
+						:key="channel" />
 				</div>
 			</div>
 			<Suspense suspensible>
@@ -109,10 +113,6 @@ onBeforeUnmount(() => clearInterval(interval));
 						if (first) currentChannels.push(first.user.login)
 					}"
 					>
-						<TwitchEmbed
-							v-for="channel in currentChannels"
-							:channel="channel"
-							:key="channel"/>
 					<h2>
 						Nos autres chaînes
 					</h2>
