@@ -3,6 +3,7 @@ import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import ListBase from '../components/ListBase.vue';
 import SVGIcon from '../components/SVGIcon.vue';
 import TwitchClient from '../components/TwitchClient.vue';
+import TwitchEmbed from '../components/TwitchEmbed.vue';
 import { ListContent, TwitchProfile } from '../types';
 
 const props = defineProps<{
@@ -15,6 +16,7 @@ const emits = defineEmits<{
 const list = ref(props.content);
 const mosaic = ref<HTMLDivElement>();
 const currentChannels = ref<string[]>([]);
+const closing = ref(false)
 const cardsMap = new Map<string, HTMLDivElement>();
 const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
@@ -74,7 +76,10 @@ onMounted(() => {
         })
     }, 1000);
 });
-onBeforeUnmount(() => clearInterval(interval));
+onBeforeUnmount(() => {
+	closing.value = false;
+	clearInterval(interval);
+});
 </script>
 
 <template>
@@ -108,6 +113,12 @@ onBeforeUnmount(() => clearInterval(interval));
 						if (first) currentChannels.push(first.user.login)
 					}"
 					>
+					<Teleport to="#mosaic" :disabled="closing">
+						<TwitchEmbed
+							v-for="channel in currentChannels"
+							:channel="channel"
+							:key="channel"/>
+					</Teleport>
 					<h2>
 						Nos autres chaînes
 					</h2>
