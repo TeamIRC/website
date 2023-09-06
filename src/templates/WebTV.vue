@@ -16,7 +16,6 @@ const emits = defineEmits<{
 const list = ref(props.content);
 const mosaic = ref<HTMLDivElement>();
 const currentChannels = ref<string[]>([]);
-const closing = ref(false)
 const cardsMap = new Map<string, HTMLDivElement>();
 const elapsedMap = new Map<HTMLParagraphElement, number>();
 let interval : number | undefined;
@@ -76,10 +75,7 @@ onMounted(() => {
         })
     }, 1000);
 });
-onBeforeUnmount(() => {
-	closing.value = false;
-	clearInterval(interval);
-});
+onBeforeUnmount(() => clearInterval(interval));
 </script>
 
 <template>
@@ -113,12 +109,10 @@ onBeforeUnmount(() => {
 						if (first) currentChannels.push(first.user.login)
 					}"
 					>
-					<Teleport to="#mosaic" :disabled="closing">
 						<TwitchEmbed
 							v-for="channel in currentChannels"
 							:channel="channel"
 							:key="channel"/>
-					</Teleport>
 					<h2>
 						Nos autres chaînes
 					</h2>
