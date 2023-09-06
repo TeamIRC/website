@@ -5,7 +5,6 @@ import { Content, ListContent } from '../types';
 import Editor from '../components/Editor.vue';
 import ListBase from '../components/ListBase.vue';
 
-
 const props = defineProps<{
 	content: ListContent<Content>,
 	edit: boolean
@@ -14,8 +13,10 @@ const emits = defineEmits<{
 	(event: "modified", content: ListContent<Content>): void }>()
 const list = ref(props.content);
 const isVisible = ref(new Array<boolean>(list.value.items.length).fill(false))
+const current = ref(-1);
 function onElementVisibility(state: boolean, element: number) {
 	isVisible.value[element] = state;
+	current.value = isVisible.value.indexOf(true)
 }
 watch(
     () => props.edit,
@@ -39,7 +40,7 @@ watch(
 				<div class="image-container">
 					<img :src="item.image" />
 				</div>
-				<Teleport v-if="isVisible[index]" to="#main-logo">
+				<Teleport v-if="index == current" to="#main-logo">
 					<img class="image-ext" :src="item.image" />
 				</Teleport>
 				<div class="item">
@@ -55,7 +56,7 @@ watch(
 .item-container {
 	display: flex;
     flex-grow: 1;
-	padding: 8px;
+    margin: 8px;
 }
 
 :deep(.item-line) {

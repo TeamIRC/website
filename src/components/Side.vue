@@ -134,6 +134,7 @@ nav {
 
     .logo {
         height: calc(100% - 2em - 48px);
+        margin: 8px auto;
     }
 }
 </style>
