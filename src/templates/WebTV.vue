@@ -35,14 +35,14 @@ function toggleFullscreen() {
 	if (document.fullscreenElement) document.exitFullscreen();
   	else mosaic.value!.requestFullscreen();
 }
-watch(
+const stopWatchEdit = watch(
     () => props.edit,
     () => {
 		if (list.value.items.toString() !== props.content.items.toString())
 			emits("modified", list.value);
 	}
 );
-watch(
+const stopWatchChannels = watch(
 	() => currentChannels,
 	(n, o) => {
 		const added = n.value.filter(x => !o.value.includes(x));
@@ -76,6 +76,8 @@ onMounted(() => {
     }, 1000);
 });
 onBeforeUnmount(() => {
+	stopWatchEdit();
+	stopWatchChannels();
 	clearInterval(interval);
 });
 // onUnmounted(() => clearInterval(interval));
