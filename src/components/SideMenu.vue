@@ -49,7 +49,7 @@ const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
             <img :src="logo" :alt="`logo side`">
         </div>
         <div ref="target" class="nav-container">
-            <Menu :root="root" :routes="routes" @navigate="() => { setActive(false); emits('switch')}"></Menu>
+            <Menu :root="root" :routes="routes" @navigate="() => emits('switch')"></Menu>
         </div>
         <div ref="target" class="menu-footer">
             <div class="social-media">

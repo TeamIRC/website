@@ -18,9 +18,8 @@ const emits = defineEmits(["navigate"])
   	<nav class="menu">
 			<router-link
 				v-for="route in routes"
-        @click="emits('navigate')"
-				:to="`/${root}/${route.path}`"
-			>
+        		@click="emits('navigate')"
+				:to="`/${root}/${route.path}`">
 				{{ route.title }}
 			</router-link>
 	</nav>
