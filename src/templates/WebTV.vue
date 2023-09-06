@@ -97,7 +97,7 @@ onBeforeUnmount(() => clearInterval(interval));
 					</button>
 				</div>
 			</div>
-			<Suspense>
+			<Suspense suspensible>
 				<template #fallback>
 					Chargement...
 				</template>
