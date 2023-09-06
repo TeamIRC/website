@@ -21,7 +21,6 @@ const props = defineProps({
         required: true
     }
 });
-const emits = defineEmits(["switch"])
 const route = useRoute();
 const logo = props.root == "prevention" ? logoPrevention : logoGaming;
 const title = ref("");
@@ -70,7 +69,6 @@ onMounted(() => setTitle());
             :logo="logo"
             :root="root"
             :routes="routes"
-            @switch="emits('switch')"
             @open="active = true"
             @close="active = false" />
 	</div>

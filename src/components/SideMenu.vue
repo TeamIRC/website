@@ -24,7 +24,6 @@ const props = defineProps({
 });
 const emits = defineEmits(["switch", "open", "close"]);
 const menu = ref();
-const target = ref();
 const isActive = ref(false);
 function setActive(v: boolean) {
     v ? emits("open") : emits("close");
@@ -48,10 +47,10 @@ const colorList = `${ltColor};${dkColor};${dkColor};${ltColor}`
         <div class="logo">
             <img :src="logo" :alt="`logo side`">
         </div>
-        <div ref="target" class="nav-container">
-            <Menu :root="root" :routes="routes" @navigate="() => emits('switch')"></Menu>
+        <div class="nav-container">
+            <Menu :root="root" :routes="routes"></Menu>
         </div>
-        <div ref="target" class="menu-footer">
+        <div class="menu-footer">
             <div class="social-media">
                 <a href="https://twitter.com/team_irc">
                     <SVGIcon name="twitter" alt="twitter" width="32" height="32" />

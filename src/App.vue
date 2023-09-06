@@ -14,15 +14,13 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 		:class="isPrevention ? 'current' : 'menu'"
 		:current="isPrevention"
 		root="prevention"
-		:routes="prevention"
-		@switch="isPrevention = false" />
+		:routes="prevention" />
 	<Side
 		id="side-right"
 		:class="!isPrevention ? 'current' : 'menu'"
 		:current="!isPrevention"
 		root="gaming"
-		:routes="gaming"
-		@switch="isPrevention = true" />
+		:routes="gaming" />
 </template>
 
 <style scoped>
