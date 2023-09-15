@@ -74,6 +74,26 @@ onMounted(() => {
     transition: 200ms;
 }
 
+.chat-buttons > button {
+    height: 16px;
+	border: 1px solid var(--1-bg);
+	background-color: var(--1-txt);
+	transition: 200ms;
+}
+
+.chat-buttons > button:hover {
+	background-color: var(--2-bg);
+}
+
+.chat-buttons > button svg path {
+    color: var(--2-bg);
+	transition: 200ms;
+}
+
+.chat-buttons >  button:hover svg path{
+    color: var(--1-txt);
+}
+
 .twitch-chat > iframe {
     opacity: 0;
     transition: 200ms;
