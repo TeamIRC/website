@@ -41,7 +41,8 @@ onMounted(() => {
             <div class="chat-buttons">
                 <button><SVGIcon name="close-line" /></button>
                 <button @click="active = !active">
-                    <SVGIcon :name="active?'arrow-right-double-line':'arrow-left-double-line'" />
+                    <SVGIcon v-if="active" name="arrow-right-double-line" />
+                    <SVGIcon v-else name="arrow-left-double-line" />
                 </button>
             </div>
             <iframe
@@ -75,10 +76,18 @@ onMounted(() => {
     transition: 200ms;
 }
 
+.chat-buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 8px;
+    transition: 200ms;
+}
+
 .chat-buttons > button {
-    width: 14px;
-    height: 14px;
-    padding: 1px;
+    width: 16px;
+    height: 16px;
+    padding: 0px;
 	border: 1px solid var(--1-bg);
 	background-color: var(--1-txt);
 	transition: 200ms;
@@ -103,6 +112,7 @@ onMounted(() => {
 }
 
 .twitch-chat > iframe {
+    display: none;
     opacity: 0;
     transition: 200ms;
 }
@@ -111,7 +121,12 @@ onMounted(() => {
     width: 340px;
 }
 
+.twitch-chat.active > .chat-buttons {
+    right: 240px;
+}
+
 .twitch-chat.active > iframe {
+    display: block;
     opacity: 1;
 }
 </style>
