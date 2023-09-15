@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { TwitchEmbedOptions } from "../types";
+import SVGIcon from './SVGIcon.vue';
 
 const props = defineProps({
     width: {
@@ -75,7 +76,9 @@ onMounted(() => {
 }
 
 .chat-buttons > button {
-    height: 16px;
+    width: 14px;
+    height: 14px;
+    padding: 1px;
 	border: 1px solid var(--1-bg);
 	background-color: var(--1-txt);
 	transition: 200ms;
@@ -85,12 +88,17 @@ onMounted(() => {
 	background-color: var(--2-bg);
 }
 
+.chat-buttons > button > svg {
+    width: 14px;
+    height: 14px;
+}
+
 .chat-buttons > button svg path {
     color: var(--2-bg);
 	transition: 200ms;
 }
 
-.chat-buttons >  button:hover svg path{
+.chat-buttons > button:hover svg path{
     color: var(--1-txt);
 }
 
