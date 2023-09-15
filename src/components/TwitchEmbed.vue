@@ -36,7 +36,7 @@ onMounted(() => {
 <template>
     <div class="twitch-embed">
         <div class="twitch-player" :id="`player-${channel}`"></div>
-        <div class="twitch-chat" :class="active">
+        <div class="twitch-chat" :class="{ active }">
             <div class="chat-buttons">
                 <button><SVGIcon name="close-line" /></button>
                 <button @click="active = !active">
