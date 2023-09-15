@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { TwitchEmbedOptions } from "../types";
 
 const props = defineProps({
@@ -13,6 +13,7 @@ const props = defineProps({
     },
     channel: String,
 });
+const active = ref(false);
 const options: TwitchEmbedOptions = {
     width: props.width,
     height: props.height,
@@ -35,7 +36,13 @@ onMounted(() => {
 <template>
     <div class="twitch-embed">
         <div class="twitch-player" :id="`player-${channel}`"></div>
-        <div class="twitch-chat">
+        <div class="twitch-chat" :class="active">
+            <div class="chat-buttons">
+                <button><SVGIcon name="close-line" /></button>
+                <button @click="active = !active">
+                    <SVGIcon :name="active?'arrow-right-double-line':'arrow-left-double-line'" />
+                </button>
+            </div>
             <iframe
                 frameborder="0"
                 scrolling="no"
@@ -66,18 +73,17 @@ onMounted(() => {
     width: 16px;
     transition: 200ms;
 }
-.twitch-chat * {
+
+.twitch-chat > iframe {
     opacity: 0;
     transition: 200ms;
 }
 
-.twitch-chat:hover,
-.twitch-chat:focus-within {
+.twitch-chat.active {
     width: 340px;
 }
 
-.twitch-chat:hover *,
-.twitch-chat:focus-within * {
+.twitch-chat.active > iframe {
     opacity: 1;
 }
 </style>
