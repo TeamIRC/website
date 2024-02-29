@@ -3,22 +3,22 @@
     "content": {
         "items": [
             {
-                "image": "https://ffx.team.free.fr/team-irc/pedagojeux_logo.jpg",
+                "image": "./assets/pedagojeux_logo.jpg",
                 "title": "PédaGoJeux",
                 "description": "<p>Collectif qui a pour objectif d’informer et de sensibiliser les parents aux jeux vidéo, en abordant eux aussi les dangers mais aussi les atouts qu'ils représentent. Coordinateurs du réseau d’Ambassadeurs PédaGoJeux dont nous faisons partie, le collectif développe une approche pédagogique de jeux vidéos sur les différents territoires. En partenariat avec des acteurs centraux comme le SELL, Microsoft ou encore l’UNAF, le collectif a pour ambition de créer du lien avec les pouvoirs publics, les acteurs économiques, les médias, les joueurs et leurs famille. SELL = Syndicat des Editeurs de Logiciels de Loisirs UNAF = Union Nationale des Associations Familiales</p>"
             },
             {
-                "image": "http://ffx.team.free.fr/team-irc/UFCV.webp",
+                "image": "./assets/UFCV.webp",
                 "title": "UFCV",
                 "description": "<p>Association nationale de jeunesse et d’éducation populaire, l’UFCV est un poids lourds de l’action sociale avec 1 200 salariés sur le territoire national. Elle agit dans de nombreux champs d’action : formation, organisation de séjours auprès de publics jeunes, mais aussi avec des publics senior ou porteurs de handicap, animation d’ateliers… L’UFCV s’inscrit en lien avec les collectivités sur les différents territoires, et plus localement, la formation des animateurs se fait au travers un partenariat entre l’association et la Ville de Montpellier. Nos actions de formation se font dans le cadre de notre partenariat avec l’UFCV, sur une zone qui s’étend de Narbonne à Nice.</p>"
             },
             {
-                "image": "https://ffx.team.free.fr/team-irc/PROMENEURS_DU_NET_2.jpg",
+                "image": "./assets/PROMENEURS_DU_NET_2.jpg",
                 "title": "Promeneurs du Net",
                 "description": "<p>Réseau d’acteurs éducatif au sens large (enseignants, animateurs, éducateurs spécialisés…) dont la mission est d’informer, orienter, accompagner et prévenir les risques. Spécificités de ce dispositif : ses interlocuteurs sont accessibles sur les différents réseaux sociaux, pour qu’il ne soit pas nécessaire de se rendre sur une plateforme spécialisée ou de prendre rendez-vous. Il suffit de poser la question via la fonction messagerie du réseau social, et l’information est accessible. De la simple information à donner, au projet complet à soutenir, de la prise en charge de difficultés, à la détection d’une situation préoccupante, le Promeneur est un professionnel présent sur un territoire digital très vaste et peu encadré. Il communique et interagit via les blogs, les tchats, les forums. Nous relayons le dispositif auprès de toute la communication de nos projets, prévention comme gaming, sur les réseaux sociaux, et Nezli TABET, coordinatrice du dispositif sur le département de l’Hérault, s’est prêtée au jeu et a répondu à nos questions à l’occasion d’un de nos “Safe Show” organisé à l’occasion d’une compétition Rainbow Six</p>"
             },
             {
-                "image": "https://ffx.team.free.fr/team-irc/FFLOGO.jpg",
+                "image": "./assets/FFLOGO.jpg",
                 "title": "Flying Fish",
                 "description": "<p>Studio indépendant de création cinématographique et multimédia, basé à Montpellier. Primé à plusieurs reprises par le jury du concours 48HFP Filmapalooza, le studio travaille sur des productions toujours plus ambitieuses sur plusieurs formats : Court-métrage, Réalité virtuelle, documentaire, série, Clip Vidéo (Demi-portion, Furax Barbarossa…) Au travers des projets “Flying Fish Youth”, le studio développe des ateliers de création audiovisuelle et d’éducation à l’image. Notre équipe travaille en partenariat avec celle du studio Flying Fish autour des ateliers téléréalité.</p>"
             }

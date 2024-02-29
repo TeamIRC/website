@@ -3,37 +3,37 @@
     "content": {
         "items": [
             {
-                "image":"http://ffx.team.free.fr/team-irc/tarkov_344_jpg.jpg",
+                "image":"./assets/tarkov_344_jpg.jpg",
                 "title": "Escape from Tarkov",
                 "description":"<p>Organisateurs d’un jeu type “TV Show” hebdomadaire sur notre WebTV, cette plateforme réunit des joueurs jeunes adultes, plus mûrs en moyenne que sur les autres jeux.</p>"
             },
             {
-                "image":"http://ffx.team.free.fr/team-irc/G_T_A_344_jpg.jpg",
+                "image":"./assets/G_T_A_344_jpg.jpg",
                 "title": "Grand Theft Auto V",
                 "description":"<p>Après avoir développé un serveur de jeu “évènements”, nous continuons d’être présents sur cette plateforme via notre WebTV. Les serveurs GTA RP sont des espaces d’expression théâtrales, qui exigent une organisation conséquente, impliquant de nombreuses compétences de management au sein de collectifs de jeunes joueurs.</p>"
             },
             {
-                "image":"http://ffx.team.free.fr/team-irc/minecraft_344_jpg.jpg",
+                "image":"./assets/minecraft_344_jpg.jpg",
                 "title": "Minecraft",
                 "description":"<p>Le Projet de jeunes Zone-Delta, que nous accompagnons depuis l’été 2022, mobilise plusieurs équipe autour de la création et de la gestion d’un Serveur Minecraft, dont les fonctions, les décors et l’animation du quotidien sont uniques.</p>"
             },
             {
-                "image":"http://ffx.team.free.fr/team-irc/r6_344_jpg.jpg",
+                "image":"./assets/r6_344_jpg.jpg",
                 "title": "Rainbow Six Siege",
                 "description":"<p>Nous organisons des compétitions et encadrons des équipes de joueurs depuis Janvier 2021 sur la plateforme XBOX.</p>"
             },
             {
-                "image":"http://ffx.team.free.fr/team-irc/rocket_league_344_jpg.jpg",
+                "image":"./assets/rocket_league_344_jpg.jpg",
                 "title": "Rocket League",
                 "description":"<p>Nous accompagnons le Projet de Jeunes Rigel Esport, qui occupe principalement la plateforme Rocket League, avec l’encadrement de “rosters” et l’organisation d’évènements</p>"
             },
             {
-                "image":"http://ffx.team.free.fr/team-irc/trackmania_344_jpg.jpg",
+                "image":"./assets/trackmania_344_jpg.jpg",
                 "title": "Trackmania",
                 "description":"<p>Nous organisons régulièrement des évènements sur cette plateforme, qui permet d’encourager la créativité avec la création de circuits aux courbes millimétrées. Ce jeu 100% français permet également de faire le lien avec une communauté de joueurs locaux, amateurs comme professionnels.</p>"
             },
             {
-                "image":"http://ffx.team.free.fr/team-irc/valorant-fotor_344_jpg.jpg",
+                "image":"./assets/valorant-fotor_344_jpg.jpg",
                 "title": "Valorant",
                 "description":"<p>Présents sur cette plateforme sur notre WebTV et dans les tuyaux du projet RIGEL, cette plateforme fait le lien entre plusieurs générations de gamers, en reprenant les codes de l’incontournable Counter-Strike, saupoudrés de mécaniques de jeu plus modernes.</p>"
             }
