@@ -7,7 +7,7 @@ import { h } from "vue";
 let routes: RouteRecordRaw[] = [
     { 
         path: '/:pathMatch(.*)',
-        component: h("<div>Oups ! Cette page n'existe pas</div>")
+        component: h("div", "Oups ! Cette page n'existe pas")
     },
     {
         path: "/", redirect: '/prevention/home'
