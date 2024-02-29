@@ -3,17 +3,17 @@
     "content": {
         "items": [
             {
-                "image": "http://ffx.team.free.fr/team-irc/logo-franceesports.png",
+                "image": "/assets/logo-franceesports.png",
                 "title": "France Esport",
                 "description": "<p>Association qui a pour but de rassembler les acteurs de l’Esport en France, qu’ils soient des joueurs, des associations, des promoteurs ou encore des éditeurs de jeux. La création d’antennes régionales est en cours, et nous participons activement dans le cadre de la mise en place de l’antenne Occitanie. France Esport participe également à la réflexion qui mobilise les ministères des sports, des finances, de la culture et de la souveraineté industrielle et numérique, autour de la structuration de l’Esport en France.</p>"
             },
             {
-                "image": "http://ffx.team.free.fr/team-irc/298805068_439655061511335_2171178964041730496_n.jpg",
+                "image": "/assets/298805068_439655061511335_2171178964041730496_n.jpg",
                 "title": "Esport Village",
                 "description": "<p>Organisateur du Battle4, qui a récolté + de 330 000€ en 2022, l’activité d’Esport Village se situe entre un centre de formation pour athlétes esportifs, et un organisateur d’ “Esportainment” (contraction d’Esport et d’Entertainment). Esport Village a développé des outils d’évaluation à destination des publics Esport Pro, puis les a transposé à l’identification des Soft Skills dans le domaine de l’orientation et dans l’accompagnement à la parentalité. L’identification des compétences chez les gamers est un axe solide que nous partageons avec Esport Village.</p>"
             },
             {
-                "image": "http://ffx.team.free.fr/team-irc/logo_clutch_time.png",
+                "image": "/assets/logo_clutch_time.png",
                 "title": "Time To Clutch",
                 "description": "<p>Tout commence avec un Bot Discord, un programme développé à partir d’un outil collaboratif qui fait l’unanimité chez les gamers. Ce Bot Discord permet à n’importe quels joueurs d’organiser leur propre compétition, en visualisant son déroulement, ses scores et ses temps forts, le tout gratuitement. Nous sommes engagés aux côtés de Time To Clutch dans une démarche de développement d’outils ouverts à tous, et Open Source (les programmes Open Source peuvent être récupérés pour être que d’autres porteurs de projets puissent se l’approprier)</p>"
             }
