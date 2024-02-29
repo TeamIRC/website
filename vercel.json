@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/contents/(.*)", "destination": "/contents/$1" },
+      { "source": "/contents/:match*", "destination": "/contents/:match*" },
       { "source": "/:path*", "destination": "/index.html" }
     ]
 }
