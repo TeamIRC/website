@@ -81,7 +81,12 @@ main {
 	max-width: 1218px;
 	width: 100%;
 }
-
+main {
+    border: 1px solid var(--1-bg);
+    background-color: var(--1-txt);
+    border-radius: 16px;
+    height: calc(100vh - 360px);
+}
 header {
     display: flex;
 }

@@ -50,13 +50,13 @@ const onModified = async (c: string) => await fetch(
 	text-align: center;
 	font-size: 2rem
 }
-
 .page {
-    height: calc(100vh - 360px);
+    height: calc(100vh - 392px);
     overflow-y: auto;
 	animation: 1s show;
+    margin: 16px 0px;
+    padding: 0 16px;
 }
-
 @keyframes show {
 	from {
 		opacity: 0;
