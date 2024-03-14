@@ -91,6 +91,8 @@ router.afterEach((to) => isPrevention.value = to.fullPath.split('/')[1] == "prev
 
 	.side :deep(main) {
 		top: 33vh;
+		height: 67vh;
+    	border-radius: unset;
 	}
 
 	#side-right :deep(> header) {

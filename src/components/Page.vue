@@ -69,8 +69,9 @@ const onModified = async (c: string) => await fetch(
 @media screen and (max-width: 720px) /*Phone media querie*/
 {
 	.page {
-		height: 64vh;
+		height: 67vh;
 		scroll-snap-type: y mandatory;
+    	margin: 0;
 	}
 
 	#title {
