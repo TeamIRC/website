@@ -48,7 +48,7 @@ const onModified = async (c: string) => await fetch(
 <style>
 #title {
 	text-align: center;
-	font-size: 2rem
+	font-size: 2rem;
 }
 .page {
     height: calc(100vh - 392px);

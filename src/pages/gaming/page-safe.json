@@ -5,27 +5,27 @@
             {
                 "image": "/contents/Logo_Safe_League_-_First_Edition.webp",
                 "title": "1st Edition",
-                "description": "<p>1ere édition historique.<br>16 Equipes, 96 joueurs s’affrontent en élimination directe sur 1 mois.<br>2 divisions, pour permettre de laisser la place aux joueurs compétitifs, mais aussi aux joueurs moins expérimentés.<br>4 casters<br>Compétition 100% Manette, pour mettre tous les joueurs sur un pied d’égalité, parce que certains joueurs utilisent un clavier et une souris.</p>"
+                "description": "<p><strong>Format </strong>: 16 équipes, 96 joueurs, élimination directe sur 1 mois.</p><p><strong>Divisions </strong>: 2 (compétitifs et moins expérimentés)</p><p><strong>Casters </strong>: 4</p><p><strong>Spécificité </strong>: 100% Manette pour égalité.</p>"
             },
             {
                 "image": "/contents/Logo_Safe_League_April_Edition.webp",
                 "title": "April Edition",
-                "description":"<p>2nde édition sur le même format de tournoi sur 1 mois.<br>16 Equipes, 112 joueurs<br>2 divisions<br>6 casters<br>100% Manette</p>"
+                "description":"<p><strong>Format </strong>: 16 équipes, 112 joueurs, tournoi sur 1 mois.</p><p><strong>Divisions </strong>: 2</p><p><strong>Casters </strong>: 6</p><p><strong>Spécificité </strong>: 100% Manette.</p>"
             },
             {
                 "image": "/contents/Logo_Safe_League_Summer_Edition.webp",
                 "title": "Summer Edition",
-                "description": "<p>3e édition, même format mais sur avec une demande beaucoup plus importante : la compétition est identifiée par le public, et l’autre principal organisateur de compétition sur la plateforme Xbox migre sur PC.<br>16 Equipes, 128 joueurs<br>2 divisions<br>6 casters<br>100% Manette<br>En partenariat avec MTP Esport, Club Esport pro à Montpellier.</p>"
+                "description": "<p><strong>Format </strong>: 16 équipes, 128 joueurs, même format.</p><p><strong>Divisions </strong>: 2</p><p><strong>Casters </strong>: 6</p><p><strong>Spécificité </strong>: 100% Manette.</p><p><strong>Partenariat </strong>: MTP Esport, Club Esport pro à Montpellier.</p><p><strong>Note </strong>: Augmentation de la demande; migration de Xbox vers PC.</p>"
             },
             {
                 "image": "/contents/20210727_181614_2.webp",
                 "title": "Season One",
-                "description": "<p>4e édition, pour la 1ere format dans un format de championnat.<br>20 Equipes, 160 joueurs s’affrontent sur 2 mois.<br>2 divisions<br>8 casters<br>100% Manette, pour la 1ere fois un dispositif “Handcam” est mis en place pour éviter les tricheries.<br>En partenariat avec MTP Esport, Club Esport pro à Montpellier, et pour la 1ere sous licence officielle Ubisoft.</p>"
+                "description": "<p><strong>Format </strong>: 20 équipes, 160 joueurs, championnat sur 2 mois.</p><p><strong>Divisions </strong>: 2</p><p><strong>Casters </strong>: 8</p><p><strong>Spécificité </strong>: 100% Manette + Handcam contre triche.</p><p><strong>Partenariat </strong>: MTP Esport, sous licence officielle Ubisoft.</p>"
             },
             {
                 "image": "/contents/SAFE_League_RL_alpha.webp",
                 "title": "Safe League X Rigel",
-                "description": "<p>1ere version hybride, organisée en partenariat avec Rigel Esport.<br>16 Equipes, 48 joueurs s’affrontent sur 1 journée.<br>3 casters<br>Tous les matchs sont castés sur la chaîne “Team IRC”.<br>Interview des équipes participantes ainsi que des fondateurs de Team IRC et Rigel Esport.<br>En partenariat avec Village Esport, Centre de Formation Esport Pro qui intègre un volet éducatif tourné vers la parentalité et l’orientation professionnelle.</p>"
+                "description": "<p><strong>Format </strong>: 16 équipes, 48 joueurs, 1 journée.</p><p><strong>Casters </strong>: 3, tous les matchs sur chaîne “Team IRC”.</p><p><strong>Interviews </strong>: Équipes, fondateurs Team IRC, Rigel Esport.</p><p><strong>Partenariat </strong>: Village Esport, intégration éducative.</p>"
             }
         ]
     }
