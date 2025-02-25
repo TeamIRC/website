@@ -21,8 +21,8 @@ function onElementVisibility(state: boolean, element: number) {
 watch(
     () => props.edit,
     () => {
-		console.log(list.value.items.toString(), props.content.items.toString())
-		if (list.value.items.toString() !== props.content.items.toString())
+		console.log(JSON.stringify(list.value.items), JSON.stringify(props.content.items))
+		if (JSON.stringify(list.value.items) !== JSON.stringify(props.content.items))
 			emits("modified", list.value);
 	}
 );
