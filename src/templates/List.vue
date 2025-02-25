@@ -21,7 +21,12 @@ watch(
     () => props.edit,
     () => {
 		if (JSON.stringify(list.value.items) !== JSON.stringify(props.content.items))
-			emits("modified", JSON.stringify({ template:"List", ...list.value }));
+			emits("modified", JSON.stringify({ 
+				template:"List",
+				content: {
+					items: list.value.items
+				}
+			}));
 	}
 );
 </script>
