@@ -9,8 +9,7 @@ const edit = ref(false);
 localStorage.setItem('origin', useRoute().fullPath);
 const login = localStorage.getItem('login')
 const onModified = async (c: string) => {
-	console.log("Tentative de modification", window.location.origin + '/api/github/updateFile');
-	const result = await fetch(
+	await fetch(
 		window.location.origin + '/api/github/updateFile',
 		{
 			method: "PUT",
@@ -24,7 +23,6 @@ const onModified = async (c: string) => {
 			})
 		}
 	);
-	console.log(result.json());
 };
 </script>
 

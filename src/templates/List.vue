@@ -9,8 +9,7 @@ const props = defineProps<{
 	content: ListContent<Content>,
 	edit: boolean
 }>();
-const emits = defineEmits<{ 
-	(event: "modified", content: ListContent<Content>): void }>()
+const emits = defineEmits<{ (event: "modified", content: string): void }>()
 const list = ref(structuredClone(props.content));
 const isVisible = ref(new Array<boolean>(list.value.items.length).fill(false))
 const current = ref(-1);
@@ -21,9 +20,8 @@ function onElementVisibility(state: boolean, element: number) {
 watch(
     () => props.edit,
     () => {
-		console.log(JSON.stringify(list.value.items), JSON.stringify(props.content.items))
 		if (JSON.stringify(list.value.items) !== JSON.stringify(props.content.items))
-			emits("modified", list.value);
+			emits("modified", JSON.stringify({ template:"List", ...list.value }));
 	}
 );
 </script>
