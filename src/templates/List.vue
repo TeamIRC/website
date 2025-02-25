@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { vElementVisibility } from '@vueuse/components';
-import { ref, watch } from 'vue';
+import { ref, shallowRef, watch } from 'vue';
 import { Content, ListContent } from '../types';
 import Editor from '../components/Editor.vue';
 import ListBase from '../components/ListBase.vue';
@@ -11,7 +11,7 @@ const props = defineProps<{
 }>();
 const emits = defineEmits<{ 
 	(event: "modified", content: ListContent<Content>): void }>()
-const list = ref(props.content);
+const list = shallowRef(props.content);
 const isVisible = ref(new Array<boolean>(list.value.items.length).fill(false))
 const current = ref(-1);
 function onElementVisibility(state: boolean, element: number) {
