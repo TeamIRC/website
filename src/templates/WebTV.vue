@@ -11,7 +11,7 @@ const props = defineProps<{
 	edit: boolean
 }>();
 const emits = defineEmits<{
-	(event: "modified", content: ListContent<string>): void
+	(event: "modified", template: string, content: ListContent<string>): void
 }>();
 const list = ref(props.content);
 const mosaic = ref<HTMLDivElement>();
@@ -38,8 +38,8 @@ function toggleFullscreen() {
 watch(
     () => props.edit,
     () => {
-		if (list.value.items.toString() !== props.content.items.toString())
-			emits("modified", list.value);
+		if (JSON.stringify(list.value.items) !== JSON.stringify(props.content.items))
+			emits("modified", "WebTV", list.value);
 	}
 );
 watch(
