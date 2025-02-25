@@ -1,8 +1,15 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { client } from "../../backend/vercel/github/client"
+import { parse } from "cookie";
+//import { client } from "../../backend/vercel/github/client"
 
-export default client(
-    async(request: VercelRequest, response: VercelResponse, token: string) => {
+export default async(request: VercelRequest, response: VercelResponse) => {
+        if (!request.headers.cookie) {
+            response.status(501).end();
+            return;
+        }
+        const cookie = parse(request.headers.cookie)
+        let token = cookie.github_token;
+
         const { root, page, content, branch } = request
             .body as {
                 root: string,
@@ -41,4 +48,3 @@ export default client(
 
         response.status(200).end();
     }
-)
