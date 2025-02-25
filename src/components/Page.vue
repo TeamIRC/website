@@ -8,20 +8,24 @@ const { template, content } = await import(`../pages/${props.root}/page-${props.
 const edit = ref(false);
 localStorage.setItem('origin', useRoute().fullPath);
 const login = localStorage.getItem('login')
-const onModified = async (c: string) => await fetch(
-	window.location.origin + '/api/github/updateFile',
-	{
-		method: "PUT",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-			root: props.root,
-			page: props.page,
-			content: JSON.stringify({content: c})
-		})
-	}
-);
+const onModified = async (c: string) => {
+	console.log("Tentative de modification", window.location.origin + '/api/github/updateFile');
+	const result = await fetch(
+		window.location.origin + '/api/github/updateFile',
+		{
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				root: props.root,
+				page: props.page,
+				content: JSON.stringify({content: c})
+			})
+		}
+	);
+	console.log(result.json());
+};
 </script>
 
 <template>
