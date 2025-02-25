@@ -9,7 +9,7 @@ const props = defineProps<{
 	content: ListContent<Content>,
 	edit: boolean
 }>();
-const emits = defineEmits<{ (event: "modified", content: string): void }>()
+const emits = defineEmits<{ (event: "modified", template: string, content: ListContent<Content>): void }>()
 const list = ref(structuredClone(props.content));
 const isVisible = ref(new Array<boolean>(list.value.items.length).fill(false))
 const current = ref(-1);
@@ -21,12 +21,7 @@ watch(
     () => props.edit,
     () => {
 		if (JSON.stringify(list.value.items) !== JSON.stringify(props.content.items))
-			emits("modified", JSON.stringify({ 
-				template:"List",
-				content: {
-					items: list.value.items
-				}
-			}));
+			emits("modified", "List", list.value);
 	}
 );
 </script>

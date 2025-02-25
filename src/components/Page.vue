@@ -8,7 +8,7 @@ const { template, content } = await import(`../pages/${props.root}/page-${props.
 const edit = ref(false);
 localStorage.setItem('origin', useRoute().fullPath);
 const login = localStorage.getItem('login')
-const onModified = async (c: string) => {
+const onModified = async (template: string, c: any) => {
 	await fetch(
 		window.location.origin + '/api/github/updateFile',
 		{
@@ -19,7 +19,10 @@ const onModified = async (c: string) => {
 			body: JSON.stringify({
 				root: props.root,
 				page: props.page,
-				content: JSON.stringify({content: c})
+				content: JSON.stringify({
+					template,
+					content: c
+				})
 			})
 		}
 	);
