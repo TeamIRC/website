@@ -1,18 +1,1 @@
-{
-    "template": "List",
-    "content" : {
-        "items": [
-            {
-                "image": "/contents/344_lpdn_quisommesnous.webp",
-                "title": "Association de sensibilisation",
-                "description": "<p>Education à l’image, Sensibilisation aux influences des réseaux sociaux et Fracture numérique sont des thématiques que nous abordons avec les jeunes, leurs parents où encore leurs enseignants.</p></p>Sur son Volet Prévention l’association Les Parrains Du Numérique intervient sur des formations et anime des ateliers parents-enfants dans les médiathèques du département de l’Hérault.</p>"
-            },
-            {
-                "image": "/contents/irc_qui_sommes_nous_344_jpg.webp",
-                "title": "Centre de loisirs numériques",
-                "description": "<p>Imaginez un Centre de Loisirs, où les Activités et les Ateliers se font en ligne.</p><p>Créativité, Autonomie, Esprit d’Equipe, Sens des responsabilités… Tout y est !</p><p>IRC Esport, le Volet Esport de l’association Les Parrains Du Numérique, a choisi d’inscrire son action dans le temps libre des jeunes, pour valoriser les compétences développées par les gamers, et aborder avec eux des thématiques de prévention</p>",
-                "class": "theme-right"
-            }
-        ]
-    }
-}
+{"content":{"items":[{"image":"/contents/344_lpdn_quisommesnous.webp","title":"Association de sensibilisation","description":"<p>Education à l’image, Sensibilisation aux influences des réseaux sociaux et Fracture numérique sont des thématiques que nous abordons avec les jeunes, leurs parents où encore leurs enseignants.</p><p>Sur son volet Prévention l’association Les Parrains Du Numérique intervient sur des formations et anime des ateliers parents-enfants dans les médiathèques du département de l’Hérault.</p><p></p>"},{"image":"/contents/irc_qui_sommes_nous_344_jpg.webp","title":"Centre de loisirs numériques","description":"<p>Imaginez un Centre de Loisirs, où les Activités et les Ateliers se font en ligne.</p><p>Créativité, Autonomie, Esprit d’Equipe, Sens des responsabilités… Tout y est !</p><p>IRC Esport, le volet Esport de l’association Les Parrains Du Numérique, a choisi d’inscrire son action dans le temps libre des jeunes, pour valoriser les compétences développées par les gamers, et aborder avec eux des thématiques de prévention</p>","class":"theme-right"}]}}
