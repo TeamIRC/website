@@ -1,0 +1,27 @@
+{
+  "template": "cards",
+  "content": {
+    "items":[
+      {
+        "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096",
+        "title": "",
+        "content": ""
+      },
+      {
+        "isBlue": true,
+        "title": "Les Parrains du numérique",
+        "content": "Education à l’image, Sensibilisation aux influences des réseaux sociaux et Fracture numérique sont des thématiques que nous abordons avec les jeunes, leurs parents où encore leurs enseignants.Sur son Volet Prévention l’association Les Parrains Du Numérique intervient sur des formations et anime des ateliers parents-enfants dans les médiathèques du département de l’Hérault."
+      },
+      {
+        "isBlue": true,
+        "title": "Rigel",
+        "content": "Centre de loisirs numériques. Imaginez un Centre de Loisirs, où les Activités et les Ateliers se font en ligne., Autonomie, Esprit d’Equipe, Sens des responsabilités… Tout y est !IRC Esport, le Volet Esport de l’association Les Parrains Du Numérique, a choisi d’inscrire son action dans le temps libre des jeunes, pour valoriser les compétences développées par les gamers, et aborder avec eux des thématiques de prévention"
+      },
+      {
+        "image": "https://pbs.twimg.com/media/GTf8ucqWQAAqOYQ?format=jpg&name=medium",
+        "title": "",
+        "content": ""
+      }
+    ]
+  }
+}

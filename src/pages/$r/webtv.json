@@ -1,0 +1,10 @@
+{
+  "template": "WebTV",
+  "content": {
+    "items": [
+        "team_irc",
+        "reymonitou",
+        "neidrolab"
+    ]
+  }
+}

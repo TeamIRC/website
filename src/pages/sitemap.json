@@ -1,42 +1,76 @@
 {
-    "prevention": [
+  "$r": [
+    {
+      "path": "aboutus",
+      "title": "Qui sommes nous ?",
+      "description": "Test description"
+    },
+    {
+      "path": "sensibilisation",
+      "title": "Sensibilisation",
+      "children": [
         {
-            "path": "home",
-            "title": "Qui sommes-nous ?"
+          "path": "ateliers",
+          "title": "Ateliers Parents/Enfants",
+          "description": "Description ateliers"
         },
         {
-            "path": "ateliers",
-            "title": "Ateliers parents-enfants"
+          "path": "emi",
+          "title": "Ateliers d'éducation aux Médias et à l'Information (EMI)"
         },
         {
-            "path": "formations",
-            "title": "Nos formations"
+          "path": "collaboration",
+          "title": "Collaborations et citoyenneté"
         },
         {
-            "path": "partenaires",
-            "title": "Nos partenaires Prévention"
+          "path": "gamedesign",
+          "title": "Game Design"
         }
-    ],
-    "gaming": [
+      ]
+    },
+    {
+      "path": "formations",
+      "title": "Formations",
+      "children": [
         {
-            "path": "webtv",
-            "title": "Web TV"
+          "path": "mineurs",
+          "title": "Accueil Collectif de mineurs"
         },
         {
-            "path": "jeux",
-            "title": "Nos jeux"
+          "path": "ia",
+          "title": "Initiations à l'IA"
         },
         {
-            "path": "safe",
-            "title": "SAFE League"
+          "path": "outils",
+          "title": "Outils collaboratifs"
         },
         {
-            "path": "projets",
-            "title": "Projets communautaires"
-        },
-        {
-            "path": "partenaires",
-            "title": "Nos partenaires Gaming"
+          "path": "initiations",
+          "title": "Initiations aux métiers du numérique"
         }
-    ]
+      ]
+    },
+    {
+      "path": "rdp",
+      "title": "Recherche, Développement et Projets",
+      "children": [
+        {
+          "path": "safeleague",
+          "title": "Safe League"
+        },
+        {
+          "path": "events",
+          "title": "Organisations et Animations d'évènements communautaires"
+        },
+        {
+          "path": "accompagnement",
+          "title": "Accompagnement de projets"
+        }
+      ]
+    },
+    {
+      "path": "webtv",
+      "title": "WebTv"
+    }
+  ]
 }

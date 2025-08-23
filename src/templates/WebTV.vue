@@ -129,24 +129,26 @@ onBeforeUnmount(() => clearInterval(interval));
 								</figure>
 								<h4>{{ stream.title }}</h4>
 								<table class="description">
-									<tr>
-										<td>
-											<SVGIcon name="team-line" />
-										</td>
-										<td>{{ stream.viewer_count }}</td>
-									</tr>
-									<tr>
-										<td>
-											<SVGIcon name="gamepad-line" />
-										</td>
-										<td>{{ stream.game_name }}</td>
-									</tr>
-									<tr>
-										<td>
-											<SVGIcon name="time-line" />
-										</td>
-										<td :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></td>
-									</tr>
+									<tbody>
+										<tr>
+											<td>
+												<SVGIcon name="team-line" />
+											</td>
+											<td>{{ stream.viewer_count }}</td>
+										</tr>
+										<tr>
+											<td>
+												<SVGIcon name="gamepad-line" />
+											</td>
+											<td>{{ stream.game_name }}</td>
+										</tr>
+										<tr>
+											<td>
+												<SVGIcon name="time-line" />
+											</td>
+											<td :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></td>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 						</div>

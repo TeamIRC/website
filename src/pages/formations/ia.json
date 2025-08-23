@@ -1,0 +1,18 @@
+{
+  "template": "ArticleTemplate",
+  "content": [
+    {
+      "title": "Formation Intelligence Artificielle",
+      "category": "Formation",
+      "date": "13 février 2025",
+      "author": "LPN",
+      "content": "<h3>Découvrez l'Intelligence Artificielle</h3><p>Notre formation en Intelligence Artificielle vous permettra de comprendre et maîtriser les concepts fondamentaux de l'IA. Vous apprendrez les différentes techniques et applications de l'intelligence artificielle dans un environnement pratique et stimulant.",
+      "image": "logo.svg"
+    },
+    {
+      "title": "Pourquoi choisir notre formation ?",
+      "category": "Avantages",
+      "content": "<p>Notre formation se distingue par :</p><ul><li>Des formateurs experts du domaine</li><li>Une approche pratique et concrète</li><li>Des projets réels à réaliser</li><li>Un suivi personnalisé</li><li>Des groupes à taille humaine</li></ul><p>Rejoignez-nous pour développer vos compétences en IA et préparez-vous aux métiers de demain !</p>"
+    }
+  ]
+}

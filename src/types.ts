@@ -1,3 +1,10 @@
+export type Route = {
+  path: string;
+  title: string;
+  children?: Route[];
+  description?: string;
+};
+
 export type TwitchUser = {
 	id: string;
 	login: string;
@@ -131,6 +138,13 @@ export interface TwitchEmbedOptions {
 	 * If true, the embedded player plays inline for mobile iOS apps.
 	 */
 	playsinline?: boolean;
+}
+
+export type Card = {
+  image?: string;
+  title?: string;
+  content?: string;
+  isBlue?: boolean;
 }
 
 export type Content = {
