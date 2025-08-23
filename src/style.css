@@ -160,6 +160,10 @@ body {
   overflow-y: auto;
 }
 
+p + p {
+  margin-top: 1rem;
+}
+
 #app {
   flex: 1;
   display: flex;

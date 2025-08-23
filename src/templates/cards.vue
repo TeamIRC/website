@@ -46,7 +46,7 @@ watch(
             class="card-image"
             alt="Image illustration"
           />
-          <p v-if="item.content" class="card-content">{{ item.content }}</p>
+          <div v-if="item.content" v-html="item.content" class="card-content"></div>
         </div>
       </template>
     </ListBase>

@@ -52,7 +52,7 @@ onUnmounted(() => {
             </tr>
           </tbody>
         </table>
-        <router-link to="/mentions-legales">Mentions légales</router-link>
+        <router-link to="/mentionslegales">Mentions légales</router-link>
       </div>
 
       <!-- Missions Column -->
