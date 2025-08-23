@@ -74,7 +74,6 @@ router.beforeEach((to, _, next) => {
         page,
         title
     };
-    console.log(to.meta);
     next();
 });
 

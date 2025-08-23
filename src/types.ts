@@ -157,3 +157,20 @@ export type Content = {
 export type ListContent<T> = {
 	items: T[]
 };
+
+// Enhanced types for template array support
+export type TemplateItem = {
+	template: string;
+	content: any;
+	id?: string; // Optional unique identifier for each template instance
+};
+
+export type PageData = {
+	template?: string;
+	content?: any;
+	templates?: TemplateItem[]; // Array of templates for multi-template pages
+};
+
+export type TemplateArrayContent = {
+	templates: TemplateItem[];
+};

@@ -99,12 +99,13 @@
 
   /* Page */
   --page-bg: var(--br2-lt-2);
+  --page-bg-alt: var(--br2-lt-4);
   --page-title: var(--br2-dk-2);
+  --page-txt: var(--br2-dk-5);
 
   /* Cards */
   --card-bg: var(--br2-dk-2);
   --card-bg-alt: var(--br2-lt-1);
-  --card-txt: var(--br2-dk-5);
 
   /* Footer */
   --foot-bg: var(--br2-lt-3);
@@ -132,12 +133,13 @@
 
   /* Page */
   --page-bg: var(--br2-dk-4);
+  --page-bg-alt: var(--br2-dk-2);
   --page-title: var(--br2-lt-4);
+  --page-txt: var(--br2-lt-2);
 
   /* Cards */
   --card-bg: var(--br2-lt-4);
   --card-bg-alt: var(--br2-dk-3);
-  --card-txt: var(--br2-lt-3);
 
   /* Footer */
   --foot-bg: var(--br2-dk-5);

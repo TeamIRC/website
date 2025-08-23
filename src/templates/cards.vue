@@ -58,7 +58,6 @@ watch(
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
   width: 100%;
 }
 
@@ -79,21 +78,21 @@ watch(
   border-radius: 1rem;
   overflow: hidden;
   height: 364px;
-  padding: 6px;
   background-color: var(--card-bg);
-  border: 2px var(--card-bg) solid;
+  border: 1px var(--card-bg) solid;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
 }
 
 .card-image {
   width: 100%;
   height: 100%;
+  padding: 0.5rem;
   object-fit: cover;
   border-radius: 1rem;
 }
 
 .blue-card {
   background-color: var(--card-bg-alt);
-  color: var(--card-txt);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -104,14 +103,8 @@ watch(
 
 .card-title {
   font-family: "NeuePlak-Bold", sans-serif;
-  /* color: white; */
   margin-bottom: 0.5rem;
   text-decoration: underline;
-}
-
-.card-content {
-  color: var(--card-txt);
-  line-height: 1.5;
 }
 
 @media (max-width: 768px) {

@@ -55,21 +55,10 @@ onUnmounted(() => {
         <router-link to="/mentionslegales">Mentions légales</router-link>
       </div>
 
-      <!-- Missions Column -->
-      <div class="footer-column">
-        <h3>Nos Missions</h3>
-        <ul class="missions-list">
-          <li><a href="#">Mission1</a></li>
-          <li><a href="#">Mission2</a></li>
-          <li><a href="#">Mission3</a></li>
-          <li><a href="#">Mission4</a></li>
-        </ul>
-      </div>
-
       <!-- Partners Column -->
-      <div class="footer-column">
+      <div class="footer-column marquee-container">
         <h3>Nos Partenaires</h3>
-        <Vue3Marquee id="partners" class="marquee-container" clone pauseOnHover>
+        <Vue3Marquee id="partners" clone pauseOnHover>
           <a href="https://herault.fr/" target="_blank">
             <img src="/assets/img/herault.jpg" alt="Partner Logo" />
           </a>
@@ -115,19 +104,12 @@ onUnmounted(() => {
 
 .footer-content {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
-  max-width: 100vw;
-  gap: 1rem;
 }
 
 .footer-column {
-  flex: 1;
-  min-width: 0;
   padding: 1rem;
   justify-items: center;
 }
@@ -173,41 +155,12 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Missions Styles */
-.missions-list {
-  list-style: none;
-  padding: 0;
-}
-
-.missions-list li {
-  margin-bottom: 0.75rem;
-}
-
-.missions-list a {
-  position: relative;
-  padding-left: 0rem;
-}
-
-.missions-list a::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  opacity: 0;
-  transform: translateX(-1rem);
-  transition: all 0.3s ease;
-}
-
-.missions-list a:hover {
-  padding-left: 2rem;
-}
-
-.missions-list a:hover::before {
-  opacity: 1;
-  transform: translateX(0);
+.marquee-container  {
+  min-width: 0px;
 }
 
 .marquee-container img {
-  height: 96px;
+  height: 160px;
   margin: 0 5px;
   object-fit: contain;
 }
@@ -233,18 +186,6 @@ a:hover {
   .footer-column h3::after {
     left: 50%;
     transform: translateX(-50%);
-  }
-
-  .missions-list a {
-    padding-left: 0;
-  }
-
-  .missions-list a:hover {
-    padding-left: 0;
-  }
-
-  .missions-list a::before {
-    display: none;
   }
 
   .contact-info {
