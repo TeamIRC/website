@@ -1,0 +1,143 @@
+{
+  "template": "IARecommendations",
+  "content": {
+    "hero": {
+      "badge": "⭐ Bonnes pratiques",
+      "title": "Nos recommandations",
+      "description": "Des conseils pratiques pour utiliser l'intelligence artificielle de manière sûre, éthique et enrichissante."
+    },
+    "goodPractices": [
+      {
+        "icon": "✅",
+        "title": "Demande toujours la permission",
+        "description": "Avant d'utiliser un nouvel outil d'IA, demande l'autorisation à tes parents ou enseignants."
+      },
+      {
+        "icon": "✅",
+        "title": "Vérifie les informations",
+        "description": "L'IA peut parfois se tromper. Vérifie toujours les faits importants avec d'autres sources."
+      },
+      {
+        "icon": "✅",
+        "title": "Reste créatif",
+        "description": "Utilise l'IA comme aide, mais garde tes propres idées et ta créativité personnelle."
+      },
+      {
+        "icon": "✅",
+        "title": "Sois respectueux",
+        "description": "Utilise un langage poli et respectueux, même quand tu parles avec une IA."
+      },
+      {
+        "icon": "✅",
+        "title": "Apprends en t'amusant",
+        "description": "Utilise l'IA pour découvrir de nouvelles choses et développer tes connaissances."
+      },
+      {
+        "icon": "✅",
+        "title": "Partage tes découvertes",
+        "description": "Montre tes créations à ta famille et tes amis pour partager ton apprentissage."
+      }
+    ],
+    "warnings": [
+      {
+        "icon": "⚠️",
+        "title": "Ne partage pas d'infos personnelles",
+        "description": "Nom, adresse, école, numéro de téléphone : garde ces informations secrètes."
+      },
+      {
+        "icon": "⚠️",
+        "title": "N'utilise pas l'IA pour tricher",
+        "description": "Pour tes devoirs, utilise l'IA comme aide mais fais le travail toi-même."
+      },
+      {
+        "icon": "⚠️",
+        "title": "Attention aux fausses informations",
+        "description": "L'IA peut parfois inventer des faits. Vérifie toujours les informations importantes."
+      },
+      {
+        "icon": "⚠️",
+        "title": "Évite les contenus inappropriés",
+        "description": "Ne demande pas à l'IA de créer du contenu violent, effrayant ou inapproprié."
+      }
+    ],
+    "ageGroups": [
+      {
+        "age": "6-8 ans",
+        "icon": "🧸",
+        "recommendations": [
+          "Utilisation uniquement avec un adulte",
+          "Outils visuels et simples",
+          "Sessions courtes (15-20 minutes)",
+          "Focus sur la créativité et le jeu"
+        ]
+      },
+      {
+        "age": "9-12 ans",
+        "icon": "🎨",
+        "recommendations": [
+          "Supervision parentale recommandée",
+          "Projets créatifs et éducatifs",
+          "Sessions de 30-45 minutes",
+          "Apprentissage des bases de l'éthique"
+        ]
+      },
+      {
+        "age": "13+ ans",
+        "icon": "🚀",
+        "recommendations": [
+          "Plus d'autonomie avec guidance",
+          "Projets plus complexes",
+          "Apprentissage approfondi de l'éthique",
+          "Préparation aux enjeux futurs"
+        ]
+      }
+    ],
+    "parentsTips": [
+      {
+        "icon": "👨‍👩‍👧‍👦",
+        "title": "En famille",
+        "description": "Explorez l'IA ensemble en famille pour créer des moments de partage et d'apprentissage.",
+        "actions": [
+          "Créez des histoires ensemble",
+          "Organisez des défis créatifs",
+          "Discutez des découvertes"
+        ]
+      },
+      {
+        "icon": "⏰",
+        "title": "Gestion du temps",
+        "description": "Établissez des limites de temps pour maintenir un équilibre sain avec les autres activités.",
+        "actions": [
+          "Définir des créneaux horaires",
+          "Alterner avec d'autres activités",
+          "Faire des pauses régulières"
+        ]
+      },
+      {
+        "icon": "🛡️",
+        "title": "Sécurité d'abord",
+        "description": "La sécurité en ligne est primordiale lors de l'utilisation d'outils d'IA.",
+        "actions": [
+          "Vérifier les paramètres de confidentialité",
+          "Utiliser des comptes supervisés",
+          "Signaler tout problème"
+        ]
+      },
+      {
+        "icon": "💡",
+        "title": "Apprentissage continu",
+        "description": "L'IA évolue rapidement, continuez à apprendre et à vous adapter ensemble.",
+        "actions": [
+          "Suivre les nouveautés",
+          "Participer à des ateliers",
+          "Échanger avec d'autres familles"
+        ]
+      }
+    ],
+    "finalMessage": {
+      "title": "🌟 L'aventure ne fait que commencer !",
+      "description": "L'IA est un outil formidable qui peut t'aider à apprendre, créer et découvrir. Utilise-la avec sagesse et curiosité !",
+      "tags": ["🤖 Explore", "🎨 Crée", "📚 Apprends", "🤝 Partage"]
+    }
+  }
+}

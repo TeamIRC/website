@@ -51,6 +51,32 @@
       ]
     },
     {
+      "path": "ressources",
+      "title": "Ressources",
+      "children": [
+        {
+          "path": "ia",
+          "title": "Atelier IA",
+          "description": "Ressources pédagogiques sur l'Intelligence Artificielle"
+        },
+        {
+          "path": "ia-ethics",
+          "title": "ethics IA",
+          "description": "ethics sur l'Intelligence Artificielle"
+        },
+        {
+          "path": "ia-tools",
+          "title": "tools IA",
+          "description": "tools sur l'Intelligence Artificielle"
+        },
+        {
+          "path": "ia-recommendations",
+          "title": "recommendations IA",
+          "description": "recommendations sur l'Intelligence Artificielle"
+        }
+      ]
+    },
+    {
       "path": "rdp",
       "title": "Recherche, Développement et Projets",
       "children": [

@@ -1,0 +1,148 @@
+{
+  "template": "IAEthics",
+  "content": {
+    "hero": {
+      "badge": "⚖️ Éthique & IA",
+      "title": "Utiliser l'IA de manière responsable",
+      "description": "L'intelligence artificielle (IA) est un outil puissant. Apprenons ensemble à l'utiliser correctement et avec sagesse."
+    },
+    "introduction": {
+      "whatIsEthics": {
+        "title": "Qu'est-ce que l'éthique ?",
+        "content": "L'éthique, c'est réfléchir à ce qui est bien ou mal, et à la bonne manière d'agir. C'est comme une boussole qui nous aide à prendre de bonnes décisions, en respectant des valeurs importantes comme l'honnêteté, le respect et la justice. Par exemple, se demander si c'est bien de tricher à un jeu, c'est faire de l'éthique !"
+      },
+      "whatIsAI": {
+        "title": "Qu'est-ce que l'IA Générative (IAG) ?",
+        "content": "L'IA Générative est un type d'intelligence artificielle capable de créer du contenu nouveau (textes, images, sons) à partir de ce qu'elle a appris. Imagine un perroquet très savant : tu lui parles, et il te répond en inventant quelque chose de nouveau, basé sur des milliards de phrases qu'il a entendues. ChatGPT (texte) ou Midjourney (images) sont des exemples d'IAG."
+      }
+    },
+    "ethicsTopics": [
+      {
+        "icon": "🔒",
+        "title": "Respect de la vie privée",
+        "description": "L'IA peut collecter beaucoup d'informations sur nous. Il est important de protéger nos données personnelles et celles des autres.",
+        "tips": [
+          "Ne partage jamais d'informations personnelles (nom, adresse, école, secrets) avec une IA.",
+          "Sois prudent avec ce que tu écris dans les prompts (consignes), ces informations peuvent être enregistrées.",
+          "Demande toujours à tes parents avant d'utiliser un nouvel outil d'IA.",
+          "Lis les conditions d'utilisation avec un adulte pour comprendre comment tes données sont utilisées."
+        ]
+      },
+      {
+        "icon": "👁️",
+        "title": "Transparence et vérité (Lutte contre la désinformation)",
+        "description": "L'IA peut parfois donner des informations incorrectes, incomplètes ou inventer des choses (on appelle ça des \"hallucinations\"). Elle peut aussi être utilisée pour créer de fausses informations très réalistes (deepfakes).",
+        "tips": [
+          "Vérifie toujours les informations importantes avec plusieurs sources fiables.",
+          "Développe ton esprit critique : ce n'est pas parce que l'IA le dit que c'est vrai.",
+          "Demande à un adulte si tu as un doute sur une information ou une image.",
+          "Méfie-toi des images ou vidéos trop surprenantes. Elles pourraient être des deepfakes."
+        ]
+      },
+      {
+        "icon": "❤️",
+        "title": "Bienveillance et respect dans les interactions",
+        "description": "Même si l'IA n'a pas de sentiments, nous devons rester polis et responsables dans nos demandes. L'intention derrière notre prompt est importante.",
+        "tips": [
+          "Utilise un langage poli avec l'IA.",
+          "Ne demande pas à l'IA de créer du contenu méchant, haineux, discriminatoire ou illégal.",
+          "N'utilise pas l'IA pour tricher ou pour nuire à quelqu'un.",
+          "Si l'IA génère un contenu qui te met mal à l'aise, parles-en à un adulte."
+        ]
+      },
+      {
+        "icon": "👥",
+        "title": "Équité et inclusion (Lutte contre les biais)",
+        "description": "L'IA apprend à partir des données qu'on lui donne. Si ces données contiennent des stéréotypes ou des préjugés, l'IA risque de les reproduire. Elle doit être juste pour tout le monde.",
+        "tips": [
+          "Sois conscient que l'IA peut avoir des biais (ex: représenter certains métiers avec toujours le même genre de personne).",
+          "Signale si une IA semble injuste ou discriminatoire.",
+          "Utilise l'IA pour aider et inclure, pas pour exclure ou se moquer.",
+          "Cherche à obtenir des IA entraînées sur des données diversifiées et représentatives."
+        ]
+      },
+      {
+        "icon": "©️",
+        "title": "Droit d'auteur et création originale",
+        "description": "Les IA génératives sont entraînées sur d'énormes quantités de textes et d'images, parfois sans l'accord des créateurs. Il est important de respecter le travail des artistes et auteurs.",
+        "tips": [
+          "L'IA est un outil d'aide à la créativité, pas une machine à copier. Garde ton style unique !",
+          "Si tu utilises du contenu généré par IA, vérifie qu'il ne s'agit pas de plagiat ou d'une copie d'une œuvre existante.",
+          "Sois transparent : si tu utilises beaucoup l'IA pour un travail, mentionne-le (surtout à l'école).",
+          "Respecte les artistes : ne demande pas à l'IA de copier le style d'un artiste sans réfléchir aux conséquences."
+        ]
+      },
+      {
+        "icon": "💼",
+        "title": "Impact sur l'emploi et les métiers",
+        "description": "L'IA peut faire des tâches qui étaient avant faites par des humains. Cela soulève des questions sur l'avenir de certains métiers.",
+        "tips": [
+          "L'IA peut être un outil qui aide les professionnels, pas seulement qui les remplace.",
+          "De nouveaux métiers vont apparaître grâce à l'IA (ex: spécialiste en éthique de l'IA).",
+          "Il est important de réfléchir à comment la société peut s'adapter à ces changements.",
+          "Apprends à utiliser l'IA comme une compétence supplémentaire pour ton avenir."
+        ]
+      },
+      {
+        "icon": "🌱",
+        "title": "Impact environnemental",
+        "description": "Entraîner et faire fonctionner les IA génératives consomme beaucoup d'énergie, ce qui a un impact sur l'environnement (émissions de CO2).",
+        "tips": [
+          "Sois conscient que chaque requête à une IA a un coût énergétique.",
+          "Soutiens les initiatives pour des IA plus économes en énergie et utilisant des sources renouvelables.",
+          "Utilise l'IA de manière réfléchie, évite les usages superflus.",
+          "L'innovation doit aussi chercher à réduire l'empreinte écologique de la technologie."
+        ]
+      }
+    ],
+    "warnings": [
+      {
+        "icon": "⚠️",
+        "title": "Attention aux \"hallucinations\" de l'IA",
+        "description": "L'IA peut inventer des faits ou donner des informations erronées avec beaucoup d'assurance. Vérifie toujours !"
+      },
+      {
+        "icon": "🔐",
+        "title": "Protection de tes données",
+        "description": "Ne partage jamais ton nom complet, adresse, école, mots de passe ou secrets avec une IA."
+      },
+      {
+        "icon": "💬",
+        "title": "Prompts et intentions",
+        "description": "Réfléchis bien à ce que tu demandes. N'essaie pas de contourner les sécurités de l'IA pour obtenir du contenu inapproprié ou dangereux."
+      },
+      {
+        "icon": "💡",
+        "title": "Créativité authentique vs. Plagiat",
+        "description": "Utilise l'IA comme une source d'inspiration, mais garde ta propre créativité. Ne présente pas le travail de l'IA comme étant le tien à 100% sans le dire."
+      }
+    ],
+    "goldenRules": [
+      {
+        "icon": "🤝",
+        "title": "Respect",
+        "description": "Traite l'IA et les autres avec respect et bienveillance."
+      },
+      {
+        "icon": "🔍",
+        "title": "Vérification",
+        "description": "Vérifie toujours les informations données par l'IA."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Protection",
+        "description": "Protège tes données personnelles et celles des autres."
+      },
+      {
+        "icon": "💡",
+        "title": "Créativité",
+        "description": "Utilise l'IA pour t'inspirer, mais garde ton originalité."
+      },
+      {
+        "icon": "📝",
+        "title": "Transparence",
+        "description": "Sois honnête sur ton utilisation de l'IA quand c'est nécessaire."
+      }
+    ]
+  }
+}

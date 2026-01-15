@@ -1,0 +1,64 @@
+{
+  "template": "IALanding",
+  "content": {
+    "hero": {
+      "badge": {
+        "icon": "✨",
+        "text": "Découvrir l'IA en famille"
+      },
+      "title": {
+        "gradient": "L'Intelligence Artificielle",
+        "normal": "expliquée aux enfants"
+      },
+      "description": "Un guide complet pour comprendre l'IA générative, ses enjeux éthiques et apprendre à l'utiliser de manière responsable. Conçu pour les enfants et leurs parents.",
+      "cta": [
+        {
+          "text": "Commencer l'exploration",
+          "icon": "→",
+          "link": "/ressources/ia-ethics",
+          "primary": true
+        },
+        {
+          "text": "Voir les outils",
+          "icon": "👥",
+          "link": "/ressources/ia-tools",
+          "primary": false
+        }
+      ]
+    },
+    "features": [
+      {
+        "icon": "⚖️",
+        "title": "Éthique & Sécurité",
+        "description": "Comprendre les enjeux éthiques de l'IA pour un usage responsable",
+        "link": "/ressources/ia-ethics"
+      },
+      {
+        "icon": "✨",
+        "title": "Outils d'IA",
+        "description": "Découvrir les principaux outils d'IA générative adaptés aux enfants",
+        "link": "/ressources/ia-tools"
+      },
+      {
+        "icon": "💡",
+        "title": "Bonnes Pratiques",
+        "description": "Conseils et recommandations pour bien utiliser l'IA",
+        "link": "/ressources/ia-recommendations"
+      }
+    ],
+    "whatToLearn": {
+      "title": "Que vas-tu apprendre ?",
+      "subtitle": "Explore les différentes facettes de l'intelligence artificielle à travers nos modules interactifs"
+    },
+    "callToAction": {
+      "gradient": true,
+      "title": "Prêt à découvrir l'IA ?",
+      "description": "Commence ton voyage dans le monde fascinant de l'intelligence artificielle",
+      "button": {
+        "text": "Commencer maintenant",
+        "icon": "→",
+        "link": "/ressources/ia-ethics"
+      }
+    }
+  }
+}
