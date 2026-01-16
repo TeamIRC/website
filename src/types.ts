@@ -174,3 +174,65 @@ export type PageData = {
 export type TemplateArrayContent = {
 	templates: TemplateItem[];
 };
+
+export interface HeroContent {
+  badge?: string | { icon: string; text: string };
+  title: string | { gradient: string; normal: string };
+  description: string;
+  cta?: Array<{
+    text: string;
+    icon: string;
+    link: string;
+    primary: boolean;
+  }>;
+}
+
+export interface CardGridContent {
+  title?: string;
+  subtitle?: string;
+  items: Array<{
+    icon?: string;
+    title: string;
+    description: string;
+    image?: string;
+    color?: string;
+    url?: string;
+    features?: string[];
+    ageRange?: string;
+    safety?: string;
+    categories?: string[];
+    tips?: string[];
+    actions?: string[];
+    recommendations?: string[];
+    isBlue?: boolean;
+  }>;
+  columns?: number;
+  theme?: 'default' | 'warning' | 'success' | 'info';
+}
+
+export interface CarouselContent {
+  title?: string;
+  subtitle?: string;
+  items: Array<{
+    icon?: string;
+    title: string;
+    description: string;
+    image?: string;
+    tips?: string[];
+  }>;
+}
+
+export interface AgeGroupContent {
+  age: string;
+  icon: string;
+  recommendations: string[];
+}
+
+export interface SafetyGuidelinesContent {
+  title?: string;
+  items: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+}

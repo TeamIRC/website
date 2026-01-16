@@ -6,10 +6,8 @@ import Carrousel from "./Carrousel.vue";
 import Gallery from "./Gallery.vue";
 import Quote from "./Quote.vue";
 import Video from "./Video.vue";
-import IAEthics from "./IAEthics.vue";
-import IALanding from "./IALanding.vue";
-import IARecommendations from "./IARecommendations.vue";
-import IATools from "./IATools.vue";
+import Hero from "./Hero.vue";
+import CardGrid from "./CardGrid.vue";
 
 export { default as Base } from './Base.vue';
 export default {
@@ -20,9 +18,7 @@ export default {
     Gallery,
     Quote,
     Video,
-    IAEthics,
-    IALanding,
-    IARecommendations,
-    IATools
+    Hero,
+    CardGrid
     
 } as Record<string, Component>
