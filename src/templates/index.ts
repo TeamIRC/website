@@ -8,6 +8,7 @@ import Quote from "./Quote.vue";
 import Video from "./Video.vue";
 import Hero from "./Hero.vue";
 import CardGrid from "./CardGrid.vue";
+import Filters from "./Filters.vue";
 
 export { default as Base } from './Base.vue';
 export default {
@@ -19,6 +20,7 @@ export default {
     Quote,
     Video,
     Hero,
-    CardGrid
+    CardGrid,
+    Filters
     
 } as Record<string, Component>

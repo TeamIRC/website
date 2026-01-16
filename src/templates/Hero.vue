@@ -100,24 +100,27 @@ watch(
 .hero-section {
   text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
 }
 
 .hero-badge {
-  display: inline-block;
-  background-color: var(--red-lt-2);
-  color: var(--red-dk-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--br3-lt-2);
+  color: var(--br3-dk-3);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   font-size: 0.9rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .hero-title {
   font-family: 'NeuePlak-Bold', sans-serif;
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
   color: var(--page-title);
 }
 
@@ -130,12 +133,13 @@ watch(
 
 .hero-description {
   font-size: 1.25rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
+  line-height: 1.8;
   color: var(--page-txt);
   opacity: 0.9;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-cta {
@@ -163,15 +167,16 @@ watch(
   color: white;
 }
 
+.cta-primary:hover {
+  background-color: var(--gre-dk-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 .cta-secondary {
   background-color: var(--card-bg-alt);
   color: var(--page-title);
   border: 2px solid var(--br2-lt-3);
-}
-
-.cta-primary:hover {
-  background-color: var(--gre-dk-2);
-  transform: translateY(-2px);
 }
 
 .cta-secondary:hover {
@@ -185,23 +190,46 @@ watch(
   gap: 1rem;
   max-width: 600px;
   margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--card-bg-alt);
+  border-radius: 1rem;
+  border: 2px dashed var(--br2-lt-3);
 }
 
 .hero-edit input,
 .hero-edit textarea {
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid var(--br2-lt-3);
   border-radius: 0.5rem;
-  font-family: inherit;
+  font-family: 'NeuePlak-Light', sans-serif;
+  font-size: 1rem;
+  background-color: var(--page-bg);
+  color: var(--page-txt);
 }
 
 .hero-edit textarea {
   min-height: 100px;
+  resize: vertical;
 }
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
   }
 }
 </style>

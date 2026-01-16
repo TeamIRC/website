@@ -10,9 +10,59 @@
       }
     },
     {
-      "id": "filters-section",
-      "template": "Base",
-      "content": "<div class='filters-section' style='padding: 2rem; background-color: var(--page-bg);'><h3 style='text-align: center; margin-bottom: 1.5rem; color: var(--page-title);'>Filtres par catégorie</h3><div class='category-filters' style='display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; max-width: 1200px; margin: 0 auto;'><button class='category-btn active' style='padding: 0.5rem 1.25rem; border-radius: 2rem; border: 2px solid var(--br3-dk-2); background-color: var(--br3-dk-2); color: white; font-size: 0.9rem; font-weight: 600; cursor: pointer;'>Tous</button><button class='category-btn' style='padding: 0.5rem 1.25rem; border-radius: 2rem; border: 2px solid var(--br2-lt-3); background-color: var(--card-bg-alt); color: var(--page-txt); font-size: 0.9rem; font-weight: 600; cursor: pointer;'>Conversation</button><button class='category-btn' style='padding: 0.5rem 1.25rem; border-radius: 2rem; border: 2px solid var(--br2-lt-3); background-color: var(--card-bg-alt); color: var(--page-txt); font-size: 0.9rem; font-weight: 600; cursor: pointer;'>Créativité</button><button class='category-btn' style='padding: 0.5rem 1.25rem; border-radius: 2rem; border: 2px solid var(--br2-lt-3); background-color: var(--card-bg-alt); color: var(--page-txt); font-size: 0.9rem; font-weight: 600; cursor: pointer;'>Éducation</button></div></div>"
+      "id": "tools-filters",
+      "template": "Filters",
+      "content": {
+        "title": "Filtres par catégorie",
+        "selected": "Tous",
+        "filters": [
+          {
+            "value": "Tous",
+            "label": "Tous",
+            "count": 14
+          },
+          {
+            "value": "Conversation",
+            "label": "Conversation",
+            "count": 5
+          },
+          {
+            "value": "Créativité",
+            "label": "Créativité",
+            "count": 8
+          },
+          {
+            "value": "Éducation",
+            "label": "Éducation",
+            "count": 5
+          },
+          {
+            "value": "Programmation",
+            "label": "Programmation",
+            "count": 4
+          },
+          {
+            "value": "Musique",
+            "label": "Musique",
+            "count": 2
+          },
+          {
+            "value": "Vidéo",
+            "label": "Vidéo",
+            "count": 4
+          },
+          {
+            "value": "Images",
+            "label": "Images",
+            "count": 3
+          },
+          {
+            "value": "Recherche",
+            "label": "Recherche",
+            "count": 4
+          }
+        ]
+      }
     },
     {
       "id": "tools-grid",
@@ -20,8 +70,8 @@
       "content": {
         "items": [
           {
-            "name": "ChatGPT",
             "icon": "💬",
+            "name": "ChatGPT",
             "title": "ChatGPT",
             "description": "Un assistant d'OpenAI pour poser des questions, obtenir des explications, avoir des conversations et créer des images.",
             "ageRange": "13+ ans",
@@ -32,8 +82,8 @@
             "url": "https://chat.openai.com"
           },
           {
-            "name": "Google Gemini",
             "icon": "✨",
+            "name": "Google Gemini",
             "title": "Google Gemini",
             "description": "Assistant IA de Google pour répondre aux questions, aider aux devoirs et explorer des sujets éducatifs.",
             "ageRange": "13+ ans",
@@ -44,8 +94,8 @@
             "url": "https://gemini.google.com"
           },
           {
-            "name": "Claude",
             "icon": "🧠",
+            "name": "Claude",
             "title": "Claude",
             "description": "Assistant IA d'Anthropic conçu pour être utile, inoffensif et honnête dans les interactions éducatives.",
             "ageRange": "13+ ans",
@@ -56,8 +106,8 @@
             "url": "https://claude.ai"
           },
           {
-            "name": "Perplexity",
             "icon": "🔍",
+            "name": "Perplexity",
             "title": "Perplexity",
             "description": "Moteur de recherche IA qui fournit des réponses précises avec des sources vérifiées pour l'apprentissage.",
             "ageRange": "13+ ans",
@@ -68,8 +118,8 @@
             "url": "https://www.perplexity.ai"
           },
           {
-            "name": "Gamma",
             "icon": "📊",
+            "name": "Gamma",
             "title": "Gamma",
             "description": "Créer des présentations interactives et éducatives avec des modèles IA.",
             "ageRange": "8+ ans",
@@ -80,8 +130,8 @@
             "url": "https://gamma.app"
           },
           {
-            "name": "Napkin",
             "icon": "📝",
+            "name": "Napkin",
             "title": "Napkin",
             "description": "Créer des présentations texte en intégrant des visuels automatiquement.",
             "ageRange": "8+ ans",
@@ -92,8 +142,8 @@
             "url": "https://napkin.ai"
           },
           {
-            "name": "Scratch",
             "icon": "🐱",
+            "name": "Scratch",
             "title": "Scratch",
             "description": "Apprendre la programmation et l'IA avec des blocs visuels adaptés aux enfants.",
             "ageRange": "8+ ans",
@@ -104,8 +154,8 @@
             "url": "https://scratch.mit.edu"
           },
           {
-            "name": "Vittascience",
             "icon": "🤖",
+            "name": "Vittascience",
             "title": "Vittascience",
             "description": "Plateforme éducative française pour apprendre la programmation, la robotique et l'IA de manière ludique.",
             "ageRange": "8+ ans",
@@ -116,8 +166,8 @@
             "url": "https://www.vittascience.com"
           },
           {
-            "name": "Suno AI",
             "icon": "🎵",
+            "name": "Suno AI",
             "title": "Suno AI",
             "description": "Composer de la musique et des chansons avec l'aide de l'intelligence artificielle.",
             "ageRange": "8+ ans",
@@ -128,8 +178,8 @@
             "url": "https://suno.com"
           },
           {
-            "name": "Udio",
             "icon": "🎤",
+            "name": "Udio",
             "title": "Udio",
             "description": "Générateur de musique IA pour composer des chansons et explorer la créativité musicale.",
             "ageRange": "13+ ans",
@@ -140,8 +190,8 @@
             "url": "https://www.udio.com"
           },
           {
-            "name": "Pixverse",
             "icon": "🎬",
+            "name": "Pixverse",
             "title": "Pixverse",
             "description": "Plateforme de génération de vidéos IA accessible pour créer des contenus visuels créatifs.",
             "ageRange": "13+ ans",
@@ -152,8 +202,8 @@
             "url": "https://pixverse.ai"
           },
           {
-            "name": "Midjourney",
             "icon": "🎨",
+            "name": "Midjourney",
             "title": "Midjourney",
             "description": "Générateur d'images IA avancé pour créer des œuvres d'art et illustrations créatives.",
             "ageRange": "13+ ans",
@@ -164,8 +214,8 @@
             "url": "https://www.midjourney.com"
           },
           {
-            "name": "Runway ML",
             "icon": "🎥",
+            "name": "Runway ML",
             "title": "Runway ML",
             "description": "Créer et éditer des vidéos avec des effets d'intelligence artificielle.",
             "ageRange": "13+ ans",
@@ -176,8 +226,8 @@
             "url": "https://runwayml.com"
           },
           {
-            "name": "Sora",
             "icon": "🎞️",
+            "name": "Sora",
             "title": "Sora",
             "description": "Générateur de vidéos IA d'OpenAI pour créer des contenus visuels créatifs et éducatifs.",
             "ageRange": "13+ ans",
