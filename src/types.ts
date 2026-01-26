@@ -236,3 +236,28 @@ export interface SafetyGuidelinesContent {
     description: string;
   }>;
 }
+
+export type Team = {
+	name: string;
+	members: Member[];
+}
+
+export type BlogSection = {
+	name: string
+} & ListContent<BlogPost>
+
+export type BlogPost = {
+    title: string;
+    thumbnail: string;
+    author: string;
+    date: string;
+    summary: string;
+	content: string;
+	links?: string[];  
+}
+
+export type BlogPostContent = {
+	author: string;
+	date: string;
+	article: string;
+}

@@ -9,6 +9,9 @@ import Video from "./Video.vue";
 import Hero from "./Hero.vue";
 import CardGrid from "./CardGrid.vue";
 import Filters from "./Filters.vue";
+import Blog from "./Blog.vue";
+import BlogPost from "./BlogPost.vue";
+import BlogPostViewer from "./BlogPostViewer.vue";
 
 export { default as Base } from './Base.vue';
 export default {
@@ -21,6 +24,9 @@ export default {
     Video,
     Hero,
     CardGrid,
-    Filters
+    Filters,
+    Blog,
+    BlogPost,
+    BlogPostViewer
     
 } as Record<string, Component>

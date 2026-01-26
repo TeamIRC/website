@@ -1,0 +1,62 @@
+{
+    "template": "Blog",
+    "content": {
+        "name": "blog",
+        "items": [
+            {
+                "title": "Vocations d'une structure Esport : l'organisation de tournois",
+                "thumbnail": "esport-tournament.webp",
+                "author": "Jérôme PETIT",
+                "date": "13/05/24",
+                "summary": "Dans l'univers dynamique de l'esport, les tournois ne sont pas seulement des compétitions ; ils sont le cœur battant des structures associatives, catalysant l'engagement et la croissance de leurs communautés.",
+                "content": "<p>Dans l'univers dynamique de l'esport, les tournois ne sont pas seulement des compétitions ; ils sont le cœur battant des structures associatives. Découvrez <a href=\"/home\" data-internal-link=\"true\">notre structure</a> et suivez nos matchs sur la <a href=\"/web-tv\" data-internal-link=\"true\">Web TV</a>.</p><h2>Planification et logistique</h2><p>La planification d'un tournoi esport exige une organisation méticuleuse. Nos équipes <a href=\"/game/valorant\" data-internal-link=\"true\">Valorant</a> et <a href=\"/game/rocket-league\" data-internal-link=\"true\">Rocket League</a> participent régulièrement à ces compétitions.</p>",
+                "links": ["/home", "/web-tv", "/game/valorant", "/game/rocket-league"]
+            },
+            {
+                "title": "Bienvenue sur Rigel Esport",
+                "thumbnail": "solo.webp",
+                "author": "Solo",
+                "date": "15/01/2026",
+                "summary": "Découvrez l'histoire de Rigel Esport, notre vision et nos ambitions dans l'eSport compétitif.",
+                "content": "<p>Bienvenue sur le blog officiel de <strong>Rigel Esport</strong> ! Nous sommes ravis de vous accueillir dans notre univers.</p><p>Depuis notre création le 8 mars 2021, notre objectif a toujours été clair : devenir une référence incontournable dans l'eSport. Découvrez notre parcours complet sur notre page <a href=\"/home\" data-internal-link=\"true\">Qui sommes-nous</a>.</p><p>Aujourd'hui, nous sommes fiers de compter plusieurs équipes compétitives. Découvrez nos rosters <a href=\"/game/valorant\" data-internal-link=\"true\">Valorant</a>, <a href=\"/game/rocket-league\" data-internal-link=\"true\">Rocket League</a> et <a href=\"/game/fortnite\" data-internal-link=\"true\">Fortnite</a>.</p><p>Notre communauté grandit chaque jour et nous organisons régulièrement des tournois. Suivez nos streams en direct sur notre <a href=\"/web-tv\" data-internal-link=\"true\">Web TV</a>.</p><h3>Nos valeurs</h3><ul><li>Excellence compétitive</li><li>Esprit d'équipe</li><li>Respect et fair-play</li><li>Développement des talents</li></ul><p>Restez connectés pour suivre nos actualités !</p>",
+                "links": ["/home", "/game/valorant", "/game/rocket-league", "/game/fortnite", "/web-tv"]
+            },
+            {
+                "title": "Tournoi Valorant - Janvier 2026",
+                "thumbnail": "dovah.webp",
+                "author": "Deku",
+                "date": "10/01/2026",
+                "summary": "Retour sur notre dernier tournoi Valorant qui a rassemblé plus de 50 équipes !",
+                "content": "<p>Notre tournoi Valorant de janvier 2026 a été un immense succès ! Avec plus de <strong>50 équipes</strong> inscrites, nous avons assisté à des matchs d'une intensité rare.</p><h3>Les moments forts</h3><p>La finale opposait deux équipes exceptionnelles, offrant un spectacle mémorable à nos spectateurs. Les stratégies déployées ont démontré le haut niveau de compétition que nous recherchons.</p><p>Pour découvrir notre équipe Valorant et ses joueurs, rendez-vous sur notre page <a href=\"/game/valorant\" data-internal-link=\"true\">roster Valorant</a>.</p><h3>Statistiques du tournoi</h3><ul><li>50 équipes participantes</li><li>Plus de 2000 spectateurs en direct</li><li>120 matchs disputés</li><li>Prize pool de 1500€</li></ul><p>Un grand merci à tous les participants et à nos partenaires <strong>Team IRC</strong> pour leur soutien.</p><p>Revivez les meilleurs moments en replay sur notre <a href=\"/web-tv\" data-internal-link=\"true\">Web TV</a>.</p>",
+                "links": ["/game/valorant", "/web-tv"]
+            },
+            {
+                "title": "Notre Histoire",
+                "thumbnail": "deku.webp",
+                "author": "Solo & Deku",
+                "date": "08/03/2025",
+                "summary": "Comment deux passionnés ont créé Rigel Esport et bâti une communauté solide.",
+                "content": "<p>Le <strong>8 mars 2021</strong>, Solo et Deku se sont lancés dans l'aventure Rigel Esport avec une vision claire : créer une structure eSport d'excellence.</p><h3>Les débuts</h3><p>Tout a commencé par une simple passion commune pour l'eSport compétitif. Nous voulions créer un environnement où les joueurs pourraient progresser, se dépasser et partager leur passion.</p><p>Le nom \"Rigel\" vient de l'étoile de la constellation d'Orion, symbolisant notre ambition de briller dans l'univers de l'eSport tout en gardant notre sang-froid face à nos adversaires.</p><h3>Notre croissance</h3><p>De nos premiers tournois locaux à notre présence actuelle sur plusieurs jeux, nous avons construit une communauté soudée. Aujourd'hui, nous comptons :</p><ul><li>Plus de 1000 membres sur Discord</li><li>5 équipes compétitives</li><li>Des partenariats solides</li><li>Une WebTV en développement</li></ul><p>Pour découvrir notre structure actuelle, consultez notre page <a href=\"/home\" data-internal-link=\"true\">Qui sommes-nous</a>.</p><p>Suivez nos meilleurs joueurs en action sur notre <a href=\"/web-tv\" data-internal-link=\"true\">Web TV</a> et découvrez nos équipes <a href=\"/game/valorant\" data-internal-link=\"true\">Valorant</a>, <a href=\"/game/rocket-league\" data-internal-link=\"true\">Rocket League</a> et <a href=\"/game/fortnite\" data-internal-link=\"true\">Fortnite</a>.</p>",
+                "links": ["/home", "/web-tv", "/game/valorant", "/game/rocket-league", "/game/fortnite"]
+            },
+            {
+                "title": "Comment rejoindre Rigel Esport",
+                "thumbnail": "swaizouu.webp",
+                "author": "Deku",
+                "date": "20/12/2025",
+                "summary": "Guide complet pour intégrer notre structure et devenir membre de la famille Rigel.",
+                "content": "<p>Vous souhaitez rejoindre <strong>Rigel Esport</strong> ? Voici tout ce que vous devez savoir !</p><h3>Les différentes façons de nous rejoindre</h3><h4>1. Rejoindre notre communauté Discord</h4><p>C'est la première étape ! Notre <a href=\"https://discord.gg/DFWUa93sEM\" target=\"_blank\">serveur Discord</a> est le cœur de notre communauté. Vous y trouverez :</p><ul><li>Des channels dédiés à chaque jeu</li><li>Des annonces sur nos événements</li><li>Des discussions avec les joueurs</li><li>Des opportunités de recrutement</li></ul><h4>2. Participer à nos tournois</h4><p>Nos tournois sont l'occasion parfaite de montrer vos compétences ! Suivez notre actualité pour ne rien manquer.</p><h4>3. Postuler pour une équipe</h4><p>Si vous avez le niveau compétitif et l'esprit d'équipe, vous pouvez postuler pour intégrer l'une de nos rosters. Découvrez nos équipes sur les pages <a href=\"/game/valorant\" data-internal-link=\"true\">Valorant</a>, <a href=\"/game/rocket-league\" data-internal-link=\"true\">Rocket League</a> et <a href=\"/game/fortnite\" data-internal-link=\"true\">Fortnite</a>.</p><p>Les critères varient selon les jeux :</p><ul><li><strong>Valorant</strong> : Minimum Diamant 2</li><li><strong>Rocket League</strong> : Minimum Champion 1</li><li><strong>Fortnite</strong> : Niveau compétitif</li></ul><h3>Notre processus de recrutement</h3><p>Découvrez notre histoire et nos valeurs sur notre page <a href=\"/home\" data-internal-link=\"true\">Qui sommes-nous</a> pour mieux comprendre ce que nous recherchons chez nos membres.</p><p>Suivez-nous aussi sur nos réseaux sociaux et regardez nos streams sur la <a href=\"/web-tv\" data-internal-link=\"true\">Web TV</a> pour rester informé de toutes nos actualités !</p>",
+                "links": ["/game/valorant", "/game/rocket-league", "/game/fortnite", "/home", "/web-tv"]
+            },
+            {
+                "title": "Calendrier des événements 2026",
+                "thumbnail": "insuu.webp",
+                "author": "Solo",
+                "date": "01/01/2026",
+                "summary": "Tous nos tournois et événements prévus pour l'année 2026. Ne ratez rien !",
+                "content": "<p>L'année 2026 s'annonce chargée pour <strong>Rigel Esport</strong> ! Voici notre calendrier complet des événements à venir.</p><h3>Tournois Valorant</h3><ul><li><strong>Février 2026</strong> : Tournoi 5v5 - Prize pool 2000€</li><li><strong>Mai 2026</strong> : Coupe Rigel Valorant - Prize pool 3000€</li><li><strong>Septembre 2026</strong> : Championship Finals - Prize pool 5000€</li></ul><p>Découvrez l'équipe qui défendra nos couleurs sur la page <a href=\"/game/valorant\" data-internal-link=\"true\">roster Valorant</a>.</p><h3>Tournois Rocket League</h3><ul><li><strong>Mars 2026</strong> : 3v3 Spring Cup - Prize pool 1500€</li><li><strong>Juin 2026</strong> : 2v2 Summer Showdown - Prize pool 1000€</li><li><strong>Novembre 2026</strong> : 3v3 Winter Championship - Prize pool 2500€</li></ul><p>Suivez nos joueurs Rocket League sur la page <a href=\"/game/rocket-league\" data-internal-link=\"true\">roster Rocket League</a>.</p><h3>Tournois Fortnite</h3><ul><li><strong>Avril 2026</strong> : Duos Tournament - Prize pool 800€</li><li><strong>Août 2026</strong> : Solo Championship - Prize pool 1200€</li></ul><p>Découvrez notre équipe <a href=\"/game/fortnite\" data-internal-link=\"true\">Fortnite</a>.</p><h3>Événements communautaires</h3><p>En plus des tournois compétitifs, nous organisons chaque mois des événements pour tous les niveaux :</p><ul><li>Soirées custom games</li><li>Coaching sessions avec nos joueurs pro</li><li>Meet & greet avec l'équipe</li><li>Stream marathons sur notre <a href=\"/web-tv\" data-internal-link=\"true\">Web TV</a></li></ul><h3>Comment participer ?</h3><p>Les inscriptions ouvrent généralement 3 semaines avant chaque événement. Suivez-nous sur nos réseaux pour ne rien manquer !</p><p>Découvrez aussi <a href=\"/home\" data-internal-link=\"true\">notre structure</a> et nos équipes qui participeront à ces événements.</p>",
+                "links": ["/game/valorant", "/game/rocket-league", "/game/fortnite", "/web-tv", "/home"]
+            }
+        ]
+    }
+}
