@@ -51,9 +51,21 @@ function getRoutes(root: Route[], path?: string): RouteRecordRaw[] {
   return routes;
 }
 
+function resolveRoutes() {
+  const routes: RouteRecordRaw[] = [
+    ...getRoutes(sitemap.$r),
+    // ToDo: Généraliser
+    {
+      path: "/blog/:id",
+      component: Page,
+    }
+  ];
+  return routes;
+}
+
 const router = createRouter({
     history: createWebHistory(),
-    routes: [...routes, ...getRoutes(sitemap.$r)],
+    routes: [...routes, ...resolveRoutes()],
 });
 
 router.beforeEach((to, _, next) => {
@@ -62,13 +74,19 @@ router.beforeEach((to, _, next) => {
     splittedPath.shift();
     const page = splittedPath.pop();
     const root = splittedPath.pop() ?? "$r";
-    const route = sitemap.$r.find((r) => {
-    if (r.children) {
-        return r.children.find((c) => c.path === page);
-    } else return r.path === page;
-    });
-    const subpageRoute = route?.children?.find((c) => c.path === page);
-    const title = subpageRoute?.title ?? route?.title ?? "404";
+    let title = "";
+    if (root == "$r") {
+        const route = sitemap.$r.find((r) => {
+        if (r.children) {
+            return r.children.find((c) => c.path === page);
+        } else return r.path === page;
+        });
+        const subpageRoute = route?.children?.find((c) => c.path === page);
+        title = subpageRoute?.title ?? route?.title ?? "404";
+    } else {
+        console.log(root, page); // blog 1
+        // ToDo: Récupérer le title depuis l'alias (sitemap) + index
+    }
     to.meta = {
         root,
         page,

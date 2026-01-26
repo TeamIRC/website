@@ -11,7 +11,6 @@ import CardGrid from "./CardGrid.vue";
 import Filters from "./Filters.vue";
 import Blog from "./Blog.vue";
 import BlogPost from "./BlogPost.vue";
-import BlogPostViewer from "./BlogPostViewer.vue";
 
 export { default as Base } from './Base.vue';
 export default {
@@ -26,7 +25,5 @@ export default {
     CardGrid,
     Filters,
     Blog,
-    BlogPost,
-    BlogPostViewer
-    
+    BlogPost 
 } as Record<string, Component>
