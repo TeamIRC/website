@@ -63,12 +63,23 @@ function resolveRoutes() {
   return routes;
 }
 
+// Fonction pour récupérer les données du blog
+async function getBlogData(blogId: string){
+    try {
+        const blogArticle = await import(`./pages/blog/${blogId}.json`);
+        return blogArticle;
+    } catch (error) {
+        console.error(`Erreur lors du chargement de l'article du blog :${blogId}`, error);
+        return null;
+    }
+}
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [...routes, ...resolveRoutes()],
 });
 
-router.beforeEach((to, _, next) => {
+router.beforeEach(async(to, _, next) => {
     const { fullPath } = to;
     const splittedPath = fullPath.split("/");
     splittedPath.shift();
@@ -83,16 +94,36 @@ router.beforeEach((to, _, next) => {
         });
         const subpageRoute = route?.children?.find((c) => c.path === page);
         title = subpageRoute?.title ?? route?.title ?? "404";
-    } else {
+    } else if (root === "blog" && page) {
+        const blogData = await getBlogData(page);
+
+        if (blogData && blogData.content) {
+            // Pour BlogPost (articles individuels comme 0.json)
+            title = blogData.content.article ? 
+            `Article - ${blogData.content.author}` : 
+            "Article de blog";
+        } else {
+            title = "Article introuvable";
+        }
         console.log(root, page); // blog 1
         // ToDo: Récupérer le title depuis l'alias (sitemap) + index
-    }
     to.meta = {
         root,
         page,
-        title
+        title,
+        blogData
     };
     next();
-});
-
+    return;
+} else {
+    console.log("route non gérée", root, page); 
+    title = "404";
+ }
+ to.meta = {
+    root,
+    page,
+    title,
+ };
+ next();
+})
 export default router;
