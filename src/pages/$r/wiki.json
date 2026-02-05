@@ -1,0 +1,79 @@
+{
+  "template": "Wiki",
+  "content": {
+    "name": "wiki",
+    "items": [
+      {
+        "title": "Guide du Wiki - Navigation et ressources",
+        "thumbnail": "wiki-guide.webp",
+        "author": "L'équipe pédagogique",
+        "date": "05/02/2026",
+        "summary": "Découvrez comment naviguer dans notre wiki et accéder à toutes nos ressources. Un guide complet pour profiter pleinement de notre contenu.",
+        "content": "",
+        "internalLinks": [
+          "sensibilisation",
+          "sensibilisation/ateliers",
+          "sensibilisation/emi",
+          "formations",
+          "formations/mineurs",
+          "formations/ia",
+          "formations/outils",
+          "formations/initiations",
+          "ressources",
+          "ressources/ia",
+          "ressources/ia-ethics",
+          "ressources/ia-tools",
+          "rdp",
+          "rdp/safeleague",
+          "rdp/events",
+          "webtv",
+          "blog"
+        ]
+      },
+      {
+        "title": "Intelligence Artificielle - Guide complet",
+        "thumbnail": "ia-guide.webp",
+        "author": "Marie Dupont",
+        "date": "03/02/2026",
+        "summary": "Un guide exhaustif sur l'intelligence artificielle : comprendre les concepts, utiliser les outils, et réfléchir aux enjeux éthiques. Pour tous niveaux.",
+        "content": "",
+        "internalLinks": [
+          "formations/ia",
+          "formations/mineurs",
+          "ressources/ia",
+          "ressources/ia-ethics",
+          "ressources/ia-tools",
+          "ressources/ia-recommendations",
+          "sensibilisation/emi",
+          "sensibilisation/gamedesign",
+          "rdp/events",
+          "rdp/safeleague",
+          "blog",
+          "webtv"
+        ]
+      },
+      {
+        "title": "Collaboration et citoyenneté numérique",
+        "thumbnail": "collaboration.webp",
+        "author": "Pierre Martin",
+        "date": "01/02/2026",
+        "summary": "Apprenez à collaborer efficacement et à devenir un citoyen numérique responsable. Outils, méthodes et bonnes pratiques.",
+        "content": "",
+        "internalLinks": [
+          "sensibilisation/collaboration",
+          "formations/outils",
+          "formations/mineurs",
+          "sensibilisation/ateliers",
+          "sensibilisation/gamedesign",
+          "sensibilisation/emi",
+          "rdp/events",
+          "rdp/accompagnement",
+          "ressources/ia",
+          "ressources/ia-ethics",
+          "blog",
+          "webtv"
+        ]
+      }
+    ]
+  }
+}

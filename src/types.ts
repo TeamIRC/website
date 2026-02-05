@@ -261,3 +261,24 @@ export type BlogPostContent = {
 	date: string;
 	article: string;
 }
+
+// Types pour le Wiki
+export type WikiSection = {
+	name: string
+} & ListContent<WikiPost>
+
+export type WikiPost = {
+    title: string;
+    thumbnail: string;
+    author: string;
+    date: string;
+    summary: string;
+	content: string;
+	internalLinks?: string[]; // Chemins vers d'autres pages wiki
+}
+
+export type WikiPostContent = {
+	author: string;
+	date: string;
+	article: string; // Contient les liens internes au format [[path|text]]
+}

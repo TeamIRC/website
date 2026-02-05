@@ -11,6 +11,9 @@ import CardGrid from "./CardGrid.vue";
 import Filters from "./Filters.vue";
 import Blog from "./Blog.vue";
 import BlogPost from "./BlogPost.vue";
+import Wiki from "./Wiki.vue";
+import WikiPost from "./WikiPost.vue";
+
 
 export { default as Base } from './Base.vue';
 export default {
@@ -25,5 +28,8 @@ export default {
     CardGrid,
     Filters,
     Blog,
-    BlogPost 
+    BlogPost,
+    Wiki,
+    WikiPost,
+    
 } as Record<string, Component>

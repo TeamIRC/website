@@ -54,9 +54,13 @@ function getRoutes(root: Route[], path?: string): RouteRecordRaw[] {
 function resolveRoutes() {
   const routes: RouteRecordRaw[] = [
     ...getRoutes(sitemap.$r),
-    // ToDo: Généraliser
+    // ToDo: Généraliser pour blog et wiki
     {
       path: "/blog/:id",
+      component: Page,
+    },
+    {
+      path: "/wiki/:id",
       component: Page,
     }
   ];
@@ -74,6 +78,17 @@ async function getBlogData(blogId: string){
     }
 }
 
+// Fonction pour récupérer les données du wiki
+async function getWikiData(wikiId: string){
+    try {
+        const wikiArticle = await import(`./pages/wiki/${wikiId}.json`);
+        return wikiArticle;
+    } catch (error) {
+        console.error(`Erreur lors du chargement de l'article wiki :${wikiId}`, error);
+        return null;
+    }
+}
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [...routes, ...resolveRoutes()],
@@ -86,11 +101,12 @@ router.beforeEach(async(to, _, next) => {
     const page = splittedPath.pop();
     const root = splittedPath.pop() ?? "$r";
     let title = "";
+    
     if (root == "$r") {
         const route = sitemap.$r.find((r) => {
-        if (r.children) {
-            return r.children.find((c) => c.path === page);
-        } else return r.path === page;
+            if (r.children) {
+                return r.children.find((c) => c.path === page);
+            } else return r.path === page;
         });
         const subpageRoute = route?.children?.find((c) => c.path === page);
         title = subpageRoute?.title ?? route?.title ?? "404";
@@ -100,30 +116,57 @@ router.beforeEach(async(to, _, next) => {
         if (blogData && blogData.content) {
             // Pour BlogPost (articles individuels comme 0.json)
             title = blogData.content.article ? 
-            `Article - ${blogData.content.author}` : 
-            "Article de blog";
+                `Article - ${blogData.content.author}` : 
+                "Article de blog";
         } else {
             title = "Article introuvable";
         }
-        console.log(root, page); // blog 1
-        // ToDo: Récupérer le title depuis l'alias (sitemap) + index
+        
+        // Passe les données du sitemap et du blog
+        to.meta = {
+            root,
+            page,
+            title,
+            blogData,
+            sitemapData: sitemap // AJOUT: Passe le sitemap pour les liens internes
+        };
+        next();
+        return;
+    } else if (root === "wiki" && page) {
+        // AJOUT: Gestion du wiki
+        const wikiData = await getWikiData(page);
+
+        if (wikiData && wikiData.content) {
+            title = wikiData.content.article ? 
+                `Wiki - ${wikiData.content.author}` : 
+                "Article wiki";
+        } else {
+            title = "Article introuvable";
+        }
+        
+        // Passe les données du sitemap et du wiki
+        to.meta = {
+            root,
+            page,
+            title,
+            wikiData,
+            sitemapData: sitemap // AJOUT: Passe le sitemap pour les liens internes
+        };
+        next();
+        return;
+    } else {
+        console.log("route non gérée", root, page); 
+        title = "404";
+    }
+    
+    // Pour toutes les autres routes, passe aussi le sitemap
     to.meta = {
         root,
         page,
         title,
-        blogData
+        sitemapData: sitemap // AJOUT: Passe le sitemap pour tous les cas
     };
     next();
-    return;
-} else {
-    console.log("route non gérée", root, page); 
-    title = "404";
- }
- to.meta = {
-    root,
-    page,
-    title,
- };
- next();
 })
+
 export default router;

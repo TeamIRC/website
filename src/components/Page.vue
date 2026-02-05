@@ -153,6 +153,7 @@ const onModified = async (templateName: string, c: any, templateId?: string) => 
           :is="templates[templateItem.template]"
           :content="templateItem.content"
           :edit="edit"
+          :sitemap-data="route.meta.sitemapData"
           @modified="(template: string, content: any) => onModified(template, content, templateItem.id)"
         />
 

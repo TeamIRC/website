@@ -101,7 +101,12 @@
     {
       "path": "blog",
       "title": "blog"
+    },
+    {
+      "path": "wiki",
+      "title": "Wiki"
     }
   ],
-  "blog": "$r/blog"
+  "blog": "$r/blog",
+  "wiki": "$r/wiki"
 }
