@@ -5,8 +5,28 @@ import { Base, default as templates } from "../templates";
 import type { PageData, TemplateItem } from "../types";
 
 const route = useRoute();
-const { root, page, title } = route.meta;
-const pageData = await import(`../pages/${root}/${page}.json`) as PageData;
+const { root, page, title, blogData, wikiData } = route.meta;
+
+// Gestion spéciale pour les articles blog et wiki
+let pageData: PageData;
+
+if (root === "blog" && page && blogData) {
+	// Article de blog individuel
+	pageData = {
+		template: "BlogPost",
+		content: blogData.content
+	};
+} else if (root === "wiki" && page && wikiData) {
+	// Article de wiki individuel
+	pageData = {
+		template: "WikiPost",
+		content: wikiData.content
+	};
+} else {
+	// Page normale
+	pageData = await import(`../pages/${root}/${page}.json`) as PageData;
+}
+
 const edit = ref(false);
 localStorage.setItem('origin', route.fullPath);
 const login = localStorage.getItem('login');
@@ -153,6 +173,7 @@ const onModified = async (templateName: string, c: any, templateId?: string) => 
           :is="templates[templateItem.template]"
           :content="templateItem.content"
           :edit="edit"
+          :sitemap-data="route.meta.sitemapData"
           @modified="(template: string, content: any) => onModified(template, content, templateItem.id)"
         />
 

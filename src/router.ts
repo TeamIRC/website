@@ -54,7 +54,7 @@ function getRoutes(root: Route[], path?: string): RouteRecordRaw[] {
 function resolveRoutes() {
   const routes: RouteRecordRaw[] = [
     ...getRoutes(sitemap.$r),
-    // ToDo: Généraliser pour blog et wiki
+    // Routes pour les articles individuels
     {
       path: "/blog/:id",
       component: Page,
@@ -110,11 +110,19 @@ router.beforeEach(async(to, _, next) => {
         });
         const subpageRoute = route?.children?.find((c) => c.path === page);
         title = subpageRoute?.title ?? route?.title ?? "404";
+        
+        to.meta = {
+            root,
+            page,
+            title,
+            sitemapData: sitemap
+        };
+        next();
+        return;
     } else if (root === "blog" && page) {
         const blogData = await getBlogData(page);
 
         if (blogData && blogData.content) {
-            // Pour BlogPost (articles individuels comme 0.json)
             title = blogData.content.article ? 
                 `Article - ${blogData.content.author}` : 
                 "Article de blog";
@@ -122,18 +130,16 @@ router.beforeEach(async(to, _, next) => {
             title = "Article introuvable";
         }
         
-        // Passe les données du sitemap et du blog
         to.meta = {
             root,
             page,
             title,
             blogData,
-            sitemapData: sitemap // AJOUT: Passe le sitemap pour les liens internes
+            sitemapData: sitemap
         };
         next();
         return;
     } else if (root === "wiki" && page) {
-        // AJOUT: Gestion du wiki
         const wikiData = await getWikiData(page);
 
         if (wikiData && wikiData.content) {
@@ -144,13 +150,12 @@ router.beforeEach(async(to, _, next) => {
             title = "Article introuvable";
         }
         
-        // Passe les données du sitemap et du wiki
         to.meta = {
             root,
             page,
             title,
             wikiData,
-            sitemapData: sitemap // AJOUT: Passe le sitemap pour les liens internes
+            sitemapData: sitemap
         };
         next();
         return;
@@ -159,12 +164,11 @@ router.beforeEach(async(to, _, next) => {
         title = "404";
     }
     
-    // Pour toutes les autres routes, passe aussi le sitemap
     to.meta = {
         root,
         page,
         title,
-        sitemapData: sitemap // AJOUT: Passe le sitemap pour tous les cas
+        sitemapData: sitemap
     };
     next();
 })
