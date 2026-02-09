@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { ref, computed, watch, h } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import WikiLinkPreview from '../components/WikiLinkPreview.vue';
-import { WikiPostContent } from '../types';
+import { Route, WikiPostContent } from '../types';
 
 const props = defineProps<{ 
 	content: WikiPostContent, 
-	edit: boolean,
-	sitemapData?: any
+	edit: boolean
 }>();
 
 const emit = defineEmits<{ (event: "modified", template: string, content: WikiPostContent): void }>();
 const router = useRouter();
+const sitemapData = useRoute().meta.sitemapData as { $r: Route[] };
 let mutable = ref(props.content);
 
 watch(
@@ -60,11 +60,11 @@ const parseInternalLinks = (html: string) => {
  * Cherche une page dans le sitemap
  */
 const findPageInSitemap = (path: string): { title: string, description?: string, fullPath: string } | null => {
-	if (!props.sitemapData?.$r) return null;
+	if (!sitemapData?.$r) return null;
 	
 	const parts = path.split('/');
 	
-	for (const route of props.sitemapData.$r) {
+	for (const route of sitemapData.$r) {
 		if (parts.length === 1 && route.path === parts[0]) {
 			return {
 				title: route.title,
