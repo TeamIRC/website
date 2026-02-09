@@ -52,41 +52,15 @@ function getRoutes(root: Route[], path?: string): RouteRecordRaw[] {
 }
 
 function resolveRoutes() {
-  const routes: RouteRecordRaw[] = [
-    ...getRoutes(sitemap.$r),
-    // Routes pour les articles individuels
-    {
-      path: "/blog/:id",
+  let routes: RouteRecordRaw[] = getRoutes(sitemap.$r);
+  for (const alias in sitemap) {
+    if (alias === "$r") continue;
+    routes.push({
+      path: `/${alias}/:id`,
       component: Page,
-    },
-    {
-      path: "/wiki/:id",
-      component: Page,
-    }
-  ];
+    });
+  }
   return routes;
-}
-
-// Fonction pour récupérer les données du blog
-async function getBlogData(blogId: string){
-    try {
-        const blogArticle = await import(`./pages/blog/${blogId}.json`);
-        return blogArticle;
-    } catch (error) {
-        console.error(`Erreur lors du chargement de l'article du blog :${blogId}`, error);
-        return null;
-    }
-}
-
-// Fonction pour récupérer les données du wiki
-async function getWikiData(wikiId: string){
-    try {
-        const wikiArticle = await import(`./pages/wiki/${wikiId}.json`);
-        return wikiArticle;
-    } catch (error) {
-        console.error(`Erreur lors du chargement de l'article wiki :${wikiId}`, error);
-        return null;
-    }
 }
 
 const router = createRouter({
@@ -101,69 +75,18 @@ router.beforeEach(async(to, _, next) => {
     const page = splittedPath.pop();
     const root = splittedPath.pop() ?? "$r";
     let title = "";
-    
     if (root == "$r") {
         const route = sitemap.$r.find((r) => {
-            if (r.children) {
-                return r.children.find((c) => c.path === page);
-            } else return r.path === page;
+        if (r.children) {
+            return r.children.find((c) => c.path === page);
+        } else return r.path === page;
         });
         const subpageRoute = route?.children?.find((c) => c.path === page);
         title = subpageRoute?.title ?? route?.title ?? "404";
-        
-        to.meta = {
-            root,
-            page,
-            title,
-            sitemapData: sitemap
-        };
-        next();
-        return;
-    } else if (root === "blog" && page) {
-        const blogData = await getBlogData(page);
-
-        if (blogData && blogData.content) {
-            title = blogData.content.article ? 
-                `Article - ${blogData.content.author}` : 
-                "Article de blog";
-        } else {
-            title = "Article introuvable";
-        }
-        
-        to.meta = {
-            root,
-            page,
-            title,
-            blogData,
-            sitemapData: sitemap
-        };
-        next();
-        return;
-    } else if (root === "wiki" && page) {
-        const wikiData = await getWikiData(page);
-
-        if (wikiData && wikiData.content) {
-            title = wikiData.content.article ? 
-                `Wiki - ${wikiData.content.author}` : 
-                "Article wiki";
-        } else {
-            title = "Article introuvable";
-        }
-        
-        to.meta = {
-            root,
-            page,
-            title,
-            wikiData,
-            sitemapData: sitemap
-        };
-        next();
-        return;
     } else {
-        console.log("route non gérée", root, page); 
-        title = "404";
+        const source = await import(`./pages/$r/${root}.json`);
+        title = source.content.items[parseInt(page!)].title;
     }
-    
     to.meta = {
         root,
         page,
@@ -171,6 +94,7 @@ router.beforeEach(async(to, _, next) => {
         sitemapData: sitemap
     };
     next();
-})
+    return;
+});
 
 export default router;
