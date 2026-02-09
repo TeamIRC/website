@@ -11,7 +11,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{ (event: "modified", template: string, content: WikiPostContent): void }>();
 const router = useRouter();
-const sitemapData = useRoute().meta.sitemapData as { $r: Route[] };
+const sitemapData = useRoute().meta.sitemap as { $r: Route[] };
 let mutable = ref(props.content);
 
 watch(

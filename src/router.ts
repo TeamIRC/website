@@ -90,7 +90,8 @@ router.beforeEach(async(to, _, next) => {
     to.meta = {
         root,
         page,
-        title
+        title,
+        sitemap
     };
     next();
     return;
