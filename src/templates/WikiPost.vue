@@ -215,106 +215,79 @@ const renderContent = computed(() => {
 :deep(.author) {
 	text-align: right;
 	font-style: italic;
+	margin-bottom: 40px;
+	color: var(--secondary-lt-2);
 }
 
 article {
 	text-align: justify;
+	line-height: 1.8;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
-:deep(p) {
-	text-indent: 64px;
-}
-
-:deep(p::first-letter) {
-	font-size: 150%;
-	font-weight: bolder;
-	color: var(--secondary-lt-3);
-}
-
-:deep(blockquote) {
-	display: block;
-	margin: 32px;
-	padding: 16px;
-	border: 1px solid var(--secondary-lt-3);
-	background-color: var(--secondary-dk-3);
-	color: var(--secondary-lt-3);
-	font-size: .95em;
-	font-style: italic;
-	line-height: 1.9em;
-	text-indent: 64px;
-}
-
-:deep(.quote::before),
-:deep(.quote::after) {
-	content: "\FF02";
-	color: var(--secondary-lt-4);
-	font-size: 150%;
-	font-weight: bolder;
-}
-
-:deep(.author::before) {
-	content: "- ";
-}
-
-/* Styles pour les liens internes Wiki */
+/* --- LIENS INTERNES WIKI (HAUTE VISIBILITÉ) --- */
 :deep(.wiki-link) {
-	color: var(--primary-lt-3);
+    /* Couleur très claire et vibrante */
+	color: var(--primary-lt-3); 
 	text-decoration: none;
-	border-bottom: 2px dotted var(--primary-lt-3);
-	cursor: pointer;
-	transition: all 0.2s ease-in-out;
-	padding: 2px 4px;
+	font-weight: 700;
+    /* Effet "surligneur" : fond très léger pour détacher le lien du texte */
+    background-color: rgba(74, 158, 255, 0.1); 
+	border-bottom: 2px solid var(--primary-lt-3);
+	padding: 2px 8px;
+    margin: 0 2px;
 	border-radius: 4px;
+	transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    display: inline-block; /* Empêche le lien de se casser bizarrement */
 }
 
 :deep(.wiki-link:hover) {
+    /* Inversion de contraste au survol pour une clarté totale */
 	background-color: var(--primary-lt-3);
 	color: var(--secondary-dk-3);
-	border-bottom-style: solid;
+	transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
 }
 
+/* Liens cassés : clairement identifiables comme inaccessibles */
 :deep(.wiki-broken-link) {
-	color: #dc3545;
+	color: #ff6b6b;
 	text-decoration: line-through;
-	cursor: not-allowed;
-	padding: 2px 4px;
-}
-
-/* Info box pour la syntaxe en mode édition */
-.wiki-syntax-help {
-	background-color: var(--secondary-dk-2);
-	border: 1px solid var(--secondary-lt-2);
-	border-radius: 8px;
-	padding: 12px;
-	margin-bottom: 16px;
-	font-size: 0.9em;
-	color: var(--secondary-lt-3);
-}
-
-.wiki-syntax-help code {
-	background-color: var(--secondary-dk-3);
+	border-bottom: 2px dashed #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.05);
 	padding: 2px 6px;
-	border-radius: 4px;
-	font-family: monospace;
-	color: var(--primary-lt-3);
+    border-radius: 4px;
+    opacity: 0.8;
 }
 
-/* Style pour le textarea en mode édition */
+/* --- INFOBULLE SYNTAXE ÉDITEUR --- */
+.wiki-syntax-help {
+	background: linear-gradient(145deg, var(--secondary-dk-3), var(--secondary-dk-2));
+	border-left: 6px solid var(--primary-lt-3);
+	border-radius: 12px;
+	padding: 24px;
+	margin-bottom: 32px;
+	font-size: 0.95em;
+	color: var(--secondary-lt-3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* --- ÉDITEUR TEXTAREA --- */
 textarea {
 	width: 100%;
-	padding: 12px;
+	padding: 24px;
 	background-color: var(--secondary-dk-3);
-	border: 1px solid var(--secondary-lt-2);
-	border-radius: 4px;
-	color: var(--secondary-lt-3);
-	font-family: monospace;
-	font-size: 0.9em;
-	resize: vertical;
-	min-height: 400px;
+	border: 2px solid var(--secondary-lt-1);
+	border-radius: 12px;
+	color: #e0e0e0;
+	font-family: 'Fira Code', 'Courier New', monospace;
+	font-size: 15px;
+	line-height: 1.6;
+    min-height: 500px;
 }
 
-textarea:focus {
-	outline: none;
-	border-color: var(--primary-lt-3);
-}
+:deep(h2) { color: var(--primary-lt-3); margin-top: 2.5em; }
+:deep(p) { margin-bottom: 1.6em; }
 </style>

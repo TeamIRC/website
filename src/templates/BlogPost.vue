@@ -25,38 +25,54 @@ watch(
 :deep(.author) {
 	text-align: right;
 	font-style: italic;
+	margin-bottom: 32px;
+	color: var(--secondary-lt-2);
+	font-size: 0.95em;
 }
+
 article {
 	text-align: justify;
+	line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
 }
+
 :deep(p) {
-	text-indent: 64px;
+	text-indent: 48px;
+	margin-bottom: 20px;
 }
+
 :deep(p::first-letter) {
-	font-size: 150%;
-	font-weight: bolder;
-	color: var(--secondary-lt-3);
+	font-size: 200%;
+	font-weight: 800;
+	color: var(--primary-lt-3);
+    float: left;
+    margin-right: 8px;
+    line-height: 1;
 }
+
 :deep(blockquote) {
 	display: block;
-	margin: 32px;
-	padding: 16px;
-	border: 1px solid var(--secondary-lt-3);
+	margin: 48px 10%;
+	padding: 24px;
+	border-left: 4px solid var(--primary-lt-3);
 	background-color: var(--secondary-dk-3);
 	color: var(--secondary-lt-3);
-	font-size: .95em;
 	font-style: italic;
-	line-height: 1.9em;
-	text-indent: 64px;
+	line-height: 1.8;
+	border-radius: 0 8px 8px 0;
 }
-:deep(.quote::before),
-:deep(.quote::after) {
-	content: "\FF02";
-	color: var(--secondary-lt-4);
-	font-size: 150%;
-	font-weight: bolder;
+
+:deep(h1), :deep(h2), :deep(h3) {
+	margin: 40px 0 20px;
+	color: var(--primary-lt-3);
 }
-:deep(.author::before) {
-	content: "- ";
+
+:deep(img) {
+	max-width: 100%;
+	margin: 32px auto;
+	display: block;
+	border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 </style>
