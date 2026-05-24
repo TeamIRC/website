@@ -183,7 +183,7 @@
     {
       "id": "ethics-footer",
       "template": "Base",
-      "content": "<footer style='text-align: center; padding: 3rem 2rem; border-top: 2px solid var(--br2-lt-3);'><p>L'IA est un voyage passionnant. Explorons-le ensemble avec curiosité et responsabilité !</p></footer>"
+      "content": "<p>L'IA est un voyage passionnant. Explorons-le ensemble avec curiosité et responsabilité !</p>"
     }
   ]
 }

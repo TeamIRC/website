@@ -222,24 +222,6 @@ const removeItem = (index: number) => {
 </template>
 
 <style scoped>
-.card-grid-section {
-  padding: 3rem 2rem;
-  background-color: var(--page-bg);
-}
-
-/* Thèmes */
-.warning-theme {
-  background: linear-gradient(135deg, rgba(255, 165, 0, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%);
-}
-
-.success-theme {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-}
-
-.info-theme {
-  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
-}
-
 .section-header {
   text-align: center;
   margin-bottom: 3rem;

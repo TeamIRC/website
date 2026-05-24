@@ -93,11 +93,6 @@ const removeFilter = (index: number) => {
 </template>
 
 <style scoped>
-.filters-section {
-  padding: 2rem;
-  background-color: var(--page-bg);
-}
-
 .filters-title {
   text-align: center;
   margin-bottom: 1.5rem;
