@@ -97,14 +97,6 @@
     {
       "path": "webtv",
       "title": "WebTV"
-    },
-    {
-      "path": "blog",
-      "title": "Blog"
-    },
-    {
-      "path": "wiki",
-      "title": "Wiki"
     }
   ],
   "blog": "$r/blog",
