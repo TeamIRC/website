@@ -37,17 +37,21 @@ onUnmounted(() => {
           <tbody>
             <tr>
               <td><v-icon name="fa-at" /></td>
-              <td><a href="mailto:contact@example.com">contact@example.com</a></td>
+              <td>
+                <a href="mailto:accueil@lesparrainsdunumerique.org">
+                  accueil@lesparrainsdunumerique.org
+                </a>
+              </td>
             </tr>
             <tr>
               <td><v-icon name="fa-phone" /></td>
-              <td><a href="tel:+33123456789">+33 1 23 45 67 89</a></td>
+              <td><a href="tel:+33607949850">06 07 94 98 50</a></td>
             </tr>
             <tr>
               <td><v-icon name="fa-envelope" /></td>
               <td>
-                123 Rue Example<br />
-                75000 Paris, France
+                721 rue du Pré aux Clercs 34000<br />
+                Montpellier
               </td>
             </tr>
           </tbody>

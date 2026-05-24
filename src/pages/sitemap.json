@@ -2,7 +2,7 @@
   "$r": [
     {
       "path": "aboutus",
-      "title": "Qui sommes nous ?",
+      "title": "Qui sommes-nous ?",
       "description": "Test description"
     },
     {
@@ -51,6 +51,24 @@
       ]
     },
     {
+      "path": "rdp",
+      "title": "Recherche, Développement et Projets",
+      "children": [
+        {
+          "path": "safeleague",
+          "title": "Safe League"
+        },
+        {
+          "path": "events",
+          "title": "Organisations et Animations d'évènements communautaires"
+        },
+        {
+          "path": "accompagnement",
+          "title": "Accompagnement de projets"
+        }
+      ]
+    },
+    {
       "path": "ressources",
       "title": "Ressources",
       "children": [
@@ -77,30 +95,12 @@
       ]
     },
     {
-      "path": "rdp",
-      "title": "Recherche, Développement et Projets",
-      "children": [
-        {
-          "path": "safeleague",
-          "title": "Safe League"
-        },
-        {
-          "path": "events",
-          "title": "Organisations et Animations d'évènements communautaires"
-        },
-        {
-          "path": "accompagnement",
-          "title": "Accompagnement de projets"
-        }
-      ]
-    },
-    {
       "path": "webtv",
-      "title": "WebTv"
+      "title": "WebTV"
     },
     {
       "path": "blog",
-      "title": "blog"
+      "title": "Blog"
     },
     {
       "path": "wiki",

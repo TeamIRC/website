@@ -63,26 +63,38 @@ function resolveRoutes() {
   return routes;
 }
 
+function findRouteByPath(routes: Route[], path: string[]): Route | undefined {
+  const [current, ...rest] = path;
+  const route = routes.find((r) => r.path === current);
+
+  if (!route) return undefined;
+  if (rest.length === 0) return route;
+  if (!route.children) return undefined;
+
+  return findRouteByPath(route.children, rest);
+}
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [...routes, ...resolveRoutes()],
 });
 
 router.beforeEach(async(to, _, next) => {
-    const { fullPath } = to;
-    const splittedPath = fullPath.split("/");
-    splittedPath.shift();
-    const page = splittedPath.pop();
-    const root = splittedPath.pop() ?? "$r";
+    const pathSegments = to.path.split("/").filter(Boolean);
+    const page = pathSegments[pathSegments.length - 1];
+    const root = pathSegments.length > 1
+        ? pathSegments[pathSegments.length - 2]
+        : "$r";
     let title = "";
-    if (root == "$r") {
-        const route = sitemap.$r.find((r) => {
-        if (r.children) {
-            return r.children.find((c) => c.path === page);
-        } else return r.path === page;
-        });
-        const subpageRoute = route?.children?.find((c) => c.path === page);
-        title = subpageRoute?.title ?? route?.title ?? "404";
+    const sitemapRoute = findRouteByPath(
+        sitemap.$r,
+        pathSegments
+    );
+
+    if (sitemapRoute) {
+        title = sitemapRoute.title;
+    } else if (root === "$r") {
+        title = "404";
     } else {
         const source = await import(`./pages/$r/${root}.json`);
         title = source.content.items[parseInt(page!)].title;

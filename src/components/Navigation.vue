@@ -312,8 +312,13 @@ onUnmounted(() => {
 }
 
 .adhesion-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   border: none;
+  box-sizing: border-box;
+  width: 128px;
   padding: 0.8rem 1.5rem;
   background: var(--cta-bg);
   color: var(--cta-text);

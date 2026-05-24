@@ -93,83 +93,91 @@ onBeforeUnmount(() => clearInterval(interval));
 			</template>
 			<TwitchClient
 				:content="content.items"
-				v-slot="{ profiles }"
+				v-slot="{ profiles, error, loading }"
 				@loaded="(profiles: TwitchProfile[]) => {
 					const first = profiles.find((u) => u.stream);
-					if (first) currentChannels.push(first.user.login)
+					if (first && !currentChannels.includes(first.user.login)) currentChannels.push(first.user.login)
 				}"
 				>
-				<div id="streams" v-if="currentChannels.length != 0">
-					<div ref="mosaic" id="mosaic">
-						<button 
-							id="fullscreen"
-							@click="toggleFullscreen">
-							<SVGIcon name="fullscreen-line" width="16" height="16" />
-						</button>
-						<TwitchEmbed
-							v-for="channel in currentChannels"
-							:channel="channel"
-							:key="channel" />
-					</div>
-					<template v-for="{ user, stream } in profiles">
-						<div v-if="stream"
-							:ref="(el) => refCardsChannels(user.login, el as HTMLDivElement)"
-							class="card"
-							:class="{ 'active': currentChannels.some((v) => v == user.login) }"
-							@click="(e) => selectStream(e.target as HTMLElement, user.login)">
-							<div class="user">
-								<img :src='user.profile_image_url' />
-								<h3>{{ user.display_name }}</h3>
-								<SVGIcon name="question-line" width="32" height="64" />
-								<p>{{ user.description }}</p>
-							</div>
-							<div class="stream">
-								<figure class="thumbnail">
-									<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
-								</figure>
-								<h4>{{ stream.title }}</h4>
-								<table class="description">
-									<tbody>
-										<tr>
-											<td>
-												<SVGIcon name="team-line" />
-											</td>
-											<td>{{ stream.viewer_count }}</td>
-										</tr>
-										<tr>
-											<td>
-												<SVGIcon name="gamepad-line" />
-											</td>
-											<td>{{ stream.game_name }}</td>
-										</tr>
-										<tr>
-											<td>
-												<SVGIcon name="time-line" />
-											</td>
-											<td :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</template>
+				<div v-if="loading">
+					Chargement...
 				</div>
-				<h2>
-					Nos autres chaînes
-				</h2>
-				<div id="profiles">
-					<div v-for="{ user, stream } in profiles">
-						<template v-if="!stream">
-							<div class="card">
+				<div v-else-if="error" class="webtv-error">
+					{{ error }}
+				</div>
+				<template v-else>
+					<div id="streams" v-if="currentChannels.length != 0">
+						<div ref="mosaic" id="mosaic">
+							<button 
+								id="fullscreen"
+								@click="toggleFullscreen">
+								<SVGIcon name="fullscreen-line" width="16" height="16" />
+							</button>
+							<TwitchEmbed
+								v-for="channel in currentChannels"
+								:channel="channel"
+								:key="channel" />
+						</div>
+						<template v-for="{ user, stream } in profiles">
+							<div v-if="stream"
+								:ref="(el) => refCardsChannels(user.login, el as HTMLDivElement)"
+								class="card"
+								:class="{ 'active': currentChannels.some((v) => v == user.login) }"
+								@click="(e) => selectStream(e.target as HTMLElement, user.login)">
 								<div class="user">
 									<img :src='user.profile_image_url' />
 									<h3>{{ user.display_name }}</h3>
+									<SVGIcon name="question-line" width="32" height="64" />
 									<p>{{ user.description }}</p>
+								</div>
+								<div class="stream">
+									<figure class="thumbnail">
+										<img :src='stream.thumbnail_url.replace("{width}", "1920").replace("{height}", "1080")' />
+									</figure>
+									<h4>{{ stream.title }}</h4>
+									<table class="description">
+										<tbody>
+											<tr>
+												<td>
+													<SVGIcon name="team-line" />
+												</td>
+												<td>{{ stream.viewer_count }}</td>
+											</tr>
+											<tr>
+												<td>
+													<SVGIcon name="gamepad-line" />
+												</td>
+												<td>{{ stream.game_name }}</td>
+											</tr>
+											<tr>
+												<td>
+													<SVGIcon name="time-line" />
+												</td>
+												<td :ref="(e) => refStreamSince(e as HTMLParagraphElement, stream!.started_at)"></td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</template>
 					</div>
-				</div>
+					<h2>
+						Nos autres chaînes
+					</h2>
+					<div id="profiles">
+						<div v-for="{ user, stream } in profiles">
+							<template v-if="!stream">
+								<div class="card">
+									<div class="user">
+										<img :src='user.profile_image_url' />
+										<h3>{{ user.display_name }}</h3>
+										<p>{{ user.description }}</p>
+									</div>
+								</div>
+							</template>
+						</div>
+					</div>
+				</template>
 			</TwitchClient>
 		</Suspense>
 	</div>
@@ -196,6 +204,17 @@ onBeforeUnmount(() => clearInterval(interval));
 	display: grid;
     grid-template-columns: repeat(auto-fit, minmax(344px, auto));
 	gap: 16px;
+}
+
+.webtv-error {
+	border: 1px solid var(--secondary-lt-2);
+	border-radius: 8px;
+	margin: 1rem auto;
+	max-width: 720px;
+	padding: 1rem;
+	background-color: var(--secondary-dk-2);
+	font-weight: bold;
+	text-align: center;
 }
 
 .card {
