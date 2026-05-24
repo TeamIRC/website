@@ -52,17 +52,6 @@ const themeClasses = computed(() => {
   }
 });
 
-// Calculer les catégories disponibles
-const availableCategories = computed(() => {
-  const categories = new Set<string>();
-  grid.value.items.forEach(item => {
-    if (item.categories) {
-      item.categories.forEach(cat => categories.add(cat));
-    }
-  });
-  return Array.from(categories).sort();
-});
-
 // Filtrer les items
 const filteredItems = computed(() => {
   if (selectedCategory.value === 'Tous') {
@@ -151,7 +140,7 @@ const removeItem = (index: number) => {
             <div class="tool-meta">
               <div class="tool-name-wrapper">
                 <span v-if="item.icon" class="tool-icon">{{ item.icon }}</span>
-                <span class="tool-name">{{ item.title || item.name }}</span>
+                <span class="tool-name">{{ item.title }}</span>
               </div>
               <span v-if="item.ageRange" class="tool-age">{{ item.ageRange }}</span>
             </div>
@@ -169,11 +158,11 @@ const removeItem = (index: number) => {
           <!-- En-tête simple pour les cartes sans couleur -->
           <div v-else class="simple-header">
             <div v-if="item.icon" class="card-icon">{{ item.icon }}</div>
-            <h3 class="card-title">{{ item.title || item.name }}</h3>
+            <h3 class="card-title">{{ item.title }}</h3>
           </div>
           
           <!-- Image optionnelle -->
-          <img v-if="item.image" :src="item.image" :alt="item.title || item.name" class="card-image" />
+          <img v-if="item.image" :src="item.image" :alt="item.title" class="card-image" />
           
           <!-- Description -->
           <p class="card-description">{{ item.description }}</p>

@@ -151,10 +151,9 @@ const renderContent = computed(() => {
 					h('span', {
 						class: 'wiki-broken-link',
 						title: element.title
-					}, element.textContent)
+					}, element.textContent ?? '')
 				);
 			} else {
-				const tagName = element.tagName.toLowerCase();
 				const attrs: any = {};
 				
 				Array.from(element.attributes).forEach(attr => {

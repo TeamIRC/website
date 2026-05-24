@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed } from 'vue';
+import type { CSSProperties } from 'vue';
 
-const props = defineProps<{
+defineProps<{
 	path: string;
 	title: string;
 	description?: string;
@@ -11,7 +12,7 @@ const preview = ref<HTMLElement | null>(null);
 const isVisible = ref(false);
 const position = ref({ x: 0, y: 0 });
 
-const previewStyle = computed(() => ({
+const previewStyle = computed<CSSProperties>(() => ({
 	left: `${position.value.x}px`,
 	top: `${position.value.y}px`,
 	opacity: isVisible.value ? '1' : '0',

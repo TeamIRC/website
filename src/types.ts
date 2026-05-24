@@ -237,11 +237,6 @@ export interface SafetyGuidelinesContent {
   }>;
 }
 
-export type Team = {
-	name: string;
-	members: Member[];
-}
-
 export type BlogSection = {
 	name: string
 } & ListContent<BlogPost>
