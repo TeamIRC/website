@@ -1,4 +1,65 @@
 {
-  "content": "<p>Entretiens individuels ou débat en groupes</p>",
-  "template": "Base"
+  "templates": [
+    {
+      "id": "emi-intro",
+      "template": "Base",
+      "content": "<p>Cette animation invite les participants à développer un esprit critique face aux contenus médiatiques. En combinant analyses approfondies et exercices pratiques sur le traitement, la vérification et la diffusion de l'information, elle aide les jeunes à décrypter les messages et à comprendre les mécanismes des médias contemporains, tout en découvrant les métiers et les outils du numérique.</p><h3>Trois objectifs</h3><ul><li>Identifier les spécificités des différentes formes de médias rencontrées au quotidien.</li><li>Évaluer le degré de fiabilité d'une information.</li><li>S'approprier les méthodes de traitement des images.</li></ul><p>C'est au travers du jeu et de l'étude de trois cas concrets que les jeunes identifient les médias auxquels ils sont confrontés : à quels moments, et dans quelles conditions, ces informations apparaissent-elles ?</p><h3>Quelques chiffres</h3><ul><li>2023/2024 : 18 ateliers et 3 films de restitution, 22 enfants et 16 jeunes.</li><li>2024/2025 : 39 ateliers et 1 film de restitution, 798 enfants et jeunes.</li><li>2025 : 11 modules programmés.</li></ul>"
+    },
+    {
+      "id": "emi-modules",
+      "template": "CardGrid",
+      "content": {
+        "title": "Les thèmes abordés",
+        "subtitle": "Des entrées concrètes pour apprendre à lire, produire et partager l'information.",
+        "columns": 4,
+        "items": [
+          {
+            "icon": "💬",
+            "title": "Réseaux sociaux",
+            "description": "Comprendre les codes, les usages et la circulation de l'information sur les plateformes."
+          },
+          {
+            "icon": "🎮",
+            "title": "Jeux vidéo",
+            "description": "Analyser les images, les récits et les pratiques sociales liées au jeu vidéo."
+          },
+          {
+            "icon": "📰",
+            "title": "Éducation à l'image",
+            "description": "Décrypter une image, identifier ses choix de composition et comprendre son contexte."
+          },
+          {
+            "icon": "✨",
+            "title": "Intelligence artificielle",
+            "description": "Questionner les contenus générés et vérifier les informations produites par une IA."
+          },
+          {
+            "icon": "📺",
+            "title": "Téléréalité",
+            "description": "Observer la mise en scène, la narration et les techniques de fabrication d'un programme."
+          },
+          {
+            "icon": "💻",
+            "title": "Codage et robotique",
+            "description": "Découvrir les logiques de programmation et les outils numériques par la pratique."
+          },
+          {
+            "icon": "🎨",
+            "title": "Game design",
+            "description": "Concevoir des règles et des expériences ludiques en mobilisant créativité et esprit critique."
+          },
+          {
+            "icon": "🤝",
+            "title": "Collaboration et citoyenneté",
+            "description": "Expérimenter la coopération et la responsabilité dans les projets numériques collectifs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "emi-resources",
+      "template": "Base",
+      "content": "<h3>Supports associés</h3><ul><li><a href='https://drive.google.com/file/d/1J1ToVax2LxtBT3OE-NY5zUu8lDsO3kcT/view?usp=sharing' target='_blank'>Support EMI 1</a></li><li><a href='https://drive.google.com/file/d/1S88FWBckgrDtTzmdUIzPsa1VXO7ciRZh/view?usp=drive_link' target='_blank'>Support EMI 2</a></li><li><a href='https://drive.google.com/file/d/1YsPYUqhbLQE8XArfQDsfP1MYsaToRVAk/view?usp=sharing' target='_blank'>Support EMI 3</a></li><li><a href='https://drive.google.com/file/d/1q7rXYUCGrJYOUZsm0qaGThsFxnpBi8Vi/view?usp=sharing' target='_blank'>Support EMI 4</a></li><li><a href='https://drive.google.com/file/d/1TZL3GHM9-4aM4VCNnn8XGRwKMz5WvSqk/view?usp=sharing' target='_blank'>Support EMI 5</a></li></ul>"
+    }
+  ]
 }

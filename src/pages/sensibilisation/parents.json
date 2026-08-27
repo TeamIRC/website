@@ -1,4 +1,45 @@
 {
-  "content": "<p>Entretiens individuels ou débat en groupes</p>",
-  "template": "Base"
+  "templates": [
+    {
+      "id": "parents-intro",
+      "template": "Base",
+      "content": "<p>Nos ateliers Parents-Enfants créent un espace ludique et interactif où parents et enfants explorent ensemble les bonnes pratiques d'utilisation des écrans, qu'il s'agisse de la télévision, du téléphone ou de l'ordinateur.</p><p>À travers des activités engageantes et des échanges guidés, ces sessions favorisent un dialogue intergénérationnel qui permet non seulement de sensibiliser aux enjeux du numérique, mais également de renforcer les liens familiaux et d’instaurer un usage équilibré et responsable des outils digitaux.</p><h3>Quelques chiffres</h3><ul><li>2023/2024 : 21 ateliers, 126 enfants et 38 parents.</li><li>2024/2025 : 21 ateliers, 235 enfants et 124 parents.</li><li>2025 : 18 modules programmés.</li></ul>"
+    },
+    {
+      "id": "parents-modules",
+      "template": "CardGrid",
+      "content": {
+        "title": "Les modules Parents-Enfants",
+        "subtitle": "Des supports pour ouvrir le dialogue en famille autour des usages numériques.",
+        "columns": 3,
+        "items": [
+          {
+            "icon": "❓",
+            "title": "Quiz des écrans",
+            "description": "Un format ludique pour questionner les habitudes et les usages des écrans en famille."
+          },
+          {
+            "icon": "💡",
+            "title": "Jeu des idées reçues",
+            "description": "Une activité pour confronter les représentations et faire émerger les expériences de chacun."
+          },
+          {
+            "icon": "📱",
+            "title": "Les écrans au quotidien",
+            "description": "Réfléchir à la place de la télévision, du téléphone et de l'ordinateur dans la vie familiale."
+          },
+          {
+            "icon": "💛",
+            "title": "Sécurité affective",
+            "description": "Aborder les relations, l'intimité et le respect dans les pratiques numériques."
+          },
+          {
+            "icon": "👨‍👩‍👧‍👦",
+            "title": "Projet numérique en famille",
+            "description": "Construire ensemble un projet créatif pour apprendre en faisant et renforcer les liens."
+          }
+        ]
+      }
+    }
+  ]
 }

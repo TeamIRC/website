@@ -1,4 +1,49 @@
 {
-    "template": "Base",
-    "content": "<p>Mentions Légales</p>"
-  }
+  "templates": [
+    {
+      "id": "method-intro",
+      "template": "Base",
+      "content": "<p>Nos ateliers de sensibilisation reposent sur des techniques pédagogiques dynamiques et participatives. Elles placent les participants au cœur de l'expérimentation et favorisent l'intelligence collective.</p>"
+    },
+    {
+      "id": "method-cards",
+      "template": "CardGrid",
+      "content": {
+        "title": "Nos méthodes pédagogiques",
+        "columns": 3,
+        "items": [
+          {
+            "icon": "🎭",
+            "title": "Théâtre Forum",
+            "description": "Une approche immersive qui place les participants au cœur des situations numériques rencontrées au quotidien. En incarnant des rôles et en explorant différentes issues, ils développent leur réflexion critique et leurs compétences en médiation."
+          },
+          {
+            "icon": "🧩",
+            "title": "Jeux et quiz interactifs",
+            "description": "Des formats ludiques et engageants qui favorisent la discussion et le partage d’expériences, permettant d’ancrer les connaissances tout en valorisant la parole des jeunes et de leurs familles."
+          },
+          {
+            "icon": "🎨",
+            "title": "Game design et ingénierie pédagogique",
+            "description": "Les compétences de notre équipe en matière de ludification nous permettent de développer régulièrement de nouveaux outils, dans la conception de nos contenus de formation et nos ateliers de sensibilisation, comme le kit de jeu Battle Royal conçu par notre équipe pour nos ateliers “Game Design”, ou encore le serveur de jeu Minecraft, modifié sur mesure par nos bénévoles pour les besoins de l’atelier “Collaboration & Citoyenneté”."
+          },
+          {
+            "icon": "🔎",
+            "title": "Auto-évaluation",
+            "description": "Nous avons conçu plusieurs outils afin de permettre aux participants d’analyser leurs propres pratiques numériques et d’adopter une posture critique face à leurs usages."
+          },
+          {
+            "icon": "📊",
+            "title": "Données chiffrées",
+            "description": "Une veille constante nous permet d’adapter nos interventions aux évolutions des usages numériques, en nous appuyant sur des sources reconnues (INSEE, E-Enfance, Pedagojeux, Génération Numérique…)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "method-conclusion",
+      "template": "Base",
+      "content": "<p>Notre approche, fondée sur l'expérimentation et l'intelligence collective, fait des Parrains du Numérique un acteur clé de l'innovation sociale en matière d'éducation aux médias et au numérique. En intégrant à la fois formation, sensibilisation et animation numérique, nous favorisons l’émergence d’une culture numérique responsable et citoyenne.</p>"
+    }
+  ]
+}

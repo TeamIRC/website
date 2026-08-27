@@ -1,10 +1,49 @@
 {
-  "template": "WebTV",
-  "content": {
-    "items": [
-        "team_irc",
-        "reymonitou",
-        "neidrolab"
-    ]
-  }
+  "templates": [
+    {
+      "id": "webtv-intro",
+      "template": "Base",
+      "content": "<p>La WebTV occupe une place centrale dans notre Accueil de Loisirs Numériques. Elle constitue un outil de valorisation des projets menés avec les jeunes, en leur offrant une vitrine vivante et accessible.</p><p>Chaque émission et chaque production met en lumière leurs initiatives, leurs passions et leurs compétences. Cette scène d'expression leur permet de prendre la parole, d'affirmer leurs centres d'intérêt et de partager leur créativité.</p><p>La démarche favorise la coopération, l'autonomie et le sens critique. Elle ouvre également une fenêtre sur la diversité des pratiques vidéoludiques et instaure un lien direct avec le public grâce aux interactions en ligne.</p>"
+    },
+    {
+      "id": "webtv-channels",
+      "template": "WebTV",
+      "content": {
+        "items": [
+          "team_irc",
+          "reymonitou",
+          "neidrolab"
+        ]
+      }
+    },
+    {
+      "id": "webtv-programs",
+      "template": "CardGrid",
+      "content": {
+        "title": "Nos programmes",
+        "subtitle": "Des formats variés pour apprendre, créer et faire vivre les communautés vidéoludiques.",
+        "columns": 3,
+        "items": [
+          {
+            "icon": "📡",
+            "title": "Week Stream",
+            "description": "Une semaine de streaming intensif avec des jeux collaboratifs, des FPS compétitifs, du party gaming et du survival-horror.",
+            "features": ["7 sessions", "14 h en moyenne par session", "722 spectateurs Twitch", "6 stagiaires mobilisés"]
+          },
+          {
+            "icon": "🎯",
+            "title": "The Tarky Hour",
+            "description": "Un programme annuel consacré à Escape from Tarkov, avec des événements thématiques, des scénarios originaux et des créations audio et vidéo.",
+            "features": ["16 émissions", "935 spectateurs Twitch", "10 structures esport participantes", "Représentants de l'éditeur"]
+          },
+          {
+            "icon": "🤝",
+            "title": "Marathon des Commus",
+            "description": "Un cycle de streams autour de jeux variés, construit avec des collectifs passionnés pour créer un temps fort de partage entre communautés.",
+            "features": ["15 streams sur 3 semaines", "9 émissions", "248 spectateurs Twitch", "5 stagiaires mobilisés"]
+          }
+        ]
+      }
+    }
+  ]
 }

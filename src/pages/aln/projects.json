@@ -1,0 +1,37 @@
+{
+  "templates": [
+    {
+      "id": "projects-intro",
+      "template": "Base",
+      "content": "<p>Nous proposons un soutien personnalisé aux jeunes porteurs d'initiative pour structurer, communiquer et pérenniser leurs projets. En facilitant l'accès aux outils de gestion de projet et en apportant des conseils stratégiques, cet accompagnement renforce leur autonomie et leur crédibilité dans le secteur numérique.</p><h3>Quelques chiffres</h3><ul><li>2023/2024 : 2 projets accompagnés et 61 contenus live, 531 spectateurs et 35 invités.</li><li>2025/2026 : 2 accompagnements en cours.</li></ul>"
+    },
+    {
+      "id": "projects-cards",
+      "template": "CardGrid",
+      "content": {
+        "title": "Projets accompagnés",
+        "subtitle": "Un accompagnement adapté aux besoins, aux ambitions et au rythme de chaque initiative.",
+        "columns": 2,
+        "items": [
+          {
+            "icon": "🎨",
+            "title": "Lava Studio",
+            "description": "Accompagnement en cours en 2025/2026 autour d'un projet de création visuelle.",
+            "features": ["Structuration", "Communication", "Pérennisation"]
+          },
+          {
+            "icon": "🎮",
+            "title": "Super Games",
+            "description": "Accompagnement en cours en 2025/2026 autour d'un projet vidéoludique et communautaire.",
+            "features": ["Conseil stratégique", "Outils de projet", "Mise en réseau"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "projects-resource",
+      "template": "Base",
+      "content": "<p><a href='https://drive.google.com/file/d/1dW8eBVXKAd40l06jspy79t-ls9L1K640/view?usp=drive_link' target='_blank'>Découvrir la présentation du dispositif d'accompagnement</a></p>"
+    }
+  ]
+}

@@ -1,4 +1,50 @@
 {
-  "content": "<p>Entretiens individuels ou débat en groupes</p>",
-  "template": "Base"
+  "templates": [
+    {
+      "id": "stands-intro",
+      "template": "Base",
+      "content": "<p>Nous déclinons l'ensemble de nos ateliers sous la forme de stands événementiels. Ces animations s'adaptent aux temps forts de nombreuses structures : café des parents, fêtes de fin d'année, spectacles, compétitions esport ou événements de valorisation. Le format permet d'engager la discussion avec un public plus large.</p><h3>Quelques chiffres</h3><ul><li>2023/2024 : 8 stands, 1 052 enfants, 433 jeunes et 436 parents.</li><li>2024/2025 : 8 stands, 1 052 enfants, 433 jeunes et 436 parents.</li><li>2025 : 12 stands programmés.</li></ul>"
+    },
+    {
+      "id": "stands-cards",
+      "template": "CardGrid",
+      "content": {
+        "title": "Formats de stands",
+        "subtitle": "Des animations courtes et accessibles pour aller à la rencontre des publics.",
+        "columns": 3,
+        "items": [
+          {
+            "icon": "❓",
+            "title": "Quiz des écrans",
+            "description": "Un quiz pour ouvrir la discussion sur les usages et les habitudes numériques."
+          },
+          {
+            "icon": "🎨",
+            "title": "Game designer",
+            "description": "Une initiation à la conception de jeux et aux mécaniques qui les rendent engageants."
+          },
+          {
+            "icon": "✨",
+            "title": "Storyboard assisté par IA",
+            "description": "Imaginer une histoire et expérimenter la création d'un storyboard avec une IA."
+          },
+          {
+            "icon": "🎙️",
+            "title": "Apprenti-streamer",
+            "description": "Découvrir les rôles, les outils et les bonnes pratiques d'une émission en ligne."
+          },
+          {
+            "icon": "🤝",
+            "title": "Collaboration et citoyenneté",
+            "description": "Apprendre à coopérer et à prendre sa place dans un projet numérique collectif."
+          }
+        ]
+      }
+    },
+    {
+      "id": "stands-resources",
+      "template": "Base",
+      "content": "<h3>Supports associés</h3><ul><li><a href='https://drive.google.com/file/d/1lsdZ8UuHJuBJMTxwJzUkEkzrgQWMbEmJ/view?usp=drive_link' target='_blank'>Support de stand 1</a></li><li><a href='https://drive.google.com/file/d/1tkOHnsbUlLZANdj-MYQPgwGdfNikiTGN/view?usp=sharing' target='_blank'>Support de stand 2</a></li><li><a href='https://drive.google.com/file/d/1FVRlk01pWzoOuVEAt4QH4K1YAxIiVu0A/view?usp=sharing' target='_blank'>Support de stand 3</a></li></ul>"
+    }
+  ]
 }

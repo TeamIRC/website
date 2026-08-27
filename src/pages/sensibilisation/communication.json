@@ -1,4 +1,45 @@
 {
-  "content": "<p>Entretiens individuels ou débat en groupes</p>",
-  "template": "Base"
+  "templates": [
+    {
+      "id": "communication-intro",
+      "template": "Base",
+      "content": "<p>Nos campagnes de communication sont diffusées sur les réseaux sociaux et les plateformes WebTV, notamment Twitch et YouTube. À travers les projets que nous accompagnons dans l'univers vidéoludique, nous organisons des compétitions esport et des événements. Ces rendez-vous invitent des représentants de la communauté éducative et des acteurs du numérique à échanger avec les jeunesses autour de l'orientation professionnelle, de la culture et de la santé.</p><h3>Quelques chiffres</h3><ul><li>2023/2024 : 332 publications et 1 121 abonnés.</li><li>2024/2025 : 352 publications et 1 026 abonnés.</li></ul>"
+    },
+    {
+      "id": "communication-formats",
+      "template": "CardGrid",
+      "content": {
+        "title": "Nos formats de communication",
+        "subtitle": "Des contenus pour valoriser les initiatives et faire circuler les pratiques numériques responsables.",
+        "columns": 3,
+        "items": [
+          {
+            "icon": "🌐",
+            "title": "Promeneurs du Net",
+            "description": "Faire connaître les ressources et les initiatives utiles aux jeunes dans leurs espaces numériques."
+          },
+          {
+            "icon": "🎤",
+            "title": "Micro-trottoirs",
+            "description": "Donner la parole aux publics et recueillir leurs usages, leurs questions et leurs expériences."
+          },
+          {
+            "icon": "🌟",
+            "title": "Valorisation des projets de jeunes",
+            "description": "Mettre en lumière les initiatives accompagnées et les compétences développées par les jeunes."
+          },
+          {
+            "icon": "📊",
+            "title": "Sondages",
+            "description": "Observer les pratiques et recueillir des données pour adapter nos actions de sensibilisation."
+          },
+          {
+            "icon": "📰",
+            "title": "Actualité numérique",
+            "description": "Partager une veille accessible sur les usages, les tendances et les enjeux du numérique."
+          }
+        ]
+      }
+    }
+  ]
 }

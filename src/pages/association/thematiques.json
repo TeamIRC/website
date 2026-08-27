@@ -1,4 +1,49 @@
 {
-    "template": "Base",
-    "content": "<p>Mentions Légales</p>"
-  }
+  "templates": [
+    {
+      "id": "topics-intro",
+      "template": "Base",
+      "content": "<p>Nos interventions donnent aux jeunes et aux familles les clés pour comprendre les usages numériques, développer leur esprit critique et expérimenter de manière créative.</p><p>Les thématiques ci-dessous peuvent être proposées en atelier, en formation, en stand événementiel ou dans le cadre d'un projet accompagné.</p>"
+    },
+    {
+      "id": "topics-cards",
+      "template": "CardGrid",
+      "content": {
+        "subtitle": "Des formats participatifs pour comprendre, créer et agir dans l’environnement numérique.",
+        "columns": 3,
+        "items": [
+          {
+            "icon": "✨",
+            "title": "Intelligence artificielle générative",
+            "description": "Cet atelier initie les participants à l’IA générative, en explorant ses bases techniques et ses enjeux éthiques. Ils découvrent le fonctionnement des modèles, la génération de prompt, mais aussi les risques liés aux biais, à la désinformation et à l’impact environnemental. L’atelier présente divers outils pratiques pour l’apprentissage, la recherche documentaire et la création de supports multimédias. Les apprenants réalisent ensuite un micro-projet collaboratif (clip, affiche, podcast, storyboard) en mobilisant texte, image et son générés par IA. L’expérience développe des compétences techniques, créatives et critiques, utiles pour comprendre et utiliser l’IA de manière responsable."
+          },
+          {
+            "icon": "💬",
+            "title": "Réseaux sociaux",
+            "description": "Cet atelier de sensibilisation aux réseaux sociaux destiné aux jeunes explore, à travers des activités ludiques, les comportements encouragés par ces plateformes et leur influence. Il aborde la sécurité affective, le cyber-harcèlement et le respect en ligne, tout en sensibilisant à la gestion des données personnelles et à l'intimité. L'objectif est de former des utilisateurs conscients et bienveillants, capables d'adopter des pratiques responsables et de naviguer en ligne de façon sécurisée."
+          },
+          {
+            "icon": "🎮",
+            "title": "Jeux vidéo",
+            "description": "Cette animation spécialisée explore l'impact des jeux vidéo sur les jeunes en analysant les compétences développées (comportementales, cognitives, techniques) et les interactions sociales encouragées. Il traite de la question des stéréotypes de genre dans les jeux et la représentation des relations garçons-filles, tout en examinant l'influence des jeux sur les émotions des joueurs. Le but est de favoriser une utilisation réfléchie et équilibrée des jeux vidéo, en développant un regard critique sur cet univers."
+          },
+          {
+            "icon": "📰",
+            "title": "Éducation à l’image et fake news",
+            "description": "Notre approche s’articule autour de 3 axes : identifier les spécificités des différentes formes de médias que nous côtoyons au quotidien, évaluer le degré de fiabilité d’une information et s’approprier les méthodes de traitement des images. C’est au travers du jeu et l’étude de trois cas concrets que les jeunes sont amenés à identifier les différents médias au contact desquels ils évoluent au quotidien : à quels moments sont-ils confrontés à ces informations ? Dans quelles conditions ?"
+          },
+          {
+            "icon": "📺",
+            "title": "Téléréalité",
+            "description": "Nous proposons une immersion dans la téléréalité qui combine l'analyse des techniques narratives et de scénarisation avec une mise en pratique concrète à travers la réalisation d'un faux épisode. Les participants choisissent et mettent en scène les interactions et comportements de leur émission, en s'inspirant de leur expérience de téléspectateur. L'atelier peut inclure une initiation au montage vidéo avec notre partenaire Flying Fish, offrant ainsi une vision complète de la production de téléréalité et développant l'esprit critique des participants."
+          },
+          {
+            "icon": "🧭",
+            "title": "Métiers du numérique",
+            "description": "Familiariser les jeunes avec les métiers du numérique par la pratique d'outils et de processus de création de contenus, afin de soutenir l'orientation professionnelle et la valorisation des talents."
+          }
+        ]
+      }
+    }
+  ]
+}

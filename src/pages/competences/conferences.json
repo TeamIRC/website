@@ -1,4 +1,4 @@
 {
-    "template": "Base",
-    "content": "<p>Test Outils</p>"
-  }
+  "template": "Base",
+  "content": "<h2>Conférences</h2><p>Nous partageons notre expertise sur l'ensemble de nos thématiques. Nous proposons d'animer des conférences qui intègrent la participation du public en fonction des besoins identifiés. Nous avons également l'habitude d'animer ce type d'événement en interaction avec le public en ligne, via des plateformes comme Zoom, YouTube ou Twitch.</p><h3>Quelques chiffres</h3><ul><li>2023/2024 : 4 masterclass, 220 étudiants et 35 professionnels ou entrepreneurs.</li><li>2024/2025 : 3 masterclass, 183 étudiants et 42 professionnels ou entrepreneurs.</li><li>2024/2025 : 1 table ronde, 67 professionnels ou entrepreneurs.</li></ul>"
+}

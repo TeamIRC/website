@@ -1,4 +1,48 @@
 {
-    "template": "Base",
-    "content": "<p>Test Outils</p>"
-  }
+  "templates": [
+    {
+      "id": "training-intro",
+      "template": "Base",
+      "content": "<p>Nos formations proposent une introduction participative aux usages et aux implications des outils numériques. Grâce à un équilibre entre théorie et exercices pratiques, les participants découvrent comment ces outils transforment les processus de création et de communication, tout en développant une posture éthique, transparente et responsable.</p>"
+    },
+    {
+      "id": "training-cards",
+      "template": "CardGrid",
+      "content": {
+        "title": "Nos formations",
+        "subtitle": "Des parcours adaptés aux professionnels qui accompagnent les jeunes dans leurs pratiques numériques.",
+        "columns": 3,
+        "items": [
+          {
+            "icon": "✨",
+            "title": "Initiation à l'IA générative",
+            "description": "Découvrir les usages et les implications de l'intelligence artificielle générative, entre théorie, exercices pratiques, création et réflexion sur l'éthique, la transparence et la responsabilité.",
+            "features": [
+              "2023/2024 : formation continue pour 26 bénévoles",
+              "2024/2025 : formation continue pour 28 bénévoles",
+              "2025/2026 : 1 module animé pour 8 professionnels"
+            ]
+          },
+          {
+            "icon": "🧑‍🏫",
+            "title": "Animation d'Accueil Collectif de Mineurs",
+            "description": "Dans le cadre de la formation BAFA, apprendre à désamorcer les conflits liés aux smartphones, à accompagner l'exposition de la vie privée sur les réseaux et à réagir face au cyber-harcèlement. Les jeux et mises en situation permettent de trouver une posture adaptée aux besoins des jeunes.",
+            "features": [
+              "2023/2024 : 12 modules",
+              "141 animateurs formés"
+            ]
+          },
+          {
+            "icon": "🧭",
+            "title": "Direction d'Accueil Collectif de Mineurs",
+            "description": "Dans le cadre de la formation BAFD, distinguer les problèmes relevant des animateurs et ceux relevant de la direction, repérer les signes de danger et guider les équipes pour garantir la sécurité affective des jeunes et rassurer les parents.",
+            "features": [
+              "2023/2024 : 8 modules",
+              "93 directeurs formés"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -73,6 +73,11 @@
         {
           "path": "webtv",
           "title": "WebTV"
+        },
+        {
+          "path": "projects",
+          "title": "Projets de jeunes",
+          "description": "Accompagnement des jeunes dans la structuration et la valorisation de leurs projets numériques"
         }
       ]
     },

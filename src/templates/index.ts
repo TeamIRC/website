@@ -1,4 +1,5 @@
 import { Component } from "vue";
+import Base from "./Base.vue";
 import cards from "./cards.vue";
 import List from "./List.vue";
 import WebTV from "./WebTV.vue";
@@ -15,8 +16,9 @@ import Wiki from "./Wiki.vue";
 import WikiPost from "./WikiPost.vue";
 
 
-export { default as Base } from './Base.vue';
+export { Base };
 export default {
+    Base,
     cards,
     List,
     WebTV,

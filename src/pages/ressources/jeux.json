@@ -1,4 +1,56 @@
 {
-    "template": "Base",
-    "content": "<p>Mentions Légales</p>"
-  }
+  "templates": [
+    {
+      "id": "games-intro",
+      "template": "Base",
+      "content": "<p>Les jeux vidéo sont des supports privilégiés pour travailler la coopération, la créativité, la communication, la gestion de l'échec et la compréhension des communautés en ligne. Nous les mobilisons selon les objectifs pédagogiques des projets accompagnés.</p>"
+    },
+    {
+      "id": "games-cards",
+      "template": "CardGrid",
+      "content": {
+        "title": "Les jeux que nous avons explorés",
+        "subtitle": "Des expériences vidéoludiques mobilisées dans nos ateliers, nos événements et nos projets de jeunes.",
+        "columns": 2,
+        "items": [
+          {
+            "icon": "🧱",
+            "title": "Minecraft",
+            "description": "Un jeu de construction créatif qui favorise l'imagination et la coopération, et permet de développer la gestion de projet, la résolution de problèmes, la programmation et la logique. Nous avons accompagné le projet Zone Delta pendant deux ans, sous la forme d'un serveur RP réunissant plus d'une trentaine de joueurs et de membres du staff.",
+            "features": ["Créativité", "Coopération", "Gestion de projet", "Programmation"]
+          },
+          {
+            "icon": "⚽",
+            "title": "Rocket League",
+            "description": "Un support pour travailler la coopération, l'esprit d'équipe, la communication, le fair-play et le respect de l'adversaire. C'est sur ce jeu qu'a vu le jour la première Safe X Rigel.",
+            "features": ["Esprit d'équipe", "Communication", "Fair-play"]
+          },
+          {
+            "icon": "🏎️",
+            "title": "Trackmania",
+            "description": "Un jeu de course basé sur la performance et la créativité, qui encourage la persévérance et la gestion de l'échec. La création de circuits développe aussi la logique spatiale et le partage de contenus avec la communauté.",
+            "features": ["Persévérance", "Gestion de l'échec", "Création", "Logique spatiale"]
+          },
+          {
+            "icon": "🎯",
+            "title": "Valorant",
+            "description": "Un FPS compétitif qui développe la stratégie collective, la planification, la communication et la coordination. Il permet également d'aborder la préparation mentale, la gestion du stress et les comportements en ligne.",
+            "features": ["Stratégie", "Coordination", "Préparation mentale", "Respect en ligne"]
+          },
+          {
+            "icon": "🚗",
+            "title": "Grand Theft Auto V",
+            "description": "Un support de jeu de rôle encadré par des animateurs vidéoludiques. Chaque joueur y tient un rôle et se coordonne avec les autres pour créer des scènes et des situations d'improvisation.",
+            "features": ["Jeu de rôle", "Improvisation", "Coordination", "Création de scènes"]
+          },
+          {
+            "icon": "🎒",
+            "title": "Escape from Tarkov",
+            "description": "Un FPS réaliste axé sur la survie, la coopération, la gestion des ressources et la stratégie. La communauté du jeu a permis de développer un réseau de structures partenaires autour du programme The Tarky Hour.",
+            "features": ["Survie", "Coopération", "Gestion des ressources", "Communauté"]
+          }
+        ]
+      }
+    }
+  ]
+}

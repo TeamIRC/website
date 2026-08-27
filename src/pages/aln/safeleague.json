@@ -1,4 +1,50 @@
 {
-    "template": "Base",
-    "content": "<p>Test SafeLeague</p>"
-  }
+  "templates": [
+    {
+      "id": "safeleague-intro",
+      "template": "Base",
+      "content": "<p>L'association prend en charge l'organisation d'événements, en ligne ou en duplex, qui poursuivent trois objectifs : identifier de nouveaux projets de développement, élargir le réseau de notre audience et du public engagé au sein de l'association, et mettre en évidence un partenaire clé qui matérialise l'une de nos thématiques de sensibilisation.</p>"
+    },
+    {
+      "id": "safeleague-editions",
+      "template": "CardGrid",
+      "content": {
+        "title": "Les éditions de la Safe League",
+        "subtitle": "Des compétitions qui associent pratique de l'esport, animation et sensibilisation.",
+        "columns": 2,
+        "items": [
+          {
+            "icon": "🏆",
+            "title": "1st Edition",
+            "description": "Tournoi à élimination directe sur un mois.",
+            "features": ["16 équipes", "96 joueurs", "2 divisions", "4 casters"]
+          },
+          {
+            "icon": "🏆",
+            "title": "April Edition",
+            "description": "Tournoi organisé sur un mois avec deux niveaux de compétition.",
+            "features": ["16 équipes", "112 joueurs", "2 divisions", "6 casters"]
+          },
+          {
+            "icon": "☀️",
+            "title": "Summer Edition",
+            "description": "Une édition estivale organisée avec MTP Esport, club esport professionnel à Montpellier.",
+            "features": ["16 équipes", "128 joueurs", "2 divisions", "6 casters", "Partenariat MTP Esport"]
+          },
+          {
+            "icon": "📅",
+            "title": "Season One",
+            "description": "Un championnat sur deux mois organisé sous licence officielle Ubisoft.",
+            "features": ["20 équipes", "160 joueurs", "2 divisions", "8 casters", "Partenariat MTP Esport"]
+          },
+          {
+            "icon": "⚡",
+            "title": "Safe League X Rigel",
+            "description": "Une journée de compétition dont tous les matchs sont diffusés sur la chaîne Team IRC, avec le soutien du Village Esport.",
+            "features": ["16 équipes", "48 joueurs", "3 casters", "Tous les matchs diffusés"]
+          }
+        ]
+      }
+    }
+  ]
+}

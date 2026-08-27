@@ -1,4 +1,21 @@
 {
-    "template": "Base",
-    "content": "<p>Mentions Légales</p>"
-  }
+  "templates": [
+    {
+      "id": "brochure-card",
+      "template": "CardGrid",
+      "content": {
+        "title": "Notre présentation",
+        "subtitle": "Un document partagé pour découvrir l'association et ses actions.",
+        "columns": 1,
+        "items": [
+          {
+            "icon": "📄",
+            "title": "Document de présentation",
+            "description": "Consulter le document de présentation partagé par l'association.",
+            "url": "https://drive.google.com/file/d/17p0LRq7rZAFKAyt1P-ofy8tOqn_KEFfK/view?usp=sharing"
+          }
+        ]
+      }
+    }
+  ]
+}
