@@ -11,7 +11,7 @@ let routes: RouteRecordRaw[] = [
         component: h("div", "Oups ! Cette page n'existe pas")
     },
     {
-        path: "/", redirect: '/aboutus'
+        path: "/", redirect: '/association/aboutus'
     },
     {
         path: "/login",

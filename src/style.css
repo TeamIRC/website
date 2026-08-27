@@ -154,6 +154,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-color: var(--nav-bg) var(--nav-box);
 }
 
 body {
@@ -170,9 +171,14 @@ p + p {
   flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   text-align: center;
   overflow-y: auto;
+}
+
+.page {
+  height: calc(100vh - 321px);
+  overflow: auto;
 }
 
 @media (prefers-color-scheme: light) {

@@ -227,6 +227,15 @@ const onModified = async (templateName: string, c: any, templateId?: string) => 
   background-color: var(--page-bg-alt);
 }
 
+.template-item > * {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.template-item :deep(h2) {
+  padding-bottom: 2rem;
+}
+
 /* Error and warning message styles */
 .error-message {
   background-color: rgba(220, 53, 69, 0.1);

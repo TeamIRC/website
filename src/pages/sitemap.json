@@ -1,70 +1,78 @@
 {
   "$r": [
     {
-      "path": "aboutus",
-      "title": "Qui sommes-nous ?",
-      "description": "Test description"
+      "path": "association",
+      "title": "L'association",
+      "children": [
+        {
+          "path": "aboutus",
+          "title": "Qui sommes-nous ?"
+        },
+        {
+          "path": "thematiques",
+          "title": "Nos thématiques"
+        },
+        {
+          "path": "methode",
+          "title": "Notre méthode"
+        },
+        {
+          "path": "legal",
+          "title": "Mentions légales"
+        }
+      ]
     },
     {
       "path": "sensibilisation",
       "title": "Sensibilisation",
       "children": [
         {
-          "path": "ateliers",
-          "title": "Ateliers Parents/Enfants",
-          "description": "Description ateliers"
+          "path": "parents",
+          "title": "Ateliers parents-enfants"
         },
         {
           "path": "emi",
-          "title": "Ateliers d'éducation aux Médias et à l'Information (EMI)"
+          "title": "Éducation aux Médias et à l'Information (EMI)"
         },
         {
-          "path": "collaboration",
-          "title": "Collaborations et citoyenneté"
+          "path": "stands",
+          "title": "Stands évènementiels"
         },
         {
-          "path": "gamedesign",
-          "title": "Game Design"
+          "path": "communication",
+          "title": "Campagnes de communication"
         }
       ]
     },
     {
-      "path": "formations",
-      "title": "Formations",
+      "path": "competences",
+      "title": "Compétences",
       "children": [
         {
-          "path": "mineurs",
-          "title": "Accueil Collectif de mineurs"
+          "path": "formations",
+          "title": "Formations"
         },
         {
-          "path": "ia",
-          "title": "Initiations à l'IA"
+          "path": "conferences",
+          "title": "Conférences"
         },
         {
-          "path": "outils",
-          "title": "Outils collaboratifs"
-        },
-        {
-          "path": "initiations",
-          "title": "Initiations aux métiers du numérique"
+          "path": "conseil",
+          "title": "Conseil"
         }
       ]
     },
     {
-      "path": "rdp",
-      "title": "Recherche, Développement et Projets",
+      "path": "aln",
+      "title": "Accueil de Loisirs Numériques",
       "children": [
         {
           "path": "safeleague",
-          "title": "Safe League"
+          "title": "eSport : SAFE League"
         },
         {
-          "path": "events",
-          "title": "Organisations et Animations d'évènements communautaires"
-        },
-        {
-          "path": "accompagnement",
-          "title": "Accompagnement de projets"
+          "path": "webtv",
+          "title": "WebTV"
         }
       ]
     },
@@ -73,30 +81,23 @@
       "title": "Ressources",
       "children": [
         {
+          "path": "brochure",
+          "title": "Notre brochure"
+        },
+        
+        {
+          "path": "jeux",
+          "title": "Nos jeux"
+        },
+        {
           "path": "ia",
-          "title": "Atelier IA",
-          "description": "Ressources pédagogiques sur l'Intelligence Artificielle"
+          "title": "Intelligence Artificielle"
         },
         {
-          "path": "ia-ethics",
-          "title": "ethics IA",
-          "description": "ethics sur l'Intelligence Artificielle"
-        },
-        {
-          "path": "ia-tools",
-          "title": "tools IA",
-          "description": "tools sur l'Intelligence Artificielle"
-        },
-        {
-          "path": "ia-recommendations",
-          "title": "recommendations IA",
-          "description": "recommendations sur l'Intelligence Artificielle"
+          "path": "cyber",
+          "title": "Cyber-vigilance"
         }
       ]
-    },
-    {
-      "path": "webtv",
-      "title": "WebTV"
     }
   ],
   "blog": "$r/blog",

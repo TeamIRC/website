@@ -1,30 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
-
-const position = ref(0);
-const isPaused = ref(false);
-let animationFrame: number | null = null;
-const speed = 0.03; // pixels per frame
-
-const animate = () => {
-  if (!isPaused.value) {
-    position.value -= speed;
-    if (position.value <= -100) {
-      position.value = 0;
-    }
-  }
-  animationFrame = requestAnimationFrame(animate);
-};
-
-onMounted(() => {
-  animationFrame = requestAnimationFrame(animate);
-});
-
-onUnmounted(() => {
-  if (animationFrame !== null) {
-    cancelAnimationFrame(animationFrame);
-  }
-});
 </script>
 
 <template>
@@ -32,7 +6,6 @@ onUnmounted(() => {
     <div class="footer-content">
       <!-- Contact Column -->
       <div class="footer-column">
-        <h3>Contact</h3>
         <table class="contact-info">
           <tbody>
             <tr>
@@ -50,19 +23,19 @@ onUnmounted(() => {
             <tr>
               <td><v-icon name="fa-envelope" /></td>
               <td>
-                721 rue du Pré aux Clercs 34000<br />
-                Montpellier
+                721 rue du Pré aux Clercs <br />
+                34000 Montpellier
               </td>
             </tr>
           </tbody>
         </table>
-        <router-link to="/mentionslegales">Mentions légales</router-link>
+        <router-link to="/association/legal">Mentions légales</router-link>
       </div>
 
       <!-- Partners Column -->
       <div class="footer-column marquee-container">
-        <h3>Nos Partenaires</h3>
-        <Vue3Marquee id="partners" clone pauseOnHover>
+        <h3>Ils nous font confiance</h3>
+        <Vue3Marquee id="partners" duration="60" clone pauseOnHover>
           <a href="https://herault.fr/" target="_blank">
             <img src="/assets/img/herault.jpg" alt="Partner Logo" />
           </a>
@@ -104,6 +77,7 @@ onUnmounted(() => {
   font-family: "NeuePlak-Bold";
   font-weight: bold;
   font-style: normal;
+  z-index: 1;
 }
 
 .footer-content {
@@ -120,7 +94,7 @@ onUnmounted(() => {
 
 .footer-column h3 {
   font-size: 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   position: relative;
   display: inline-block;
 }
@@ -142,10 +116,10 @@ onUnmounted(() => {
 
 /* Contact Styles */
 .contact-info {
-  font-size: 0.95rem;
-  margin-bottom: 1em;
-  border-spacing: 1em;
-  line-height: 1em;
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+    border-spacing: 0.3rem;
+    line-height: 1rem;
 }
 
 a {
@@ -164,7 +138,7 @@ a:hover {
 }
 
 .marquee-container img {
-  height: 160px;
+  height: 64px;
   margin: 0 5px;
   object-fit: contain;
 }

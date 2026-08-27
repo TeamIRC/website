@@ -89,7 +89,7 @@ onUnmounted(() => {
         </template>
       </DropdownMenu>
       <!-- Adhesion Button -->
-      <a href="#" class="adhesion-button"> Adhésion </a>
+      <a href="#" class="adhesion-button">J'adhère !</a>
     </nav>
 
     <!-- Right Section -->
@@ -195,12 +195,12 @@ onUnmounted(() => {
 
 :deep(.overlay) {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  min-width: 600px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  min-width: 384px;
   left: 50%;
   translate: -50%;
-  padding: 2rem;
+  padding: 1rem;
   background: var(--menu-bg);
   border-radius: 8px;
   box-shadow: 0 4px 20px var(--menu-box);
@@ -319,7 +319,6 @@ onUnmounted(() => {
   border: none;
   box-sizing: border-box;
   width: 128px;
-  padding: 0.8rem 1.5rem;
   background: var(--cta-bg);
   color: var(--cta-text);
   font-weight: 500;
@@ -328,9 +327,21 @@ onUnmounted(() => {
   border-radius: 32px;
   transition: transform 0.3s ease;
   text-decoration: none;
+  font-size: 18px;
+  padding: 0 0 4px 0;
+  animation-name: pop;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pop {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
 }
 
 .adhesion-button:hover {
+  animation-name: none;
   transform: scale(1.1);
 }
 
