@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport d'Activité - LPDN</title>
+    <!-- Icônes FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Couleurs extraites du logo LPDN */
+            --primary-dark: #004771; /* Bleu profond du fond */
+            --primary-light: #003b64; 
+            --cyan: #00f1f2; /* Cyan vif des ailes */
+            --cyan-light: #e0f4ff;
+            --white: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --bg-page: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        @font-face {
+            font-family: NeuePlak;
+            src: url(NeuePlak-Light.otf);
+        }
+
+        @font-face {
+            font-family: NeuePlak;
+            src: url(NeuePlak-Bold.otf);
+            font-weight: 800;
+        }
+
+        @font-face {
+            font-family: NeuePlak;
+            src: url(NeuePlak-Bold.otf);
+            font-weight: 600;
+        }
+
+        @font-face {
+            font-family: NeuePlak;
+            src: url(NeuePlak-CondBlack.otf);
+            font-weight: bold;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'NeuePlak';
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        h4 {
+            font-weight: 600;
+        }
+
+        /* --- FILIGRANE (Watermark) --- */
+        .watermark-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none; /* Empêche de gêner le clic */
+            overflow: hidden;
+        }
+        
+        .watermark-container img {
+            width: 80%;
+            max-width: 900px;
+            opacity: 0.04; /* Très léger pour ne pas gêner la lecture */
+            transform: rotate(-15deg) scale(1.2);
+            filter: grayscale(20%);
+        }
+
+        /* --- HEADER & HERO --- */
+        .header {
+            background: var(--primary-dark);
+            color: var(--white);
+            height: 656px;
+            text-align: center;
+            border-bottom: 5px solid var(--cyan);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header > div {
+            height: 100%;
+            padding: 60px 20px;
+            background-image: url(logo-horizontal-1080.png);
+            background-size: 608px;
+            background-repeat: no-repeat;
+            background-position: top;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-header {
+            width: 320px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
+        }
+
+        .header h1 {
+            color: var(--white);
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 320px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            text-shadow: #000 1px 0 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- PÔLES THEMATIQUES (Intro) --- */
+        .poles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: -60px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .pole-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--cyan);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .pole-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pole-icon {
+            font-size: 2.5rem;
+            color: var(--cyan);
+            margin-bottom: 15px;
+            background: var(--primary-dark);
+            width: 80px; height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .pole-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .pole-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- SECTIONS TITLES --- */
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            margin: 60px 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-title i {
+            color: var(--cyan);
+            margin-right: 15px;
+            font-size: 2.2rem;
+        }
+
+        .sub-section-title {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sub-section-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background-color: var(--cyan);
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+
+        /* --- TABLES STATS --- */
+        .table-responsive {
+            overflow-x: auto;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        th:first-child { border-top-left-radius: 10px; }
+        th:last-child { border-top-right-radius: 10px; }
+
+        td {
+            font-size: 0.95rem;
+        }
+
+        td strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--bg-page);
+        }
+        
+        tr:hover {
+            background-color: var(--cyan-light);
+        }
+
+        /* --- PARTNERS SECTION --- */
+        .band {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .band > img {
+            flex: 1;
+            max-width: 256px;
+            height: fit-content;
+            align-self: center;
+        }
+
+        .narrative {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 1.5rem 4rem 4rem 4rem;
+        }
+
+        .narrative-item {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .special {
+            display: block;
+            margin: 0 4rem;
+            padding: 2rem;
+            background-color: #002b49;
+            border-radius: 16px;
+        }
+
+        .narrative-item:nth-child(2) {
+            flex-direction: row-reverse;
+        }
+
+        .narrative-item p {
+            margin-top: 0.5rem;
+            padding: 0 1rem;
+            font-style: italic;
+            border-left: 4px solid #003b64;
+            border-radius: 0 0 0 8px;
+        }
+
+        .narrative-item img {
+            width: 320px;
+            height: auto;
+        }
+
+        .narrative.half > .narrative-item > div {
+            flex: 1;
+        }
+
+        .narrative.half > .narrative-item img {
+            width: 100%;
+        }
+
+        .over-container {
+            position: relative;
+        }
+
+        .over {
+            position: absolute;
+            background: rgba(240, 240, 240, 0.9);
+            padding: 16px;
+            bottom: 7px;
+            font-size: 12px;
+            line-height: 12px;
+        }
+
+        .narrative-item:nth-child(2) .over {
+            right: 0;
+        }
+
+        .over > p {
+            border: none;
+            padding: 0;
+        }
+
+        .airdie {
+            position: unset;
+        }
+
+        .pdn {
+            display: unset;
+        }
+
+        .special > h3 {
+            color: #00a2ff;
+        }
+
+        .special > p {
+            border-color: #00a2ff;
+            color: #e2e8f0;
+        }
+
+        /* Tag stylisés dans les tableaux */
+        .tag {
+            display: inline-block;
+            background: var(--cyan-light);
+            color: var(--primary-dark);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .poles-grid { margin-top: 20px; }
+            th, td { padding: 12px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FILIGRANE EN ARRIÈRE-PLAN -->
+    <div class="watermark-container">
+        <!-- Utilisation du logo fourni en PJ -->
+        <img src="logo-horizontal-1080.png" alt="Filigrane LPDN">
+    </div>
+
+    <!-- EN-TÊTE GRAPHIQUE -->
+    <header class="header">
+        <div>
+            <h1>Rapport d'Activité</h1>
+            <p>Acteur engagé dans l’éducation aux médias et à l’information, l’association Les Parrains du Numérique (LPDN) accompagne les jeunes, les familles et les professionnels vers des pratiques numériques éclairées et citoyennes. À travers le déploiement de nos trois pôles d'expertise, cette année a été marquée par une innovation pédagogique constante, un fort ancrage territorial et une structuration renforcée de notre gouvernance. Ce rapport d'activité retrace une année de résilience, de synergie partenariale et d'inclusion numérique au plus près des besoins du terrain.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- PÔLES THÉMATIQUES (INSPIRÉS DE LA DEMANDE) -->
+        <div class="poles-grid">
+            <div class="pole-card">
+                <div class="pole-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <h3>Pôle Compétences</h3>
+                <p>Formation et accompagnement des acteurs éducatifs aux enjeux du monde numérique.</p>
+            </div>
+            <div class="pole-card">
+                <div class="pole-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                <h3>Pôle Sensibilisation</h3>
+                <p>Ateliers d'Éducation aux Médias et à l'Information (EMI) pour les jeunes et leurs familles.</p>
+            </div>
+            <div class="pole-card">
+                <div class="pole-icon"><i class="fa-solid fa-gamepad"></i></div>
+                <h3>Pôle R&D Pratique</h3>
+                <p>Accueil de Loisir Numérique en ligne : WebTV, compétitions esport et projets vidéoludiques.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 1 : BÉNÉFICIAIRES -->
+        <h2 class="section-title"><i class="fa-solid fa-hand-holding-heart"></i> Bénéficiaires</h2>
+        
+        <h3 class="sub-section-title">Ateliers de Sensibilisation</h3>
+        <div class="narrative">
+            <div class="narrative-item">
+                <div>
+                    <h4>Sète : L'innovation pédagogique avec notre partenaire historique</h4>
+                    <p>Sète est notre partenaire historique, le socle avec lequel nous avons construit les bases de l'association. Avec la ville et le CCAS, nous continuons d'innover en développant de nouvelles approches pédagogiques et de nouveaux contenus de sensibilisation. Cette année encore, nous avons déployé des projets de sensibilisation en famille, affirmant notre engagement continu, et organisé avec succès la troisième édition de la Fête Mondiale du Jeu.</p>
+                </div>
+                <img src="Apprenti-Streamer_Deku.jpg" alt="Logo LPDN">
+            </div>
+            <div class="narrative-item">
+                <div>
+                    <h4>Collège Gérard Philipe : Une innovation sociale en zone QPV</h4>
+                    <p>Face à diverses problématiques, le collège Gérard Philipe a orchestré un événement de sensibilisation inédit en collaboration avec le service politique de la ville de Montpellier, le rectorat, la TAM et d'autres acteurs associatifs. Cet événement marque une étape d'innovation majeure pour LPDN : nous avons répondu présent pour cet établissement situé en zone QPV, en adaptant spécifiquement nos contenus aux réalités et défis rencontrés sur le terrain.</p>
+                </div>
+                <img src="Visuel_Gerard Philipe.jpg" alt="Logo LPDN">
+            </div>
+            <div class="narrative-item">
+                <div>
+                    <h4>UNAPEI 34 : Numérique & Inclusion</h4>
+                    <p>Le SESSAD La Domitienne nous a sollicités pour intervenir auprès d'un public inédit pour l'association : les jeunes porteurs de handicap. En nous adaptant à leurs spécificités, nous avons entièrement conçu et animé de nouveaux modules pour les sensibiliser aux influences — positives comme négatives — des réseaux sociaux et de l'intelligence artificielle.</p>
+                </div>
+                <img src="Visuel_UNAPEI34.png" alt="Logo LPDN">
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Commanditaire</th>
+                        <th>Lieu</th>
+                        <th>Volume</th>
+                        <th>Public touché</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ateliers pour jeunes porteurs de handicap</strong></td>
+                        <td>UNAPEI 34</td>
+                        <td>Sessad La Domitienne</td>
+                        <td><span class="tag">2 demi-journées</span></td>
+                        <td>4 jeunes, 3 Professionnels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Événement de Sensibilisation</strong></td>
+                        <td>Service Politique de la Ville (Montpellier)</td>
+                        <td>Collège Gérard PHILIPE</td>
+                        <td><span class="tag">6 demi-journées</span></td>
+                        <td>283 jeunes, 14 Professionnels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IA à Portée de Main</strong></td>
+                        <td>Ville de Sète</td>
+                        <td>Médiathèque F. Mitterrand</td>
+                        <td><span class="tag">5 demi-journées</span></td>
+                        <td>12 jeunes, 5 Professionnels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Écrans en Famille</strong></td>
+                        <td>Ville de Sète</td>
+                        <td>Médiathèque F. Mitterrand</td>
+                        <td><span class="tag">6 demi-journées</span></td>
+                        <td>25 enfants & jeunes, 14 Parents, 11 Pro.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Codage & Robotique</strong></td>
+                        <td>Ville de Montpellier</td>
+                        <td>Écoles de Montpellier</td>
+                        <td><span class="tag">27 cycles de 6h</span></td>
+                        <td>324 enfants</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ateliers Parents-Enfants</strong></td>
+                        <td>CRIJ (Dispositif TNE)</td>
+                        <td>Écoles de Lunel, Montpellier et Sète</td>
+                        <td><span class="tag">10 séances de 2h</span></td>
+                        <td>110 enfants, 70 Parents, 16 Pro.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="narrative-item special">
+            <h3>Ateliers Robotique</h3>
+            <p>Notre positionnement sur un appel à projet de la Ville de Montpellier axé sur la robotique s'est avéré déterminant. Ce succès a considérablement renforcé la pérennité et la viabilité du modèle économique de l'association pour les années à venir.</p>
+        </div>
+
+        <h3 class="sub-section-title">Événements</h3>
+        <div class="narrative">
+            <div class="narrative-item">
+                <div>
+                    <h4>Pézenas : Un événement XXL et citoyen</h4>
+                    <p>Pour la deuxième année consécutive, la ville de Pézenas a fait confiance à notre association pour concevoir un événement de sensibilisation d'envergure. Au programme : une soirée débat sur l'IA animée par des universitaires (accompagnée de nos stands), suivie d'une journée dédiée aux collégiens et lycéens proposant notre plus large éventail d'ateliers, et enfin une journée grand public. Cet événement nous a également permis de redéployer un atelier phare favorisant le développement de la citoyenneté via un mod Minecraft conçu par notre équipe.</p>
+                </div>
+                <img src="Plan ensemble_Minecraft_Flouté.png" alt="Logo LPDN">
+            </div>
+            <div class="narrative-item">
+                <div>
+                    <h4>Territoire Numérique Éducatif (TNE) : Un impact territorial massif</h4>
+                    <p>Cette année, notre implication dans le dispositif TNE s'est traduite par 5 événements majeurs, touchant plus de 1 700 jeunes, 80 parents et 200 professionnels. Depuis le lancement du dispositif, notre équipe de bénévoles s'est mobilisée sur pas moins de 10 événements, confirmant notre rôle d'acteur de premier plan sur le territoire.</p>
+                </div>
+                <img src="IMG-20251013-WA0004.jpg" alt="Logo LPDN">
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Événement</th>
+                        <th>Commanditaire</th>
+                        <th>Lieu</th>
+                        <th>Volume</th>
+                        <th>Public touché</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Super Hérault 3</strong></td>
+                        <td>CRIJ (Dispositif TNE)</td>
+                        <td>Domaine de Bessan à Béziers</td>
+                        <td><span class="tag">12 demi-journées</span></td>
+                        <td>1 008 enfants & jeunes, 98 Parents, 85 Pro.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fête Mondiale du Jeu</strong></td>
+                        <td>Ville de Sète (Dispositif TNE)</td>
+                        <td>Jardin de la Pierrerie à Sète</td>
+                        <td><span class="tag">8 demi-journées</span></td>
+                        <td>147 jeunes, 51 Parents</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Festival du Jeu Vidéo et du Numérique</strong></td>
+                        <td>Ville de Pézenas</td>
+                        <td>Maison du Peuple à Pézenas</td>
+                        <td><span class="tag">13 demi-journées</span></td>
+                        <td>289 jeunes, 50 Professionnels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cévennes Connectées</strong></td>
+                        <td>Ville de Ganges (Dispositif TNE)</td>
+                        <td>Salle des Fêtes de Ganges</td>
+                        <td><span class="tag">12 demi-journées</span></td>
+                        <td>252 jeunes, 67 Professionnels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Numérique - Grandir en Famille</strong></td>
+                        <td>Ville de Montpellier (Dispositif TNE)</td>
+                        <td>Grp. scolaire André Boulloche (Montpellier)</td>
+                        <td><span class="tag">8 demi-journées</span></td>
+                        <td>72 enfants, 33 Parents</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="sub-section-title">Formation</h3>
+        <div class="narrative">
+            <div class="narrative-item">
+                <div>
+                    <h4>Formation Professionnelle : Au-delà de l'animation</h4>
+                    <p>Forte de son expérience avec l'UFCV sur l'accompagnement numérique des accueils de mineurs, l'association accélère sur la formation continue. Le CCAS de Sète nous a commandé un module axé sur les risques et opportunités de l'IA. L'objectif : outiller les professionnels pour prévenir les familles, tout en les assistant dans leurs tâches quotidiennes. Avec un catalogue de 30 modules adaptables, nous ambitionnons de toucher un public grandissant d'acteurs de la pédagogie, de l'ESS et de professionnels en reconversion.</p>
+                </div>
+                <img src="Visuel_Formation.png" alt="Logo LPDN">
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Commanditaire</th>
+                        <th>Lieu</th>
+                        <th>Volume</th>
+                        <th>Public touché</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Intelligence Artificielle : Risques & opportunités</strong></td>
+                        <td>Ville de Sète</td>
+                        <td>Sète</td>
+                        <td><span class="tag">2 demi-journées</span></td>
+                        <td>9 Professionnels</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 2 : ACTION DE RÉSEAU -->
+        <h2 class="section-title"><i class="fa-solid fa-network-wired"></i> Action de réseau</h2>
+        
+        <div class="narrative half">
+            <div class="narrative-item">
+                <div>
+                    <h4><i class="fa-solid fa-comments"></i> Table ronde : Cybervigilance</h4>
+                    <p>Lors des Rencontres de la Cybersécurité de la Ville de Montpellier, nous avons partagé nos constats au sein de la table ronde "Génération Alpha : de nouveaux réflexes pour protéger nos enfants", aux côtés de l'Atelier Canopé 34 et de la DRANE. Ce fut l'occasion de marteler nos priorités : la nécessité d'institutions garantissant une présence adulte en ligne, la création d'espaces de rencontre avec les familles, et la promotion active de contenus de vulgarisation de qualité.</p>
+                </div>
+                <div class="over-container">
+                    <img src="Visuel_Table ronde BIC.jpg" alt="Logo LPDN">
+                    <div class="over">
+                        <p><strong>Commanditaire :</strong> Métropole Montpellier 3M</p>
+                        <p><strong>Lieu :</strong> Business Innovation Center (BIC) à Montpellier</p>
+                        <p><strong>Volume :</strong> 1 demi-journée</p>
+                        <p><strong>Public touché :</strong> 67 Professionnels</p>
+                    </div>
+                </div>
+            </div>
+            <div class="narrative-item">
+                <div>
+                    <h4><i class="fa-solid fa-graduation-cap"></i> Formation : Réseaux Sociaux & IA</h4>
+                    <p>Dans la continuité de nos ateliers de robotique, nous sommes intervenus auprès des agents organisant les temps périscolaires et extrascolaires de la ville. Ce temps fort a permis de les sensibiliser à l'environnement médiatique des jeunes (réseaux sociaux, IA) et de les équiper face aux problématiques concrètes de l'animation d'aujourd'hui.</p>
+                </div>
+                <div class="over-container">
+                    <img src="Visuel_ServiceEducation.png" alt="Logo LPDN">
+                    <div class="over">
+                        <p><strong>Commanditaire :</strong> Ville de Montpellier</p>
+                        <p><strong>Lieu :</strong> Grp. scolaire Louis Armstrong à Montpellier</p>
+                        <p><strong>Volume :</strong> 1 demi-journée</p>
+                        <p><strong>Public touché :</strong> 14 Professionnels (Agents du Service Education)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3 : DÉVELOPPEMENT DE L'ASSO -->
+        <h2 class="section-title"><i class="fa-solid fa-rocket"></i> Développement de l’association</h2>
+
+        <!-- Structuration -->
+        <div class="narrative half">
+            <div class="narrative-item">
+                <div>
+                    <h4><i class="fa-solid fa-sitemap"></i> Structuration & Gouvernance</h4>
+                    <p>Dans la continuité du travail de structuration initié avec le DLA (Dispositif Local d'Accompagnement), nous avons fait le choix de nous orienter de manière proactive vers un nouvel acteur stratégique : l'AIRDIE. Cette démarche a pour objectif de continuer à guider de manière optimale et pérenne le développement de l'association. Cette évolution s'est également concrétisée par la refonte de nos statuts, l'élection de notre nouveau président Théo Leperon, et l'octroi d'un prêt de 7 000 € pour soutenir notre croissance.</p>
+                </div>
+                <div>
+                    <img src="Visuel_AIRDIE_Occitanie.png" alt="Logo LPDN">
+                    <div class="over airdie">
+                        <p><strong>Nouveaux statuts :</strong> Nouveau président, Théo LEPERRON (actif dans le milieu de la culture : Cie Je Pars à Zart, Théâtre de La Plume).</p>
+                        <p><strong>Nouvelle gouvernance :</strong> Co-direction partagée entre 5 directrices et directeurs de pôle.</p>
+                        <p><strong>Accompagnement institutionnel :</strong> Acteur ARDIE (Dispositif France Active) matérialisé par un Prêt de 7 000 €.</p>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Projets Jeunes -->
+            <div class="narrative-item">
+                <div>
+                    <h4><i class="fa-solid fa-gamepad"></i> Réseau (Projets de Jeunes)</h4>
+                    <p>L'association continue, au travers de son Accueil de Loisirs Numérique (ALN) de se mettre en réseau pour soutenir et valoriser les nouvelles initiatives directement portées par les jeunes dans les espaces numériques. Notre  méthode évolue, avec la formation des équipes de jeunes à des compétences techniques clés (montage vidéo, sound design) et ma mise à disposition de nos stagiaires pour leur apporter des expertises complémentaires pointues, notamment en programmation. C'est grâce à cette synergie des compétences que ces projets innovants peuvent aujourd'hui se structurer et prendre de l'ampleur.</p>
+                </div>
+                <div class="over-container">
+                    <img src="LavaStudio-Jeu.png" alt="Logo LPDN">
+                    <div class="over">
+                        <p><strong>Lava Studio :</strong> Sensibilisation à la diplomatie via la création d’un mod Minecraft.</p>
+                        <p><strong>Super Games :</strong> Développement d’une IA éco responsable au service des jeux vidéo en monde ouvert.</p>
+                        <p><strong>Friendly Fire United :</strong> Lancement d’un projet communautaire sur un nouveau jeu (ReMatch).</p>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Communication -->
+            <div class="narrative-item">
+                <div>
+                    <h4><i class="fa-solid fa-bullhorn"></i> Communication</h4>
+                    <p>
+                        <strong>Mise en place d’un cycle de publication régulier :</strong><br>
+                        <strong>· Plateformes :</strong> X, LinkedIn & Facebook.<br>
+                        <strong>· Rythme :</strong> 2 publications par semaine sur X et LinkedIn, 1 publication par semaine sur Facebook.
+                    </p>
+                </div>
+                <div class="over-container">
+                    <img src="Visuel_LPDN & Promeneurs du Net.png" alt="Logo LPDN">
+                    <div class="over">
+                        <p><strong>Promeneurs du Net :</strong></p>
+                        <p>
+                            <strong>· Coordinateurs :</strong> CAF & Maison des Adolescents.<br>
+                            <strong>· Actions :</strong> Publication de contenus de sensibilisation sur une page Facebook dédiée, et participation à des réunions de réseau.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="narrative-item special">
+            <h3>Création de postes</h3>
+            <p>
+                L'association repose depuis sa création sur l'engagement de ses bénévoles. Depuis Septembre 2025 nous pouvons nous reposer 8h / semaine sur le poste salarié de Jérôme PETIT.
+                <br>
+                L'année 2025 / 2026 se clôture sur un accomplissement décisif : à partir du mois de Septembre, l'équipe des bénévoles est appuyée par la mobilisation de 2 postes salarié à mi-temps. Le développement de l'association franchit un cap et passe à la vitesse supérieure.
+            </p>
+        </div>
+
+        <h3 class="sub-section-title">Accueil de stagiaires</h3>
+        <div class="narrative">
+            <div class="narrative-item">
+                <div>
+                    <h3>Gaming Campus & AFPA</h3>
+                    <p>Nos partenaires historiques continuent de nous soutenir. Cette année, la promotion AFPA a produit les montages vidéo de notre vaste campagne de recrutement pour la rentrée de septembre 2026.</p>
+                </div>
+                <img src="Flying Fish_Team Afpa & Djay.jpg" alt="Logo LPDN">
+            </div>
+            <div class="narrative-item">
+                <div>
+                    <h3>EPSI</h3>
+                    <p>Grâce à leurs stagiaires, nous avons refondu notre plateforme web IA et créé des mini-jeux de cybervigilance.</p>
+                </div>
+                <img src="Visuel_Epsi.png" alt="Logo LPDN">
+            </div>
+            <div class="narrative-item">
+                <div>
+                    <h3>ISART</h3>
+                    <p>Leurs étudiants ont développé notre tout premier jeu Twitch interactif pour engager nos viewers en direct.</p>
+                </div>
+                <img src="Visuel_ISART.png" alt="Logo LPDN">
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Établissement</th>
+                        <th>Effectif</th>
+                        <th>Cursus / Projet</th>
+                        <th>Production</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>AFPA</strong></td>
+                        <td>4</td>
+                        <td><em>Montage vidéo</em><br>Projet: Campagne d’adhésion</td>
+                        <td>1 Vidéo & 4 Shorts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EPSI</strong></td>
+                        <td>4</td>
+                        <td><em>Cybersécurité & Développement</em><br>Projet: Outils cyber vigilance & site web</td>
+                        <td>Jeu en ligne cyber vigilance et maquette du site</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISART</strong></td>
+                        <td>2</td>
+                        <td><em>Game development</em><br>Projet: Jeu interactif Twitch</td>
+                        <td>Jeu dans lequel les ennemis du streamer sont contrôlés par le chat</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 4 : PARTENAIRES -->
+        <h2 class="section-title"><i class="fa-solid fa-handshake"></i> Partenaires</h2>
+
+        <div class="narrative">            
+            <div class="narrative-item pdn">
+                <div>
+                    <h3>Les Promeneurs du Net</h3>
+                    <p>En synergie avec la Maison des Adolescents de Montpellier et la CAF, LPDN a officiellement intégré le dispositif national "Promeneurs du Net". Cet engagement se concrétise par la publication régulière de contenus de prévention imaginés par nos créateurs de contenu. La CAF est ainsi devenue un partenaire stratégique, soutenant notre vision d'un Accueil de Loisirs Numérique ouvert à tous, y compris aux publics en difficulté.</p>
+                </div>
+                <div class="band">
+                    <img src="Visuel_Promeneurs du Net.png">
+                    <img src="Logo_Caf.jpg">
+                    <img src="Logo_MDA34.png">
+                </div>
+            </div>
+            <div class="narrative-item">
+                <div>
+                    <h3>YOOZ</h3>
+                    <p>En 2026, l'entreprise YOOZ devient officiellement le premier sponsor de LPDN. Une étape décisive qui illustre la diversification de nos financements, nous ouvrant les portes du mécénat et de l'investissement privé, indispensables face à la réalité institutionnelle actuelle.</p>
+                </div>
+                <img src="Logo_Yooz.jpg" alt="Logo LPDN">
+            </div>
+            <div class="narrative-item">
+                <div>
+                    <h3>Bien Vivre Aiguelongue</h3>
+                    <p>L'association de quartier nous a confié le diagnostic de son parc informatique, ouvrant la voie à de futures collaborations sur des ateliers de citoyenneté sur mesure.</p>
+                </div>
+                <img src="Logo_BVA.jpg" alt="Logo LPDN">
+            </div>
+        </div>
+
+    </div> <!-- End Container -->
+
+</body>
+</html>
