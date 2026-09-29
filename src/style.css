@@ -168,17 +168,10 @@ p + p {
 }
 
 #app {
-  flex: 1;
   display: flex;
   flex-direction: column;
   height: 100vh;
   text-align: center;
-  overflow-y: auto;
-}
-
-.page {
-  height: calc(100vh - 321px);
-  overflow: auto;
 }
 
 @media (prefers-color-scheme: light) {
