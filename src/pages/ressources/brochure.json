@@ -4,8 +4,6 @@
       "id": "brochure-card",
       "template": "CardGrid",
       "content": {
-        "title": "Notre présentation",
-        "subtitle": "Un document partagé pour découvrir l'association et ses actions.",
         "columns": 1,
         "items": [
           {

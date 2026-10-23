@@ -14,6 +14,8 @@ import Blog from "./Blog.vue";
 import BlogPost from "./BlogPost.vue";
 import Wiki from "./Wiki.vue";
 import WikiPost from "./WikiPost.vue";
+import ImpactCards from "./ImpactCards.vue";
+import VerticalTabs from "./VerticalTabs.vue";
 
 
 export { Base };
@@ -33,5 +35,7 @@ export default {
     BlogPost,
     Wiki,
     WikiPost,
+    ImpactCards,
+    VerticalTabs,
     
 } as Record<string, Component>

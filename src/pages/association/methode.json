@@ -1,15 +1,10 @@
 {
   "templates": [
     {
-      "id": "method-intro",
-      "template": "Base",
-      "content": "<p>Nos ateliers de sensibilisation reposent sur des techniques pédagogiques dynamiques et participatives. Elles placent les participants au cœur de l'expérimentation et favorisent l'intelligence collective.</p>"
-    },
-    {
       "id": "method-cards",
       "template": "CardGrid",
       "content": {
-        "title": "Nos méthodes pédagogiques",
+        "subtitle": "<p>Nos ateliers de sensibilisation reposent sur des techniques pédagogiques dynamiques et participatives. Elles placent les participants au cœur de l'expérimentation et favorisent l'intelligence collective.</p><p>Notre approche, fondée sur l'expérimentation et l'intelligence collective, est conçue pour dynamiser l'innovation sociale en matière d'éducation aux médias et au numérique. En intégrant à la fois formation, sensibilisation et animation numérique, nous favorisons l’émergence d’une culture numérique responsable et citoyenne.</p>",
         "columns": 3,
         "items": [
           {
@@ -25,7 +20,7 @@
           {
             "icon": "🎨",
             "title": "Game design et ingénierie pédagogique",
-            "description": "Les compétences de notre équipe en matière de ludification nous permettent de développer régulièrement de nouveaux outils, dans la conception de nos contenus de formation et nos ateliers de sensibilisation, comme le kit de jeu Battle Royal conçu par notre équipe pour nos ateliers “Game Design”, ou encore le serveur de jeu Minecraft, modifié sur mesure par nos bénévoles pour les besoins de l’atelier “Collaboration & Citoyenneté”."
+            "description": "Les compétences de notre équipe en matière de ludification nous permettent de développer régulièrement de nouveaux outils, dans la conception de nos contenus de formation et nos ateliers de sensibilisation."
           },
           {
             "icon": "🔎",
@@ -39,11 +34,6 @@
           }
         ]
       }
-    },
-    {
-      "id": "method-conclusion",
-      "template": "Base",
-      "content": "<p>Notre approche, fondée sur l'expérimentation et l'intelligence collective, fait des Parrains du Numérique un acteur clé de l'innovation sociale en matière d'éducation aux médias et au numérique. En intégrant à la fois formation, sensibilisation et animation numérique, nous favorisons l’émergence d’une culture numérique responsable et citoyenne.</p>"
     }
   ]
 }

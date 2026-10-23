@@ -175,6 +175,29 @@ export type TemplateArrayContent = {
 	templates: TemplateItem[];
 };
 
+export interface ImpactMetric {
+  value: number;
+  label: string;
+  icon?: string;
+}
+
+export interface ImpactPeriod {
+  label: string;
+  items: ImpactMetric[];
+}
+
+export interface ImpactHighlight extends ImpactMetric {
+  period: string;
+  status: 'programmed' | 'ongoing';
+}
+
+export interface ImpactCardsContent {
+  title?: string;
+  subtitle?: string;
+  periods: ImpactPeriod[];
+  highlights?: ImpactHighlight[];
+}
+
 export interface HeroContent {
   badge?: string | { icon: string; text: string };
   title: string | { gradient: string; normal: string };
@@ -276,4 +299,19 @@ export type WikiPostContent = {
 	author: string;
 	date: string;
 	article: string; // Contient les liens internes au format [[path|text]]
+}
+
+export interface VerticalTabsItem {
+  title: string;
+  label?: string;
+  description: string;
+  icon?: string;
+  image?: string;
+  tips?: string[];
+}
+
+export interface VerticalTabsContent {
+  title?: string;
+  subtitle?: string;
+  items: VerticalTabsItem[];
 }

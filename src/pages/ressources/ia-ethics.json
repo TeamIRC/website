@@ -28,13 +28,14 @@
     },
     {
       "id": "ethics-carousel",
-      "template": "Carrousel",
+      "template": "VerticalTabs",
       "content": {
         "title": "Les grands enjeux éthiques de l'IA",
         "subtitle": "Que ce soit lors de sa création ou de son utilisation, l'IA soulève des questions importantes.",
         "items": [
           {
             "icon": "🔒",
+            "label": "Vie privée",
             "title": "Respect de la vie privée",
             "description": "L'IA peut collecter beaucoup d'informations sur nous. Il est important de protéger nos données personnelles et celles des autres.",
             "tips": [
@@ -46,6 +47,7 @@
           },
           {
             "icon": "👁️",
+            "label": "Vérité & transparence",
             "title": "Transparence et vérité (Lutte contre la désinformation)",
             "description": "L'IA peut parfois donner des informations incorrectes, incomplètes ou inventer des choses (on appelle ça des \"hallucinations\"). Elle peut aussi être utilisée pour créer de fausses informations très réalistes (deepfakes).",
             "tips": [
@@ -57,6 +59,7 @@
           },
           {
             "icon": "❤️",
+            "label": "Bienveillance",
             "title": "Bienveillance et respect dans les interactions",
             "description": "Même si l'IA n'a pas de sentiments, nous devons rester polis et responsables dans nos demandes. L'intention derrière notre prompt est importante.",
             "tips": [
@@ -68,6 +71,7 @@
           },
           {
             "icon": "👥",
+            "label": "Équité & inclusion",
             "title": "Équité et inclusion (Lutte contre les biais)",
             "description": "L'IA apprend à partir des données qu'on lui donne. Si ces données contiennent des stéréotypes ou des préjugés, l'IA risque de les reproduire. Elle doit être juste pour tout le monde.",
             "tips": [
@@ -79,6 +83,7 @@
           },
           {
             "icon": "©️",
+            "label": "Droit d’auteur",
             "title": "Droit d'auteur et création originale",
             "description": "Les IA génératives sont entraînées sur d'énormes quantités de textes et d'images, parfois sans l'accord des créateurs. Il est important de respecter le travail des artistes et auteurs.",
             "tips": [
@@ -90,6 +95,7 @@
           },
           {
             "icon": "💼",
+            "label": "Emploi & métiers",
             "title": "Impact sur l'emploi et les métiers",
             "description": "L'IA peut faire des tâches qui étaient avant faites par des humains. Cela soulève des questions sur l'avenir de certains métiers.",
             "tips": [
@@ -101,6 +107,7 @@
           },
           {
             "icon": "🌱",
+            "label": "Environnement",
             "title": "Impact environnemental",
             "description": "Entraîner et faire fonctionner les IA génératives consomme beaucoup d'énergie, ce qui a un impact sur l'environnement (émissions de CO2).",
             "tips": [

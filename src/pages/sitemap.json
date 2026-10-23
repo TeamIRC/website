@@ -54,11 +54,7 @@
         },
         {
           "path": "conferences",
-          "title": "Conférences"
-        },
-        {
-          "path": "conseil",
-          "title": "Conseil"
+          "title": "Conférences et Conseils"
         }
       ]
     },
@@ -76,8 +72,7 @@
         },
         {
           "path": "projects",
-          "title": "Projets de jeunes",
-          "description": "Accompagnement des jeunes dans la structuration et la valorisation de leurs projets numériques"
+          "title": "Projets de jeunes"
         }
       ]
     },
@@ -97,6 +92,10 @@
         {
           "path": "ia",
           "title": "Intelligence Artificielle"
+        },
+        {
+          "path": "ia-ethics",
+          "title": "Éthique de l'IA"
         },
         {
           "path": "cyber",

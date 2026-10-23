@@ -9,8 +9,6 @@
       "id": "games-cards",
       "template": "CardGrid",
       "content": {
-        "title": "Les jeux que nous avons explorés",
-        "subtitle": "Des expériences vidéoludiques mobilisées dans nos ateliers, nos événements et nos projets de jeunes.",
         "columns": 2,
         "items": [
           {

@@ -1,4 +1,30 @@
 <script setup lang="ts">
+const partners: {
+  name: string;
+  url: string;
+  logo: string;
+}[] = [
+  { name: "Département de l’Hérault", url: "https://herault.fr/", logo: "herault.jpg" },
+  { name: "Ville de Montpellier", url: "https://www.montpellier.fr/", logo: "Ville_de_Montpellier.png" },
+  { name: "Flying Fish Production", url: "https://flyingfishproduction.com/", logo: "FFLOGO.webp" },
+  { name: "PédaGoJeux", url: "https://www.pedagojeux.fr/", logo: "pedagojeux_logo.webp" },
+  { name: "Les Promeneurs du Net", url: "https://www.promeneursdunet.fr/", logo: "PROMENEURS_DU_NET_2.webp" },
+  { name: "UFCV", url: "https://www.ufcv.fr/", logo: "UFCV.webp" },
+  { name: "Unapei 34", url: "https://unapei34.org/", logo: "unapei34.png" },
+  { name: "FDVA", url: "https://associations.gouv.fr/fonds-pour-le-developpement-de-la-vie-associative-fdva", logo: "fdva.png" },
+  { name: "Ville de Sète", url: "https://www.sete.fr/", logo: "ville-sete.png" },
+  { name: "CRIJ Occitanie", url: "https://www.crij.org/", logo: "crij-occitanie.svg" },
+  { name: "Ville de Ganges", url: "https://www.ganges.fr/", logo: "ville-ganges.png" },
+  { name: "BGE Ouest Hérault", url: "https://www.bgeouestherault.fr/", logo: "bge-ouest-herault.png" },
+  { name: "France Active", url: "https://www.franceactive.org/", logo: "france-active.svg" },
+  { name: "AFPA", url: "https://www.afpa.fr/", logo: "afpa.jpg" },
+  { name: "EPSI", url: "https://www.epsi.fr/", logo: "epsi.svg" },
+  { name: "ISART Digital", url: "https://www.isart.fr/", logo: "isart-digital.jpg" },
+  { name: "Gaming Campus", url: "https://gamingcampus.fr/", logo: "gaming-campus.webp" },
+  { name: "Epitech", url: "https://www.epitech.eu/", logo: "epitech.png" },
+  { name: "Maison des Adolescents de l’Hérault", url: "https://mda34.org/", logo: "mda34.png" },
+  { name: "CAF", url: "https://www.caf.fr/", logo: "caf.svg" },
+];
 </script>
 
 <template>
@@ -36,29 +62,16 @@
       <div class="footer-column marquee-container">
         <h3>Ils nous font confiance</h3>
         <Vue3Marquee id="partners" duration="60" clone pauseOnHover>
-          <a href="https://herault.fr/" target="_blank">
-            <img src="/assets/img/herault.jpg" alt="Partner Logo" />
-          </a>
-          <a href="https://www.montpellier.fr/" target="_blank">
-            <img
-              src="/assets/img/Ville_de_Montpellier.png"
-              alt="Partner Logo"
-            />
-          </a>
-          <a href="https://flyingfishproduction.com/" target="_blank">
-            <img src="/assets/img/FFLOGO.webp" alt="Partner Logo" />
-          </a>
-          <a href="https://www.pedagojeux.fr/" target="_blank">
-            <img src="/assets/img/pedagojeux_logo.webp" alt="Partner Logo" />
-          </a>
-          <a href="https://www.promeneursdunet.fr/" target="_blank">
-            <img
-              src="/assets/img/PROMENEURS_DU_NET_2.webp"
-              alt="Partner Logo"
-            />
-          </a>
-          <a href="https://www.ufcv.fr/" target="_blank">
-            <img src="/assets/img/UFCV.webp" alt="Partner Logo" />
+          <a
+            v-for="partner in partners"
+            :key="partner.name"
+            :href="partner.url"
+            :title="partner.name"
+            class="partner-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img :src="`/assets/img/${partner.logo}`" :alt="`Logo ${partner.name}`" />
           </a>
         </Vue3Marquee>
       </div>
@@ -137,9 +150,19 @@ a:hover {
   min-width: 0px;
 }
 
-.marquee-container img {
-  height: 64px;
-  margin: 0 5px;
+.partner-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0 8px;
+}
+
+.partner-link img {
+  max-width: 160px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
 

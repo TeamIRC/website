@@ -1,16 +1,49 @@
 {
   "templates": [
     {
-      "id": "communication-intro",
-      "template": "Base",
-      "content": "<p>Nos campagnes de communication sont diffusées sur les réseaux sociaux et les plateformes WebTV, notamment Twitch et YouTube. À travers les projets que nous accompagnons dans l'univers vidéoludique, nous organisons des compétitions esport et des événements. Ces rendez-vous invitent des représentants de la communauté éducative et des acteurs du numérique à échanger avec les jeunesses autour de l'orientation professionnelle, de la culture et de la santé.</p><h3>Quelques chiffres</h3><ul><li>2023/2024 : 332 publications et 1 121 abonnés.</li><li>2024/2025 : 352 publications et 1 026 abonnés.</li></ul>"
+      "id": "communication-figures",
+      "template": "ImpactCards",
+      "content": {
+        "title": "Quelques chiffres",
+        "periods": [
+          {
+            "label": "2023/2024",
+            "items": [
+              {
+                "value": 332,
+                "label": "publications",
+                "icon": "fa-bullhorn"
+              },
+              {
+                "value": 1121,
+                "label": "abonnés",
+                "icon": "fa-users"
+              }
+            ]
+          },
+          {
+            "label": "2024/2025",
+            "items": [
+              {
+                "value": 352,
+                "label": "publications",
+                "icon": "fa-bullhorn"
+              },
+              {
+                "value": 1026,
+                "label": "abonnés",
+                "icon": "fa-users"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "communication-formats",
       "template": "CardGrid",
       "content": {
-        "title": "Nos formats de communication",
-        "subtitle": "Des contenus pour valoriser les initiatives et faire circuler les pratiques numériques responsables.",
+        "subtitle": "<p>Nos campagnes de communication sont diffusées sur les réseaux sociaux et les plateformes WebTV, notamment Twitch et YouTube. À travers les projets que nous accompagnons dans l'univers vidéoludique, nous organisons des compétitions esport et des événements. Ces rendez-vous invitent des représentants de la communauté éducative et des acteurs du numérique à échanger avec les jeunesses autour de l'orientation professionnelle, de la culture et de la santé.</p>",
         "columns": 3,
         "items": [
           {

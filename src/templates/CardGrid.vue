@@ -126,7 +126,7 @@ const removeItem = (index: number) => {
     <div v-else class="card-grid-content">
       <div v-if="grid.title || grid.subtitle" class="section-header">
         <h2 v-if="grid.title" class="section-title">{{ grid.title }}</h2>
-        <p v-if="grid.subtitle" class="section-subtitle">{{ grid.subtitle }}</p>
+        <p v-if="grid.subtitle" class="section-subtitle" v-html="grid.subtitle"></p>
       </div>
       
       <div :class="['grid', gridClasses]">
@@ -244,25 +244,30 @@ const removeItem = (index: number) => {
 
 /* Grille responsive */
 .grid {
-  display: grid;
-  gap: 2rem;
+  --grid-columns: 3;
+  --grid-gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gap);
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-cols-1 { --grid-columns: 1; }
+.grid-cols-2 { --grid-columns: 2; }
+.grid-cols-3 { --grid-columns: 3; }
+.grid-cols-4 { --grid-columns: 4; }
 
 /* Carte */
 .card {
+  flex: 0 0 calc((100% - (var(--grid-columns) - 1) * var(--grid-gap)) / var(--grid-columns));
+  min-width: 0;
   background-color: var(--card-bg-alt);
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
 }
@@ -569,7 +574,7 @@ const removeItem = (index: number) => {
   }
 
   .grid {
-    grid-template-columns: 1fr !important;
+    --grid-columns: 1;
   }
 
   .card-grid-edit {

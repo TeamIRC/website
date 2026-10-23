@@ -1,4 +1,84 @@
 {
-  "template": "Base",
-  "content": "<h2>Conférences</h2><p>Nous partageons notre expertise sur l'ensemble de nos thématiques. Nous proposons d'animer des conférences qui intègrent la participation du public en fonction des besoins identifiés. Nous avons également l'habitude d'animer ce type d'événement en interaction avec le public en ligne, via des plateformes comme Zoom, YouTube ou Twitch.</p><h3>Quelques chiffres</h3><ul><li>2023/2024 : 4 masterclass, 220 étudiants et 35 professionnels ou entrepreneurs.</li><li>2024/2025 : 3 masterclass, 183 étudiants et 42 professionnels ou entrepreneurs.</li><li>2024/2025 : 1 table ronde, 67 professionnels ou entrepreneurs.</li></ul>"
+  "templates": [
+    {
+      "id": "conferences-figures",
+      "template": "ImpactCards",
+      "content": {
+        "title": "Quelques chiffres",
+        "periods": [
+          {
+            "label": "2023/2024",
+            "items": [
+              {
+                "value": 4,
+                "label": "masterclass",
+                "icon": "fa-comments"
+              },
+              {
+                "value": 220,
+                "label": "étudiants",
+                "icon": "fa-graduation-cap"
+              },
+              {
+                "value": 35,
+                "label": "professionnels ou entrepreneurs",
+                "icon": "fa-user-tie"
+              }
+            ]
+          },
+          {
+            "label": "2024/2025",
+            "items": [
+              {
+                "value": 3,
+                "label": "masterclass",
+                "icon": "fa-comments"
+              },
+              {
+                "value": 183,
+                "label": "étudiants",
+                "icon": "fa-graduation-cap"
+              },
+              {
+                "value": 42,
+                "label": "professionnels ou entrepreneurs (masterclass)",
+                "icon": "fa-user-tie"
+              },
+              {
+                "value": 1,
+                "label": "table ronde",
+                "icon": "fa-microphone"
+              },
+              {
+                "value": 67,
+                "label": "professionnels ou entrepreneurs (table ronde)",
+                "icon": "fa-user-tie"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "conferences-intro",
+      "template": "CardGrid",
+      "content": {
+        "items": [
+          {
+            "title": "Conférences",
+            "description": "Nous partageons notre expertise sur l'ensemble de nos thématiques. Nous proposons d'animer des conférences qui intègrent la participation du public en fonction des besoins identifiés. Nous avons également l'habitude d'animer ce type d'événement en interaction avec le public en ligne, via des plateformes comme Zoom, YouTube ou Twitch."
+          },
+          {
+            "title": "Conseils",
+            "description": "Notre activité de conseil s'appuie sur l'expérience acquise dans l'accompagnement de projets portés par des jeunes. Soutenir ces initiatives sur le terrain nous a permis de développer une approche à la fois concrète et structurante."
+          },
+          {
+            "title": "Sur mesure",
+            "description": "Cette expertise s'accompagne d'une grande agilité : au contact continu d'une diversité d'acteurs et de partenaires, nous avons développé une forte capacité d'adaptation. Nous sommes ainsi en mesure d'appréhender les spécificités de chaque environnement afin de proposer un accompagnement ajusté aux réalités et aux besoins de nos interlocuteurs."
+          }
+        ],
+        "columns": 3
+      }
+    }
+  ]
 }

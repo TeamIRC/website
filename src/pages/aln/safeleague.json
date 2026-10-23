@@ -1,16 +1,10 @@
 {
   "templates": [
     {
-      "id": "safeleague-intro",
-      "template": "Base",
-      "content": "<p>L'association prend en charge l'organisation d'événements, en ligne ou en duplex, qui poursuivent trois objectifs : identifier de nouveaux projets de développement, élargir le réseau de notre audience et du public engagé au sein de l'association, et mettre en évidence un partenaire clé qui matérialise l'une de nos thématiques de sensibilisation.</p>"
-    },
-    {
       "id": "safeleague-editions",
       "template": "CardGrid",
       "content": {
-        "title": "Les éditions de la Safe League",
-        "subtitle": "Des compétitions qui associent pratique de l'esport, animation et sensibilisation.",
+        "subtitle": "<p>L'association prend en charge l'organisation d'événements, en ligne ou en duplex, qui poursuivent trois objectifs : identifier de nouveaux projets de développement, élargir le réseau de notre audience et du public engagé au sein de l'association, et mettre en évidence un partenaire clé qui matérialise l'une de nos thématiques de sensibilisation.</p>",
         "columns": 2,
         "items": [
           {

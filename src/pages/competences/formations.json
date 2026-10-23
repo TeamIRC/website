@@ -1,16 +1,10 @@
 {
   "templates": [
     {
-      "id": "training-intro",
-      "template": "Base",
-      "content": "<p>Nos formations proposent une introduction participative aux usages et aux implications des outils numériques. Grâce à un équilibre entre théorie et exercices pratiques, les participants découvrent comment ces outils transforment les processus de création et de communication, tout en développant une posture éthique, transparente et responsable.</p>"
-    },
-    {
       "id": "training-cards",
       "template": "CardGrid",
       "content": {
-        "title": "Nos formations",
-        "subtitle": "Des parcours adaptés aux professionnels qui accompagnent les jeunes dans leurs pratiques numériques.",
+        "subtitle": "<p>Nos formations proposent une introduction participative aux usages et aux implications des outils numériques. Grâce à un équilibre entre théorie et exercices pratiques, les participants découvrent comment ces outils transforment les processus de création et de communication, tout en développant une posture éthique, transparente et responsable.</p>",
         "columns": 3,
         "items": [
           {

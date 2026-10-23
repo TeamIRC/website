@@ -1,15 +1,10 @@
 {
   "templates": [
     {
-      "id": "topics-intro",
-      "template": "Base",
-      "content": "<p>Nos interventions donnent aux jeunes et aux familles les clés pour comprendre les usages numériques, développer leur esprit critique et expérimenter de manière créative.</p><p>Les thématiques ci-dessous peuvent être proposées en atelier, en formation, en stand événementiel ou dans le cadre d'un projet accompagné.</p>"
-    },
-    {
       "id": "topics-cards",
       "template": "CardGrid",
       "content": {
-        "subtitle": "Des formats participatifs pour comprendre, créer et agir dans l’environnement numérique.",
+        "subtitle": "<p>Nos interventions donnent aux jeunes et aux familles les clés pour comprendre les usages numériques, développer leur esprit critique et expérimenter de manière créative.</p><p>Les thématiques ci-dessous peuvent être proposées en atelier, en formation, en stand événementiel ou dans le cadre d'un projet accompagné.</p>",
         "columns": 3,
         "items": [
           {

@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, shallowRef, computed } from "vue";
 import { useRoute } from "vue-router";
 import { Base, default as templates } from "../templates";
 import type { PageData, TemplateItem } from "../types";
 
 const route = useRoute();
 const { root, page, title } = route.meta;
-const pageData = await import(`../pages/${root}/${page}.json`) as PageData;
+const pageData = shallowRef((await import(`../pages/${root}/${page}.json`)).default as PageData);
 const edit = ref(false);
 localStorage.setItem('origin', route.fullPath);
 const login = localStorage.getItem('login');
 
 // Enhanced data handling for both single template and template arrays
 const isTemplateArray = computed(() => {
-	return pageData.templates && Array.isArray(pageData.templates) && pageData.templates.length > 0;
+	return pageData.value.templates && Array.isArray(pageData.value.templates) && pageData.value.templates.length > 0;
 });
 
 const templateItems = computed(() => {
 	if (isTemplateArray.value) {
-		return pageData.templates!;
-	} else if (pageData.template || pageData.content) {
+		return pageData.value.templates!;
+	} else if (pageData.value.template || pageData.value.content) {
 		// Backward compatibility: convert single template to array format
 		return [{
-			template: pageData.template || '',
-			content: pageData.content,
+			template: pageData.value.template || '',
+			content: pageData.value.content,
 			id: 'single-template'
 		}] as TemplateItem[];
 	}
@@ -57,14 +57,14 @@ const hasErrors = computed(() => {
 	return totalItems > 0 && validItems === 0;
 });
 
-const onModified = async (templateName: string, c: any, templateId?: string) => {
+const persistModification = async (templateName: string, c: any, templateId?: string) => {
 	try {
-		let updatedContent;
+		let updatedPage: PageData;
 
 		if (isTemplateArray.value) {
 			// Handle array template updates
 			const updatedTemplates = templateItems.value.map(item => {
-				if (item.id === templateId || (!templateId && item.template === templateName)) {
+				if (templateId ? item.id === templateId : item.template === templateName) {
 					return { ...item, template: templateName, content: c };
 				}
 				return item;
@@ -81,13 +81,13 @@ const onModified = async (templateName: string, c: any, templateId?: string) => 
 				return;
 			}
 
-			updatedContent = JSON.stringify({ templates: updatedTemplates });
+			updatedPage = { templates: updatedTemplates };
 		} else {
 			// Handle single template updates (backward compatibility)
-			updatedContent = JSON.stringify({
+			updatedPage = {
 				template: templateName,
 				content: c
-			});
+			};
 		}
 
 		const response = await fetch(
@@ -100,7 +100,7 @@ const onModified = async (templateName: string, c: any, templateId?: string) => 
 				body: JSON.stringify({
 					root,
 					page,
-					content: updatedContent
+					content: JSON.stringify(updatedPage)
 				})
 			}
 		);
@@ -109,12 +109,20 @@ const onModified = async (templateName: string, c: any, templateId?: string) => 
 			throw new Error(`Failed to update file: ${response.status} ${response.statusText}`);
 		}
 
+		pageData.value = JSON.parse(JSON.stringify(updatedPage));
 		console.log('Template updated successfully');
 	} catch (error) {
 		console.error('Error updating template:', error);
 		// You could add user notification here
 		alert('Erreur lors de la mise à jour du template. Veuillez réessayer.');
 	}
+};
+
+// Each block saves the whole page. Preserve earlier changes and avoid competing GitHub SHAs.
+let modificationQueue = Promise.resolve();
+const onModified = (templateName: string, content: any, templateId?: string) => {
+	modificationQueue = modificationQueue.then(() => persistModification(templateName, content, templateId));
+	return modificationQueue;
 };
 </script>
 

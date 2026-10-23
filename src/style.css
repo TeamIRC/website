@@ -114,6 +114,10 @@
   --foot-text-hover: var(--gre-dk-3);
   --foot-link: var(--br2-dk-5);
   --foot-link-hover: var(--gre-dk-3);
+
+  /* Valid */
+  --valid-bg: var(--gre-dk-4);
+  --valid-text: var(--gre-lt-4);  
 }
 
 /* Theme Dark */
@@ -148,6 +152,10 @@
   --foot-text-hover: var(--gre-lt-3);
   --foot-link: var(--br2-lt-3);
   --foot-link-hover: var(--gre-lt-3);
+
+  /* Valid */
+  --valid-bg: var(--gre-lt-4);
+  --valid-text: var(--gre-dk-4);  
 }
 
 * {
