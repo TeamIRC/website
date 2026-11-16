@@ -106,6 +106,7 @@
   /* Cards */
   --card-bg: var(--br2-dk-2);
   --card-bg-alt: var(--br2-lt-1);
+  --card-bg-alt2: var(--br2-lt-5);
 
   /* Footer */
   --foot-bg: var(--br2-lt-3);
@@ -144,6 +145,7 @@
   /* Cards */
   --card-bg: var(--br2-lt-4);
   --card-bg-alt: var(--br2-dk-3);
+  --card-bg-alt2: var(--br2-dk-1);
 
   /* Footer */
   --foot-bg: var(--br2-dk-5);

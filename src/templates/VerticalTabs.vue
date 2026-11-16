@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, nextTick, ref, toRaw, watch } from 'vue';
-import { useMediaQuery } from '@vueuse/core';
+import { useDocumentVisibility, useElementHover, useElementVisibility, useFocusWithin, useIntervalFn, useMediaQuery } from '@vueuse/core';
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
 import {
   FaBriefcase, FaCheckDouble, FaChevronRight, FaCopyright, FaEye,
@@ -21,12 +21,35 @@ const emit = defineEmits<{
 const cloneContent = (content: VerticalTabsContent) => structuredClone(toRaw(content));
 const draft = ref(cloneContent(props.content));
 const selectedIndex = ref(0);
-const selectedItem = computed(() => draft.value.items[selectedIndex.value]);
+const layout = ref<HTMLElement | null>(null);
 const tabButtons = ref<HTMLButtonElement[]>([]);
 const compact = useMediaQuery('(max-width: 720px)');
+const hasMouse = useMediaQuery('(hover: hover) and (pointer: fine)');
+const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+const hovered = useElementHover(layout);
+const { focused } = useFocusWithin(layout);
+const inView = useElementVisibility(layout);
+const documentVisibility = useDocumentVisibility();
+const autoplay = computed(() => !props.edit && draft.value.items.length > 1
+  && !compact.value && hasMouse.value && !reducedMotion.value && !hovered.value
+  && !focused.value && inView.value && documentVisibility.value === 'visible');
+
+watch(layout, element => {
+  hovered.value = element?.matches(':hover') ?? false;
+});
+
+const { pause, resume } = useIntervalFn(() => {
+  selectedIndex.value = (selectedIndex.value + 1) % draft.value.items.length;
+}, 8000, { immediate: false });
+
+watch(autoplay, playing => {
+  if (playing) resume();
+  else pause();
+}, { immediate: true });
+
 const instanceId = `vertical-tabs-${getCurrentInstance()!.uid}`;
 const tabId = (index: number) => `${instanceId}-tab-${index}`;
-const panelId = `${instanceId}-panel`;
+const panelId = (index: number) => `${instanceId}-panel-${index}`;
 
 const legacyIcons: Record<string, string> = {
   '🔒': 'fa-lock', '👁️': 'fa-eye', '👁': 'fa-eye', '❤️': 'fa-heart',
@@ -132,7 +155,7 @@ function addTip(item: VerticalTabsItem) {
         <h2 v-if="draft.title" :id="`${instanceId}-title`">{{ draft.title }}</h2>
         <p v-if="draft.subtitle">{{ draft.subtitle }}</p>
       </header>
-      <div v-if="selectedItem" class="vertical-tabs-layout">
+      <div v-if="draft.items.length" ref="layout" class="vertical-tabs-layout">
         <div class="vertical-tabs-menu" role="tablist"
           :aria-label="draft.title || 'Choisir un thème'"
           :aria-orientation="compact ? 'horizontal' : 'vertical'"
@@ -140,7 +163,7 @@ function addTip(item: VerticalTabsItem) {
           <button v-for="(item, index) in draft.items" :key="index"
             :ref="el => { tabButtons[index] = el as HTMLButtonElement }"
             type="button" role="tab" class="vertical-tabs-tab"
-            :id="tabId(index)" :aria-controls="panelId"
+            :id="tabId(index)" :aria-controls="panelId(index)"
             :aria-selected="selectedIndex === index"
             :tabindex="selectedIndex === index ? 0 : -1"
             @click="selectedIndex = index">
@@ -150,18 +173,21 @@ function addTip(item: VerticalTabsItem) {
             <OhVueIcon name="fa-chevron-right" class="vertical-tabs-arrow" aria-hidden="true" />
           </button>
         </div>
-        <article class="vertical-tabs-panel" :class="{ 'vertical-tabs-panel-with-image': selectedItem.image }" role="tabpanel" :id="panelId"
-          :aria-labelledby="tabId(selectedIndex)" tabindex="0">
-          <img v-if="selectedItem.image" :src="selectedItem.image" alt="" class="vertical-tabs-backdrop" />
-          <h3 v-else>{{ selectedItem.title }}</h3>
-          <div v-if="selectedItem.description || selectedItem.tips?.length" :class="{ 'vertical-tabs-caption': selectedItem.image }">
-            <div v-if="selectedItem.description" class="vertical-tabs-description" v-html="selectedItem.description"></div>
-            <div v-if="selectedItem.tips?.length" class="vertical-tabs-tips">
-              <h4><OhVueIcon name="fa-check-double" aria-hidden="true" />Les bons réflexes</h4>
-              <ul><li v-for="(tip, index) in selectedItem.tips" :key="index">{{ tip }}</li></ul>
+        <div class="vertical-tabs-panels">
+          <article v-for="(item, index) in draft.items" :key="index" class="vertical-tabs-panel"
+            :class="{ 'vertical-tabs-panel-with-image': item.image }" role="tabpanel" :id="panelId(index)"
+            :aria-labelledby="tabId(index)" :inert="selectedIndex !== index" :tabindex="selectedIndex === index ? 0 : -1">
+            <img v-if="item.image && selectedIndex === index" :src="item.image" alt="" class="vertical-tabs-backdrop" />
+            <h3 v-if="!item.image">{{ item.title }}</h3>
+            <div v-if="item.description || item.tips?.length" :class="{ 'vertical-tabs-caption': item.image }">
+              <div v-if="item.description" class="vertical-tabs-description" v-html="item.description"></div>
+              <div v-if="item.tips?.length" class="vertical-tabs-tips">
+                <h4><OhVueIcon name="fa-check-double" aria-hidden="true" />Les bons réflexes</h4>
+                <ul><li v-for="(tip, tipIndex) in item.tips" :key="tipIndex">{{ tip }}</li></ul>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       </div>
       <p v-else class="vertical-tabs-empty">Aucun thème renseigné pour le moment.</p>
     </template>
@@ -171,15 +197,15 @@ function addTip(item: VerticalTabsItem) {
 <style scoped>
 .vertical-tabs {
   --tabs-bg: var(--card-bg-alt);
+  --tabs-bg-alt: var(--card-bg-alt2);
+  --tabs-text: var(--page-txt);
   --tabs-border: var(--card-bg);
   --tabs-hovered: var(--card-bg);
   --tabs-hovered-text: var(--card-bg-alt);
   --tabs-selected: var(--card-bg-alt);
-  --tabs-selected-text: var(--card-bg);
   --tabs-green: var(--valid-bg);
   width: calc(100% - 2rem);
   padding: 0;
-  color: var(--tabs-text);
   text-align: left;
   overflow-wrap: anywhere;
 }
@@ -192,13 +218,16 @@ function addTip(item: VerticalTabsItem) {
 .vertical-tabs-menu { display: grid; min-width: 0; }
 .vertical-tabs-menu :first-child { border-radius: 16px 0 0 0; }
 .vertical-tabs-menu :last-child { border-radius: 0 0 0 16px; }
-.vertical-tabs-tab { display: flex; align-items: center; gap: .7rem; width: 100%; min-height: 56px; padding: .8rem .9rem; outline: 1px solid var(--tabs-border); border: none; background: transparent; color: var(--tabs-text); text-align: left; font: inherit; font-size: .95rem; line-height: 1.35; cursor: pointer; }
+.vertical-tabs-tab { display: flex; align-items: center; gap: .7rem; width: 100%; min-height: 56px; padding: .8rem .9rem; outline: 1px solid var(--tabs-border); border: none; background: var(--tabs-bg-alt); color: var(--tabs-text); text-align: left; font: inherit; font-size: .95rem; line-height: 1.35; cursor: pointer; }
 .vertical-tabs-menu-icon { width: 19px; height: 19px; flex-shrink: 0; text-align: center; }
 .vertical-tabs-arrow { width: 12px; height: 12px; margin-left: auto; flex-shrink: 0; opacity: 0; }
-.vertical-tabs-tab[aria-selected="true"] { background: var(--tabs-selected); color: var(--tabs-selected-text); }
+.vertical-tabs-tab[aria-selected="true"] { background: var(--tabs-selected); }
 .vertical-tabs-tab[aria-selected="true"] .vertical-tabs-arrow { opacity: 1; }
 .vertical-tabs-tab:hover:not([aria-selected="true"]) { background: var(--tabs-hovered); color: var(--tabs-hovered-text); }
-.vertical-tabs-panel { min-width: 0; min-height: 440px; padding: clamp(1.25rem, 3vw, 2rem); outline: 1px solid var(--tabs-border); border-radius: 0 16px 16px 16px; background: var(--tabs-bg); }
+/* Inactive panels still size the shared grid cell. */
+.vertical-tabs-panels { display: grid; grid-template-columns: minmax(0, 1fr); align-items: stretch; }
+.vertical-tabs-panel { grid-area: 1 / 1; min-width: 0; min-height: 440px; padding: clamp(1.25rem, 3vw, 2rem); outline: 1px solid var(--tabs-border); border-radius: 0 16px 16px 16px; background: var(--tabs-bg); }
+.vertical-tabs-panel[inert] { visibility: hidden; }
 .vertical-tabs-panel-heading { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.2rem; }
 .vertical-tabs-detail-icon { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; background: var(--tabs-blue-soft); color: var(--tabs-blue); font-size: 1.4rem; }
 .vertical-tabs-counter { color: var(--tabs-secondary); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
@@ -233,7 +262,7 @@ function addTip(item: VerticalTabsItem) {
 .vertical-tabs button.vertical-tabs-remove { color: var(--red-dk-2); }
 :global(html.dark .vertical-tabs button.vertical-tabs-remove) { color: var(--red-lt-3); }
 .vertical-tabs button:disabled { opacity: .4; cursor: default; }
-.vertical-tabs button:focus-visible, .vertical-tabs-panel:focus-visible { outline: 3px solid var(--tabs-blue); outline-offset: 3px; }
+.vertical-tabs button:focus-visible, .vertical-tabs-panel:focus-visible { outline: 3px solid var(--tabs-blue, var(--page-txt)); outline-offset: 3px; }
 
 @media (max-width: 720px) {
   .vertical-tabs { width: calc(100% - 1rem); }
