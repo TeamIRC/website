@@ -186,6 +186,7 @@ p + p {
 
 a {
   color: var(--foot-link);
+  font-family: "NeuePlak-Bold";
   text-decoration: none;
   transition: all 0.3s ease;
 }
