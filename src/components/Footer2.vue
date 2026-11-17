@@ -156,17 +156,6 @@ const partners: {
     line-height: 1rem;
 }
 
-a {
-  color: var(--foot-link);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-a:hover {
-  color: var(--foot-link-hover);
-  text-decoration: underline;
-}
-
 .marquee-container  {
   min-width: 0px;
 }

@@ -184,6 +184,17 @@ p + p {
   text-align: center;
 }
 
+a {
+  color: var(--foot-link);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--foot-link-hover);
+  text-decoration: underline;
+}
+
 .template-item {
     padding: 0 calc((100vw - 1280px) / 2);
 }
