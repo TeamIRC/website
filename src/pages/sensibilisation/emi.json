@@ -50,14 +50,36 @@
                 "icon": "fa-users"
               }
             ]
-          }
-        ],
-        "highlights": [
+          },
           {
-            "period": "2025",
-            "status": "programmed",
-            "value": 11,
-            "label": "modules programmés"
+            "label": "2025/2026",
+            "items": [
+              {
+                "value": 27,
+                "label": "cycles de codage et robotique",
+                "icon": "fa-comments"
+              },
+              {
+                "value": 324,
+                "label": "enfants en codage et robotique",
+                "icon": "fa-child"
+              },
+              {
+                "value": 283,
+                "label": "jeunes sensibilisés au collège Gérard Philipe",
+                "icon": "fa-users"
+              },
+              {
+                "value": 12,
+                "label": "jeunes à l’atelier IA à portée de main",
+                "icon": "fa-users"
+              },
+              {
+                "value": 4,
+                "label": "jeunes aux ateliers pour jeunes porteurs de handicap",
+                "icon": "fa-users"
+              }
+            ]
           }
         ]
       }

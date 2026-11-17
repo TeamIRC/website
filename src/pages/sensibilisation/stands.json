@@ -55,14 +55,31 @@
                 "icon": "fa-users"
               }
             ]
-          }
-        ],
-        "highlights": [
+          },
           {
-            "period": "2025",
-            "status": "programmed",
-            "value": 12,
-            "label": "stands programmés"
+            "label": "2025/2026",
+            "items": [
+              {
+                "value": 5,
+                "label": "événements de sensibilisation",
+                "icon": "fa-flag"
+              },
+              {
+                "value": 1768,
+                "label": "enfants et jeunes aux événements",
+                "icon": "fa-child"
+              },
+              {
+                "value": 182,
+                "label": "parents aux événements",
+                "icon": "fa-users"
+              },
+              {
+                "value": 202,
+                "label": "professionnels aux événements",
+                "icon": "fa-user-tie"
+              }
+            ]
           }
         ]
       }

@@ -55,6 +55,21 @@
                 "icon": "fa-user-tie"
               }
             ]
+          },
+          {
+            "label": "2025/2026",
+            "items": [
+              {
+                "value": 1,
+                "label": "table ronde sur la cybervigilance",
+                "icon": "fa-microphone"
+              },
+              {
+                "value": 67,
+                "label": "professionnels à la table ronde",
+                "icon": "fa-user-tie"
+              }
+            ]
           }
         ]
       }

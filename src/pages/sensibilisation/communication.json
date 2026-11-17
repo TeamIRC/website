@@ -35,6 +35,21 @@
                 "icon": "fa-users"
               }
             ]
+          },
+          {
+            "label": "2025/2026",
+            "items": [
+              {
+                "value": 104,
+                "label": "publications sur X et LinkedIn",
+                "icon": "fa-bullhorn"
+              },
+              {
+                "value": 52,
+                "label": "publications sur Facebook",
+                "icon": "fa-bullhorn"
+              }
+            ]
           }
         ]
       }

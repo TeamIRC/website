@@ -45,14 +45,36 @@
                 "icon": "fa-users"
               }
             ]
-          }
-        ],
-        "highlights": [
+          },
           {
-            "period": "2025",
-            "status": "programmed",
-            "value": 18,
-            "label": "modules programmés"
+            "label": "2025/2026",
+            "items": [
+              {
+                "value": 10,
+                "label": "séances parents-enfants",
+                "icon": "fa-comments"
+              },
+              {
+                "value": 6,
+                "label": "demi-journées Écrans en famille",
+                "icon": "fa-comments"
+              },
+              {
+                "value": 135,
+                "label": "enfants et jeunes",
+                "icon": "fa-child"
+              },
+              {
+                "value": 84,
+                "label": "parents",
+                "icon": "fa-users"
+              },
+              {
+                "value": 27,
+                "label": "professionnels",
+                "icon": "fa-user-tie"
+              }
+            ]
           }
         ]
       }

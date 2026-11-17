@@ -1,6 +1,35 @@
 {
   "templates": [
     {
+      "id": "formations-figures",
+      "template": "ImpactCards",
+      "content": {
+        "title": "Quelques chiffres",
+        "periods": [
+          {
+            "label": "2025/2026",
+            "items": [
+              {
+                "value": 2,
+                "label": "formations",
+                "icon": "fa-comments"
+              },
+              {
+                "value": 3,
+                "label": "demi-journées de formation",
+                "icon": "fa-comments"
+              },
+              {
+                "value": 23,
+                "label": "professionnels formés",
+                "icon": "fa-user-tie"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
       "id": "training-cards",
       "template": "CardGrid",
       "content": {
@@ -14,7 +43,7 @@
             "features": [
               "2023/2024 : formation continue pour 26 bénévoles",
               "2024/2025 : formation continue pour 28 bénévoles",
-              "2025/2026 : 1 module animé pour 8 professionnels"
+              "2025/2026 : 1 module animé pour 9 professionnels"
             ]
           },
           {
